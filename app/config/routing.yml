@@ -1,0 +1,6 @@
+acme_hello:
+    resource: "@AcmeHelloBundle/Resources/config/routing.yml"
+    prefix:   /
+hello:
+    pattern: /
+    defaults: {_controller: AcmeHelloBundler:Hello:index }
