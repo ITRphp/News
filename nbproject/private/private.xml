@@ -5,34 +5,25 @@
         <group>
             <file>file:/C:/WebData/News/app/config/parameters.yml</file>
             <file>file:/C:/WebData/News/src/.htaccess</file>
-            <file>file:/C:/WebData/News/src/Acme/HelloBundle/Controller/HelloController.php</file>
             <file>file:/C:/WebData/News/app/.htaccess</file>
-            <file>file:/C:/WebData/News/src/Acme/HelloBundle/Controller/DefaultController.php</file>
-            <file>file:/C:/WebData/News/src/Acme/HelloBundle/Resources/doc/index.rst</file>
-            <file>file:/C:/WebData/News/src/Acme/HelloBundle/AcmeHelloBundle.php</file>
             <file>file:/C:/WebData/News/app/AppKernel.php</file>
-            <file>file:/C:/WebData/News/src/Acme/HelloBundle/Resources/config/services.yml</file>
             <file>file:/C:/WebData/News/app/AppCache.php</file>
             <file>file:/C:/WebData/News/web/app_dev.php</file>
             <file>file:/C:/WebData/News/app/config/security.yml</file>
             <file>file:/C:/WebData/News/README.md</file>
             <file>file:/C:/WebData/News/vendor/symfony/symfony/src/Symfony/Component/Translation/Tests/fixtures/malformed.json</file>
-            <file>file:/C:/WebData/News/src/Acme/HelloBundle/Resources/config/routing.yml</file>
-            <file>file:/C:/WebData/News/src/Acme/HelloBundle/DependencyInjection/Configuration.php</file>
+            <file>file:/C:/WebData/News/src/ITR/NewsBundle/Controller/DefaultController.php</file>
+            <file>file:/C:/WebData/News/src/ITR/NewsBundle/Resources/config/routing.yml</file>
             <file>file:/C:/WebData/News/composer.json</file>
-            <file>file:/C:/WebData/News/src/Acme/HelloBundle/Entity/ProductsRepository.php</file>
-            <file>file:/C:/WebData/News/src/Acme/HelloBundle/Tests/Controller/DefaultControllerTest.php</file>
             <file>file:/C:/WebData/News/app/Resources/views/base.html.twig</file>
-            <file>file:/C:/WebData/News/src/Acme/HelloBundle/Resources/translations/messages.fr.xlf</file>
+            <file>file:/C:/WebData/News/app/logs/dev.log</file>
+            <file>file:/C:/WebData/News/vendor/symfony/symfony/src/Symfony/Component/Routing/Tests/Matcher/ApacheUrlMatcherTest.php</file>
             <file>file:/C:/WebData/News/app/config/parameters.yml.dist</file>
             <file>file:/C:/WebData/News/app/config/config.yml</file>
-            <file>file:/C:/WebData/News/src/Acme/HelloBundle/DependencyInjection/AcmeHelloExtension.php</file>
             <file>file:/C:/WebData/News/app/config/routing.yml</file>
             <file>file:/C:/WebData/News/app/config/config_dev.yml</file>
-            <file>file:/C:/WebData/News/src/Acme/HelloBundle/Entity/Products.php</file>
             <file>file:/C:/WebData/News/vendor/symfony/symfony/src/Symfony/Component/Translation/Tests/fixtures/empty.json</file>
             <file>file:/C:/WebData/News/app/config/config_prod.yml</file>
-            <file>file:/C:/WebData/News/src/Acme/HelloBundle/Resources/config/doctrine/Products.orm.yml</file>
             <file>file:/C:/WebData/News/web/config.php</file>
             <file>file:/C:/WebData/News/web/robots.txt</file>
             <file>file:/C:/WebData/News/web/app.php</file>

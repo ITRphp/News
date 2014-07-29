@@ -1,0 +1,21 @@
+ITR\NewsBundle\Entity\User:
+    type: entity
+    table: null
+    repositoryClass: ITR\NewsBundle\Entity\UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        user_name:
+            type: string
+            length: '255'
+        user_email:
+            type: string
+            length: '255'
+        user_password:
+            type: string
+            length: '255'
+    lifecycleCallbacks: {  }

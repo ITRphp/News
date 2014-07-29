@@ -1,0 +1,15 @@
+ITR\NewsBundle\Entity\Category:
+    type: entity
+    table: null
+    repositoryClass: ITR\NewsBundle\Entity\CategoryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        category_name:
+            type: string
+            length: '255'
+    lifecycleCallbacks: {  }

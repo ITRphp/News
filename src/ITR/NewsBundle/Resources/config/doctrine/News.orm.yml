@@ -1,0 +1,24 @@
+ITR\NewsBundle\Entity\News:
+    type: entity
+    table: null
+    repositoryClass: ITR\NewsBundle\Entity\NewsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        title:
+            type: string
+            length: '255'
+        author:
+            type: string
+            length: '255'
+        publication_date:
+            type: datetime
+            length: null
+        descroption:
+            type: string
+            length: '512'
+    lifecycleCallbacks: {  }
