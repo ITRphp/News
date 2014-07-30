@@ -10,6 +10,12 @@ use Doctrine\ORM\Mapping as ORM;
 class News
 {
     /**
+     * @ORM\ManyToOne(targetEntity="Category", inversedBy="news")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    protected $category;
+    
+    /**
      * @var integer
      */
     private $id;
@@ -71,7 +77,7 @@ class News
     /**
      * Set authorl
      *
-     * @param string $authorl
+     * @param string $author
      * @return News
      */
     public function setAuthor($author)

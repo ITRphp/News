@@ -3,6 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/WebData/News/src/ITR/NewsBundle/Resources/config/doctrine/News.orm.yml</file>
+            <file>file:/C:/WebData/News/vendor/doctrine/doctrine-migrations-bundle/Doctrine/Bundle/MigrationsBundle/Command/DoctrineCommand.php</file>
             <file>file:/C:/WebData/News/app/config/parameters.yml</file>
             <file>file:/C:/WebData/News/src/.htaccess</file>
             <file>file:/C:/WebData/News/app/.htaccess</file>
@@ -10,17 +12,23 @@
             <file>file:/C:/WebData/News/app/AppCache.php</file>
             <file>file:/C:/WebData/News/web/app_dev.php</file>
             <file>file:/C:/WebData/News/app/config/security.yml</file>
+            <file>file:/C:/WebData/News/src/ITR/NewsBundle/Resources/config/doctrine/User.orm.yml</file>
             <file>file:/C:/WebData/News/README.md</file>
             <file>file:/C:/WebData/News/vendor/symfony/symfony/src/Symfony/Component/Translation/Tests/fixtures/malformed.json</file>
+            <file>file:/C:/WebData/News/vendor/autoload.php</file>
             <file>file:/C:/WebData/News/src/ITR/NewsBundle/Controller/DefaultController.php</file>
             <file>file:/C:/WebData/News/src/ITR/NewsBundle/Resources/config/routing.yml</file>
             <file>file:/C:/WebData/News/composer.json</file>
             <file>file:/C:/WebData/News/app/Resources/views/base.html.twig</file>
+            <file>file:/C:/WebData/News/vendor/doctrine/doctrine-migrations-bundle/Doctrine/Bundle/MigrationsBundle/DoctrineMigrationsBundle.php</file>
+            <file>file:/C:/WebData/News/app/DoctrineMigrations/Version20140730000749.php</file>
             <file>file:/C:/WebData/News/app/logs/dev.log</file>
             <file>file:/C:/WebData/News/vendor/symfony/symfony/src/Symfony/Component/Routing/Tests/Matcher/ApacheUrlMatcherTest.php</file>
             <file>file:/C:/WebData/News/app/config/parameters.yml.dist</file>
             <file>file:/C:/WebData/News/app/config/config.yml</file>
+            <file>file:/C:/WebData/News/app/SymfonyRequirements.php</file>
             <file>file:/C:/WebData/News/app/config/routing.yml</file>
+            <file>file:/C:/WebData/News/src/ITR/NewsBundle/Entity/User.php</file>
             <file>file:/C:/WebData/News/app/config/config_dev.yml</file>
             <file>file:/C:/WebData/News/vendor/symfony/symfony/src/Symfony/Component/Translation/Tests/fixtures/empty.json</file>
             <file>file:/C:/WebData/News/app/config/config_prod.yml</file>
@@ -28,7 +36,10 @@
             <file>file:/C:/WebData/News/web/robots.txt</file>
             <file>file:/C:/WebData/News/web/app.php</file>
             <file>file:/C:/WebData/News/composer.lock</file>
+            <file>file:/C:/WebData/News/src/ITR/NewsBundle/Entity/News.php</file>
             <file>file:/C:/WebData/News/web/.htaccess</file>
+            <file>file:/C:/WebData/News/vendor/doctrine/doctrine-migrations-bundle/Doctrine/Bundle/MigrationsBundle/composer.json</file>
+            <file>file:/C:/WebData/News/src/ITR/NewsBundle/Resources/config/doctrine/Category.orm.yml</file>
             <file>file:/C:/WebData/News/app/config/config_test.yml</file>
             <file>file:/C:/WebData/News/app/config/routing_dev.yml</file>
         </group>

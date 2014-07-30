@@ -10,6 +10,17 @@ use Doctrine\ORM\Mapping as ORM;
 class Category
 {
     /**
+     * @ORM\OneToMany(targetEntity="News", mappedBy="category")
+     */
+    
+    protected $news;
+
+    public function __construct()
+    {
+        $this->news = new ArrayCollection();
+    }
+    
+    /**
      * @var integer
      */
     private $id;
