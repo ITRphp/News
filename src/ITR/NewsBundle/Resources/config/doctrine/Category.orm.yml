@@ -2,6 +2,11 @@ ITR\NewsBundle\Entity\Category:
     type: entity
     table: null
     repositoryClass: ITR\NewsBundle\Entity\CategoryRepository
+    
+    oneToMany:
+        news:
+            targetEntity: News
+            mappedBy: category
     id:
         id:
             type: integer
@@ -12,4 +17,5 @@ ITR\NewsBundle\Entity\Category:
         category_name:
             type: string
             length: '255'
+    
     lifecycleCallbacks: {  }

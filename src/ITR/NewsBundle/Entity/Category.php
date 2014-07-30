@@ -9,10 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Category
 {
-    /**
-     * @ORM\OneToMany(targetEntity="News", mappedBy="category")
-     */
-    
+        
     protected $news;
 
     public function __construct()
@@ -62,5 +59,38 @@ class Category
     public function getCategoryName()
     {
         return $this->category_name;
+    }
+
+    /**
+     * Add news
+     *
+     * @param \ITR\NewsBundle\Entity\News $news
+     * @return Category
+     */
+    public function addNews(\ITR\NewsBundle\Entity\News $news)
+    {
+        $this->news[] = $news;
+    
+        return $this;
+    }
+
+    /**
+     * Remove news
+     *
+     * @param \ITR\NewsBundle\Entity\News $news
+     */
+    public function removeNews(\ITR\NewsBundle\Entity\News $news)
+    {
+        $this->news->removeElement($news);
+    }
+
+    /**
+     * Get news
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getNews()
+    {
+        return $this->news;
     }
 }
