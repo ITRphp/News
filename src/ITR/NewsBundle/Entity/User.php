@@ -23,7 +23,11 @@ class User
      * @var string
      */
     private $user_password;
-
+    
+    /**
+     * @var string
+     */
+    private $user_role;
 
     /**
      * Get id
@@ -107,5 +111,28 @@ class User
     public function getUserEmail()
     {
         return $this->user_email;
+    }
+
+    /**
+     * Set user_role
+     *
+     * @param string $userRole
+     * @return User
+     */
+    public function setUserRole($userRole)
+    {
+        $this->user_role = $userRole;
+    
+        return $this;
+    }
+
+    /**
+     * Get user_role
+     *
+     * @return string 
+     */
+    public function getUserRole()
+    {
+        return $this->user_role;
     }
 }

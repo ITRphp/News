@@ -1,3 +1,15 @@
 news_homepage:
     path:     /hello/{name}
     defaults: { _controller: NewsBundle:Default:index }
+    
+NewsBundle_news:
+        resource: "@NewsBundle/Resources/config/routing/news.yml"
+        prefix:   /news
+        
+NewsBundle_category:
+    resource: "@NewsBundle/Resources/config/routing/category.yml"
+    prefix:   /category
+    
+NewsBundle_user:
+        resource: "@NewsBundle/Resources/config/routing/user.yml"
+        prefix:   /user

@@ -18,4 +18,12 @@ ITR\NewsBundle\Entity\User:
         user_password:
             type: string
             length: '255'
+        user_role:
+            type: string
+            length: '255'
+    ManyToMany:
+            news:
+            targetEntity: Dispatch
+            mappedBy: user
+            
     lifecycleCallbacks: {  }
