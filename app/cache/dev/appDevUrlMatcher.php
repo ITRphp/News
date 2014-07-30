@@ -200,6 +200,66 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        if (0 === strpos($pathinfo, '/dispatch')) {
+            // dispatch
+            if (rtrim($pathinfo, '/') === '/dispatch') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'dispatch');
+                }
+
+                return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\DispatchController::indexAction',  '_route' => 'dispatch',);
+            }
+
+            // dispatch_show
+            if (preg_match('#^/dispatch/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'dispatch_show')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\DispatchController::showAction',));
+            }
+
+            // dispatch_new
+            if ($pathinfo === '/dispatch/new') {
+                return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\DispatchController::newAction',  '_route' => 'dispatch_new',);
+            }
+
+            // dispatch_create
+            if ($pathinfo === '/dispatch/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_dispatch_create;
+                }
+
+                return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\DispatchController::createAction',  '_route' => 'dispatch_create',);
+            }
+            not_dispatch_create:
+
+            // dispatch_edit
+            if (preg_match('#^/dispatch/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'dispatch_edit')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\DispatchController::editAction',));
+            }
+
+            // dispatch_update
+            if (preg_match('#^/dispatch/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_dispatch_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'dispatch_update')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\DispatchController::updateAction',));
+            }
+            not_dispatch_update:
+
+            // dispatch_delete
+            if (preg_match('#^/dispatch/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('POST', 'DELETE'));
+                    goto not_dispatch_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'dispatch_delete')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\DispatchController::deleteAction',));
+            }
+            not_dispatch_delete:
+
+        }
+
         if (0 === strpos($pathinfo, '/news')) {
             // news
             if (rtrim($pathinfo, '/') === '/news') {

@@ -94,4 +94,42 @@ class Category
     {
         return $this->news;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $dispatch;
+
+
+    /**
+     * Add dispatch
+     *
+     * @param \ITR\NewsBundle\Entity\Dispatch $dispatch
+     * @return Category
+     */
+    public function addDispatch(\ITR\NewsBundle\Entity\Dispatch $dispatch)
+    {
+        $this->dispatch[] = $dispatch;
+    
+        return $this;
+    }
+
+    /**
+     * Remove dispatch
+     *
+     * @param \ITR\NewsBundle\Entity\Dispatch $dispatch
+     */
+    public function removeDispatch(\ITR\NewsBundle\Entity\Dispatch $dispatch)
+    {
+        $this->dispatch->removeElement($dispatch);
+    }
+
+    /**
+     * Get dispatch
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getDispatch()
+    {
+        return $this->dispatch;
+    }
 }

@@ -3,7 +3,7 @@
 namespace ITR\NewsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * Dispatch
  */
@@ -23,7 +23,12 @@ class Dispatch
      * @var integer
      */
     private $categoryId;
+    
+    private $users;
 
+    public function __construct() {
+        $this->users = new ArrayCollection();
+    }
 
     /**
      * Get id
@@ -79,5 +84,38 @@ class Dispatch
     public function getCategoryId()
     {
         return $this->categoryId;
+    }
+
+    /**
+     * Add users
+     *
+     * @param \ITR\NewsBundle\Entity\User $users
+     * @return Dispatch
+     */
+    public function addUser(\ITR\NewsBundle\Entity\User $users)
+    {
+        $this->users[] = $users;
+    
+        return $this;
+    }
+
+    /**
+     * Remove users
+     *
+     * @param \ITR\NewsBundle\Entity\User $users
+     */
+    public function removeUser(\ITR\NewsBundle\Entity\User $users)
+    {
+        $this->users->removeElement($users);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }

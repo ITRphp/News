@@ -8,20 +8,15 @@ ITR\NewsBundle\Entity\Dispatch:
             id: true
             generator:
                 strategy: AUTO
-    fields:
-        userId:
-            type: integer
-            column: user_id
-        categoryId:
-            type: integer
-            column: category_id
+    
     manyToMany:
-            user:
-                targetEntity: User
-                inversedBy: dispatch
-                joinTable:
-                    name: user
-                    referencedColumnName: id    
+        users:
+            targetEntity: User
+            mappedBy: dispatchs
+    manyToMany:
+        category:
+            targetEntity: Category
+            mappedBy: dispatchs
             
             
             

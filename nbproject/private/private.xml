@@ -3,13 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/WebData/News/src/ITR/NewsBundle/Controller/NewsController.php</file>
             <file>file:/C:/WebData/News/src/ITR/NewsBundle/Resources/config/doctrine/News.orm.yml</file>
             <file>file:/C:/WebData/News/vendor/doctrine/doctrine-migrations-bundle/Doctrine/Bundle/MigrationsBundle/Command/DoctrineCommand.php</file>
             <file>file:/C:/WebData/News/app/config/parameters.yml</file>
+            <file>file:/C:/WebData/News/src/ITR/NewsBundle/Entity/Dispatch.php</file>
             <file>file:/C:/WebData/News/src/.htaccess</file>
             <file>file:/C:/WebData/News/app/.htaccess</file>
             <file>file:/C:/WebData/News/app/AppKernel.php</file>
             <file>file:/C:/WebData/News/app/AppCache.php</file>
+            <file>file:/C:/WebData/News/src/ITR/NewsBundle/Resources/config/doctrine/Dispatch.orm.yml</file>
             <file>file:/C:/WebData/News/web/app_dev.php</file>
             <file>file:/C:/WebData/News/app/config/security.yml</file>
             <file>file:/C:/WebData/News/src/ITR/NewsBundle/Resources/config/doctrine/User.orm.yml</file>
@@ -34,6 +37,7 @@
             <file>file:/C:/WebData/News/app/config/config_prod.yml</file>
             <file>file:/C:/WebData/News/web/config.php</file>
             <file>file:/C:/WebData/News/web/robots.txt</file>
+            <file>file:/C:/WebData/News/src/ITR/NewsBundle/Entity/CategoryRepository.php</file>
             <file>file:/C:/WebData/News/src/ITR/NewsBundle/Entity/Category.php</file>
             <file>file:/C:/WebData/News/web/app.php</file>
             <file>file:/C:/WebData/News/composer.lock</file>

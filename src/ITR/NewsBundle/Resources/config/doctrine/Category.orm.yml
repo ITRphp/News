@@ -17,5 +17,17 @@ ITR\NewsBundle\Entity\Category:
         category_name:
             type: string
             length: '255'
+    manyToMany:
+        dispatch:
+            targetEntity: Dispatch
+            inversedBy: category
+            JoinTable:
+                name: category
+                joinColumns:
+                    category_id:
+                        referencedColumnName: id
+                inverseJoinColumns:
+                    dispatch_id:
+                        referencedColumnName: id
     
     lifecycleCallbacks: {  }
