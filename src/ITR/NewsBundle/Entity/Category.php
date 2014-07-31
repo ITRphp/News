@@ -10,15 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Category
 {
-        
-    protected $news;
-
-    public function __construct()
-    {
-        $this->news = new ArrayCollection();
-    }
-    
-    /**
+      /**
      * @var integer
      */
     private $id;
@@ -27,7 +19,24 @@ class Category
      * @var string
      */
     private $category_name;
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    protected $news;
+   /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $dispatch;
 
+   
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->news = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->dispatch = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -94,11 +103,6 @@ class Category
     {
         return $this->news;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $dispatch;
-
 
     /**
      * Add dispatch
@@ -131,5 +135,9 @@ class Category
     public function getDispatch()
     {
         return $this->dispatch;
+    }
+    
+    public function __toString(){
+        return $this->category_name;
     }
 }

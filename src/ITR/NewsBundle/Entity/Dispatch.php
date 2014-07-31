@@ -9,26 +9,28 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class Dispatch
 {
-    /**
-     * @var integer
-     */
+   
     private $id;
+   
+    /**
+     * @var integer
+     */
+    private $category_id;
 
     /**
      * @var integer
      */
-    private $userId;
+    private $user_id;
 
     /**
-     * @var integer
+     * @var \ITR\NewsBundle\Entity\Category
      */
-    private $categoryId;
-    
+    private $categories;
+
+    /**
+     * @var \ITR\NewsBundle\Entity\User
+     */
     private $users;
-
-    public function __construct() {
-        $this->users = new ArrayCollection();
-    }
 
     /**
      * Get id
@@ -41,78 +43,91 @@ class Dispatch
     }
 
     /**
-     * Set userId
-     *
-     * @param integer $userId
-     * @return Dispatch
-     */
-    public function setUserId($userId)
-    {
-        $this->userId = $userId;
-    
-        return $this;
-    }
-
-    /**
-     * Get userId
-     *
-     * @return integer 
-     */
-    public function getUserId()
-    {
-        return $this->userId;
-    }
-
-    /**
-     * Set categoryId
+     * Set category_id
      *
      * @param integer $categoryId
      * @return Dispatch
      */
     public function setCategoryId($categoryId)
     {
-        $this->categoryId = $categoryId;
+        $this->category_id = $categoryId;
     
         return $this;
     }
 
     /**
-     * Get categoryId
+     * Get category_id
      *
      * @return integer 
      */
     public function getCategoryId()
     {
-        return $this->categoryId;
+        return $this->category_id;
     }
 
     /**
-     * Add users
+     * Set user_id
      *
-     * @param \ITR\NewsBundle\Entity\User $users
+     * @param integer $userId
      * @return Dispatch
      */
-    public function addUser(\ITR\NewsBundle\Entity\User $users)
+    public function setUserId($userId)
     {
-        $this->users[] = $users;
+        $this->user_id = $userId;
     
         return $this;
     }
 
     /**
-     * Remove users
+     * Get user_id
+     *
+     * @return integer 
+     */
+    public function getUserId()
+    {
+        return $this->user_id;
+    }
+
+    /**
+     * Set categories
+     *
+     * @param \ITR\NewsBundle\Entity\Category $categories
+     * @return Dispatch
+     */
+    public function setCategories(\ITR\NewsBundle\Entity\Category $categories = null)
+    {
+        $this->categories = $categories;
+    
+        return $this;
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \ITR\NewsBundle\Entity\Category 
+     */
+    public function getCategories()
+    {
+        return $this->categories;
+    }
+
+    /**
+     * Set users
      *
      * @param \ITR\NewsBundle\Entity\User $users
+     * @return Dispatch
      */
-    public function removeUser(\ITR\NewsBundle\Entity\User $users)
+    public function setUsers(\ITR\NewsBundle\Entity\User $users = null)
     {
-        $this->users->removeElement($users);
+        $this->users = $users;
+    
+        return $this;
     }
 
     /**
      * Get users
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \ITR\NewsBundle\Entity\User 
      */
     public function getUsers()
     {

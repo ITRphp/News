@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
 class News
 {
    
-    protected $category;
+    private $category;
     
     /**
      * @var integer
@@ -139,35 +139,7 @@ class News
     {
         return $this->descroption;
     }
-    /**
-     * @var string
-     */
-    private $manyToOne;
-
-
-    /**
-     * Set manyToOne
-     *
-     * @param string $manyToOne
-     * @return News
-     */
-    public function setManyToOne($manyToOne)
-    {
-        $this->manyToOne = $manyToOne;
     
-        return $this;
-    }
-
-    /**
-     * Get manyToOne
-     *
-     * @return string 
-     */
-    public function getManyToOne()
-    {
-        return $this->manyToOne;
-    }
-
     /**
      * Set category
      *

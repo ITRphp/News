@@ -13,3 +13,9 @@ NewsBundle_category:
 NewsBundle_user:
         resource: "@NewsBundle/Resources/config/routing/user.yml"
         prefix:   /user
+login:
+    path:     /login
+    defaults: { _controller: NewsBundle:Authentication:login }
+NewsBundle_dispatch:
+        resource: "@NewsBundle/Resources/config/routing/dispatch.yml"
+        prefix:   /dispatch

@@ -21,17 +21,21 @@ ITR\NewsBundle\Entity\User:
         user_role:
             type: string
             length: '255'
-    manyToMany:
-        dispatch:
+    oneToMany:
+        dispatches:
             targetEntity: Dispatch
-            inversedBy: users
-            JoinTable:
-                name: user
-                joinColumns:
-                    user_id:
-                        referencedColumnName: id
-                inverseJoinColumns:
-                    dispatch_id:
-                        referencedColumnName: id
+            mappedBy: users
+#    manyToMany:
+#        dispatch:
+#            targetEntity: Dispatch
+#            inversedBy: users
+#            JoinTable:
+#                name: user
+#                joinColumns:
+#                    user_id:
+#                        referencedColumnName: id
+#                inverseJoinColumns:
+#                    dispatch_id:
+#                        referencedColumnName: id
 
     lifecycleCallbacks: {  }

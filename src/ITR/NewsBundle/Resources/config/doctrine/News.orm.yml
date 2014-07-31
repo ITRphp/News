@@ -27,5 +27,6 @@ ITR\NewsBundle\Entity\News:
                 inversedBy: news
                 joinColumn:
                     name: category_id
-                    referencedColumnName: id    
+                    referencedColumnName: id   
+                    
     lifecycleCallbacks: {  }

@@ -2,13 +2,14 @@
 
 namespace ITR\NewsBundle\Entity;
 
+use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * User
  */
-class User
+class User implements UserInterface,  \Serializable
 {
     /**
      * @var integer
@@ -30,11 +31,8 @@ class User
      */
     private $user_role;
     
-    private $dispatchs;
-
-    public function __construct() {
-        $this->dispatchs = new ArrayCollection();
-    }
+    
+    private $dispatches;
     /**
      * Get id
      *
@@ -142,42 +140,79 @@ class User
         return $this->user_role;
     }
 
+    public function eraseCredentials() {
+        
+    }
+
+    public function getPassword() {
+        
+        return $this->user_password;
+    }
+
+    public function getRoles() {
+        
+        return array('ROLE_USER');
+    }
+
+    public function getSalt() {
+        
+        return null;
+    }
+
+    public function serialize() {
+        return serialize(array(
+            $this->id,
+            $this->user_name,
+            $this->user_password,
+            $this->user_email,
+            $this->user_role
+        ));
+    }
+
+    public function unserialize($serialized) {
+        
+    }
+    public function __toString(){
+        return $this->user_name;
+    }
     /**
-     * Add dispatch
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->dispatches = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add dispatches
      *
-     * @param \ITR\NewsBundle\Entity\Dispatch $dispatch
+     * @param \ITR\NewsBundle\Entity\Dispatch $dispatches
      * @return User
      */
-    public function addDispatch(\ITR\NewsBundle\Entity\Dispatch $dispatch)
+    public function addDispatch(\ITR\NewsBundle\Entity\Dispatch $dispatches)
     {
-        $this->dispatch[] = $dispatch;
+        $this->dispatches[] = $dispatches;
     
         return $this;
     }
 
     /**
-     * Remove dispatch
+     * Remove dispatches
      *
-     * @param \ITR\NewsBundle\Entity\Dispatch $dispatch
+     * @param \ITR\NewsBundle\Entity\Dispatch $dispatches
      */
-    public function removeDispatch(\ITR\NewsBundle\Entity\Dispatch $dispatch)
+    public function removeDispatch(\ITR\NewsBundle\Entity\Dispatch $dispatches)
     {
-        $this->dispatch->removeElement($dispatch);
+        $this->dispatches->removeElement($dispatches);
     }
 
     /**
-     * Get dispatch
+     * Get dispatches
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getDispatch()
+    public function getDispatches()
     {
-        return $this->dispatch;
+        return $this->dispatches;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $dispatch;
-
-
 }

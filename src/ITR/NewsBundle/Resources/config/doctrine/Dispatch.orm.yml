@@ -8,17 +8,31 @@ ITR\NewsBundle\Entity\Dispatch:
             id: true
             generator:
                 strategy: AUTO
-    
-    manyToMany:
-        users:
-            targetEntity: User
-            mappedBy: dispatchs
-    manyToMany:
-        category:
-            targetEntity: Category
-            mappedBy: dispatchs
-            
-            
-            
-           
+    fields:
+        category_id:
+            type: integer
+        user_id:
+            type: integer
+#    manyToMany:
+#        users:
+#            targetEntity: User
+#            mappedBy: dispatchs
+#    manyToMany:
+#        category:
+#            targetEntity: Category
+#            mappedBy: dispatchs
+    manyToOne:
+        
+            categories:
+                targetEntity: Category
+                inversedBy: dispatch
+                joinColumn:
+                    name: category_id
+                    referencedColumnName: id
+            users:
+                targetEntity: User
+                inversedBy: dispatches
+                joinColumn:
+                    name: user_id
+                    referencedColumnName: id
     lifecycleCallbacks: {  }
