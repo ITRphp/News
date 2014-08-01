@@ -1,0 +1,41 @@
+ITR\NewsBundle\Entity\User:
+    type: entity
+    table: null
+    repositoryClass: ITR\NewsBundle\Entity\UserRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        user_name:
+            type: string
+            length: '255'
+        user_email:
+            type: string
+            length: '255'
+        user_password:
+            type: string
+            length: '255'
+        user_role:
+            type: string
+            length: '255'
+    oneToMany:
+        dispatches:
+            targetEntity: Dispatch
+            mappedBy: users
+#    manyToMany:
+#        dispatch:
+#            targetEntity: Dispatch
+#            inversedBy: users
+#            JoinTable:
+#                name: user
+#                joinColumns:
+#                    user_id:
+#                        referencedColumnName: id
+#                inverseJoinColumns:
+#                    dispatch_id:
+#                        referencedColumnName: id
+
+    lifecycleCallbacks: {  }

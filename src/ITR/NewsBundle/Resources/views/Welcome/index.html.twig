@@ -1,0 +1,26 @@
+{% extends "NewsBundle::layout.html.twig"%}
+
+{% block title %} News {% endblock %}
+
+{% block content_header '' %}
+   
+    {% block content %}
+        <h1 class="title">Welcom!</h1>
+        
+        <a href="{{path('_registration')}}" class="sf-button sf-button-selected">
+            <span class="border-l">
+                <span class="border-r">
+                    <span class="btn-bg">Registration</span>
+                </span>
+            </span>
+        </a>
+        
+        <a href="{{path('_login')}}" class="sf-button sf-button-selected">
+            <span class="border-l">
+                <span class="border-r">
+                    <span class="btn-bg">Authorization</span>
+                </span>
+            </span>
+        </a>
+            
+    {% endblock %}
