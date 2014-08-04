@@ -28,29 +28,56 @@ class __TwigTemplate_d80eb3bb10fd3090d57529a19db0e8ac6f5efc16c168bc02dc12b71768d
     // line 3
     public function block_title($context, array $blocks = array())
     {
-        echo "Registration";
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Registration", array(), "messages");
     }
 
-    // line 4
+    // line 5
     public function block_content($context, array $blocks = array())
     {
-        // line 5
-        echo "    <div class=\"form-type\">
-        <form method=\"POST\" action=\"\" accept-charset=\"UTF-8\" id=\"contact_form\">
-            <div>
-                <label for=\"username\">Username:</label>
-                <input type=\"text\" id=\"username\" class=\"span4\" name=\"username\" placeholder=\"Username\">
+        // line 6
+        echo "    <div class=\"container\">
+        <form method=\"POST\" action=\"\" accept-charset=\"UTF-8\" class=\"form-signin\">
+            <div class=\"control-group\">
+                <label for=\"username\">";
+        // line 9
+        echo $this->env->getExtension('translator')->getTranslator()->trans("User name", array(), "messages");
+        echo "</label>
+                <div class=\"controls\">
+                    <input type=\"text\" id=\"username\" class=\"span4\" name=\"username\" placeholder=\"Username\">
+                </div>
             </div>
-            <div>
-                <label for=\"email\">Email:</label>
-                <input type=\"email\" id=\"email\" class=\"span4\" name=\"email\" placeholder=\"email@example.com\">
+            <div class=\"control-group\">
+                <label for=\"email\">";
+        // line 15
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Email:", array(), "messages");
+        echo "</label>
+                <div class=\"controls\">
+                    <input type=\"email\" id=\"email\" name=\"_username\" placeholder=\"email@example.com\"/>
+                </div>
+            </div> 
+            <div class=\"control-group\">
+                <label for=\"password\">";
+        // line 21
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Password", array(), "messages");
+        echo "</label>
+                <div class=\"controls\">
+                    <input type=\"password\" id=\"password\" class=\"span4\" name=\"password\" placeholder=\"Password\">
+                </div>
             </div>
-            <div>
-                <label for=\"password\">Password:</label>
-                <input type=\"password\" id=\"password\" class=\"span4\" name=\"password\" placeholder=\"Password\">
+            <div class=\"control-group\">
+                <label for=\"password2\">";
+        // line 27
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Repeat password", array(), "messages");
+        echo "</label>
+                <div class=\"controls\">
+                    <input type=\"password\" id=\"password2\" name=\"_password\" placeholder=\"Password\" />
+                </div>
             </div>
-            <button type=\"submit\" name=\"submit\" class=\"btn btn-info btn-block\">Registration</button>
-\t\t</form>    
+            <button type=\"submit\" name=\"submit\" class=\"btn btn-info btn-block\">";
+        // line 32
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Registration", array(), "messages");
+        echo "</button>
+\t</form>    
     </div>
 \t
 ";
@@ -68,6 +95,6 @@ class __TwigTemplate_d80eb3bb10fd3090d57529a19db0e8ac6f5efc16c168bc02dc12b71768d
 
     public function getDebugInfo()
     {
-        return array (  38 => 5,  35 => 4,  29 => 3,);
+        return array (  78 => 32,  70 => 27,  61 => 21,  52 => 15,  43 => 9,  38 => 6,  35 => 5,  29 => 3,);
     }
 }

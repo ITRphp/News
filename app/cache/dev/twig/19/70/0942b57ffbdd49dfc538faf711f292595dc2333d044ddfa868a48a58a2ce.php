@@ -32,24 +32,26 @@ class __TwigTemplate_19700942b57ffbdd49dfc538faf711f292595dc2333d044ddfa868a48a5
     {
         // line 4
         echo "    <link rel=\"stylesheet\" href=\"";
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/acmedemo/css/demo.css"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/newsbundle/css/bootstrap.css"), "html", null, true);
+        echo "\">
+    <link rel=\"stylesheet\" href=\"";
+        // line 5
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/newsbundle/css/signing.css"), "html", null, true);
         echo "\">
 ";
     }
 
-    // line 7
+    // line 8
     public function block_title($context, array $blocks = array())
     {
-        echo "News";
+        echo $this->env->getExtension('translator')->getTranslator()->trans("News", array(), "messages");
     }
 
-    // line 9
+    // line 10
     public function block_body($context, array $blocks = array())
     {
-        // line 10
-        echo "    <div class=\"block\">
-    ";
         // line 11
+        echo "    ";
         $this->displayBlock('content', $context, $blocks);
     }
 
@@ -69,6 +71,6 @@ class __TwigTemplate_19700942b57ffbdd49dfc538faf711f292595dc2333d044ddfa868a48a5
 
     public function getDebugInfo()
     {
-        return array (  53 => 11,  50 => 10,  47 => 9,  41 => 7,  34 => 4,  31 => 3,);
+        return array (  51 => 10,  45 => 8,  39 => 5,  80 => 27,  75 => 25,  66 => 19,  59 => 15,  54 => 11,  49 => 11,  43 => 8,  40 => 7,  34 => 4,  31 => 3,  28 => 3,);
     }
 }

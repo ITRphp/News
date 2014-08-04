@@ -28,45 +28,61 @@ class __TwigTemplate_9a81cbdee18e6afe59f59912f38d198a7474ea3864917ea43f2954a59bd
     public function block_content($context, array $blocks = array())
     {
         // line 4
-        echo "    <h1 class=\"title\">Login</h1>
-    ";
-        // line 5
+        echo "    ";
         if ((isset($context["error"]) ? $context["error"] : $this->getContext($context, "error"))) {
-            // line 6
+            // line 5
             echo "        <div>";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["error"]) ? $context["error"] : $this->getContext($context, "error")), "message"), "html", null, true);
             echo "</div>
     ";
         }
-        // line 8
+        // line 7
         echo "    
-    <form action=\"";
-        // line 9
+    <h1 class=\"title\">";
+        // line 8
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Log in", array(), "messages");
+        echo "</h1>
+    <br>
+    <div class=\"container\">
+        <form action=\"";
+        // line 11
         echo $this->env->getExtension('routing')->getPath("login_check");
-        echo "\" method=\"post\" id=\"login\">
-        <div>
-            <label for=\"username\">Username:</label>
-            <input type=\"text\" id=\"username\" name=\"_username\" value=\"";
-        // line 12
+        echo "\" method=\"post\" id=\"login\" role=\"form\" class=\"form-signin\">
+            <div class=\"control-group\">
+                <label for=\"username\">";
+        // line 13
+        echo $this->env->getExtension('translator')->getTranslator()->trans("User name", array(), "messages");
+        echo "</label>
+                <div class=\"controls\">
+                    <input type=\"text\" id=\"username\" name=\"_username\" value=\"";
+        // line 15
         echo twig_escape_filter($this->env, (isset($context["last_username"]) ? $context["last_username"] : $this->getContext($context, "last_username")), "html", null, true);
         echo "\" />
-        </div>
+                </div>
+            </div>
+            <div class=\"control-group\">
+                <label for=\"password\">";
+        // line 19
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Password", array(), "messages");
+        echo "</label>
+                <div class=\"controls\">
+                    <input type=\"password\" id=\"password\" name=\"_password\" />
+                </div>
+            </div>
+            <input type=\"hidden\" name=\"_target_path\" value=\"/hello\" />
+            <input type=\"submit\" class=\"btn btn-success\" value=\"";
+        // line 25
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Log in", array(), "messages");
+        echo "\"/>                      
+            <p>
+                 <a href=\"#\">";
+        // line 27
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Forgot.password", array(), "messages");
+        echo "</a>
+            </p>   
         
-        <div>
-            <label for=\"password\">Password:</label>
-            <input type=\"password\" id=\"password\" name=\"_password\" />
-        </div>
-         <input type=\"hidden\" name=\"_target_path\" value=\"/hello\" />
-
-         <button type=\"submit\" class=\"sf-button\">
-             <span class=\"border-l\">
-                   <span class=\"border-r\">
-                         <span class=\"btn-bg\">Login</span>
-                   </span>
-             </span>
-         </button>
-         
-    </form>
+        </form>
+    </div>
 ";
     }
 
@@ -82,6 +98,6 @@ class __TwigTemplate_9a81cbdee18e6afe59f59912f38d198a7474ea3864917ea43f2954a59bd
 
     public function getDebugInfo()
     {
-        return array (  51 => 12,  45 => 9,  42 => 8,  36 => 6,  34 => 5,  31 => 4,  28 => 3,);
+        return array (  80 => 27,  75 => 25,  66 => 19,  59 => 15,  54 => 13,  49 => 11,  43 => 8,  40 => 7,  34 => 5,  31 => 4,  28 => 3,);
     }
 }

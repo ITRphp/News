@@ -1,30 +1,32 @@
 {% extends 'NewsBundle::layout.html.twig' %}
 
 {% block content %}
-    <h1 class="title">Login</h1>
     {% if error %}
         <div>{{ error.message }}</div>
     {% endif %}
     
-    <form action="{{ path('login_check') }}" method="post" id="login">
-        <div>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="_username" value="{{ last_username }}" />
-        </div>
+    <h1 class="title">{% trans %}Log in{% endtrans %}</h1>
+    <br>
+    <div class="container">
+        <form action="{{ path('login_check') }}" method="post" id="login" role="form" class="form-signin">
+            <div class="control-group">
+                <label for="username">{% trans %}User name{% endtrans %}</label>
+                <div class="controls">
+                    <input type="text" id="username" name="_username" value="{{ last_username }}" />
+                </div>
+            </div>
+            <div class="control-group">
+                <label for="password">{% trans %}Password{% endtrans %}</label>
+                <div class="controls">
+                    <input type="password" id="password" name="_password" />
+                </div>
+            </div>
+            <input type="hidden" name="_target_path" value="/hello" />
+            <input type="submit" class="btn btn-success" value="{% trans %}Log in{% endtrans %}"/>                      
+            <p>
+                 <a href="#">{% trans %} Forgot.password {% endtrans %}</a>
+            </p>   
         
-        <div>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="_password" />
-        </div>
-         <input type="hidden" name="_target_path" value="/hello" />
-
-         <button type="submit" class="sf-button">
-             <span class="border-l">
-                   <span class="border-r">
-                         <span class="btn-bg">Login</span>
-                   </span>
-             </span>
-         </button>
-         
-    </form>
+        </form>
+    </div>
 {% endblock %}

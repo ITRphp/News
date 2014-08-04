@@ -1,13 +1,13 @@
 {% extends "TwigBundle::layout.html.twig" %}
 
 {% block head %}
-    <link rel="stylesheet" href="{{asset('bundles/acmedemo/css/demo.css')}}">
+    <link rel="stylesheet" href="{{asset('bundles/newsbundle/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{asset('bundles/newsbundle/css/signing.css')}}">
 {% endblock %}
 
-{% block title 'News'%}
-    
+{% block title %}{% trans %}News{% endtrans %}{% endblock %}
+
 {% block body %}
-    <div class="block">
     {% block content %}{% endblock %}
 {% endblock %}
 
