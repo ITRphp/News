@@ -14,7 +14,6 @@ use ITR\NewsBundle\Form\NewsType;
  */
 class NewsController extends Controller
 {
-
     /**
      * Lists all News entities.
      *

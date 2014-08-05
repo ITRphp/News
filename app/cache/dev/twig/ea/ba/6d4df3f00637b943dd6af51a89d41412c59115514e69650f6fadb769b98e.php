@@ -31,27 +31,19 @@ class __TwigTemplate_eaba6d4df3f00637b943dd6af51a89d41412c59115514e69650f6fadb76
         // line 6
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
-        <link href=\"";
-        // line 7
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/framework/css/structure.css", null, true, null), "html", null, true);
-        echo "\" rel=\"stylesheet\" type=\"text/css\" media=\"all\" />
-        <link href=\"";
-        // line 8
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/framework/css/body.css", null, true, null), "html", null, true);
-        echo "\" rel=\"stylesheet\" type=\"text/css\" media=\"all\" />
         ";
-        // line 9
+        // line 7
         $this->displayBlock('head', $context, $blocks);
-        // line 10
+        // line 8
         echo "    </head>
     <body>
         <div id=\"content\">
 
             <div class=\"sf-reset\">
                 ";
-        // line 15
+        // line 13
         $this->displayBlock('body', $context, $blocks);
-        // line 16
+        // line 14
         echo "            </div>
         </div>
     </body>
@@ -64,12 +56,12 @@ class __TwigTemplate_eaba6d4df3f00637b943dd6af51a89d41412c59115514e69650f6fadb76
     {
     }
 
-    // line 9
+    // line 7
     public function block_head($context, array $blocks = array())
     {
     }
 
-    // line 15
+    // line 13
     public function block_body($context, array $blocks = array())
     {
     }
@@ -86,6 +78,6 @@ class __TwigTemplate_eaba6d4df3f00637b943dd6af51a89d41412c59115514e69650f6fadb76
 
     public function getDebugInfo()
     {
-        return array (  73 => 15,  68 => 9,  63 => 6,  55 => 16,  53 => 15,  46 => 10,  44 => 9,  36 => 7,  32 => 6,  27 => 4,  22 => 1,  51 => 10,  45 => 8,  39 => 5,  80 => 27,  75 => 25,  66 => 19,  59 => 15,  54 => 11,  49 => 11,  43 => 8,  40 => 8,  34 => 4,  31 => 3,  28 => 3,);
+        return array (  65 => 13,  55 => 6,  38 => 8,  32 => 6,  27 => 4,  22 => 1,  54 => 11,  45 => 13,  34 => 4,  31 => 3,  103 => 28,  98 => 26,  94 => 25,  90 => 24,  85 => 22,  79 => 21,  73 => 18,  70 => 17,  67 => 16,  60 => 7,  51 => 10,  47 => 14,  44 => 7,  41 => 6,  39 => 5,  36 => 7,  30 => 3,);
     }
 }
