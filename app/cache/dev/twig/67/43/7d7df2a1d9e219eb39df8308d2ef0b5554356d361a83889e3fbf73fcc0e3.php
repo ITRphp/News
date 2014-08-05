@@ -42,9 +42,16 @@ class __TwigTemplate_67437d7df2a1d9e219eb39df8308d2ef0b5554356d361a83889e3fbf73f
      ";
         }
         // line 11
+        echo "     ";
+        if ($this->env->getExtension('security')->isGranted("ROLE_ADMIN")) {
+            // line 12
+            echo "         я админ!
+    ";
+        }
+        // line 14
         echo "
      Hello ";
-        // line 12
+        // line 15
         echo twig_escape_filter($this->env, (isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "html", null, true);
         echo " !
 ";
@@ -62,6 +69,6 @@ class __TwigTemplate_67437d7df2a1d9e219eb39df8308d2ef0b5554356d361a83889e3fbf73f
 
     public function getDebugInfo()
     {
-        return array (  48 => 12,  45 => 11,  37 => 6,  34 => 5,  31 => 4,  28 => 3,);
+        return array (  55 => 15,  52 => 14,  48 => 12,  45 => 11,  37 => 6,  34 => 5,  31 => 4,  28 => 3,);
     }
 }
