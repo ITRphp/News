@@ -1,0 +1,19 @@
+news:
+    resource: "@NewsBundle/Resources/config/routing.yml"
+    prefix:   /
+    
+NewsBundle_news:
+    resource: "@NewsBundle/Resources/config/routing/news.yml"
+    prefix:   /news
+    
+NewsBundle_category:
+        resource: "@NewsBundle/Resources/config/routing/category.yml"
+        prefix:   /category
+login:
+    pattern:   /login
+    defaults:  { _controller: NewsBundle:Secured:login }
+    
+login_check:
+    pattern:   /login_check
+logout:
+    pattern:   /logout
