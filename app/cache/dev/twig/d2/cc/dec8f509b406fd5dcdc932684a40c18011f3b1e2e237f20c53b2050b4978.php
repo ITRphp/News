@@ -33,23 +33,23 @@ class __TwigTemplate_d2ccdec8f509b406fd5dcdc932684a40c18011f3b1e2e237f20c53b2050
         echo "    ";
         if ((twig_length_filter($this->env, (isset($context["errors"]) ? $context["errors"] : $this->getContext($context, "errors"))) > 0)) {
             // line 6
-            echo "        <ul class=\"error_list\">
+            echo "        
             ";
             // line 7
             $context['_parent'] = (array) $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["errors"]) ? $context["errors"] : $this->getContext($context, "errors")));
             foreach ($context['_seq'] as $context["_key"] => $context["error"]) {
                 // line 8
-                echo "                <li>";
+                echo "                <div class=\"error\" style=\"display: inline\"> ";
                 echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans($this->getAttribute((isset($context["error"]) ? $context["error"] : $this->getContext($context, "error")), "messageTemplate"), $this->getAttribute((isset($context["error"]) ? $context["error"] : $this->getContext($context, "error")), "messageParameters"), "validators"), "html", null, true);
-                echo "</li>
+                echo "</div>
             ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['error'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
             // line 10
-            echo "        </ul>
+            echo "       
     ";
         }
         echo trim(preg_replace('/>\s+</', '><', ob_get_clean()));

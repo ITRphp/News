@@ -12,6 +12,7 @@
                 {{form_label(form.user_name, "Username", {'attr':{'class': 'label' }} )}}
                 <div class="controls">
                     {{form_widget(form.user_name,{'attr':{'pattern': '^[a-zA-Z0-9_]+$','placeholder': 'Your name' }} )}}
+                    {{ form_errors(form.user_name) }}
                 </div>
             </div>
                 <p></p>
@@ -19,7 +20,8 @@
                 {{form_label(form.user_email, "Email", {'attr':{'class': 'label' }} )}}
                 <div class="controls">
                     {{form_widget(form.user_email,{'attr':{'placeholder': 'example@example.com' }} )}}
-                </div>
+                     {{ form_errors(form.user_email)}}
+                  </div>
             </div>
                 <p></p>
             <div class="control-group">

@@ -274,17 +274,9 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/registration')) {
-            // _registration
-            if ($pathinfo === '/registration') {
-                return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\RegistrationController::indexAction',  '_route' => '_registration',);
-            }
-
-            // _registration_new
-            if ($pathinfo === '/registration_new') {
-                return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\RegistrationController::newAction',  '_route' => '_registration_new',);
-            }
-
+        // _registration
+        if ($pathinfo === '/registration') {
+            return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\RegistrationController::indexAction',  '_route' => '_registration',);
         }
 
         if (0 === strpos($pathinfo, '/news')) {

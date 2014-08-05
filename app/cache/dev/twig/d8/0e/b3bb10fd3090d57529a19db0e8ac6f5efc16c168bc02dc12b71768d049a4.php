@@ -59,37 +59,45 @@ class __TwigTemplate_d80eb3bb10fd3090d57529a19db0e8ac6f5efc16c168bc02dc12b71768d
         // line 14
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "user_name"), 'widget', array("attr" => array("pattern" => "^[a-zA-Z0-9_]+\$", "placeholder" => "Your name")));
         echo "
+                    ";
+        // line 15
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "user_name"), 'errors');
+        echo "
                 </div>
             </div>
                 <p></p>
             <div class=\"control-group\">
                 ";
-        // line 19
+        // line 20
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "user_email"), 'label', array("attr" => array("class" => "label"), "label" => "Email"));
         echo "
                 <div class=\"controls\">
                     ";
-        // line 21
+        // line 22
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "user_email"), 'widget', array("attr" => array("placeholder" => "example@example.com")));
         echo "
-                </div>
+                     ";
+        // line 23
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "user_email"), 'errors');
+        echo "
+                  </div>
             </div>
                 <p></p>
             <div class=\"control-group\">
                 ";
-        // line 26
+        // line 28
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "user_password"), 'label', array("label" => "Password", "attr" => array("class" => "label")));
         echo "
                 <div class=\"controls\">
                     ";
-        // line 28
+        // line 30
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "user_password"), 'widget', array("attr" => array("placeholder" => "Password", "class" => "password1")));
         echo "
                 </div>
             </div>                
             <div class=\"control-group\">
                 <label for=\"password2\">";
-        // line 32
+        // line 34
         echo $this->env->getExtension('translator')->getTranslator()->trans("Repeat password", array(), "messages");
         echo "</label>
                 <div class=\"controls\">
@@ -97,15 +105,15 @@ class __TwigTemplate_d80eb3bb10fd3090d57529a19db0e8ac6f5efc16c168bc02dc12b71768d
                 </div>
             </div>
                 ";
-        // line 37
+        // line 39
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'errors');
         echo "
                 ";
-        // line 38
+        // line 40
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'rest');
         echo "
             <input type=\"submit\" class=\"btn btn-success\" value=\"";
-        // line 39
+        // line 41
         echo $this->env->getExtension('translator')->getTranslator()->trans("Registration", array(), "messages");
         echo "\"/>
         </form>   
@@ -126,6 +134,6 @@ class __TwigTemplate_d80eb3bb10fd3090d57529a19db0e8ac6f5efc16c168bc02dc12b71768d
 
     public function getDebugInfo()
     {
-        return array (  109 => 39,  105 => 38,  101 => 37,  93 => 32,  86 => 28,  81 => 26,  73 => 21,  68 => 19,  60 => 14,  55 => 12,  48 => 10,  42 => 7,  37 => 6,  31 => 5,  26 => 3,);
+        return array (  117 => 41,  113 => 40,  109 => 39,  101 => 34,  94 => 30,  89 => 28,  81 => 23,  77 => 22,  72 => 20,  64 => 15,  60 => 14,  55 => 12,  48 => 10,  42 => 7,  37 => 6,  31 => 5,  26 => 3,);
     }
 }
