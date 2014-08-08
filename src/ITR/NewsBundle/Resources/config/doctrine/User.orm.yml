@@ -21,6 +21,8 @@ ITR\NewsBundle\Entity\User:
         user_role:
             type: string
             length: '255'
+            options:
+                default: ROLE_USER
     oneToMany:
         dispatches:
             targetEntity: Dispatch

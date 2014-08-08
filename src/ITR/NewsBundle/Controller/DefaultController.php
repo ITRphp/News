@@ -13,7 +13,6 @@ class DefaultController extends Controller
     {
         $user = $this->get('security.context')->getToken()->getUser();
         return $this->render('NewsBundle:Secured:hello.html.twig', array(
-            // имя, введённое пользователем в последний раз
             'user' => $user));
     }
 }

@@ -1,4 +1,4 @@
-{% extends "TwigBundle::layout.html.twig" %}
+{% extends "TwigBundle::layout.html.twig"%}
 
 {% block head %}
     <link rel="stylesheet" href="{{asset('bundles/newsbundle/css/bootstrap.css')}}">
@@ -8,7 +8,12 @@
 {% block title %}{% trans %}News{% endtrans %}{% endblock %}
 
 {% block body %}
-    {% block content %}{% endblock %}
+	<div class = "container" style="-webkit-box-shadow: 0px 0px 6px 6px rgba(50, 50, 50, 0.13);
+									-moz-box-shadow:    0px 0px 6px 6px rgba(50, 50, 50, 0.13);
+									box-shadow:         0px 0px 6px 6px rgba(50, 50, 50, 0.13);">
+   		{% block content %}
+   		{% endblock %}
+   	</div>
 {% endblock %}
 
     

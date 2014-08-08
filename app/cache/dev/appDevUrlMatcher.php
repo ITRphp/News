@@ -279,6 +279,16 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\RegistrationController::indexAction',  '_route' => '_registration',);
         }
 
+        // mainpage
+        if ($pathinfo === '/mainpage') {
+            return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\MainpageController::indexAction',  '_route' => 'mainpage',);
+        }
+
+        // index
+        if ($pathinfo === '/index') {
+            return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\MainpageController::indexAction',  '_route' => 'index',);
+        }
+
         if (0 === strpos($pathinfo, '/news')) {
             // news
             if (rtrim($pathinfo, '/') === '/news') {

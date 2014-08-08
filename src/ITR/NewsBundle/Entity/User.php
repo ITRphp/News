@@ -171,14 +171,21 @@ class User implements UserInterface,  \Serializable
     public function serialize() {
         return serialize(array(
             $this->id,
-            $this->user_name,
-            $this->user_password,
+            $this->user_name,           
             $this->user_email,
+             $this->user_password,
             $this->user_role
         ));
     }
 
     public function unserialize($serialized) {
+        list (
+            $this->id
+           , $this->user_name
+           , $this->user_email
+           , $this->user_password
+                , $this->user_role
+            ) = unserialize($serialized);
         
     }
     public function __toString(){

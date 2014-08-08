@@ -1,36 +1,45 @@
 {% extends "NewsBundle::layout.html.twig" %}
 
-{% block title %}{% trans %}Registration{% endtrans %}{% endblock %}
+{% form_theme form 'NewsBundle:Form:fields.html.twig' %}
 
-{% block content %}
-    <div class="container">
-        <form method="POST" action="" accept-charset="UTF-8" class="form-signin">
+{% block title %}{% trans %}Registration{% endtrans %}{% endblock %}
+{% block content %}   
+    <script src="{{ asset('public/js/repeatPassword.js') }}" type="text/javascript"></script>
+    
+    <div class="container">        
+        <form action="{{ path('_registration') }}" method="post" {{ form_enctype(form) }} class="form-signin">
             <div class="control-group">
-                <label for="username">{% trans %}User name{% endtrans %}</label>
+                {{form_label(form.user_name, "Username", {'attr':{'class': 'label' }} )}}
                 <div class="controls">
-                    <input type="text" id="username" class="span4" name="username" placeholder="Username">
+                    {{form_widget(form.user_name,{'attr':{'pattern': '^[a-zA-Z0-9_]+$','placeholder': 'Your name' }} )}}
+                    {{ form_errors(form.user_name) }}
                 </div>
             </div>
+                <p></p>
             <div class="control-group">
-                <label for="email">{% trans %}Email:{% endtrans %}</label>
+                {{form_label(form.user_email, "Email", {'attr':{'class': 'label' }} )}}
                 <div class="controls">
-                    <input type="email" id="email" name="_username" placeholder="email@example.com"/>
-                </div>
-            </div> 
-            <div class="control-group">
-                <label for="password">{% trans %}Password{% endtrans %}</label>
-                <div class="controls">
-                    <input type="password" id="password" class="span4" name="password" placeholder="Password">
-                </div>
+                    {{form_widget(form.user_email,{'attr':{'placeholder': 'example@example.com' }} )}}
+                     {{ form_errors(form.user_email)}}
+                  </div>
             </div>
+                <p></p>
+            <div class="control-group">
+                {{form_label(form.user_password, null, {'label': 'Password', 'attr':{'class': 'label' }} )}}
+                <div class="controls">
+                    {{form_widget(form.user_password,{'attr':{'placeholder': 'Password', 'class':'password1' }} )}}
+                </div>
+            </div>                
             <div class="control-group">
                 <label for="password2">{% trans %}Repeat password{% endtrans %}</label>
                 <div class="controls">
-                    <input type="password" id="password2" name="_password" placeholder="Password" />
+                     <input type="password" id="password2" name="_password" placeholder="Repeat password" />
                 </div>
             </div>
-            <button type="submit" name="submit" class="btn btn-info btn-block">{% trans %}Registration{% endtrans %}</button>
-	</form>    
+                {{ form_errors(form) }}
+                {{ form_rest(form) }}
+            <input type="submit" class="btn btn-success" value="{% trans %}Registration{% endtrans %}"/>
+        </form>   
     </div>
 	
 {% endblock %}

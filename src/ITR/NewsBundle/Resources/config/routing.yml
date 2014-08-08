@@ -24,6 +24,7 @@ _login:
 NewsBundle_dispatch:
         resource: "@NewsBundle/Resources/config/routing/dispatch.yml"
         prefix:   /dispatch
+        
 _registration:
     path:     /registration
     defaults: { _controller: NewsBundle:Registration:index }

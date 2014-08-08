@@ -58,4 +58,5 @@ class UserRepository extends EntityRepository implements UserProviderInterface
             || is_subclass_of($class, $this->getEntityName());
 
     }
+    
 }

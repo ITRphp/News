@@ -1,0 +1,8 @@
+ITR\NewsBundle\Entity\User:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [user_email]
+            message: 'Not unique email'
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [user_name]
+            message: 'Not unique user name'
