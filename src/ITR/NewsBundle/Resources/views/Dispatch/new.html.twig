@@ -1,6 +1,7 @@
 {% extends "NewsBundle::layout.html.twig"%}
 
-{% block body -%}
+{% block content -%}
+    {{parent()}}
     <h1>Dispatch creation</h1>
 
     {{ form(form) }}

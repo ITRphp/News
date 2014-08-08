@@ -1,5 +1,21 @@
 {% extends "NewsBundle::layout.html.twig" %}
 
-{% block content %}    
-      {{ knp_menu_render('NewsBundle:Builder:adminMenu', {'currentClass': 'active', 'template': 'NewsBundle:Menu:knp_menu.html.twig'}) }}      
+{% block content %}  
+  <nav class="navbar navbar-default" role="navigation">
+         <div class="container-fluid">
+             <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Admin</a>
+            </div>
+             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                {{ knp_menu_render('NewsBundle:Builder:adminMenu', {'currentClass': 'active', 'template': 'NewsBundle:Menu:knp_menu.html.twig'}) }}      
+             </div>
+         </div>
+    </nav>
+    
 {% endblock %}

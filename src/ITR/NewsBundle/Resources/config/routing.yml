@@ -8,23 +8,59 @@ hello:
     
 NewsBundle_news:
         resource: "@NewsBundle/Resources/config/routing/news.yml"
-        prefix:   /news
+        prefix:   /admin/news
         
 NewsBundle_category:
     resource: "@NewsBundle/Resources/config/routing/category.yml"
-    prefix:   /category
+    prefix:   /admin/category
     
 NewsBundle_user:
         resource: "@NewsBundle/Resources/config/routing/user.yml"
-        prefix:   /user
+        prefix:   /admin/user
+        
+NewsBundle_dispatch:
+        resource: "@NewsBundle/Resources/config/routing/dispatch.yml"
+        prefix:   /admin/dispatch
+        
 _login:
     path:     /login
     defaults: { _controller: NewsBundle:Secured:login }
-
-NewsBundle_dispatch:
-        resource: "@NewsBundle/Resources/config/routing/dispatch.yml"
-        prefix:   /dispatch
-        
+    
 _registration:
     path:     /registration
     defaults: { _controller: NewsBundle:Registration:index }
+    
+_admin:
+    path:     /admin/dashboard
+    defaults: { _controller: NewsBundle:Admin:index }
+    
+login:
+    pattern:   /login
+    defaults:  { _controller: NewsBundle:Secured:login }
+    
+login_check:
+    pattern:   /login_check
+    
+logout:
+    pattern:   /logout
+    
+_all_users:
+    pattern: /admin/user
+    defaults:  { _controller: NewsBundle:User:index}
+    
+_all_news:
+    pattern: /admin/news
+    defaults:  { _controller: NewsBundle:News:index}
+    
+_add_news:
+    pattern: /admin/news/new
+    defaults:  { _controller: NewsBundle:News:new}
+    
+_all_categories:
+    pattern: /admin/category
+    defaults:  { _controller: NewsBundle:Category:index}
+    
+_add_category:
+    pattern: /admin/category/new
+    defaults:  { _controller: NewsBundle:Category:new}
+    

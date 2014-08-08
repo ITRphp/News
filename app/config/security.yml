@@ -1,7 +1,7 @@
 security:
     encoders:
         Symfony\Component\Security\Core\User\User: plaintext
-        ITR\NewsBundle\Entity\User: plaintext
+        ITR\NewsBundle\Entity\User: sha1
 
     role_hierarchy:
         ROLE_MANAGER: ROLE_USER

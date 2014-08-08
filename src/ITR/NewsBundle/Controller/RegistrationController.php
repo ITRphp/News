@@ -6,6 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use ITR\NewsBundle\Form\RegistrationType;
 use ITR\NewsBundle\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
 
 class RegistrationController extends Controller
 {    
@@ -18,7 +19,10 @@ class RegistrationController extends Controller
             $form->bind($request);
             
 
-        if ($form->isValid()) {   
+        if ($form->isValid()) {
+            $encoder = new MessageDigestPasswordEncoder('sha1');
+            $password = $encoder->encodePassword($user->getPassword(), $user->getSalt());
+            $user->setUserPassword($password);
             $user->setUserRole('ROLE_USER');
             $em = $this->getDoctrine()->getManager(); 
             $em->persist($user);

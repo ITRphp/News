@@ -1,6 +1,7 @@
-{% extends "NewsBundle::layout.html.twig"%}
+{% extends "NewsBundle:Admin:layout.html.twig" %}
    
-{% block body -%}
+{% block content -%}
+    {{parent()}}
     <h1>News edit</h1>
 
     {{ form(edit_form) }}

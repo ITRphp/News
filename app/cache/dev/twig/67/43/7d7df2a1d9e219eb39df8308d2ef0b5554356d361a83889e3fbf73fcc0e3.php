@@ -28,23 +28,17 @@ class __TwigTemplate_67437d7df2a1d9e219eb39df8308d2ef0b5554356d361a83889e3fbf73f
     public function block_content($context, array $blocks = array())
     {
         // line 4
-        echo "    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">
-        <div class=\"container-fluid\">
-            <div class=\"navbar-header\">
-      <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">
-        <span class=\"sr-only\">Toggle navigation</span>
-        <span class=\"icon-bar\"></span>
-        <span class=\"icon-bar\"></span>
-        <span class=\"icon-bar\"></span>
-      </button>
-      <a class=\"navbar-brand\" href=\"#\">Welcome</a>
-    </div>
-            ";
-        // line 15
-        echo $this->env->getExtension('knp_menu')->render("NewsBundle:Builder:mainMenu", array("currentClass" => "active", "template" => "NewsBundle:Menu:knp_menu.html.twig"));
-        echo "
-        </div>
-        </div>    
+        echo "    ";
+        if ($this->env->getExtension('security')->isGranted("ROLE_ADMIN")) {
+            echo " 
+        <a href=\"";
+            // line 5
+            echo $this->env->getExtension('routing')->getPath("_admin");
+            echo "\" class=\"btn btn-success\">admin</a>
+    ";
+        }
+        // line 6
+        echo "     
 ";
     }
 
@@ -60,6 +54,6 @@ class __TwigTemplate_67437d7df2a1d9e219eb39df8308d2ef0b5554356d361a83889e3fbf73f
 
     public function getDebugInfo()
     {
-        return array (  44 => 15,  31 => 4,  28 => 3,);
+        return array (  41 => 6,  36 => 5,  31 => 4,  28 => 3,);
     }
 }

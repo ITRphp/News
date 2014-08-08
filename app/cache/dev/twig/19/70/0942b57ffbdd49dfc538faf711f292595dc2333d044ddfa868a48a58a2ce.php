@@ -31,13 +31,13 @@ class __TwigTemplate_19700942b57ffbdd49dfc538faf711f292595dc2333d044ddfa868a48a5
        ";
         // line 5
         $this->displayBlock('head', $context, $blocks);
-        // line 19
+        // line 20
         echo "    </head>
     <body>
             ";
-        // line 21
+        // line 22
         $this->displayBlock('body', $context, $blocks);
-        // line 24
+        // line 25
         echo "    </body>
 </html>
 ";
@@ -53,14 +53,18 @@ class __TwigTemplate_19700942b57ffbdd49dfc538faf711f292595dc2333d044ddfa868a48a5
     public function block_head($context, array $blocks = array())
     {
         // line 6
-        echo "           ";
+        echo "           <link rel=\"icon\" type=\"image/x-icon\" href=\"";
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("favicon.ico"), "html", null, true);
+        echo "\" />
+           ";
+        // line 7
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 11
+        // line 12
         echo "               ";
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "6bfbd92_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_6bfbd92_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/6bfbd92_jquery-1.11.1_1.js");
-            // line 15
+            // line 16
             echo "                    <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
@@ -86,20 +90,20 @@ class __TwigTemplate_19700942b57ffbdd49dfc538faf711f292595dc2333d044ddfa868a48a5
                     ";
         }
         unset($context["asset_url"]);
-        // line 17
+        // line 18
         echo "
         ";
     }
 
-    // line 6
+    // line 7
     public function block_stylesheets($context, array $blocks = array())
     {
-        // line 7
+        // line 8
         echo "               ";
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "1820aaf_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_1820aaf_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/1820aaf_part_1_bootstrap.min_1.css");
-            // line 8
+            // line 9
             echo "               <link rel=\"stylesheet\" href=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\" />
@@ -113,21 +117,21 @@ class __TwigTemplate_19700942b57ffbdd49dfc538faf711f292595dc2333d044ddfa868a48a5
                ";
         }
         unset($context["asset_url"]);
-        // line 10
+        // line 11
         echo "           ";
     }
 
-    // line 21
+    // line 22
     public function block_body($context, array $blocks = array())
     {
-        // line 22
+        // line 23
         echo "                ";
         $this->displayBlock('content', $context, $blocks);
-        // line 23
+        // line 24
         echo "            ";
     }
 
-    // line 22
+    // line 23
     public function block_content($context, array $blocks = array())
     {
     }
@@ -139,6 +143,6 @@ class __TwigTemplate_19700942b57ffbdd49dfc538faf711f292595dc2333d044ddfa868a48a5
 
     public function getDebugInfo()
     {
-        return array (  131 => 22,  127 => 23,  124 => 22,  121 => 21,  117 => 10,  103 => 8,  98 => 7,  95 => 6,  90 => 17,  64 => 15,  59 => 11,  56 => 6,  53 => 5,  47 => 4,  41 => 24,  39 => 21,  35 => 19,  33 => 5,  29 => 4,  24 => 1,  51 => 15,  42 => 9,  38 => 7,  34 => 5,  31 => 4,  28 => 3,);
+        return array (  135 => 23,  131 => 24,  128 => 23,  125 => 22,  121 => 11,  107 => 9,  102 => 8,  99 => 7,  94 => 18,  68 => 16,  63 => 12,  61 => 7,  56 => 6,  53 => 5,  47 => 4,  41 => 25,  39 => 22,  35 => 20,  33 => 5,  29 => 4,  24 => 1,  89 => 36,  82 => 31,  70 => 25,  64 => 22,  57 => 18,  51 => 17,  48 => 16,  44 => 15,  31 => 4,  28 => 3,);
     }
 }

@@ -31,21 +31,30 @@ class Builder extends ContainerAware
     {
         $menu = $factory->createItem('root');
         $menu->setChildrenAttribute('class', 'nav navbar-nav');
+        
+        $menu->addChild('Main page', array('route' => 'hello'));
  
-        $menu->addChild('User')
+        $menu->addChild('Users')
              ->setAttribute('dropdown', true);
  
-        $menu['User']->addChild('Profile', array('uri' => '#'))
-                     ->setAttribute('divider_append', true);
-        $menu['User']->addChild('Logout', array('uri' => '#'));
- 
-        $menu->addChild('Language')
+        $menu['Users']->addChild('Users list', array('route' => '_all_users'));
+        
+        $menu->addChild('Category')
+             ->setAttribute('dropdown', true)
+             ->setAttribute('divider_prepend', true);
+        
+        $menu['Category']->addChild('All categories', array('route' => '_all_categories'));
+        $menu['Category']->addChild('Add category', array('route' => '_add_category'));
+
+        $menu->addChild('Content')
              ->setAttribute('dropdown', true)
              ->setAttribute('divider_prepend', true);
  
-        $menu['Language']->addChild('Deutsch', array('uri' => '#'));
-        $menu['Language']->addChild('English', array('uri' => '#'));
- 
+        $menu['Content']->addChild('News list', array('route' => '_all_news'));
+        $menu['Content']->addChild('Add new', array('route' => 'news_new'));
+        
+        $menu->addChild('Log out', array('uri' => '/logout'));
+  
         return $menu;
     }
 
