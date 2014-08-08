@@ -51,11 +51,12 @@ security:
 
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/news, roles: ROLE_ADMIN}
-        - { path: ^/hello, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/user, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/category, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/dispatch, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/registration, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin, roles: ROLE_ADMIN}
+        - { path: ^/admin/news, roles: ROLE_ADMIN}
+        - { path: ^/admin/category, roles: ROLE_ADMIN}
+        - { path: ^/admin/user, roles: ROLE_ADMIN}
+        - { path: ^/admin/dispatch, roles: ROLE_ADMIN}
+        - { path: ^/hello, roles: ROLE_USER }
     #access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }

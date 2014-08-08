@@ -53,7 +53,7 @@ class Builder extends ContainerAware
         $menu['Content']->addChild('News list', array('route' => '_all_news'));
         $menu['Content']->addChild('Add new', array('route' => 'news_new'));
         
-        $menu->addChild('Log out', array('uri' => '/logout'));
+        $menu->addChild('Log out', array('route' => 'logout'));
   
         return $menu;
     }
