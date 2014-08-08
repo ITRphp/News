@@ -28,32 +28,23 @@ class __TwigTemplate_67437d7df2a1d9e219eb39df8308d2ef0b5554356d361a83889e3fbf73f
     public function block_content($context, array $blocks = array())
     {
         // line 4
-        echo "    ";
-        if ($this->env->getExtension('security')->isGranted("IS_AUTHENTICATED_FULLY")) {
-            // line 5
-            echo "                            <li>
-                                <a href=\"";
-            // line 6
-            echo $this->env->getExtension('routing')->getPath("logout");
-            echo "\">
-                                    Выход
-                                </a>
-                            </li>
-     ";
-        }
-        // line 11
-        echo "     ";
-        if ($this->env->getExtension('security')->isGranted("ROLE_ADMIN")) {
-            // line 12
-            echo "         я админ!
-    ";
-        }
-        // line 14
-        echo "
-     Hello ";
+        echo "    <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">
+        <div class=\"container-fluid\">
+            <div class=\"navbar-header\">
+      <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#bs-example-navbar-collapse-1\">
+        <span class=\"sr-only\">Toggle navigation</span>
+        <span class=\"icon-bar\"></span>
+        <span class=\"icon-bar\"></span>
+        <span class=\"icon-bar\"></span>
+      </button>
+      <a class=\"navbar-brand\" href=\"#\">Welcome</a>
+    </div>
+            ";
         // line 15
-        echo twig_escape_filter($this->env, (isset($context["user"]) ? $context["user"] : $this->getContext($context, "user")), "html", null, true);
-        echo " !
+        echo $this->env->getExtension('knp_menu')->render("NewsBundle:Builder:mainMenu", array("currentClass" => "active", "template" => "NewsBundle:Menu:knp_menu.html.twig"));
+        echo "
+        </div>
+        </div>    
 ";
     }
 
@@ -69,6 +60,6 @@ class __TwigTemplate_67437d7df2a1d9e219eb39df8308d2ef0b5554356d361a83889e3fbf73f
 
     public function getDebugInfo()
     {
-        return array (  55 => 15,  52 => 14,  48 => 12,  45 => 11,  37 => 6,  34 => 5,  31 => 4,  28 => 3,);
+        return array (  44 => 15,  31 => 4,  28 => 3,);
     }
 }

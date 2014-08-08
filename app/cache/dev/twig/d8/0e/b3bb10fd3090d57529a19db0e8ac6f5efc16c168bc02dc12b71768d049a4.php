@@ -33,34 +33,29 @@ class __TwigTemplate_d80eb3bb10fd3090d57529a19db0e8ac6f5efc16c168bc02dc12b71768d
         echo $this->env->getExtension('translator')->getTranslator()->trans("Registration", array(), "messages");
     }
 
-    // line 6
+    // line 7
     public function block_content($context, array $blocks = array())
     {
-        echo "   
-    <script src=\"";
-        // line 7
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("public/js/repeatPassword.js"), "html", null, true);
-        echo "\" type=\"text/javascript\"></script>
-    
-    <div class=\"container\">        
+        echo "    
+         
         <form action=\"";
-        // line 10
+        // line 9
         echo $this->env->getExtension('routing')->getPath("_registration");
         echo "\" method=\"post\" ";
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'enctype');
-        echo " class=\"form-signin\">
+        echo " class=\"col-md-offset-4 col-md-4 well\">
             <div class=\"control-group\">
                 ";
-        // line 12
+        // line 11
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "user_name"), 'label', array("attr" => array("class" => "label"), "label" => "Username"));
         echo "
                 <div class=\"controls\">
                     ";
-        // line 14
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "user_name"), 'widget', array("attr" => array("pattern" => "^[a-zA-Z0-9_]+\$", "placeholder" => "Your name")));
+        // line 13
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "user_name"), 'widget', array("attr" => array("pattern" => "^[a-zA-Z0-9_]+\$", "placeholder" => "Your name", "class" => "form-control")));
         echo "
                     ";
-        // line 15
+        // line 14
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "user_name"), 'errors');
         echo "
                 </div>
@@ -68,16 +63,16 @@ class __TwigTemplate_d80eb3bb10fd3090d57529a19db0e8ac6f5efc16c168bc02dc12b71768d
                 <p></p>
             <div class=\"control-group\">
                 ";
-        // line 20
+        // line 19
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "user_email"), 'label', array("attr" => array("class" => "label"), "label" => "Email"));
         echo "
                 <div class=\"controls\">
                     ";
-        // line 22
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "user_email"), 'widget', array("attr" => array("placeholder" => "example@example.com")));
+        // line 21
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "user_email"), 'widget', array("attr" => array("placeholder" => "example@example.com", "class" => "form-control")));
         echo "
                      ";
-        // line 23
+        // line 22
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "user_email"), 'errors');
         echo "
                   </div>
@@ -85,40 +80,44 @@ class __TwigTemplate_d80eb3bb10fd3090d57529a19db0e8ac6f5efc16c168bc02dc12b71768d
                 <p></p>
             <div class=\"control-group\">
                 ";
-        // line 28
+        // line 27
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "user_password"), 'label', array("label" => "Password", "attr" => array("class" => "label")));
         echo "
                 <div class=\"controls\">
                     ";
+        // line 29
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "user_password"), 'widget', array("attr" => array("placeholder" => "Password", "class" => "password1 form-control")));
+        echo "
+                    ";
         // line 30
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "user_password"), 'widget', array("attr" => array("placeholder" => "Password", "class" => "password1")));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "user_password"), 'errors');
         echo "
                 </div>
-            </div>                
+            </div>     
+                <p></p>
             <div class=\"control-group\">
                 <label for=\"password2\">";
-        // line 34
+        // line 35
         echo $this->env->getExtension('translator')->getTranslator()->trans("Repeat password", array(), "messages");
         echo "</label>
                 <div class=\"controls\">
-                     <input type=\"password\" id=\"password2\" name=\"_password\" placeholder=\"Repeat password\" />
+                     <input class=\"form-control\" type=\"password\" id=\"password2\" name=\"_password\" placeholder=\"Repeat password\" />
                 </div>
             </div>
                 ";
-        // line 39
+        // line 40
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'errors');
         echo "
                 ";
-        // line 40
+        // line 41
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'rest');
         echo "
+                <p></p>
             <input type=\"submit\" class=\"btn btn-success\" value=\"";
-        // line 41
+        // line 43
         echo $this->env->getExtension('translator')->getTranslator()->trans("Registration", array(), "messages");
         echo "\"/>
-        </form>   
-    </div>
-\t
+        </form>    
 ";
     }
 
@@ -134,6 +133,6 @@ class __TwigTemplate_d80eb3bb10fd3090d57529a19db0e8ac6f5efc16c168bc02dc12b71768d
 
     public function getDebugInfo()
     {
-        return array (  117 => 41,  113 => 40,  109 => 39,  101 => 34,  94 => 30,  89 => 28,  81 => 23,  77 => 22,  72 => 20,  64 => 15,  60 => 14,  55 => 12,  48 => 10,  42 => 7,  37 => 6,  31 => 5,  26 => 3,);
+        return array (  118 => 43,  113 => 41,  109 => 40,  101 => 35,  93 => 30,  89 => 29,  84 => 27,  76 => 22,  72 => 21,  67 => 19,  59 => 14,  55 => 13,  50 => 11,  43 => 9,  37 => 7,  31 => 5,  26 => 3,);
     }
 }

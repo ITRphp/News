@@ -174,20 +174,20 @@ class __TwigTemplate_3223f353a403b86faffd73131be72b3bf5b1a2c2ee6005fdb24bd2d7914
                 menu = document.getElementById('navigation'), savedState = Sfjs.getPreference('menu/displayState'),
                 displayState, elem, className;
 
-            if (savedState == null) {
+            if (null === savedState) {
                 savedState = 'block';
             }
 
-            displayState = state || (savedState == 'block' ? 'none' : 'block');
+            displayState = state || ('block' === savedState ? 'none' : 'block');
 
-            if (typeof doSave === 'undefined') {
+            if ('undefined' === typeof doSave) {
                 doSave = true;
             }
 
             document.getElementById('searchBar').style.display = displayState;
             document.getElementById('adminBar').style.display = displayState;
 
-            if (displayState == 'block') {
+            if ('block' === displayState) {
                 Sfjs.removeClass(menu, 'collapsed-menu');
                 Sfjs.removeClass(menu.parentNode.parentNode, 'collapsed-menu-parents');
 
@@ -213,7 +213,7 @@ class __TwigTemplate_3223f353a403b86faffd73131be72b3bf5b1a2c2ee6005fdb24bd2d7914
         }
 
         window.setTimeout(function() {
-            if (document.getElementById('menu-profiler') == null) {
+            if (null === document.getElementById('menu-profiler')) {
                 return;
             }
 
@@ -225,12 +225,12 @@ class __TwigTemplate_3223f353a403b86faffd73131be72b3bf5b1a2c2ee6005fdb24bd2d7914
             }
 
             for (elem in menuItems) {
-                if (typeof(menuItems[elem].children) != 'undefined' &&
+                if (typeof(menuItems[elem].children) !== 'undefined' &&
                     menuItems[elem].children.length > 0) {
                     child = menuItems[elem].children[0]
 
-                    if (child.getAttribute('title') == '' ||
-                        child.getAttribute('title') == null) {
+                    if ('' === child.getAttribute('title') ||
+                        null === child.getAttribute('title')) {
                         value = child.text.replace(/^\\s+/g, '').split('\\n')[0].replace(/\\s+\$/g, '');
                         child.setAttribute('title', value);
                     }

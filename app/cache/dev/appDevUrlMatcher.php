@@ -27,6 +27,45 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         $context = $this->context;
         $request = $this->request;
 
+        if (0 === strpos($pathinfo, '/js/6bfbd92')) {
+            // _assetic_6bfbd92
+            if ($pathinfo === '/js/6bfbd92.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '6bfbd92',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_6bfbd92',);
+            }
+
+            if (0 === strpos($pathinfo, '/js/6bfbd92_')) {
+                // _assetic_6bfbd92_0
+                if ($pathinfo === '/js/6bfbd92_jquery-1.11.1_1.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '6bfbd92',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_6bfbd92_0',);
+                }
+
+                // _assetic_6bfbd92_1
+                if ($pathinfo === '/js/6bfbd92_repeatPassword_2.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '6bfbd92',  'pos' => 1,  '_format' => 'js',  '_route' => '_assetic_6bfbd92_1',);
+                }
+
+                // _assetic_6bfbd92_2
+                if ($pathinfo === '/js/6bfbd92_bootstrap.min_3.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '6bfbd92',  'pos' => 2,  '_format' => 'js',  '_route' => '_assetic_6bfbd92_2',);
+                }
+
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/css/1820aaf')) {
+            // _assetic_1820aaf
+            if ($pathinfo === '/css/1820aaf.css') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '1820aaf',  'pos' => NULL,  '_format' => 'css',  '_route' => '_assetic_1820aaf',);
+            }
+
+            // _assetic_1820aaf_0
+            if ($pathinfo === '/css/1820aaf_part_1_bootstrap.min_1.css') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '1820aaf',  'pos' => 0,  '_format' => 'css',  '_route' => '_assetic_1820aaf_0',);
+            }
+
+        }
+
         if (0 === strpos($pathinfo, '/_')) {
             // _wdt
             if (0 === strpos($pathinfo, '/_wdt') && preg_match('#^/_wdt/(?P<token>[^/]++)$#s', $pathinfo, $matches)) {
@@ -413,9 +452,9 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
-            // logout
+            // c
             if ($pathinfo === '/logout') {
-                return array('_route' => 'logout');
+                return array('_route' => 'c');
             }
 
         }

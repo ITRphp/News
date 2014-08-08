@@ -15,5 +15,5 @@ login:
     
 login_check:
     pattern:   /login_check
-logout:
+c:
     pattern:   /logout

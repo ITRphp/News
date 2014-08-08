@@ -1,0 +1,5 @@
+{% extends "NewsBundle::layout.html.twig" %}
+
+{% block content %}    
+      {{ knp_menu_render('NewsBundle:Builder:adminMenu', {'currentClass': 'active', 'template': 'NewsBundle:Menu:knp_menu.html.twig'}) }}      
+{% endblock %}

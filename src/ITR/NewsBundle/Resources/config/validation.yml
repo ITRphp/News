@@ -6,3 +6,12 @@ ITR\NewsBundle\Entity\User:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
             fields: [user_name]
             message: 'Not unique user name'
+    properties:
+        user_password:
+            - NotBlank: ~
+            - Length:
+                min: 8c
+    properties:
+        user_email:
+            -NotBlank: ~
+    

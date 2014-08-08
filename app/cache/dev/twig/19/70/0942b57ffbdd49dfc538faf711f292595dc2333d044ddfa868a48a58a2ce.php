@@ -7,54 +7,127 @@ class __TwigTemplate_19700942b57ffbdd49dfc538faf711f292595dc2333d044ddfa868a48a5
     {
         parent::__construct($env);
 
-        $this->parent = $this->env->loadTemplate("TwigBundle::layout.html.twig");
+        $this->parent = false;
 
         $this->blocks = array(
-            'head' => array($this, 'block_head'),
             'title' => array($this, 'block_title'),
+            'head' => array($this, 'block_head'),
+            'stylesheets' => array($this, 'block_stylesheets'),
             'body' => array($this, 'block_body'),
             'content' => array($this, 'block_content'),
         );
     }
 
-    protected function doGetParent(array $context)
-    {
-        return "TwigBundle::layout.html.twig";
-    }
-
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $this->parent->display($context, array_merge($this->blocks, $blocks));
-    }
-
-    // line 3
-    public function block_head($context, array $blocks = array())
-    {
+        // line 1
+        echo "<!DOCTYPE html>
+<html> 
+    <head>
+       <title>";
         // line 4
-        echo "    <link rel=\"stylesheet\" href=\"";
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/newsbundle/css/bootstrap.css"), "html", null, true);
-        echo "\">
-    <link rel=\"stylesheet\" href=\"";
+        $this->displayBlock('title', $context, $blocks);
+        echo "</title>
+       ";
         // line 5
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/newsbundle/css/signing.css"), "html", null, true);
-        echo "\">
+        $this->displayBlock('head', $context, $blocks);
+        // line 19
+        echo "    </head>
+    <body>
+            ";
+        // line 21
+        $this->displayBlock('body', $context, $blocks);
+        // line 24
+        echo "    </body>
+</html>
 ";
     }
 
-    // line 8
+    // line 4
     public function block_title($context, array $blocks = array())
     {
         echo $this->env->getExtension('translator')->getTranslator()->trans("News", array(), "messages");
     }
 
-    // line 10
-    public function block_body($context, array $blocks = array())
+    // line 5
+    public function block_head($context, array $blocks = array())
     {
+        // line 6
+        echo "           ";
+        $this->displayBlock('stylesheets', $context, $blocks);
         // line 11
-        echo "    ";
-        $this->displayBlock('content', $context, $blocks);
+        echo "               ";
+        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
+            // asset "6bfbd92_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_6bfbd92_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/6bfbd92_jquery-1.11.1_1.js");
+            // line 15
+            echo "                    <script src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"></script>
+                    ";
+            // asset "6bfbd92_1"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_6bfbd92_1") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/6bfbd92_repeatPassword_2.js");
+            echo "                    <script src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"></script>
+                    ";
+            // asset "6bfbd92_2"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_6bfbd92_2") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/6bfbd92_bootstrap.min_3.js");
+            echo "                    <script src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"></script>
+                    ";
+        } else {
+            // asset "6bfbd92"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_6bfbd92") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/6bfbd92.js");
+            echo "                    <script src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"></script>
+                    ";
+        }
+        unset($context["asset_url"]);
+        // line 17
+        echo "
+        ";
     }
 
+    // line 6
+    public function block_stylesheets($context, array $blocks = array())
+    {
+        // line 7
+        echo "               ";
+        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
+            // asset "1820aaf_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_1820aaf_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/1820aaf_part_1_bootstrap.min_1.css");
+            // line 8
+            echo "               <link rel=\"stylesheet\" href=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\" />
+               ";
+        } else {
+            // asset "1820aaf"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_1820aaf") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/1820aaf.css");
+            echo "               <link rel=\"stylesheet\" href=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\" />
+               ";
+        }
+        unset($context["asset_url"]);
+        // line 10
+        echo "           ";
+    }
+
+    // line 21
+    public function block_body($context, array $blocks = array())
+    {
+        // line 22
+        echo "                ";
+        $this->displayBlock('content', $context, $blocks);
+        // line 23
+        echo "            ";
+    }
+
+    // line 22
     public function block_content($context, array $blocks = array())
     {
     }
@@ -64,13 +137,8 @@ class __TwigTemplate_19700942b57ffbdd49dfc538faf711f292595dc2333d044ddfa868a48a5
         return "NewsBundle::layout.html.twig";
     }
 
-    public function isTraitable()
-    {
-        return false;
-    }
-
     public function getDebugInfo()
     {
-        return array (  54 => 11,  45 => 8,  34 => 4,  31 => 3,  103 => 28,  98 => 26,  94 => 25,  90 => 24,  85 => 22,  79 => 21,  73 => 18,  70 => 17,  67 => 16,  60 => 11,  51 => 10,  47 => 8,  44 => 7,  41 => 6,  39 => 5,  36 => 4,  30 => 3,);
+        return array (  131 => 22,  127 => 23,  124 => 22,  121 => 21,  117 => 10,  103 => 8,  98 => 7,  95 => 6,  90 => 17,  64 => 15,  59 => 11,  56 => 6,  53 => 5,  47 => 4,  41 => 24,  39 => 21,  35 => 19,  33 => 5,  29 => 4,  24 => 1,  51 => 15,  42 => 9,  38 => 7,  34 => 5,  31 => 4,  28 => 3,);
     }
 }
