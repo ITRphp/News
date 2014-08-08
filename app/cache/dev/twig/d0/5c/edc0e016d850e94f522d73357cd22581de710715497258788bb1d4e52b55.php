@@ -51,10 +51,10 @@ class __TwigTemplate_d05cedc0e016d850e94f522d73357cd22581de710715497258788bb1d4e
     public function block_body($context, array $blocks = array())
     {
         // line 11
-        echo "\t<div class = \"container\" style=\"-webkit-box-shadow: 0px 0px 6px 6px rgba(50, 50, 50, 0.13);
+        echo "\t<div id=\"content\" class = \"container\" style=\"-webkit-box-shadow: 0px 0px 6px 6px rgba(50, 50, 50, 0.13);
 \t\t\t\t\t\t\t\t\t-moz-box-shadow:    0px 0px 6px 6px rgba(50, 50, 50, 0.13);
 \t\t\t\t\t\t\t\t\tbox-shadow:         0px 0px 6px 6px rgba(50, 50, 50, 0.13);\">
-   \t\t";
+\t";
         // line 14
         $this->displayBlock('content', $context, $blocks);
         // line 16
@@ -66,7 +66,7 @@ class __TwigTemplate_d05cedc0e016d850e94f522d73357cd22581de710715497258788bb1d4e
     public function block_content($context, array $blocks = array())
     {
         // line 15
-        echo "   \t\t";
+        echo "\t";
     }
 
     public function getTemplateName()

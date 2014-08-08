@@ -8,11 +8,11 @@
 {% block title %}{% trans %}News{% endtrans %}{% endblock %}
 
 {% block body %}
-	<div class = "container" style="-webkit-box-shadow: 0px 0px 6px 6px rgba(50, 50, 50, 0.13);
+	<div id="content" class = "container" style="-webkit-box-shadow: 0px 0px 6px 6px rgba(50, 50, 50, 0.13);
 									-moz-box-shadow:    0px 0px 6px 6px rgba(50, 50, 50, 0.13);
 									box-shadow:         0px 0px 6px 6px rgba(50, 50, 50, 0.13);">
-   		{% block content %}
-   		{% endblock %}
+	{% block content %}
+	{% endblock %}
    	</div>
 {% endblock %}
 
