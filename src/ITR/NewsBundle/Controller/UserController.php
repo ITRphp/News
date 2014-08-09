@@ -234,6 +234,7 @@ class UserController extends Controller
             $user= $em->getRepository('NewsBundle:User')->findBy(array('user_email' => $email));
 
             if ($user!=null) {
+                var_dump($user);
                 //TODO отправка письма юзеру 
 //            $em = $this->getDoctrine()->getManager(); 
 //            $em->persist($user);

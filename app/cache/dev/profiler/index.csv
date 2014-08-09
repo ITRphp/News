@@ -280,3 +280,7 @@ caefb9,::1,GET,http://localhost/News/web/app_dev.php/passwordrecovery,1407622203
 dc9572,::1,POST,http://localhost/News/web/app_dev.php/passwordrecovery,1407622237,
 2c3d03,::1,GET,http://localhost/News/web/app_dev.php/passwordrecovery,1407622253,
 b91e59,::1,POST,http://localhost/News/web/app_dev.php/passwordrecovery,1407622263,
+6b5c2d,::1,GET,http://localhost/News/web/app_dev.php/passwordrecovery,1407623317,
+3d510e,::1,POST,http://localhost/News/web/app_dev.php/passwordrecovery,1407623319,
+e0e224,::1,GET,http://localhost/News/web/app_dev.php/passwordrecovery,1407623415,
+e1ff2d,::1,POST,http://localhost/News/web/app_dev.php/passwordrecovery,1407623420,
