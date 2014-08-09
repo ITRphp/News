@@ -1,15 +1,15 @@
 {% extends 'NewsBundle::layout.html.twig' %}
 
 {% block content %}
-    {% if error %}
-        <div>{{ error.message }}</div>
-    {% endif %}
-    
-    <h1 class="title">{% trans %}Log in{% endtrans %}</h1>
+    <h1 class="text-muted">{% trans %}Log in{% endtrans %}</h1>
     <br>
     <div class="container">
         <form action="{{ path('login_check') }}" method="post" id="login" role="form" class="form-signin">
             <div class="control-group">
+                
+                {% if error %}
+                    <div class="text-danger">{{ error.message|trans({},'messages') }}</div>
+                {% endif %}
                 <label for="username">{% trans %}User name{% endtrans %}</label>
                 <div class="controls">
                     <input type="text" id="username" name="_username" value="{{ last_username }}" />
@@ -22,9 +22,10 @@
                 </div>
             </div>
             <input type="hidden" name="_target_path" value="/hello" />
+            
             <input type="submit" class="btn btn-success" value="{% trans %}Log in{% endtrans %}"/>                      
             <p>
-                 <a href="#">{% trans %} Forgot.password {% endtrans %}</a>
+                 <a href="{{ path('password_recovery') }}">{% trans %} Forgot.password {% endtrans %}</a>
             </p>   
         
         </form>

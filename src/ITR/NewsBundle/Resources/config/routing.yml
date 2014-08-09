@@ -64,3 +64,10 @@ _add_category:
     pattern: /admin/category/new
     defaults:  { _controller: NewsBundle:Category:new}
     
+NewsBundle_admin_passwordrecovery:
+        resource: "@NewsBundle/Resources/config/routing/passwordrecovery.yml"
+        prefix:   /admin/passwordrecovery
+        
+password_recovery:
+    pattern: /passwordrecovery
+    defaults:  { _controller: NewsBundle:User:recovery}

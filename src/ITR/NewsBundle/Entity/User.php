@@ -11,6 +11,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  */
 class User implements UserInterface,  \Serializable
 {
+
     /**
      * @var integer
      */
@@ -223,5 +224,33 @@ class User implements UserInterface,  \Serializable
     public function getDispatches()
     {
         return $this->dispatches;
+    }
+    /**
+     * @var \ITR\NewsBundle\Entity\PasswordRecovery
+     */
+    private $passwordrecovery;
+
+
+    /**
+     * Set passwordrecovery
+     *
+     * @param \ITR\NewsBundle\Entity\PasswordRecovery $passwordrecovery
+     * @return User
+     */
+    public function setPasswordrecovery(\ITR\NewsBundle\Entity\PasswordRecovery $passwordrecovery = null)
+    {
+        $this->passwordrecovery = $passwordrecovery;
+
+        return $this;
+    }
+
+    /**
+     * Get passwordrecovery
+     *
+     * @return \ITR\NewsBundle\Entity\PasswordRecovery 
+     */
+    public function getPasswordrecovery()
+    {
+        return $this->passwordrecovery;
     }
 }

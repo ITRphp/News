@@ -3,6 +3,8 @@ namespace ITR\NewsBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
 use Symfony\Component\DependencyInjection\ContainerAware;
+use Symfony\Component\Translation\Translator;
+use Symfony\Component\Translation;
 
 class Builder extends ContainerAware
 {
@@ -29,10 +31,17 @@ class Builder extends ContainerAware
     }
     public function adminMenu(FactoryInterface $factory, array $options)
     {
+       $translator = new Translator('en');
+       $translator->addLoader('yaml', new Translation\Loader\YamlFileLoader()); 
+       //$translator->addResource('yaml', __DIR__ . '/translations/es_ES.yml' , 'es_ES');
+
         $menu = $factory->createItem('root');
         $menu->setChildrenAttribute('class', 'nav navbar-nav');
         
-        $menu->addChild('Main page', array('route' => 'hello'));
+         
+        
+        
+        $menu->addChild( $translator->trans('Main Page'), array('route' => 'hello', 'label' => $translator->trans('Main Page')));
  
         $menu->addChild('Users')
              ->setAttribute('dropdown', true);

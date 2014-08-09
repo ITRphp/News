@@ -162,4 +162,32 @@ class News
     {
         return $this->category;
     }
+    /**
+     * @var \ITR\NewsBundle\Entity\PasswordRecovery
+     */
+    private $passwordrecovery;
+
+
+    /**
+     * Set passwordrecovery
+     *
+     * @param \ITR\NewsBundle\Entity\PasswordRecovery $passwordrecovery
+     * @return News
+     */
+    public function setPasswordrecovery(\ITR\NewsBundle\Entity\PasswordRecovery $passwordrecovery = null)
+    {
+        $this->passwordrecovery = $passwordrecovery;
+
+        return $this;
+    }
+
+    /**
+     * Get passwordrecovery
+     *
+     * @return \ITR\NewsBundle\Entity\PasswordRecovery 
+     */
+    public function getPasswordrecovery()
+    {
+        return $this->passwordrecovery;
+    }
 }

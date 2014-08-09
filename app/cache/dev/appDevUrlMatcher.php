@@ -358,6 +358,71 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             }
 
+            if (0 === strpos($pathinfo, '/admin/passwordrecovery')) {
+                // admin_passwordrecovery
+                if (rtrim($pathinfo, '/') === '/admin/passwordrecovery') {
+                    if (substr($pathinfo, -1) !== '/') {
+                        return $this->redirect($pathinfo.'/', 'admin_passwordrecovery');
+                    }
+
+                    return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\PasswordRecoveryController::indexAction',  '_route' => 'admin_passwordrecovery',);
+                }
+
+                // admin_passwordrecovery_show
+                if (preg_match('#^/admin/passwordrecovery/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_passwordrecovery_show')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\PasswordRecoveryController::showAction',));
+                }
+
+                // admin_passwordrecovery_new
+                if ($pathinfo === '/admin/passwordrecovery/new') {
+                    return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\PasswordRecoveryController::newAction',  '_route' => 'admin_passwordrecovery_new',);
+                }
+
+                // admin_passwordrecovery_create
+                if ($pathinfo === '/admin/passwordrecovery/create') {
+                    if ($this->context->getMethod() != 'POST') {
+                        $allow[] = 'POST';
+                        goto not_admin_passwordrecovery_create;
+                    }
+
+                    return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\PasswordRecoveryController::createAction',  '_route' => 'admin_passwordrecovery_create',);
+                }
+                not_admin_passwordrecovery_create:
+
+                // admin_passwordrecovery_edit
+                if (preg_match('#^/admin/passwordrecovery/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_passwordrecovery_edit')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\PasswordRecoveryController::editAction',));
+                }
+
+                // admin_passwordrecovery_update
+                if (preg_match('#^/admin/passwordrecovery/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                        $allow = array_merge($allow, array('POST', 'PUT'));
+                        goto not_admin_passwordrecovery_update;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_passwordrecovery_update')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\PasswordRecoveryController::updateAction',));
+                }
+                not_admin_passwordrecovery_update:
+
+                // admin_passwordrecovery_delete
+                if (preg_match('#^/admin/passwordrecovery/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                    if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                        $allow = array_merge($allow, array('POST', 'DELETE'));
+                        goto not_admin_passwordrecovery_delete;
+                    }
+
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'admin_passwordrecovery_delete')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\PasswordRecoveryController::deleteAction',));
+                }
+                not_admin_passwordrecovery_delete:
+
+            }
+
+        }
+
+        // password_recovery
+        if ($pathinfo === '/passwordrecovery') {
+            return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\UserController::recoveryAction',  '_route' => 'password_recovery',);
         }
 
         if (0 === strpos($pathinfo, '/news')) {

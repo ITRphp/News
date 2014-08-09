@@ -41,8 +41,8 @@ class __TwigTemplate_0c36d470790518ba01e8d9ea08a992f9fae78dc3cd2c779ae3f2d6dc53f
     // line 6
     public function block_content($context, array $blocks = array())
     {
-        echo "        
-            <div class=\"text-center \">
+        // line 7
+        echo "            <div class=\"text-center \">
                 <h1> ";
         // line 8
         echo $this->env->getExtension('translator')->getTranslator()->trans("Welcome", array(), "messages");
@@ -84,6 +84,6 @@ class __TwigTemplate_0c36d470790518ba01e8d9ea08a992f9fae78dc3cd2c779ae3f2d6dc53f
 
     public function getDebugInfo()
     {
-        return array (  70 => 17,  68 => 16,  64 => 15,  60 => 13,  58 => 12,  54 => 11,  48 => 8,  42 => 6,  36 => 5,  30 => 3,);
+        return array (  70 => 17,  68 => 16,  64 => 15,  60 => 13,  58 => 12,  54 => 11,  48 => 8,  45 => 7,  42 => 6,  36 => 5,  30 => 3,);
     }
 }

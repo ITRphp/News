@@ -2115,37 +2115,40 @@ class appDevDebugProjectContainer extends Container
 
         $h = new \Symfony\Component\HttpFoundation\RequestMatcher('^/registration');
 
-        $i = new \Symfony\Component\HttpFoundation\RequestMatcher('^/admin');
+        $i = new \Symfony\Component\HttpFoundation\RequestMatcher('^/passwordrecovery');
 
-        $j = new \Symfony\Component\HttpFoundation\RequestMatcher('^/admin/news');
+        $j = new \Symfony\Component\HttpFoundation\RequestMatcher('^/admin');
 
-        $k = new \Symfony\Component\HttpFoundation\RequestMatcher('^/admin/category');
+        $k = new \Symfony\Component\HttpFoundation\RequestMatcher('^/admin/news');
 
-        $l = new \Symfony\Component\HttpFoundation\RequestMatcher('^/admin/user');
+        $l = new \Symfony\Component\HttpFoundation\RequestMatcher('^/admin/category');
 
-        $m = new \Symfony\Component\HttpFoundation\RequestMatcher('^/admin/dispatch');
+        $m = new \Symfony\Component\HttpFoundation\RequestMatcher('^/admin/user');
 
-        $n = new \Symfony\Component\HttpFoundation\RequestMatcher('^/hello');
+        $n = new \Symfony\Component\HttpFoundation\RequestMatcher('^/admin/dispatch');
 
-        $o = new \Symfony\Component\Security\Http\AccessMap();
-        $o->add($g, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
-        $o->add($h, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
-        $o->add($i, array(0 => 'ROLE_ADMIN'), NULL);
-        $o->add($j, array(0 => 'ROLE_ADMIN'), NULL);
-        $o->add($k, array(0 => 'ROLE_ADMIN'), NULL);
-        $o->add($l, array(0 => 'ROLE_ADMIN'), NULL);
-        $o->add($m, array(0 => 'ROLE_ADMIN'), NULL);
-        $o->add($n, array(0 => 'ROLE_USER'), NULL);
+        $o = new \Symfony\Component\HttpFoundation\RequestMatcher('^/hello');
 
-        $p = new \Symfony\Component\Security\Http\HttpUtils($d, $d);
+        $p = new \Symfony\Component\Security\Http\AccessMap();
+        $p->add($g, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
+        $p->add($h, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
+        $p->add($i, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
+        $p->add($j, array(0 => 'ROLE_ADMIN'), NULL);
+        $p->add($k, array(0 => 'ROLE_ADMIN'), NULL);
+        $p->add($l, array(0 => 'ROLE_ADMIN'), NULL);
+        $p->add($m, array(0 => 'ROLE_ADMIN'), NULL);
+        $p->add($n, array(0 => 'ROLE_ADMIN'), NULL);
+        $p->add($o, array(0 => 'ROLE_USER'), NULL);
 
-        $q = new \Symfony\Component\Security\Http\Firewall\LogoutListener($b, $p, new \Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler($p, '/'), array('csrf_parameter' => '_csrf_token', 'intention' => 'logout', 'logout_path' => '/logout'));
-        $q->addHandler(new \Symfony\Component\Security\Http\Logout\SessionLogoutHandler());
+        $q = new \Symfony\Component\Security\Http\HttpUtils($d, $d);
 
-        $r = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler($p, array('login_path' => '/login', 'always_use_default_target_path' => false, 'default_target_path' => '/', 'target_path_parameter' => '_target_path', 'use_referer' => false));
-        $r->setProviderKey('secured_area');
+        $r = new \Symfony\Component\Security\Http\Firewall\LogoutListener($b, $q, new \Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler($q, '/'), array('csrf_parameter' => '_csrf_token', 'intention' => 'logout', 'logout_path' => '/logout'));
+        $r->addHandler(new \Symfony\Component\Security\Http\Logout\SessionLogoutHandler());
 
-        return $this->services['security.firewall.map.context.secured_area'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($o, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('security.user.provider.concrete.main')), 'secured_area', $a, $c), 2 => $q, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $f, new \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy('migrate'), $p, 'secured_area', $r, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($e, $p, array('login_path' => '/login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $a), array('check_path' => '/login_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $c, NULL), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '53e4fecf2f8b1', $a), 5 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $o, $f)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $p, 'secured_area', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($e, $p, '/login', false), NULL, NULL, $a));
+        $s = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler($q, array('login_path' => '/login', 'always_use_default_target_path' => false, 'default_target_path' => '/', 'target_path_parameter' => '_target_path', 'use_referer' => false));
+        $s->setProviderKey('secured_area');
+
+        return $this->services['security.firewall.map.context.secured_area'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($p, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('security.user.provider.concrete.main')), 'secured_area', $a, $c), 2 => $r, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $f, new \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy('migrate'), $q, 'secured_area', $s, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($e, $q, array('login_path' => '/login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $a), array('check_path' => '/login_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $c, NULL), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '53e692dd668af', $a), 5 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $p, $f)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $q, 'secured_area', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($e, $q, '/login', false), NULL, NULL, $a));
     }
 
     /**
@@ -3667,7 +3670,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_Authentication_ManagerService()
     {
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('security.user.provider.concrete.main'), new \Symfony\Component\Security\Core\User\UserChecker(), 'secured_area', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('53e4fecf2f8b1')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('security.user.provider.concrete.main'), new \Symfony\Component\Security\Core\User\UserChecker(), 'secured_area', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('53e692dd668af')), true);
 
         $instance->setEventDispatcher($this->get('debug.event_dispatcher'));
 

@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use ITR\NewsBundle\Entity\User;
+use ITR\NewsBundle\Entity\UserRepository;
 use ITR\NewsBundle\Form\UserType;
 
 /**
@@ -220,5 +221,28 @@ class UserController extends Controller
             ->add('submit', 'submit', array('label' => 'Delete'))
             ->getForm()
         ;
+    }
+    
+      
+    public function recoveryAction(Request $request)
+    {       
+        if ($request->getMethod() == 'POST') {            
+            $email=$request->request->get('_email');
+            
+            $em = $this->getDoctrine()->getManager();
+            $user = new User();
+            $user= $em->getRepository('NewsBundle:User')->findBy(array('user_email' => $email));
+
+            if ($user!=null) {
+                //TODO отправка письма юзеру 
+//            $em = $this->getDoctrine()->getManager(); 
+//            $em->persist($user);
+//            $em->flush();
+
+            return $this->render(('NewsBundle:Welcome:index.html.twig'));
+        }
+    }
+    //Передать ошибку о том что имйла нет
+        return $this->render('NewsBundle:PasswordRecovery:email.html.twig');
     }
 }

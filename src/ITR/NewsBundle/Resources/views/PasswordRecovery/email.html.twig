@@ -1,0 +1,14 @@
+{% extends "NewsBundle::layout.html.twig"%}
+
+{% block content %}
+    <form action="{{ path('password_recovery') }}" method="POST" class="col-md-offset-4 col-md-4 well">
+        <div class="control-group">
+            <label for="_email">Enter your email:</label>
+            <div class="controls">
+                <input type="email" placeholder="Your Email" name="_email" class="form-control" required>
+            </div>
+            <br>
+            <input type="submit" value="Send" class="form-control btn-primary">
+        </div>
+    </form>    
+{% endblock %}
