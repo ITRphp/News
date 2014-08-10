@@ -221,5 +221,9 @@ class PasswordRecoveryController extends Controller
             ->getForm()
         ;
     }
+    public function createNew($access_hash, $user, $pass_recovery) {
+        
+        
+    }
   
 }

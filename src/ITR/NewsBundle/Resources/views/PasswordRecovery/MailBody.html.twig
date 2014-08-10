@@ -1,0 +1,13 @@
+{% extends "NewsBundle::layout.html.twig"%}
+
+{% block content %}
+    <h1>Dear {{name}}!</h1>
+
+    We have received your request for resetting your account password, you can click the below link to change your password. 
+    <p>
+        <a href="{{access_hash}}">Click here</a>
+    </p>
+    <p>
+        If you ignore this message, your password won't be changed.
+    </p>
+{% endblock %}

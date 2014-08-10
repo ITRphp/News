@@ -6,7 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use ITR\NewsBundle\Entity\User;
-use ITR\NewsBundle\Entity\UserRepository;
+use ITR\NewsBundle\Entity\PasswordRecovery;
 use ITR\NewsBundle\Form\UserType;
 
 /**
@@ -222,28 +222,49 @@ class UserController extends Controller
             ->getForm()
         ;
     }
-    
-      
+    /*
+     * @var \ITR\NewsBundle\Entity\User $user     
+     */
+       
     public function recoveryAction(Request $request)
     {       
         if ($request->getMethod() == 'POST') {            
-            $email=$request->request->get('_email');
-            
+            $email = $request->request->get('_email');
             $em = $this->getDoctrine()->getManager();
-            $user = new User();
-            $user= $em->getRepository('NewsBundle:User')->findBy(array('user_email' => $email));
-
-            if ($user!=null) {
-                var_dump($user);
-                //TODO отправка письма юзеру 
-//            $em = $this->getDoctrine()->getManager(); 
-//            $em->persist($user);
-//            $em->flush();
-
+            $user= $em->getRepository('NewsBundle:User')->findOneBy(array('user_email' => $email));
+            if ($user != null) {
+            $this->sendEmail($user);
             return $this->render(('NewsBundle:Welcome:index.html.twig'));
         }
     }
-    //Передать ошибку о том что имйла нет
         return $this->render('NewsBundle:PasswordRecovery:email.html.twig');
+    }
+    
+    public function sendEmail($user)
+    {
+        
+        $user_name = $user->getUserName();
+        $user_email = $user->getUserEmail();
+        $user_id = $user->getId();
+        $hash_code = md5($user_email.$user_id);
+        $access_hash="http://localhost/News/web/app_dev.php/newpassword/&user=".$user_id."&hash=".$hash_code;
+        $message = \Swift_Message::newInstance()
+                ->setSubject("Hello $user_name")->setFrom("news.dispatch.itr@gmail.com")
+                ->setTo('beauty-93@inbox.ru') 
+                ->setBody($this->renderView('NewsBundle:PasswordRecovery:MailBody.html.twig',
+                        array('name' => $user_name, 'access_hash' => $access_hash) ),
+                        'text/html');
+        $this->get('mailer')->send($message);
+        //вынести в отдельный метод
+        $pass_recovery = new PasswordRecovery();
+        $pass_recovery->setUser($user);
+        $pass_recovery->setAccessHash($access_hash);
+        $date = new \DateTime();
+        $date->modify('+1 day');
+        $pass_recovery->setExpires($date);
+        $em = $this->getDoctrine()->getManager();
+            $em->persist($pass_recovery);
+            $em->flush();
+        
     }
 }

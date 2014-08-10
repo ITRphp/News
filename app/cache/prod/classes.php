@@ -2968,7 +2968,7 @@ if (!isset($this->sorted[$eventName])) {
 $this->sortListeners($eventName);
 }
 }
-return $this->sorted;
+return array_filter($this->sorted);
 }
 public function hasListeners($eventName = null)
 {
