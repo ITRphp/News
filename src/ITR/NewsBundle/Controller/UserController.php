@@ -232,22 +232,32 @@ class UserController extends Controller
             $email = $request->request->get('_email');
             $em = $this->getDoctrine()->getManager();
             $user= $em->getRepository('NewsBundle:User')->findOneBy(array('user_email' => $email));
+                        
             if ($user != null) {
-            $this->sendEmail($user);
-            return $this->render(('NewsBundle:Welcome:index.html.twig'));
+                $user_name = $user->getUserName();
+                $user_email = $user->getUserEmail();
+                $user_id = $user->getId();
+                $pass_recovery=$em->getRepository('NewsBundle:PasswordRecovery')->findOneBy(array('user' => $user_id));
+                
+                if(empty($pass_recovery)){
+                    $hash_code = md5($user_email.$user_id);
+                    $access_hash="http://localhost/News/web/app_dev.php/updatepassword?user=".$user_id."&hash=".$hash_code;
+                    $this->sendEmail($user_name, $access_hash, $user_email);
+                    $this->createPasswordRecovery($user, $hash_code);
+                    $this->get('session')->getFlashBag()->add('notice', 'Letter sent to your email');
+                    return $this->redirect($this->generateUrl('_welcome'));
+                }else{
+                    $this->get('session')->getFlashBag()->add('notice', 'Link to reset your password has been sent');
+                    unset($user);
+                }
+            }else{
+                 $this->get('session')->getFlashBag()->add('notice', 'User with the email is not registered');
+            }
         }
-    }
         return $this->render('NewsBundle:PasswordRecovery:email.html.twig');
     }
     
-    public function sendEmail($user)
-    {
-        
-        $user_name = $user->getUserName();
-        $user_email = $user->getUserEmail();
-        $user_id = $user->getId();
-        $hash_code = md5($user_email.$user_id);
-        $access_hash="http://localhost/News/web/app_dev.php/newpassword/&user=".$user_id."&hash=".$hash_code;
+    public function sendEmail($user_name, $access_hash, $user_email){        
         $message = \Swift_Message::newInstance()
                 ->setSubject("Hello $user_name")->setFrom("news.dispatch.itr@gmail.com")
                 ->setTo('beauty-93@inbox.ru') 
@@ -255,10 +265,12 @@ class UserController extends Controller
                         array('name' => $user_name, 'access_hash' => $access_hash) ),
                         'text/html');
         $this->get('mailer')->send($message);
-        //вынести в отдельный метод
+    }
+    
+    public function createPasswordRecovery($user, $hash_code) {
         $pass_recovery = new PasswordRecovery();
         $pass_recovery->setUser($user);
-        $pass_recovery->setAccessHash($access_hash);
+        $pass_recovery->setAccessHash($hash_code);
         $date = new \DateTime();
         $date->modify('+1 day');
         $pass_recovery->setExpires($date);

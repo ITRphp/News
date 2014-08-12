@@ -28,11 +28,31 @@ class __TwigTemplate_5d04091f1b9ec9b1e2a02657044502eee5ecfa2cc9c94846a6d3c206023
     public function block_content($context, array $blocks = array())
     {
         // line 4
-        echo "    <form action=\"";
+        echo "    
+    <form action=\"";
+        // line 5
         echo $this->env->getExtension('routing')->getPath("password_recovery");
         echo "\" method=\"POST\" class=\"col-md-offset-4 col-md-4 well\">
-        <div class=\"control-group\">
-            <label for=\"_email\">Enter your email:</label>
+        ";
+        // line 6
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session"), "flashbag"), "get", array(0 => "notice"), "method"));
+        foreach ($context['_seq'] as $context["_key"] => $context["flashMessage"]) {
+            // line 7
+            echo "            <div class=\"text-danger text-center\"> <h3>";
+            echo twig_escape_filter($this->env, (isset($context["flashMessage"]) ? $context["flashMessage"] : $this->getContext($context, "flashMessage")), "html", null, true);
+            echo "</h3></div>
+        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 9
+        echo "        <div class=\"control-group\">
+            <label for=\"_email\">";
+        // line 10
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Enter.email", array(), "messages");
+        echo ":</label>
             <div class=\"controls\">
                 <input type=\"email\" placeholder=\"Your Email\" name=\"_email\" class=\"form-control\" required>
             </div>
@@ -55,6 +75,6 @@ class __TwigTemplate_5d04091f1b9ec9b1e2a02657044502eee5ecfa2cc9c94846a6d3c206023
 
     public function getDebugInfo()
     {
-        return array (  31 => 4,  28 => 3,);
+        return array (  54 => 10,  51 => 9,  42 => 7,  38 => 6,  34 => 5,  31 => 4,  28 => 3,);
     }
 }

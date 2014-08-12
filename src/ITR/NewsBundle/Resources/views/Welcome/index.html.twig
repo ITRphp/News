@@ -4,6 +4,9 @@
 
 {% block content_header '' %}   
     {% block content %}
+    {% for flashMessage in app.session.flashbag.get('notice') %}
+        <div class="text-danger text-center"> <h3>{{ flashMessage }}</h3></div>
+    {% endfor %}
             <div class="text-center ">
                 <h1> {% trans %}Welcome{% endtrans %} </h1>
             </div>  

@@ -4,6 +4,13 @@
 
 {% block title %}{% trans %}Registration{% endtrans %}{% endblock %}
 
+{% block head%}
+    {{parent()}}
+    {% javascripts
+    '@NewsBundle/Resources/public/js/repeatPassword.js'%}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock%}
 {% block content %}    
          
         <form action="{{ path('_registration') }}" method="post" {{ form_enctype(form) }} class="col-md-offset-4 col-md-4 well">

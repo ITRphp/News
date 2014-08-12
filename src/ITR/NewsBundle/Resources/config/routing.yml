@@ -71,3 +71,9 @@ NewsBundle_admin_passwordrecovery:
 password_recovery:
     pattern: /passwordrecovery
     defaults:  { _controller: NewsBundle:User:recovery}
+    
+_new_password:
+    pattern: /updatepassword
+    defaults:  { _controller: NewsBundle:PasswordRecovery:newPassword}
+    requirements:
+      _method: GET|POST

@@ -115,6 +115,10 @@ $catalogue = new MessageCatalogue('en', array (
     'Forgot.password' => 'Forgot your password?',
     'Main page' => 'Main pagelala',
     'Bad credentials' => 'Wrong user name or password',
+    'Enter.email' => 'Enter your email',
+    'Enter.new.password' => 'Enter new password',
+    'Repeat.new.password' => 'Repeat new password',
+    'Update.password' => 'Update password',
   ),
 ));
 

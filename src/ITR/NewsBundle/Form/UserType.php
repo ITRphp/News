@@ -22,6 +22,13 @@ class UserType extends AbstractType
         ;
     }
     
+    public function buildEmailForm(FormBuilderInterface $builder, array $options)
+    {
+        $builder
+            ->add('user_email')
+                ;
+    }
+    
     /**
      * @param OptionsResolverInterface $resolver
      */

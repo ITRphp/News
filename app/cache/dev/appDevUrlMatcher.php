@@ -27,26 +27,21 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         $context = $this->context;
         $request = $this->request;
 
-        if (0 === strpos($pathinfo, '/js/6bfbd92')) {
-            // _assetic_6bfbd92
-            if ($pathinfo === '/js/6bfbd92.js') {
-                return array (  '_controller' => 'assetic.controller:render',  'name' => '6bfbd92',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_6bfbd92',);
+        if (0 === strpos($pathinfo, '/js/82e4982')) {
+            // _assetic_82e4982
+            if ($pathinfo === '/js/82e4982.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '82e4982',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_82e4982',);
             }
 
-            if (0 === strpos($pathinfo, '/js/6bfbd92_')) {
-                // _assetic_6bfbd92_0
-                if ($pathinfo === '/js/6bfbd92_jquery-1.11.1_1.js') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => '6bfbd92',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_6bfbd92_0',);
+            if (0 === strpos($pathinfo, '/js/82e4982_')) {
+                // _assetic_82e4982_0
+                if ($pathinfo === '/js/82e4982_jquery-1.11.1_1.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '82e4982',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_82e4982_0',);
                 }
 
-                // _assetic_6bfbd92_1
-                if ($pathinfo === '/js/6bfbd92_repeatPassword_2.js') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => '6bfbd92',  'pos' => 1,  '_format' => 'js',  '_route' => '_assetic_6bfbd92_1',);
-                }
-
-                // _assetic_6bfbd92_2
-                if ($pathinfo === '/js/6bfbd92_bootstrap.min_3.js') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => '6bfbd92',  'pos' => 2,  '_format' => 'js',  '_route' => '_assetic_6bfbd92_2',);
+                // _assetic_82e4982_1
+                if ($pathinfo === '/js/82e4982_bootstrap.min_2.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '82e4982',  'pos' => 1,  '_format' => 'js',  '_route' => '_assetic_82e4982_1',);
                 }
 
             }
@@ -62,6 +57,48 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             // _assetic_1820aaf_0
             if ($pathinfo === '/css/1820aaf_part_1_bootstrap.min_1.css') {
                 return array (  '_controller' => 'assetic.controller:render',  'name' => '1820aaf',  'pos' => 0,  '_format' => 'css',  '_route' => '_assetic_1820aaf_0',);
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/js')) {
+            if (0 === strpos($pathinfo, '/js/6bfbd92')) {
+                // _assetic_6bfbd92
+                if ($pathinfo === '/js/6bfbd92.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '6bfbd92',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_6bfbd92',);
+                }
+
+                if (0 === strpos($pathinfo, '/js/6bfbd92_')) {
+                    // _assetic_6bfbd92_0
+                    if ($pathinfo === '/js/6bfbd92_jquery-1.11.1_1.js') {
+                        return array (  '_controller' => 'assetic.controller:render',  'name' => '6bfbd92',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_6bfbd92_0',);
+                    }
+
+                    // _assetic_6bfbd92_1
+                    if ($pathinfo === '/js/6bfbd92_repeatPassword_2.js') {
+                        return array (  '_controller' => 'assetic.controller:render',  'name' => '6bfbd92',  'pos' => 1,  '_format' => 'js',  '_route' => '_assetic_6bfbd92_1',);
+                    }
+
+                    // _assetic_6bfbd92_2
+                    if ($pathinfo === '/js/6bfbd92_bootstrap.min_3.js') {
+                        return array (  '_controller' => 'assetic.controller:render',  'name' => '6bfbd92',  'pos' => 2,  '_format' => 'js',  '_route' => '_assetic_6bfbd92_2',);
+                    }
+
+                }
+
+            }
+
+            if (0 === strpos($pathinfo, '/js/50e4156')) {
+                // _assetic_50e4156
+                if ($pathinfo === '/js/50e4156.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '50e4156',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_50e4156',);
+                }
+
+                // _assetic_50e4156_0
+                if ($pathinfo === '/js/50e4156_repeatPassword_1.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '50e4156',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_50e4156_0',);
+                }
+
             }
 
         }
@@ -424,6 +461,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         if ($pathinfo === '/passwordrecovery') {
             return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\UserController::recoveryAction',  '_route' => 'password_recovery',);
         }
+
+        // _new_password
+        if ($pathinfo === '/updatepassword') {
+            if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                goto not__new_password;
+            }
+
+            return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\PasswordRecoveryController::newPasswordAction',  '_route' => '_new_password',);
+        }
+        not__new_password:
 
         if (0 === strpos($pathinfo, '/news')) {
             // news

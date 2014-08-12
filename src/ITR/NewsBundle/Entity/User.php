@@ -5,6 +5,7 @@ namespace ITR\NewsBundle\Entity;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
 
 /**
  * User
@@ -84,7 +85,9 @@ class User implements UserInterface,  \Serializable
      */
     public function setUserPassword($userPassword)
     {
-        $this->user_password = $userPassword;
+       $encoder = new MessageDigestPasswordEncoder('sha1');
+       $password = $encoder->encodePassword($userPassword, $this->getSalt());
+       $this->user_password = $password;
     
         return $this;
     }

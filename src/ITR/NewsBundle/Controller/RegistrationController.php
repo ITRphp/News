@@ -20,9 +20,9 @@ class RegistrationController extends Controller
             
 
         if ($form->isValid()) {
-            $encoder = new MessageDigestPasswordEncoder('sha1');
-            $password = $encoder->encodePassword($user->getPassword(), $user->getSalt());
-            $user->setUserPassword($password);
+//            $encoder = new MessageDigestPasswordEncoder('sha1');
+//            $password = $encoder->encodePassword($user->getPassword(), $user->getSalt());
+//            $user->setUserPassword($password);
             $user->setUserRole('ROLE_USER');
             $em = $this->getDoctrine()->getManager(); 
             $em->persist($user);
