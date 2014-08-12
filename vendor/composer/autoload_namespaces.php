@@ -19,6 +19,8 @@ return array(
     'SensioLabs\\Security' => array($vendorDir . '/sensiolabs/security-checker'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log'),
     'Knp\\Menu\\' => array($vendorDir . '/knplabs/knp-menu/src'),
+    'Knp\\Component' => array($vendorDir . '/knplabs/knp-components/src'),
+    'Knp\\Bundle\\PaginatorBundle' => array($vendorDir . '/knplabs/knp-paginator-bundle'),
     'Knp\\Bundle\\MenuBundle' => array($vendorDir . '/knplabs/knp-menu-bundle'),
     'Incenteev\\ParameterHandler' => array($vendorDir . '/incenteev/composer-parameter-handler'),
     'Doctrine\\ORM\\' => array($vendorDir . '/doctrine/orm/lib'),

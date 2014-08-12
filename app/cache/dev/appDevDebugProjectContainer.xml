@@ -19,6 +19,7 @@
       <parameter key="NewsBundle">ITR\NewsBundle\NewsBundle</parameter>
       <parameter key="DoctrineMigrationsBundle">Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle</parameter>
       <parameter key="KnpMenuBundle">Knp\Bundle\MenuBundle\KnpMenuBundle</parameter>
+      <parameter key="KnpPaginatorBundle">Knp\Bundle\PaginatorBundle\KnpPaginatorBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
@@ -546,6 +547,13 @@
     <parameter key="knp_menu.renderer.twig.template">knp_menu.html.twig</parameter>
     <parameter key="knp_menu.templating.helper.class">Knp\Bundle\MenuBundle\Templating\Helper\MenuHelper</parameter>
     <parameter key="knp_menu.default_renderer">twig</parameter>
+    <parameter key="knp_paginator.class">Knp\Component\Pager\Paginator</parameter>
+    <parameter key="knp_paginator.templating.helper.pagination.class">Knp\Bundle\PaginatorBundle\Templating\PaginationHelper</parameter>
+    <parameter key="knp_paginator.helper.processor.class">Knp\Bundle\PaginatorBundle\Helper\Processor</parameter>
+    <parameter key="knp_paginator.template.pagination">KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig</parameter>
+    <parameter key="knp_paginator.template.filtration">KnpPaginatorBundle:Pagination:filtration.html.twig</parameter>
+    <parameter key="knp_paginator.template.sortable">KnpPaginatorBundle:Pagination:sortable_link.html.twig</parameter>
+    <parameter key="knp_paginator.page_range">5</parameter>
     <parameter key="web_profiler.controller.profiler.class">Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController</parameter>
     <parameter key="web_profiler.controller.router.class">Symfony\Bundle\WebProfilerBundle\Controller\RouterController</parameter>
     <parameter key="web_profiler.controller.exception.class">Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController</parameter>
@@ -1678,6 +1686,46 @@
       <argument type="service" id="debug.stopwatch"/>
       <argument type="service" id="monolog.logger.event" on-invalid="null"/>
       <call method="addListenerService">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument>knp_paginator.subscriber.paginate</argument>
+          <argument>before</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>knp_pager.pagination</argument>
+        <argument type="collection">
+          <argument>knp_paginator.subscriber.paginate</argument>
+          <argument>pagination</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument>knp_paginator.subscriber.sortable</argument>
+          <argument>before</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>knp_pager.before</argument>
+        <argument type="collection">
+          <argument>knp_paginator.subscriber.filtration</argument>
+          <argument>before</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>knp_pager.pagination</argument>
+        <argument type="collection">
+          <argument>knp_paginator.subscriber.sliding_pagination</argument>
+          <argument>pagination</argument>
+        </argument>
+        <argument>1</argument>
+      </call>
+      <call method="addListenerService">
         <argument>kernel.controller</argument>
         <argument type="collection">
           <argument>data_collector.router</argument>
@@ -1713,6 +1761,14 @@
         <argument>kernel.request</argument>
         <argument type="collection">
           <argument>knp_menu.listener.voters</argument>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListenerService">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument>knp_paginator.subscriber.sliding_pagination</argument>
           <argument>onKernelRequest</argument>
         </argument>
         <argument>0</argument>
@@ -2440,7 +2496,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>53ea597b7ea62</argument>
+            <argument>53ea7338453da</argument>
           </service>
         </argument>
       </argument>
@@ -2793,7 +2849,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>53ea597b7ea62</argument>
+            <argument>53ea7338453da</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -3111,6 +3167,9 @@
             <argument type="service" id="knp_menu.helper"/>
           </service>
         </argument>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="knp_paginator.twig.extension.pagination"/>
       </call>
       <call method="addExtension">
         <argument type="service">
@@ -3533,6 +3592,51 @@
       <tag name="templating.helper" alias="knp_menu"/>
       <argument type="service" id="knp_menu.helper"/>
     </service>
+    <service id="knp_paginator" class="Knp\Component\Pager\Paginator">
+      <argument type="service" id="debug.event_dispatcher"/>
+      <call method="setDefaultPaginatorOptions">
+        <argument type="collection">
+          <argument key="pageParameterName">page</argument>
+          <argument key="sortFieldParameterName">sort</argument>
+          <argument key="sortDirectionParameterName">direction</argument>
+          <argument key="filterFieldParameterName">filterField</argument>
+          <argument key="filterValueParameterName">filterValue</argument>
+          <argument key="distinct">true</argument>
+        </argument>
+      </call>
+    </service>
+    <service id="knp_paginator.subscriber.paginate" class="Knp\Component\Pager\Event\Subscriber\Paginate\PaginationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sortable" class="Knp\Component\Pager\Event\Subscriber\Sortable\SortableSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.filtration" class="Knp\Component\Pager\Event\Subscriber\Filtration\FiltrationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sliding_pagination" class="Knp\Bundle\PaginatorBundle\Subscriber\SlidingPaginationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+      <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
+      <argument type="collection">
+        <argument key="defaultPaginationTemplate">KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig</argument>
+        <argument key="defaultSortableTemplate">KnpPaginatorBundle:Pagination:sortable_link.html.twig</argument>
+        <argument key="defaultFiltrationTemplate">KnpPaginatorBundle:Pagination:filtration.html.twig</argument>
+        <argument key="defaultPageRange">5</argument>
+      </argument>
+    </service>
+    <service id="knp_paginator.helper.processor" class="Knp\Bundle\PaginatorBundle\Helper\Processor">
+      <argument type="service" id="templating.helper.router"/>
+      <argument type="service" id="translator.default"/>
+    </service>
+    <service id="knp_paginator.templating.helper.pagination" class="Knp\Bundle\PaginatorBundle\Templating\PaginationHelper">
+      <tag name="templating.helper" alias="knp_pagination"/>
+      <argument type="service" id="knp_paginator.helper.processor"/>
+      <argument type="service" id="debug.templating.engine.php"/>
+    </service>
+    <service id="knp_paginator.twig.extension.pagination" class="Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id="knp_paginator.helper.processor"/>
+    </service>
     <service id="web_profiler.controller.profiler" class="Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController">
       <argument type="service" id="router" on-invalid="null"/>
       <argument type="service" id="profiler" on-invalid="null"/>
@@ -3788,6 +3892,7 @@
           <argument key="security">templating.helper.security</argument>
           <argument key="assetic">assetic.helper.dynamic</argument>
           <argument key="knp_menu">knp_menu.templating.helper</argument>
+          <argument key="knp_pagination">knp_paginator.templating.helper.pagination</argument>
         </argument>
       </call>
     </service>
@@ -3879,6 +3984,10 @@
       <call method="addPath">
         <argument>C:\WebData\News\src\ITR\NewsBundle/Resources/views</argument>
         <argument>News</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\WebData\News\vendor\knplabs\knp-paginator-bundle\Knp\Bundle\PaginatorBundle/Resources/views</argument>
+        <argument>KnpPaginator</argument>
       </call>
       <call method="addPath">
         <argument>C:\WebData\News\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/views</argument>
