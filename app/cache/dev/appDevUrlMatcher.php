@@ -61,44 +61,15 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/js')) {
-            if (0 === strpos($pathinfo, '/js/6bfbd92')) {
-                // _assetic_6bfbd92
-                if ($pathinfo === '/js/6bfbd92.js') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => '6bfbd92',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_6bfbd92',);
-                }
-
-                if (0 === strpos($pathinfo, '/js/6bfbd92_')) {
-                    // _assetic_6bfbd92_0
-                    if ($pathinfo === '/js/6bfbd92_jquery-1.11.1_1.js') {
-                        return array (  '_controller' => 'assetic.controller:render',  'name' => '6bfbd92',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_6bfbd92_0',);
-                    }
-
-                    // _assetic_6bfbd92_1
-                    if ($pathinfo === '/js/6bfbd92_repeatPassword_2.js') {
-                        return array (  '_controller' => 'assetic.controller:render',  'name' => '6bfbd92',  'pos' => 1,  '_format' => 'js',  '_route' => '_assetic_6bfbd92_1',);
-                    }
-
-                    // _assetic_6bfbd92_2
-                    if ($pathinfo === '/js/6bfbd92_bootstrap.min_3.js') {
-                        return array (  '_controller' => 'assetic.controller:render',  'name' => '6bfbd92',  'pos' => 2,  '_format' => 'js',  '_route' => '_assetic_6bfbd92_2',);
-                    }
-
-                }
-
+        if (0 === strpos($pathinfo, '/js/50e4156')) {
+            // _assetic_50e4156
+            if ($pathinfo === '/js/50e4156.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '50e4156',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_50e4156',);
             }
 
-            if (0 === strpos($pathinfo, '/js/50e4156')) {
-                // _assetic_50e4156
-                if ($pathinfo === '/js/50e4156.js') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => '50e4156',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_50e4156',);
-                }
-
-                // _assetic_50e4156_0
-                if ($pathinfo === '/js/50e4156_repeatPassword_1.js') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => '50e4156',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_50e4156_0',);
-                }
-
+            // _assetic_50e4156_0
+            if ($pathinfo === '/js/50e4156_repeatPassword_1.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '50e4156',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_50e4156_0',);
             }
 
         }

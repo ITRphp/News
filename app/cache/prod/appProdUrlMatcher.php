@@ -278,6 +278,17 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
             return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\UserController::recoveryAction',  '_route' => 'password_recovery',);
         }
 
+        // _new_password
+        if ($pathinfo === '/updatepassword') {
+            if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                goto not__new_password;
+            }
+
+            return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\PasswordRecoveryController::newPasswordAction',  '_route' => '_new_password',);
+        }
+        not__new_password:
+
         if (0 === strpos($pathinfo, '/news')) {
             // news
             if (rtrim($pathinfo, '/') === '/news') {
