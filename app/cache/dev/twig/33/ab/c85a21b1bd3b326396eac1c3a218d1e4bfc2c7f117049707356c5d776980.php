@@ -63,10 +63,10 @@ class __TwigTemplate_33abc85a21b1bd3b326396eac1c3a218d1e4bfc2c7f117049707356c5d7
         echo "</td>
             </tr>
             <tr>
-                <th>Descroption</th>
+                <th>Description</th>
                 <td>";
         // line 27
-        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "descroption"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "description"), "html", null, true);
         echo "</td>
             </tr>
         </tbody>

@@ -35,7 +35,7 @@ class News
     /**
      * @var string
      */
-    private $descroption;
+    private $description;
 
 
     /**
@@ -118,14 +118,14 @@ class News
     }
 
     /**
-     * Set descroption
+     * Set description
      *
-     * @param string $descroption
+     * @param string $description
      * @return News
      */
-    public function setDescroption($descroption)
+    public function setDescription($description)
     {
-        $this->descroption = $descroption;
+        $this->description = $description;
     
         return $this;
     }
@@ -135,9 +135,9 @@ class News
      *
      * @return string 
      */
-    public function getDescroption()
+    public function getDescription()
     {
-        return $this->descroption;
+        return $this->description;
     }
     
     /**

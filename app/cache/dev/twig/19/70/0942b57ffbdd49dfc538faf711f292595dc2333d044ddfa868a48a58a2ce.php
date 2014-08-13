@@ -37,7 +37,7 @@ class __TwigTemplate_19700942b57ffbdd49dfc538faf711f292595dc2333d044ddfa868a48a5
             ";
         // line 22
         $this->displayBlock('body', $context, $blocks);
-        // line 25
+        // line 38
         echo "    </body>
 </html>
 ";
@@ -122,13 +122,56 @@ class __TwigTemplate_19700942b57ffbdd49dfc538faf711f292595dc2333d044ddfa868a48a5
     public function block_body($context, array $blocks = array())
     {
         // line 23
+        echo "                <div id=\"logo\" class=\"col-md\" style=\"padding:5px\">
+                    ";
+        // line 24
+        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
+            // asset "fc97b69_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_fc97b69_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/images/fc97b69_logo_1.png");
+            // line 25
+            echo "                       <img src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"  alt=\"Example\"/>
+                    ";
+        } else {
+            // asset "fc97b69"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_fc97b69") : $this->env->getExtension('assets')->getAssetUrl("_controller/images/fc97b69.png");
+            echo "                       <img src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"  alt=\"Example\"/>
+                    ";
+        }
+        unset($context["asset_url"]);
+        // line 27
+        echo "                <font size=\"13\">Modern media portal</font>
+                <hr>
+                </div>
+                ";
+        // line 30
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session"), "flashbag"), "get", array(0 => "notice"), "method"));
+        foreach ($context['_seq'] as $context["_key"] => $context["flashMessage"]) {
+            // line 31
+            echo "                    <div class=\"alert alert-warning alert-dismissable text-center\">
+                        <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>
+                        <strong>";
+            // line 33
+            echo twig_escape_filter($this->env, (isset($context["flashMessage"]) ? $context["flashMessage"] : $this->getContext($context, "flashMessage")), "html", null, true);
+            echo "</strong> 
+                    </div>
+                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 36
         echo "                ";
         $this->displayBlock('content', $context, $blocks);
-        // line 24
+        // line 37
         echo "            ";
     }
 
-    // line 23
+    // line 36
     public function block_content($context, array $blocks = array())
     {
     }
@@ -140,6 +183,6 @@ class __TwigTemplate_19700942b57ffbdd49dfc538faf711f292595dc2333d044ddfa868a48a5
 
     public function getDebugInfo()
     {
-        return array (  132 => 23,  128 => 24,  125 => 23,  122 => 22,  117 => 10,  103 => 9,  98 => 8,  95 => 7,  90 => 18,  70 => 16,  66 => 13,  63 => 12,  61 => 7,  56 => 6,  53 => 5,  47 => 4,  41 => 25,  39 => 22,  35 => 20,  33 => 5,  29 => 4,  24 => 1,  84 => 20,  82 => 19,  78 => 18,  74 => 16,  72 => 15,  68 => 14,  62 => 11,  59 => 10,  50 => 8,  45 => 7,  42 => 6,  36 => 5,  30 => 3,);
+        return array (  175 => 36,  171 => 37,  168 => 36,  159 => 33,  155 => 31,  151 => 30,  146 => 27,  132 => 25,  128 => 24,  125 => 23,  122 => 22,  117 => 10,  103 => 9,  98 => 8,  95 => 7,  90 => 18,  70 => 16,  66 => 13,  63 => 12,  61 => 7,  56 => 6,  53 => 5,  47 => 4,  41 => 38,  39 => 22,  35 => 20,  33 => 5,  29 => 4,  24 => 1,);
     }
 }

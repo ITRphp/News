@@ -39,7 +39,7 @@ class __TwigTemplate_3e1ef7660517bdf87569db20305e16facd6c4c2537572b306ce99629615
                 <th>Title</th>
                 <th>Author</th>
                 <th>Publication_date</th>
-                <th>Descroption</th>
+                <th>Description</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -73,7 +73,7 @@ class __TwigTemplate_3e1ef7660517bdf87569db20305e16facd6c4c2537572b306ce99629615
             echo "</td>
                 <td>";
             // line 25
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "descroption"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "description"), "html", null, true);
             echo "</td>
                 <td>
                 <ul>

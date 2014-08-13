@@ -18,7 +18,7 @@ class NewsType extends AbstractType
             ->add('title')
             ->add('author')
             ->add('publication_date')
-            ->add('descroption')
+            ->add('description')
             ->add('category')
         ;
     }

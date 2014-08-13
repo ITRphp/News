@@ -41,6 +41,11 @@ class appProdUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
             return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\DefaultController::indexAction',  '_route' => 'hello',);
         }
 
+        // mainpage
+        if ($pathinfo === '/mainpage') {
+            return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\MainpageController::indexAction',  '_route' => 'mainpage',);
+        }
+
         if (0 === strpos($pathinfo, '/admin')) {
             if (0 === strpos($pathinfo, '/admin/user')) {
                 // user

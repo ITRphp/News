@@ -18,13 +18,16 @@ class Builder extends ContainerAware
  
         $menu['User']->addChild('Profile', array('uri' => '#'))
                      ->setAttribute('divider_append', true);
-        $menu['User']->addChild('Logout', array('uri' => '#'));
+        $menu['User']->addChild('Subscribe', array('uri' => '#'))
+                ->setAttribute('divider_append', true);
+        $menu['User']->addChild('Logout', array('route' => 'logout'));
+        
  
         $menu->addChild('Language')
              ->setAttribute('dropdown', true)
              ->setAttribute('divider_prepend', true);
  
-        $menu['Language']->addChild('Deutsch', array('uri' => '#'));
+        $menu['Language']->addChild('Russian', array('uri' => '#'));
         $menu['Language']->addChild('English', array('uri' => '#'));
  
         return $menu;
@@ -41,7 +44,7 @@ class Builder extends ContainerAware
          
         
         
-        $menu->addChild( $translator->trans('Main Page'), array('route' => 'hello', 'label' => $translator->trans('Main Page')));
+        $menu->addChild( $translator->trans('Main Page'), array('route' => 'mainpage', 'label' => $translator->trans('Main Page')));
  
         $menu->addChild('Users')
              ->setAttribute('dropdown', true);

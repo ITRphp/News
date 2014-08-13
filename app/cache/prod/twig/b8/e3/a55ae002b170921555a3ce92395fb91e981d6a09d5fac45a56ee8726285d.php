@@ -30,8 +30,8 @@ class __TwigTemplate_b8e3a55ae002b170921555a3ce92395fb91e981d6a09d5fac45a56ee872
     public function block_head($context, array $blocks = array())
     {
         // line 4
-        echo "    <link href=\"";
-        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/framework/css/exception.css"), "html", null, true);
+        echo "     <link href=\"";
+        echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("bundles/news/css/bootstrap.min.css"), "html", null, true);
         echo "\" rel=\"stylesheet\" type=\"text/css\" media=\"all\" />
 ";
     }
@@ -40,20 +40,23 @@ class __TwigTemplate_b8e3a55ae002b170921555a3ce92395fb91e981d6a09d5fac45a56ee872
     public function block_title($context, array $blocks = array())
     {
         // line 8
-        echo "    ";
+        echo "    <div class=\"jumbotron\">
+    ";
+        // line 9
         echo twig_escape_filter($this->env, $this->getAttribute((isset($context["exception"]) ? $context["exception"] : $this->getContext($context, "exception")), "message"), "html", null, true);
         echo " (";
         echo twig_escape_filter($this->env, (isset($context["status_code"]) ? $context["status_code"] : $this->getContext($context, "status_code")), "html", null, true);
         echo " ";
         echo twig_escape_filter($this->env, (isset($context["status_text"]) ? $context["status_text"] : $this->getContext($context, "status_text")), "html", null, true);
         echo ")
+    </div>
 ";
     }
 
-    // line 11
+    // line 13
     public function block_body($context, array $blocks = array())
     {
-        // line 12
+        // line 14
         echo "    ";
         $this->env->loadTemplate("TwigBundle:Exception:exception.html.twig")->display($context);
     }
@@ -70,6 +73,6 @@ class __TwigTemplate_b8e3a55ae002b170921555a3ce92395fb91e981d6a09d5fac45a56ee872
 
     public function getDebugInfo()
     {
-        return array (  57 => 12,  54 => 11,  43 => 8,  40 => 7,  33 => 4,  30 => 3,);
+        return array (  60 => 14,  57 => 13,  46 => 9,  43 => 8,  40 => 7,  33 => 4,  30 => 3,);
     }
 }

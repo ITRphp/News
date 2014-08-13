@@ -61,6 +61,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
+        if (0 === strpos($pathinfo, '/images/fc97b69')) {
+            // _assetic_fc97b69
+            if ($pathinfo === '/images/fc97b69.png') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'fc97b69',  'pos' => NULL,  '_format' => 'png',  '_route' => '_assetic_fc97b69',);
+            }
+
+            // _assetic_fc97b69_0
+            if ($pathinfo === '/images/fc97b69_logo_1.png') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'fc97b69',  'pos' => 0,  '_format' => 'png',  '_route' => '_assetic_fc97b69_0',);
+            }
+
+        }
+
         if (0 === strpos($pathinfo, '/js/50e4156')) {
             // _assetic_50e4156
             if ($pathinfo === '/js/50e4156.js') {
@@ -191,9 +204,9 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\WelcomeController::indexAction',  '_route' => '_welcome',);
         }
 
-        // hello
-        if ($pathinfo === '/hello') {
-            return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\DefaultController::indexAction',  '_route' => 'hello',);
+        // mainpage
+        if ($pathinfo === '/mainpage') {
+            return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\MainpageController::indexAction',  '_route' => 'mainpage',);
         }
 
         if (0 === strpos($pathinfo, '/admin')) {

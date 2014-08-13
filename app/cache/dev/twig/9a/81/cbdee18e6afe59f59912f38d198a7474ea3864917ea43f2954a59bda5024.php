@@ -28,63 +28,64 @@ class __TwigTemplate_9a81cbdee18e6afe59f59912f38d198a7474ea3864917ea43f2954a59bd
     public function block_content($context, array $blocks = array())
     {
         // line 4
-        echo "    <h1 class=\"text-muted\">";
-        echo $this->env->getExtension('translator')->getTranslator()->trans("Log in", array(), "messages");
-        echo "</h1>
-    <br>
-    <div class=\"container\">
-        <form action=\"";
-        // line 7
-        echo $this->env->getExtension('routing')->getPath("login_check");
-        echo "\" method=\"post\" id=\"login\" role=\"form\" class=\"form-signin\">
-            <div class=\"control-group\">
-                
-                ";
-        // line 10
+        echo "        ";
         if ((isset($context["error"]) ? $context["error"] : $this->getContext($context, "error"))) {
-            // line 11
-            echo "                    <div class=\"text-danger\">";
+            // line 5
+            echo "                    <div class=\"alert alert-warning text-center\">";
             echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans($this->getAttribute((isset($context["error"]) ? $context["error"] : $this->getContext($context, "error")), "message"), array(), "messages"), "html", null, true);
             echo "</div>
-                ";
+        ";
         }
-        // line 13
-        echo "                <label for=\"username\">";
+        // line 7
+        echo "        <form action=\"";
+        echo $this->env->getExtension('routing')->getPath("login_check");
+        echo "\" method=\"post\" class=\"col-md-offset-4 col-md-4 well\">
+            <div class=\"control-group\">
+                <label for=\"username\" class=\"text-muted\">";
+        // line 9
         echo $this->env->getExtension('translator')->getTranslator()->trans("User name", array(), "messages");
         echo "</label>
                 <div class=\"controls\">
-                    <input type=\"text\" id=\"username\" name=\"_username\" value=\"";
-        // line 15
+                    <input type=\"text\" id=\"username\" name=\"_username\" class=\"form-control\" value=\"";
+        // line 11
         echo twig_escape_filter($this->env, (isset($context["last_username"]) ? $context["last_username"] : $this->getContext($context, "last_username")), "html", null, true);
         echo "\" />
                 </div>
             </div>
+                <p></p>
             <div class=\"control-group\">
-                <label for=\"password\">";
-        // line 19
+                <label for=\"password\" class=\"text-muted\">";
+        // line 16
         echo $this->env->getExtension('translator')->getTranslator()->trans("Password", array(), "messages");
         echo "</label>
                 <div class=\"controls\">
-                    <input type=\"password\" id=\"password\" name=\"_password\" />
+                    <input type=\"password\" id=\"password\" name=\"_password\" class=\"form-control\" />
                 </div>
             </div>
-            <input type=\"hidden\" name=\"_target_path\" value=\"/hello\" />
-            
-            <input type=\"submit\" class=\"btn btn-success\" value=\"";
-        // line 26
+            <input type=\"hidden\" name=\"_target_path\" value=\"/mainpage\" />
+            <p></p>
+            <div class=\"row\">
+                <input type=\"submit\" class=\"btn btn-success col-md-6 col-md-offset-3\" value=\"";
+        // line 24
         echo $this->env->getExtension('translator')->getTranslator()->trans("Log in", array(), "messages");
-        echo "\"/>                      
+        echo "\" />                   
+            </div>
             <p>
-                 <a href=\"";
-        // line 28
+                <a href=\"";
+        // line 27
         echo $this->env->getExtension('routing')->getPath("password_recovery");
         echo "\">";
         echo $this->env->getExtension('translator')->getTranslator()->trans("Forgot.password", array(), "messages");
         echo "</a>
+                <a href=\"";
+        // line 28
+        echo $this->env->getExtension('routing')->getPath("_registration");
+        echo "\">";
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Registration", array(), "messages");
+        echo "</a>
             </p>   
         
         </form>
-    </div>
 ";
     }
 
@@ -100,6 +101,6 @@ class __TwigTemplate_9a81cbdee18e6afe59f59912f38d198a7474ea3864917ea43f2954a59bd
 
     public function getDebugInfo()
     {
-        return array (  80 => 28,  75 => 26,  65 => 19,  58 => 15,  52 => 13,  46 => 11,  44 => 10,  38 => 7,  31 => 4,  28 => 3,);
+        return array (  82 => 28,  76 => 27,  70 => 24,  59 => 16,  51 => 11,  46 => 9,  40 => 7,  34 => 5,  31 => 4,  28 => 3,);
     }
 }

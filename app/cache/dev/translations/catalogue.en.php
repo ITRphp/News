@@ -105,6 +105,8 @@ $catalogue = new MessageCatalogue('en', array (
   'messages' => 
   array (
     'Welcome' => 'Welcome',
+    'Welcome %username%\'' => 'Hello %username%',
+    'edit.mode' => 'Edit mode',
     'Registration' => 'Registration',
     'Log in' => 'Log in',
     'News' => 'News',

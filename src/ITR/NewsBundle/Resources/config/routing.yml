@@ -2,9 +2,9 @@ _welcome:
     path:     /
     defaults: { _controller: NewsBundle:Welcome:index }
 
-hello:
-    path:     /hello
-    defaults: { _controller: NewsBundle:Default:index }
+mainpage:
+    path:     /mainpage
+    defaults: { _controller: NewsBundle:Mainpage:index }
     
 NewsBundle_news:
         resource: "@NewsBundle/Resources/config/routing/news.yml"

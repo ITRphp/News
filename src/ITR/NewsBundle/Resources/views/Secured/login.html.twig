@@ -1,33 +1,32 @@
 {% extends 'NewsBundle::layout.html.twig' %}
 
 {% block content %}
-    <h1 class="text-muted">{% trans %}Log in{% endtrans %}</h1>
-    <br>
-    <div class="container">
-        <form action="{{ path('login_check') }}" method="post" id="login" role="form" class="form-signin">
+        {% if error %}
+                    <div class="alert alert-warning text-center">{{ error.message|trans({},'messages') }}</div>
+        {% endif %}
+        <form action="{{ path('login_check') }}" method="post" class="col-md-offset-4 col-md-4 well">
             <div class="control-group">
-                
-                {% if error %}
-                    <div class="text-danger">{{ error.message|trans({},'messages') }}</div>
-                {% endif %}
-                <label for="username">{% trans %}User name{% endtrans %}</label>
+                <label for="username" class="text-muted">{% trans %}User name{% endtrans %}</label>
                 <div class="controls">
-                    <input type="text" id="username" name="_username" value="{{ last_username }}" />
+                    <input type="text" id="username" name="_username" class="form-control" value="{{ last_username }}" />
                 </div>
             </div>
+                <p></p>
             <div class="control-group">
-                <label for="password">{% trans %}Password{% endtrans %}</label>
+                <label for="password" class="text-muted">{% trans %}Password{% endtrans %}</label>
                 <div class="controls">
-                    <input type="password" id="password" name="_password" />
+                    <input type="password" id="password" name="_password" class="form-control" />
                 </div>
             </div>
-            <input type="hidden" name="_target_path" value="/hello" />
-            
-            <input type="submit" class="btn btn-success" value="{% trans %}Log in{% endtrans %}"/>                      
+            <input type="hidden" name="_target_path" value="/mainpage" />
+            <p></p>
+            <div class="row">
+                <input type="submit" class="btn btn-success col-md-6 col-md-offset-3" value="{% trans %}Log in{% endtrans %}" />                   
+            </div>
             <p>
-                 <a href="{{ path('password_recovery') }}">{% trans %} Forgot.password {% endtrans %}</a>
+                <a href="{{ path('password_recovery') }}">{% trans %} Forgot.password {% endtrans %}</a>
+                <a href="{{ path('_registration') }}">{% trans %} Registration {% endtrans %}</a>
             </p>   
         
         </form>
-    </div>
 {% endblock %}
