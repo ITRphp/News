@@ -5,28 +5,22 @@
                     <div class="alert alert-warning text-center">{{ error.message|trans({},'messages') }}</div>
         {% endif %}
         <form action="{{ path('login_check') }}" method="post" class="col-md-offset-4 col-md-4 well">
-            <div class="control-group">
+            <div class="form-group">
                 <label for="username" class="text-muted">{% trans %}User name{% endtrans %}</label>
-                <div class="controls">
-                    <input type="text" id="username" name="_username" class="form-control" value="{{ last_username }}" />
-                </div>
+                <input type="text" id="username" name="_username" class="form-control" value="{{ last_username }}" />
             </div>
-                <p></p>
-            <div class="control-group">
+            <div class="form-group">
                 <label for="password" class="text-muted">{% trans %}Password{% endtrans %}</label>
-                <div class="controls">
-                    <input type="password" id="password" name="_password" class="form-control" />
-                </div>
+                <input type="password" id="password" name="_password" class="form-control" />
             </div>
             <input type="hidden" name="_target_path" value="/mainpage" />
-            <p></p>
-            <div class="row">
+            <div class="form-group row">
                 <input type="submit" class="btn btn-success col-md-6 col-md-offset-3" value="{% trans %}Log in{% endtrans %}" />                   
             </div>
-            <p>
+            <div class="text-center">
                 <a href="{{ path('password_recovery') }}">{% trans %} Forgot.password {% endtrans %}</a>
                 <a href="{{ path('_registration') }}">{% trans %} Registration {% endtrans %}</a>
-            </p>   
+            </div>   
         
         </form>
 {% endblock %}

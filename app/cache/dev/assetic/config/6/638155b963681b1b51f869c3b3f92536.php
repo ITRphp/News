@@ -44,6 +44,26 @@ return array (
       ),
     ),
   ),
+  'fc97b69' => 
+  array (
+    0 => 
+    array (
+      0 => '@NewsBundle/Resources/public/images/logo.png',
+    ),
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'output' => '_controller/images/fc97b69.png',
+      'name' => 'fc97b69',
+      'debug' => NULL,
+      'combine' => NULL,
+      'vars' => 
+      array (
+      ),
+    ),
+  ),
   '50e4156' => 
   array (
     0 => 

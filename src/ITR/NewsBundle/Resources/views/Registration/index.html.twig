@@ -1,6 +1,6 @@
 {% extends "NewsBundle::layout.html.twig" %}
 
-{% form_theme form 'NewsBundle:Form:fields.html.twig' %}
+{% form_theme form 'NewsBundle:Form:errors.html.twig' %}
 
 {% block title %}{% trans %}Registration{% endtrans %}{% endblock %}
 
@@ -46,6 +46,6 @@
                 {{ form_errors(form) }}
                 {{ form_rest(form) }}
                 <p></p>
-            <input type="submit" class="btn btn-success" value="{% trans %}Registration{% endtrans %}"/>
+            <input type="submit" class="btn btn-success col-md-4 col-md-offset-4" value="{% trans %}Registration{% endtrans %}"/>
         </form>    
 {% endblock %}

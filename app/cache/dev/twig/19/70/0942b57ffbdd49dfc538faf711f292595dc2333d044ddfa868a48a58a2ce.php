@@ -28,16 +28,18 @@ class __TwigTemplate_19700942b57ffbdd49dfc538faf711f292595dc2333d044ddfa868a48a5
         // line 4
         $this->displayBlock('title', $context, $blocks);
         echo "</title>
+
+       
        ";
-        // line 5
+        // line 7
         $this->displayBlock('head', $context, $blocks);
-        // line 20
+        // line 22
         echo "    </head>
     <body>
             ";
-        // line 22
+        // line 24
         $this->displayBlock('body', $context, $blocks);
-        // line 38
+        // line 40
         echo "    </body>
 </html>
 ";
@@ -49,24 +51,24 @@ class __TwigTemplate_19700942b57ffbdd49dfc538faf711f292595dc2333d044ddfa868a48a5
         echo $this->env->getExtension('translator')->getTranslator()->trans("News", array(), "messages");
     }
 
-    // line 5
+    // line 7
     public function block_head($context, array $blocks = array())
     {
-        // line 6
+        // line 8
         echo "           <link rel=\"icon\" type=\"image/x-icon\" href=\"";
         echo twig_escape_filter($this->env, $this->env->getExtension('assets')->getAssetUrl("favicon.ico"), "html", null, true);
         echo "\" />
            ";
-        // line 7
+        // line 9
         $this->displayBlock('stylesheets', $context, $blocks);
-        // line 12
+        // line 14
         echo "           
             ";
-        // line 13
+        // line 15
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "82e4982_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_82e4982_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/js/82e4982_jquery-1.11.1_1.js");
-            // line 16
+            // line 18
             echo "                    <script src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"></script>
@@ -86,20 +88,20 @@ class __TwigTemplate_19700942b57ffbdd49dfc538faf711f292595dc2333d044ddfa868a48a5
                     ";
         }
         unset($context["asset_url"]);
-        // line 18
+        // line 20
         echo "
         ";
     }
 
-    // line 7
+    // line 9
     public function block_stylesheets($context, array $blocks = array())
     {
-        // line 8
+        // line 10
         echo "               ";
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "1820aaf_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_1820aaf_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/css/1820aaf_part_1_bootstrap.min_1.css");
-            // line 9
+            // line 11
             echo "               <link rel=\"stylesheet\" href=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\" />
@@ -113,22 +115,22 @@ class __TwigTemplate_19700942b57ffbdd49dfc538faf711f292595dc2333d044ddfa868a48a5
            ";
         }
         unset($context["asset_url"]);
-        // line 10
+        // line 12
         echo "           
            ";
     }
 
-    // line 22
+    // line 24
     public function block_body($context, array $blocks = array())
     {
-        // line 23
+        // line 25
         echo "                <div id=\"logo\" class=\"col-md\" style=\"padding:5px\">
                     ";
-        // line 24
+        // line 26
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "fc97b69_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_fc97b69_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/images/fc97b69_logo_1.png");
-            // line 25
+            // line 27
             echo "                       <img src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"  alt=\"Example\"/>
@@ -142,20 +144,20 @@ class __TwigTemplate_19700942b57ffbdd49dfc538faf711f292595dc2333d044ddfa868a48a5
                     ";
         }
         unset($context["asset_url"]);
-        // line 27
+        // line 29
         echo "                <font size=\"13\">Modern media portal</font>
                 <hr>
                 </div>
                 ";
-        // line 30
+        // line 32
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable($this->getAttribute($this->getAttribute($this->getAttribute((isset($context["app"]) ? $context["app"] : $this->getContext($context, "app")), "session"), "flashbag"), "get", array(0 => "notice"), "method"));
         foreach ($context['_seq'] as $context["_key"] => $context["flashMessage"]) {
-            // line 31
+            // line 33
             echo "                    <div class=\"alert alert-warning alert-dismissable text-center\">
                         <button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-hidden=\"true\">&times;</button>
                         <strong>";
-            // line 33
+            // line 35
             echo twig_escape_filter($this->env, (isset($context["flashMessage"]) ? $context["flashMessage"] : $this->getContext($context, "flashMessage")), "html", null, true);
             echo "</strong> 
                     </div>
@@ -164,14 +166,14 @@ class __TwigTemplate_19700942b57ffbdd49dfc538faf711f292595dc2333d044ddfa868a48a5
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['flashMessage'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 36
+        // line 38
         echo "                ";
         $this->displayBlock('content', $context, $blocks);
-        // line 37
+        // line 39
         echo "            ";
     }
 
-    // line 36
+    // line 38
     public function block_content($context, array $blocks = array())
     {
     }
@@ -183,6 +185,6 @@ class __TwigTemplate_19700942b57ffbdd49dfc538faf711f292595dc2333d044ddfa868a48a5
 
     public function getDebugInfo()
     {
-        return array (  175 => 36,  171 => 37,  168 => 36,  159 => 33,  155 => 31,  151 => 30,  146 => 27,  132 => 25,  128 => 24,  125 => 23,  122 => 22,  117 => 10,  103 => 9,  98 => 8,  95 => 7,  90 => 18,  70 => 16,  66 => 13,  63 => 12,  61 => 7,  56 => 6,  53 => 5,  47 => 4,  41 => 38,  39 => 22,  35 => 20,  33 => 5,  29 => 4,  24 => 1,);
+        return array (  177 => 38,  173 => 39,  170 => 38,  161 => 35,  157 => 33,  153 => 32,  148 => 29,  134 => 27,  130 => 26,  127 => 25,  124 => 24,  119 => 12,  105 => 11,  100 => 10,  97 => 9,  92 => 20,  72 => 18,  68 => 15,  65 => 14,  63 => 9,  58 => 8,  55 => 7,  49 => 4,  43 => 40,  41 => 24,  37 => 22,  35 => 7,  29 => 4,  24 => 1,);
     }
 }
