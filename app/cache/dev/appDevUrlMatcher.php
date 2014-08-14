@@ -204,9 +204,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\WelcomeController::indexAction',  '_route' => '_welcome',);
         }
 
-        // mainpage
-        if ($pathinfo === '/mainpage') {
-            return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\MainpageController::indexAction',  '_route' => 'mainpage',);
+        if (0 === strpos($pathinfo, '/mainpage')) {
+            // mainpage
+            if ($pathinfo === '/mainpage') {
+                return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\MainpageController::indexAction',  '_route' => 'mainpage',);
+            }
+
+            // category_news
+            if (preg_match('#^/mainpage/(?P<category>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'category_news')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\MainpageController::newsAction',));
+            }
+
         }
 
         if (0 === strpos($pathinfo, '/admin')) {

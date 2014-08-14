@@ -21,10 +21,42 @@
             {% endif %}
         </div>
     </div>
-        <hr>
-    <div class="row">
-        <div class="col-md-12 col-md-offset-0">
-            <div class="media">
+   <div id="logo" class="col-md" style="padding:5px">
+                    {% image '@NewsBundle/Resources/public/images/logo.png'%}
+                       <img src="{{ asset_url }}"  alt="Example"/>
+                    {% endimage %} 
+  </div>
+                    <h4> {{ "now"|date("d-m-Y") }}</h4>
+    <hr>
+    <div class="row" style="padding:4px">
+        
+        <div id="left" class="list-group col-md-2 col-md-offset-0">
+            {% for category in categories %}
+                <a href="{{ path('category_news', { 'category': category|lower }) }}" class="list-group-item">{{ category }}</a>
+            {% else %}
+                <h3>No news</h3>
+            {% endfor %}
+        </div>
+        
+        <div id="center" style="padding:4px" class="col-md-7 ">
+            <div class="container">
+                {% for news_item in news %}
+                    <div class="media">
+                        <div class="media-body">
+                        <h4 class="media-heading">{{ news_item.title }}</h4>
+                        <footer>{{ news_item.publicationDate|date('Y-m-d H:i:s')}}</footer>
+                          {{ news_item.description }}  
+                        </div>
+                    </div>
+                {% else %}
+                    <h3>No news</h3>
+                {% endfor %}
+                
+            </div>
+        </div>
+                    <div id="right" style="background-color: whitesmoke" class="col-md-3">
+            <p class="bg-primary text-center">Popular news</p>
+                <div class="media">
                 <div class="media-body">
                     <h4 class="media-heading">First news</h4>
                     newsnewsnewsnewsnews
@@ -36,39 +68,6 @@
                     newsnewsnewsnewsnews
                 </div>
             </div>
-        </div>
-    </div>
-        <hr>
-    <div class="row" style="padding:4px">
-       
-            <div id="left" class="list-group col-md-2 col-md-offset-0">
-                <a href="#" class="list-group-item active">Cats</a>
-                <a href="#" class="list-group-item">Dogs</a>
-                <a href="#" class="list-group-item">Sport</a>
-                <a href="#" class="list-group-item">Art</a>
-                <a href="#" class="list-group-item">Music</a>
-            </div>
-        <div id="center" style="padding:4px" class="col-md-9 jumbotron">
-            <div class="container">
-                <h1>News about cats</h1>
-                <br>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vulputate odio ut velit pharetra ullamcorper. In sem sem, aliquam quis sodales a, dapibus vel elit. Vivamus placerat nisi nulla, scelerisque venenatis orci dictum eu. Sed ut ultrices purus, sit amet feugiat quam. Curabitur cursus odio enim, at volutpat risus lobortis id. Integer ante nisi, tincidunt dapibus mollis in, commodo tincidunt quam. Aenean sit amet orci a lacus eleifend euismod. Etiam aliquam, nulla vitae scelerisque lobortis, mauris metus venenatis magna, vitae posuere lacus dolor et libero. Proin elit quam, ullamcorper ac lectus et, accumsan aliquam arcu. Donec vitae fringilla quam, sed condimentum purus. Vivamus rhoncus pulvinar magna, quis congue velit varius id. Morbi condimentum a lorem a ornare. Quisque eget suscipit ipsum. Vivamus eget ligula commodo, sollicitudin urna et, aliquet orci. Nulla purus erat, elementum sit amet elementum sit amet, pellentesque a diam.</p>
-
-                <p>Aliquam dictum, magna non bibendum euismod, risus augue vestibulum turpis, hendrerit commodo metus eros quis leo. Fusce mattis eros nunc, id pulvinar libero tempor eu. Sed luctus tempus velit, convallis viverra nisi suscipit sed. Aliquam scelerisque orci nec congue tempus. Pellentesque rhoncus lobortis sem, id molestie sem. Nunc adipiscing eu felis non sodales. Phasellus mollis elit quam, nec imperdiet lectus aliquet ut. Nulla cursus fermentum magna. Maecenas ut sapien orci.</p>
-
-                <p>Aliquam imperdiet dapibus egestas. Vivamus id tristique diam. Integer sit amet erat mi. Nunc sagittis risus sed augue sollicitudin pretium. Etiam non vestibulum lectus. Ut a ante ultrices, sodales nulla eu, venenatis quam. Vestibulum aliquet magna est, nec sodales elit tincidunt eget. Aliquam vehicula feugiat venenatis. Cras cursus et purus sed iaculis. Ut auctor sollicitudin condimentum. Curabitur molestie, urna nec fermentum posuere, lectus ligula aliquam libero, vitae mattis est leo vel ligula. Fusce quis lectus id libero dapibus convallis sit amet eget enim. Nullam semper porta sem a mollis. Etiam scelerisque nibh sem, quis aliquet diam faucibus a.</p>
-
-                <p>Aenean et enim vel lacus aliquet vestibulum a sit amet arcu. Pellentesque dictum dui et lacinia porta. Vivamus accumsan justo et ligula auctor dictum. Vestibulum non varius nisi. Quisque tempor tellus nec elementum porttitor. Mauris nibh libero, volutpat vitae volutpat nec, blandit ac urna. Vivamus adipiscing ipsum eget ornare facilisis. Nullam eleifend facilisis ligula ut suscipit. Ut nec massa eu leo hendrerit iaculis vel in velit. Fusce rutrum elementum nisi non ullamcorper. Cras malesuada id turpis et lobortis. Donec hendrerit dolor leo, ac placerat justo pretium vitae. Maecenas euismod purus at tempor ultricies.</p>
-
-                <p>Donec aliquam arcu quis porttitor posuere. Fusce ultricies enim a risus porttitor adipiscing. Etiam posuere id nisl sit amet dapibus. In ut magna at quam faucibus mattis. Mauris semper purus id justo pharetra posuere. Vestibulum a congue erat. Integer eu massa imperdiet mi adipiscing imperdiet. Etiam ac purus nulla.</p>
-            </div>
-        </div>
-        
-            
-    </div>
-    <div class="footer">
-        <div class="container" >
-            <p class="text-muted">Footer</p>
         </div>
     </div>
 {% endblock %}

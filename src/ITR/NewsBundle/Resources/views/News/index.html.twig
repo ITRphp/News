@@ -4,7 +4,7 @@
     {{parent()}}
     <h1>News list</h1>
 
-    <table class="records_list">
+    <table class="records_list table table-hover table-bordered">
         <thead>
             <tr>
                 <th>Id</th>
@@ -24,28 +24,20 @@
                 <td>{% if entity.publicationdate %}{{ entity.publicationdate|date('Y-m-d H:i:s') }}{% endif %}</td>
                 <td>{{ entity.description }}</td>
                 <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('news_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('news_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
+                    <ul class="list-group list-unstyled">
+                        <li>
+                            <a href="{{ path('news_show', { 'id': entity.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('news_edit', { 'id': entity.id }) }}">edit</a>
+                        </li>
+                    </ul>
                 </td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
-        <div class="navigation">
-            {{ knp_pagination_render(entities) }}
-        </div>
-
-        <ul>
-        <li>
-            <a href="{{ path('news_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
+    <div class="navigation">
+        {{ knp_pagination_render(entities) }}
+    </div>
     {% endblock %}

@@ -5,6 +5,9 @@ _welcome:
 mainpage:
     path:     /mainpage
     defaults: { _controller: NewsBundle:Mainpage:index }
+category_news:
+    path:     /mainpage/{category}
+    defaults: { _controller: NewsBundle:Mainpage:news }
     
 NewsBundle_news:
         resource: "@NewsBundle/Resources/config/routing/news.yml"

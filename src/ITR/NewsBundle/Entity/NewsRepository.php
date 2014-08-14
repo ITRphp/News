@@ -12,4 +12,26 @@ use Doctrine\ORM\EntityRepository;
  */
 class NewsRepository extends EntityRepository
 {
+    public function findNewsByCategoryOrderedByDate($category)
+    {
+         $q = $this
+            ->createQueryBuilder('n')
+            ->where('n.category = :category')
+            ->setParameter('category', $category)
+            ->orderBy('n.publication_date', 'DESC')
+            ->getQuery();
+
+        try {
+            $news = $q->getResult();
+            
+        } catch (NoResultException $e) {
+            $message = sprintf(
+                'Unable to find an active category NewsBundle:category object identified by "%s".',
+                $category
+            );
+            throw new UsernameNotFoundException($message, 0, $e);
+        }
+
+        return $news;
+    }
 }

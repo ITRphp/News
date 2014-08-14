@@ -64,10 +64,106 @@ class __TwigTemplate_6114f375170ab56c137682383f0f084079a54fdccd205782b8339b64a4a
         // line 22
         echo "        </div>
     </div>
-        <hr>
-    <div class=\"row\">
-        <div class=\"col-md-12 col-md-offset-0\">
-            <div class=\"media\">
+   <div id=\"logo\" class=\"col-md\" style=\"padding:5px\">
+                    ";
+        // line 25
+        if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
+            // asset "fc97b69_0"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_fc97b69_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/images/fc97b69_logo_1.png");
+            // line 26
+            echo "                       <img src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"  alt=\"Example\"/>
+                    ";
+        } else {
+            // asset "fc97b69"
+            $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_fc97b69") : $this->env->getExtension('assets')->getAssetUrl("_controller/images/fc97b69.png");
+            echo "                       <img src=\"";
+            echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
+            echo "\"  alt=\"Example\"/>
+                    ";
+        }
+        unset($context["asset_url"]);
+        // line 27
+        echo " 
+  </div>
+                    <h4> ";
+        // line 29
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, "now", "d-m-Y"), "html", null, true);
+        echo "</h4>
+    <hr>
+    <div class=\"row\" style=\"padding:4px\">
+        
+        <div id=\"left\" class=\"list-group col-md-2 col-md-offset-0\">
+            ";
+        // line 34
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["categories"]) ? $context["categories"] : $this->getContext($context, "categories")));
+        $context['_iterated'] = false;
+        foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
+            // line 35
+            echo "                <a href=\"";
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("category_news", array("category" => twig_lower_filter($this->env, (isset($context["category"]) ? $context["category"] : $this->getContext($context, "category"))))), "html", null, true);
+            echo "\" class=\"list-group-item\">";
+            echo twig_escape_filter($this->env, (isset($context["category"]) ? $context["category"] : $this->getContext($context, "category")), "html", null, true);
+            echo "</a>
+            ";
+            $context['_iterated'] = true;
+        }
+        if (!$context['_iterated']) {
+            // line 37
+            echo "                <h3>No news</h3>
+            ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 39
+        echo "        </div>
+        
+        <div id=\"center\" style=\"padding:4px\" class=\"col-md-7 \">
+            <div class=\"container\">
+                ";
+        // line 43
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["news"]) ? $context["news"] : $this->getContext($context, "news")));
+        $context['_iterated'] = false;
+        foreach ($context['_seq'] as $context["_key"] => $context["news_item"]) {
+            // line 44
+            echo "                    <div class=\"media\">
+                        <div class=\"media-body\">
+                        <h4 class=\"media-heading\">";
+            // line 46
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["news_item"]) ? $context["news_item"] : $this->getContext($context, "news_item")), "title"), "html", null, true);
+            echo "</h4>
+                        <footer>";
+            // line 47
+            echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["news_item"]) ? $context["news_item"] : $this->getContext($context, "news_item")), "publicationDate"), "Y-m-d H:i:s"), "html", null, true);
+            echo "</footer>
+                          ";
+            // line 48
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["news_item"]) ? $context["news_item"] : $this->getContext($context, "news_item")), "description"), "html", null, true);
+            echo "  
+                        </div>
+                    </div>
+                ";
+            $context['_iterated'] = true;
+        }
+        if (!$context['_iterated']) {
+            // line 52
+            echo "                    <h3>No news</h3>
+                ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['news_item'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 54
+        echo "                
+            </div>
+        </div>
+                    <div id=\"right\" style=\"background-color: whitesmoke\" class=\"col-md-3\">
+            <p class=\"bg-primary text-center\">Popular news</p>
+                <div class=\"media\">
                 <div class=\"media-body\">
                     <h4 class=\"media-heading\">First news</h4>
                     newsnewsnewsnewsnews
@@ -79,39 +175,6 @@ class __TwigTemplate_6114f375170ab56c137682383f0f084079a54fdccd205782b8339b64a4a
                     newsnewsnewsnewsnews
                 </div>
             </div>
-        </div>
-    </div>
-        <hr>
-    <div class=\"row\" style=\"padding:4px\">
-       
-            <div id=\"left\" class=\"list-group col-md-2 col-md-offset-0\">
-                <a href=\"#\" class=\"list-group-item active\">Cats</a>
-                <a href=\"#\" class=\"list-group-item\">Dogs</a>
-                <a href=\"#\" class=\"list-group-item\">Sport</a>
-                <a href=\"#\" class=\"list-group-item\">Art</a>
-                <a href=\"#\" class=\"list-group-item\">Music</a>
-            </div>
-        <div id=\"center\" style=\"padding:4px\" class=\"col-md-9 jumbotron\">
-            <div class=\"container\">
-                <h1>News about cats</h1>
-                <br>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vulputate odio ut velit pharetra ullamcorper. In sem sem, aliquam quis sodales a, dapibus vel elit. Vivamus placerat nisi nulla, scelerisque venenatis orci dictum eu. Sed ut ultrices purus, sit amet feugiat quam. Curabitur cursus odio enim, at volutpat risus lobortis id. Integer ante nisi, tincidunt dapibus mollis in, commodo tincidunt quam. Aenean sit amet orci a lacus eleifend euismod. Etiam aliquam, nulla vitae scelerisque lobortis, mauris metus venenatis magna, vitae posuere lacus dolor et libero. Proin elit quam, ullamcorper ac lectus et, accumsan aliquam arcu. Donec vitae fringilla quam, sed condimentum purus. Vivamus rhoncus pulvinar magna, quis congue velit varius id. Morbi condimentum a lorem a ornare. Quisque eget suscipit ipsum. Vivamus eget ligula commodo, sollicitudin urna et, aliquet orci. Nulla purus erat, elementum sit amet elementum sit amet, pellentesque a diam.</p>
-
-                <p>Aliquam dictum, magna non bibendum euismod, risus augue vestibulum turpis, hendrerit commodo metus eros quis leo. Fusce mattis eros nunc, id pulvinar libero tempor eu. Sed luctus tempus velit, convallis viverra nisi suscipit sed. Aliquam scelerisque orci nec congue tempus. Pellentesque rhoncus lobortis sem, id molestie sem. Nunc adipiscing eu felis non sodales. Phasellus mollis elit quam, nec imperdiet lectus aliquet ut. Nulla cursus fermentum magna. Maecenas ut sapien orci.</p>
-
-                <p>Aliquam imperdiet dapibus egestas. Vivamus id tristique diam. Integer sit amet erat mi. Nunc sagittis risus sed augue sollicitudin pretium. Etiam non vestibulum lectus. Ut a ante ultrices, sodales nulla eu, venenatis quam. Vestibulum aliquet magna est, nec sodales elit tincidunt eget. Aliquam vehicula feugiat venenatis. Cras cursus et purus sed iaculis. Ut auctor sollicitudin condimentum. Curabitur molestie, urna nec fermentum posuere, lectus ligula aliquam libero, vitae mattis est leo vel ligula. Fusce quis lectus id libero dapibus convallis sit amet eget enim. Nullam semper porta sem a mollis. Etiam scelerisque nibh sem, quis aliquet diam faucibus a.</p>
-
-                <p>Aenean et enim vel lacus aliquet vestibulum a sit amet arcu. Pellentesque dictum dui et lacinia porta. Vivamus accumsan justo et ligula auctor dictum. Vestibulum non varius nisi. Quisque tempor tellus nec elementum porttitor. Mauris nibh libero, volutpat vitae volutpat nec, blandit ac urna. Vivamus adipiscing ipsum eget ornare facilisis. Nullam eleifend facilisis ligula ut suscipit. Ut nec massa eu leo hendrerit iaculis vel in velit. Fusce rutrum elementum nisi non ullamcorper. Cras malesuada id turpis et lobortis. Donec hendrerit dolor leo, ac placerat justo pretium vitae. Maecenas euismod purus at tempor ultricies.</p>
-
-                <p>Donec aliquam arcu quis porttitor posuere. Fusce ultricies enim a risus porttitor adipiscing. Etiam posuere id nisl sit amet dapibus. In ut magna at quam faucibus mattis. Mauris semper purus id justo pharetra posuere. Vestibulum a congue erat. Integer eu massa imperdiet mi adipiscing imperdiet. Etiam ac purus nulla.</p>
-            </div>
-        </div>
-        
-            
-    </div>
-    <div class=\"footer\">
-        <div class=\"container\" >
-            <p class=\"text-muted\">Footer</p>
         </div>
     </div>
 ";
@@ -129,6 +192,6 @@ class __TwigTemplate_6114f375170ab56c137682383f0f084079a54fdccd205782b8339b64a4a
 
     public function getDebugInfo()
     {
-        return array (  65 => 22,  56 => 18,  52 => 16,  50 => 15,  46 => 14,  40 => 11,  31 => 4,  28 => 3,);
+        return array (  161 => 54,  154 => 52,  145 => 48,  141 => 47,  137 => 46,  133 => 44,  128 => 43,  122 => 39,  115 => 37,  105 => 35,  100 => 34,  92 => 29,  88 => 27,  74 => 26,  70 => 25,  65 => 22,  56 => 18,  52 => 16,  50 => 15,  46 => 14,  40 => 11,  31 => 4,  28 => 3,);
     }
 }

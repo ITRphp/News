@@ -1,10 +1,18 @@
-{% extends "NewsBundle::layout.html.twig"%}
+{% extends "NewsBundle:Admin:layout.html.twig" %}
+
+{% form_theme delete_form 'NewsBundle:Form:delete.html.twig' %}
 
 {% block content -%}
     {{parent()}}
     <h1>Category</h1>
-
-    <table class="record_properties">
+    <div class="btn-toolbar" role="toolbar">
+        <div class="btn-group">
+            <a href="{{ path('category') }}" class="btn btn-default">{% trans %}Back to the list{% endtrans %}</a>
+            <a href="{{ path('category_edit', { 'id': entity.id }) }}" class="btn btn-default">{% trans %}Edit{% endtrans %}</a>
+        </div>
+    </div>
+        
+    <table class="records_list table table-hover table-bordered">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -16,18 +24,6 @@
             </tr>
         </tbody>
     </table>
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('category') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('category_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    {{ form(delete_form) }}
+    
 {% endblock %}

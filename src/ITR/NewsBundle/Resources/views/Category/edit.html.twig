@@ -1,17 +1,22 @@
 {% extends "NewsBundle:Admin:layout.html.twig" %}
-
+{% form_theme edit_form 'NewsBundle:Form:fields.html.twig' %}
+{% form_theme delete_form 'NewsBundle:Form:delete.html.twig' %}
 {% block content -%}
     {{parent()}}
-    <h1>Category edit</h1>
-
-    {{ form(edit_form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('category') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    
+    <div class="row col-md-offset-1">
+        <a href="{{ path('category') }}" class="btn btn-default">{% trans %}   Back to the list{% endtrans %}</a>
+        {{ form(delete_form) }}
+    </div>
+    <h1 class="text-center">Category edit</h1>
+    <div class="row" >
+        <div class="col-md-5 col-md-offset-4">
+            {{ form_start(edit_form)}}
+            {{ form_errors(edit_form) }}
+            {{ form_row(edit_form.category_name) }}
+            {{ form_widget(edit_form.submit) }}
+            {{ form_end(edit_form) }}
+        </div>
+    </div>
+  
 {% endblock %}

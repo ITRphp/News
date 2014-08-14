@@ -42,31 +42,34 @@ class __TwigTemplate_0c36d470790518ba01e8d9ea08a992f9fae78dc3cd2c779ae3f2d6dc53f
     public function block_content($context, array $blocks = array())
     {
         // line 7
-        echo "            <div class=\"text-center \">
+        echo "        ";
+        $this->displayParentBlock("content", $context, $blocks);
+        echo "
+            <div class=\"text-center \">
                 <h1> ";
-        // line 8
+        // line 9
         echo $this->env->getExtension('translator')->getTranslator()->trans("Welcome", array(), "messages");
         echo " </h1>
             </div>  
             <div class=\"text-center btn-group-lg\">
                 <a href=\"";
-        // line 11
+        // line 12
         echo $this->env->getExtension('routing')->getPath("_registration");
         echo "\" class=\"btn btn-success\">
                     ";
-        // line 12
-        echo $this->env->getExtension('translator')->getTranslator()->trans("Registration", array(), "messages");
         // line 13
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Registration", array(), "messages");
+        // line 14
         echo "                </a>
 
                 <a href=\"";
-        // line 15
+        // line 16
         echo $this->env->getExtension('routing')->getPath("_login");
         echo "\" class=\"btn btn-success\">
                    ";
-        // line 16
-        echo $this->env->getExtension('translator')->getTranslator()->trans("Log in", array(), "messages");
         // line 17
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Log in", array(), "messages");
+        // line 18
         echo "                </a>     
             </div>
  ";
@@ -84,6 +87,6 @@ class __TwigTemplate_0c36d470790518ba01e8d9ea08a992f9fae78dc3cd2c779ae3f2d6dc53f
 
     public function getDebugInfo()
     {
-        return array (  70 => 17,  68 => 16,  64 => 15,  60 => 13,  58 => 12,  54 => 11,  48 => 8,  45 => 7,  42 => 6,  36 => 5,  30 => 3,);
+        return array (  73 => 18,  71 => 17,  67 => 16,  63 => 14,  61 => 13,  57 => 12,  51 => 9,  45 => 7,  42 => 6,  36 => 5,  30 => 3,);
     }
 }

@@ -1,7 +1,0 @@
-{% extends "NewsBundle::layout.html.twig" %}
-
-{% block content %}
-    {% if is_granted('ROLE_ADMIN') %} 
-        <a href="{{path('_admin')}}" class="btn btn-success">admin</a>
-    {% endif %}     
-{% endblock %}

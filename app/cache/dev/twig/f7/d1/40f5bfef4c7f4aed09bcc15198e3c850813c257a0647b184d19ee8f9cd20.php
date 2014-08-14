@@ -31,7 +31,6 @@ class __TwigTemplate_f7d140f5bfef4c7f4aed09bcc15198e3c850813c257a0647b184d19ee8f
         $this->displayParentBlock("content", $context, $blocks);
         echo "
     <h1>User list</h1>
-
     <table class=\"records_list table table-hover table-bordered\">
         <thead>
             <tr>
@@ -45,45 +44,45 @@ class __TwigTemplate_f7d140f5bfef4c7f4aed09bcc15198e3c850813c257a0647b184d19ee8f
         </thead>
         <tbody>
         ";
-        // line 19
+        // line 18
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["entities"]) ? $context["entities"] : $this->getContext($context, "entities")));
         foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
-            // line 20
+            // line 19
             echo "            <tr>
                 <td><a href=\"";
-            // line 21
+            // line 20
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("user_show", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"), "html", null, true);
             echo "</a></td>
                 <td>";
-            // line 22
+            // line 21
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "username"), "html", null, true);
             echo "</td>
                 <td>";
-            // line 23
+            // line 22
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "useremail"), "html", null, true);
             echo "</td>
                 <td>";
-            // line 24
+            // line 23
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "userpassword"), "html", null, true);
             echo "</td>
                 <td>";
-            // line 25
+            // line 24
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "userrole"), "html", null, true);
             echo "</td>
                 <td>
                     <ul class=\"list-group list-unstyled\">
                     <li>
                         <a href=\"";
-            // line 29
+            // line 28
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("user_show", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
             echo "\">show</a>
                     </li>
                     <li>
                         <a href=\"";
-            // line 32
+            // line 31
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("user_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
             echo "\">edit</a>
                     </li>
@@ -95,21 +94,16 @@ class __TwigTemplate_f7d140f5bfef4c7f4aed09bcc15198e3c850813c257a0647b184d19ee8f
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 38
+        // line 37
         echo "        </tbody>
     </table>
-
-        <ul>
-        <li>
-            <a href=\"";
-        // line 43
-        echo $this->env->getExtension('routing')->getPath("user_new");
-        echo "\">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
-    ";
+    <div class=\"navigation\">
+        ";
+        // line 40
+        echo $this->env->getExtension('knp_pagination')->render((isset($context["entities"]) ? $context["entities"] : $this->getContext($context, "entities")));
+        echo "
+    </div>
+";
     }
 
     public function getTemplateName()
@@ -124,6 +118,6 @@ class __TwigTemplate_f7d140f5bfef4c7f4aed09bcc15198e3c850813c257a0647b184d19ee8f
 
     public function getDebugInfo()
     {
-        return array (  106 => 43,  99 => 38,  87 => 32,  81 => 29,  74 => 25,  70 => 24,  66 => 23,  62 => 22,  56 => 21,  53 => 20,  49 => 19,  31 => 4,  28 => 3,);
+        return array (  103 => 40,  98 => 37,  86 => 31,  80 => 28,  73 => 24,  69 => 23,  65 => 22,  61 => 21,  55 => 20,  52 => 19,  48 => 18,  31 => 4,  28 => 3,);
     }
 }

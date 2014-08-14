@@ -1,6 +1,7 @@
 {% extends 'NewsBundle::layout.html.twig' %}
 
 {% block content %}
+    {{parent()}}
         {% if error %}
                     <div class="alert alert-warning text-center">{{ error.message|trans({},'messages') }}</div>
         {% endif %}

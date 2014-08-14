@@ -291,6 +291,6 @@ class PasswordRecoveryController extends Controller
        $em->remove($pass_recovery);
        $user->setUserPassword($password);
        $em->flush();
-       $this->get('session')->getFlashBag()->add('notice', 'Password was successfully changed');
+       $this->get('session')->getFlashBag()->add('notice', $this->get('translator')->trans('Password.changed'));
     }
 }

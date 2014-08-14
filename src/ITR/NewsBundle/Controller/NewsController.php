@@ -28,7 +28,7 @@ class NewsController extends Controller
         $pagination = $paginator->paginate(
             $entities,
             $this->get('request')->query->get('page', 1)/*page number*/,
-            5/*limit per page*/
+            10/*limit per page*/
         );
        // return $this->render('NewsBundle:News:index.html.twig', array(
          //   'entities' => $entities,

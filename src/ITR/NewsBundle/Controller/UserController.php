@@ -25,9 +25,17 @@ class UserController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('NewsBundle:User')->findAll();
+        
+        $paginator = $this->get('knp_paginator');
+        
+        $pagination = $paginator->paginate(
+            $entities,
+            $this->get('request')->query->get('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
 
         return $this->render('NewsBundle:User:index.html.twig', array(
-            'entities' => $entities,
+            'entities' => $pagination,
         ));
     }
     /**
@@ -244,14 +252,19 @@ class UserController extends Controller
                     $access_hash="http://localhost/News/web/app_dev.php/updatepassword?user=".$user_id."&hash=".$hash_code;
                     $this->sendEmail($user_name, $access_hash, $user_email);
                     $this->createPasswordRecovery($user, $hash_code);
-                    $this->get('session')->getFlashBag()->add('notice', 'Letter sent to your email');
+                    $this->get('session')->getFlashBag()->add('notice', $this->get('translator')->trans('Letter.sent.email'));
                     return $this->redirect($this->generateUrl('_welcome'));
                 }else{
-                    $this->get('session')->getFlashBag()->add('notice', 'Link to reset your password has been sent');
+                    $this->get('session')->getFlashBag()->add('notice', $this->get('translator')->trans('Link.reset.password.been.sent'));
                     unset($user);
+                    return $this->redirect($this->generateUrl('_welcome'));
                 }
             }else{
-                 $this->get('session')->getFlashBag()->add('notice', 'User with the email is not registered');
+                 $this->get('session')->getFlashBag()->add('notice', $this->get('translator')->trans('User.email.not.registered'));
+                 
+
+                 return $this->redirect($this->generateUrl('_welcome'));
+                 
             }
         }
         return $this->render('NewsBundle:PasswordRecovery:email.html.twig');
