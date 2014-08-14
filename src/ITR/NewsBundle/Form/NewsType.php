@@ -13,13 +13,17 @@ class NewsType extends AbstractType
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
-    {
+    {//date("Y-m-d H:i:s")
+
         $builder
             ->add('title')
             ->add('author')
-            ->add('publication_date')
-            ->add('descroption')
+            ->add('description')
             ->add('category')
+            ->add('content', 'textarea',array(
+                'attr'=> array(
+                    'class' => 'tinymce'
+                    )))
         ;
     }
     

@@ -18,15 +18,17 @@ ITR\NewsBundle\Entity\News:
         publication_date:
             type: datetime
             length: null
-        descroption:
+        description:
             type: string
             length: '512'
+        content:
+            type: text
     manyToOne:
             category:
                 targetEntity: Category
                 inversedBy: news
                 joinColumn:
                     name: category_id
-                    referencedColumnName: id   
-                    
+                    referencedColumnName: id
+
     lifecycleCallbacks: {  }

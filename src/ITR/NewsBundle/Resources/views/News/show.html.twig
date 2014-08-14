@@ -1,6 +1,7 @@
-{% extends "NewsBundle::layout.html.twig"%}
+{% extends "NewsBundle:Admin:layout.html.twig" %}
 
-{% block body -%}
+{% block content -%}
+    {{parent()}}
     <h1>News</h1>
 
     <table class="record_properties">
@@ -22,8 +23,8 @@
                 <td>{{ entity.publicationdate|date('Y-m-d H:i:s') }}</td>
             </tr>
             <tr>
-                <th>Descroption</th>
-                <td>{{ entity.descroption }}</td>
+                <th>description</th>
+                <td>{{ entity.description }}</td>
             </tr>
         </tbody>
     </table>

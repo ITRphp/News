@@ -35,18 +35,7 @@ class News
     /**
      * @var string
      */
-    private $descroption;
-
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+    private $description;
 
     /**
      * Set title
@@ -54,6 +43,11 @@ class News
      * @param string $title
      * @return News
      */
+
+    public function __construct(){
+        $this->publication_date= new \DateTime();
+    }
+
     public function setTitle($title)
     {
         $this->title = $title;
@@ -100,7 +94,7 @@ class News
      * @param \DateTime $publicationDate
      * @return News
      */
-    public function setPublicationDate($publicationDate)
+    public function setPublicationDate(\DateTime $publicationDate)
     {
         $this->publication_date = $publicationDate;
     
@@ -118,26 +112,26 @@ class News
     }
 
     /**
-     * Set descroption
+     * Set description
      *
-     * @param string $descroption
+     * @param string $description
      * @return News
      */
-    public function setDescroption($descroption)
+    public function setDescription($description)
     {
-        $this->descroption = $descroption;
+        $this->description = $description;
     
         return $this;
     }
 
     /**
-     * Get descroption
+     * Get description
      *
      * @return string 
      */
-    public function getDescroption()
+    public function getDescription()
     {
-        return $this->descroption;
+        return $this->description;
     }
     
     /**
@@ -161,5 +155,71 @@ class News
     public function getCategory()
     {
         return $this->category;
+    }
+    /**
+     * @var \ITR\NewsBundle\Entity\PasswordRecovery
+     */
+    private $passwordrecovery;
+
+
+    /**
+     * Set passwordrecovery
+     *
+     * @param \ITR\NewsBundle\Entity\PasswordRecovery $passwordrecovery
+     * @return News
+     */
+    public function setPasswordrecovery(\ITR\NewsBundle\Entity\PasswordRecovery $passwordrecovery = null)
+    {
+        $this->passwordrecovery = $passwordrecovery;
+
+        return $this;
+    }
+
+    /**
+     * Get passwordrecovery
+     *
+     * @return \ITR\NewsBundle\Entity\PasswordRecovery 
+     */
+    public function getPasswordrecovery()
+    {
+        return $this->passwordrecovery;
+    }
+    /**
+     * @var string
+     */
+    private $content;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set content
+     *
+     * @param string $content
+     * @return News
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Get content
+     *
+     * @return string 
+     */
+    public function getContent()
+    {
+        return $this->content;
     }
 }

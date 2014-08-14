@@ -19,7 +19,9 @@
         "sensio/framework-extra-bundle": "~3.0",
         "incenteev/composer-parameter-handler": "~2.0",
         "doctrine/migrations": "dev-master",
-        "doctrine/doctrine-migrations-bundle": "dev-master"
+        "doctrine/doctrine-migrations-bundle": "dev-master",
+        "knplabs/knp-menu-bundle": "~2.0",
+        "stfalcon/tinymce-bundle": "dev-master"
         
     },
     "require-dev": {

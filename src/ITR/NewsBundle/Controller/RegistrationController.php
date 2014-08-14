@@ -6,21 +6,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use ITR\NewsBundle\Form\RegistrationType;
 use ITR\NewsBundle\Entity\User;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
 
 class RegistrationController extends Controller
-{
-    public function newAction()
-    {     
-        $user = new User();
-        $form = $this->createForm(new RegistrationType(), $user);
-         return $this->render('NewsBundle:Registration:index.html.twig', array(
-            'user' => $user,
-            'form'   => $form->createView(),
-        ));
-    }
-    
+{    
     public function indexAction(Request $request)
     {   
+        if (true === $this->get('security.context')->isGranted('ROLE_USER')){
+            return $this->redirect($this->generateUrl('mainpage'));
+        }
         $user = new User();
         $form = $this->createForm(new RegistrationType(), $user);
 
@@ -28,7 +22,10 @@ class RegistrationController extends Controller
             $form->bind($request);
             
 
-        if ($form->isValid()) {   
+        if ($form->isValid()) {
+            $encoder = new MessageDigestPasswordEncoder('sha1');
+            $password = $encoder->encodePassword($user->getPassword(), $user->getSalt());
+            $user->setUserPassword($password);
             $user->setUserRole('ROLE_USER');
             $em = $this->getDoctrine()->getManager(); 
             $em->persist($user);

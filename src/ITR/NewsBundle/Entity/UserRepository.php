@@ -17,6 +17,29 @@ use Doctrine\ORM\NoResultException;
  */
 class UserRepository extends EntityRepository implements UserProviderInterface
 {
+    public function findUserByEmail($email){
+        $q = $this
+            ->createQueryBuilder('u')
+            ->where('u.user_email = :user_email')
+            ->setParameter('user_email', $email)
+            ->getQuery();
+
+        try {
+            // The Query::getSingleResult() method throws an exception
+            // if there is no record matching the criteria.
+            $user = $q->getResult();
+            
+        } catch (NoResultException $e) {
+            $message = sprintf(
+                'Unable to find an active admin AcmeUserBundle:User object identified by "%s".',
+                $email
+            );
+            throw new UsernameNotFoundException($message, 0, $e);
+        }
+
+        return $user;
+    }
+    
     public function loadUserByUsername($user_name){
         $q = $this
             ->createQueryBuilder('u')
@@ -58,5 +81,7 @@ class UserRepository extends EntityRepository implements UserProviderInterface
             || is_subclass_of($class, $this->getEntityName());
 
     }
+    
+    
     
 }

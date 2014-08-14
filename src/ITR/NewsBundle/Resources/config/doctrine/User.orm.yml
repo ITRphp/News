@@ -27,6 +27,10 @@ ITR\NewsBundle\Entity\User:
         dispatches:
             targetEntity: Dispatch
             mappedBy: users
+    oneToOne:
+        passwordrecovery:
+            targetEntity: PasswordRecovery
+            mappedBy: user
 #    manyToMany:
 #        dispatch:
 #            targetEntity: Dispatch

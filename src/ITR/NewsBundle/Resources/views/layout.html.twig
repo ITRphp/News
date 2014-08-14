@@ -1,19 +1,35 @@
-{% extends "TwigBundle::layout.html.twig"%}
+<!DOCTYPE html>
+<html> 
+    <head>
+       <title>{% block title %}{% trans %}News{% endtrans %}{% endblock %}</title>
+       {% block head %}
+           <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+           {% block stylesheets %}
+               {% stylesheets '@NewsBundle/Resources/public/css/*' filter='cssrewrite' %}
+               <link rel="stylesheet" href="{{ asset_url }}" />
+               <link rel="stylesheet" href="{{ asset_url }}" />
+           {% endstylesheets %}           
+           {% endblock %}
+           
+            {% javascripts
+                    '@NewsBundle/Resources/public/js/jquery-1.11.1.js'
+                    '@NewsBundle/Resources/public/js/repeatPassword.js'
+                    '@NewsBundle/Resources/public/js/bootstrap.min.js'
+                    '@NewsBundle/Resources/public/js/jquery.hotkeys.js'%}
+                    <script src="{{ asset_url }}"></script>
+                    {% endjavascripts %}
 
-{% block head %}
-    <link rel="stylesheet" href="{{asset('bundles/newsbundle/css/bootstrap.css')}}">
-    <link rel="stylesheet" href="{{asset('bundles/newsbundle/css/signing.css')}}">
-{% endblock %}
+        {% endblock %}
+    </head>
+    <body>
+    	<div class = "container" style="-webkit-box-shadow: 0px 0px 6px 6px rgba(50, 50, 50, 0.1);
+										-moz-box-shadow:    0px 0px 6px 6px rgba(50, 50, 50, 0.1);
+										box-shadow:         0px 0px 6px 6px rgba(50, 50, 50, 0.1);
 
-{% block title %}{% trans %}News{% endtrans %}{% endblock %}
-
-{% block body %}
-	<div id="content" class = "container" style="-webkit-box-shadow: 0px 0px 6px 6px rgba(50, 50, 50, 0.13);
-									-moz-box-shadow:    0px 0px 6px 6px rgba(50, 50, 50, 0.13);
-									box-shadow:         0px 0px 6px 6px rgba(50, 50, 50, 0.13);">
-	{% block content %}
-	{% endblock %}
-   	</div>
-{% endblock %}
-
-    
+  		">
+            {% block body %}
+                {% block content %}{% endblock %}
+            {% endblock %}
+        </div>
+    </body>
+</html>

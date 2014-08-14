@@ -5,20 +5,29 @@
 {% block content %}
       <div id="logo" class="col-md" style="padding:5px">
             <img src="{{ asset('bundles/newsbundle/images/logo.png') }}" />
-            <font size="13">Modern media portal</font>
+            <font size="11">Modern media portal</font>
       </div>
       <div id="menu" class "raw">
-            <div class="navbar navbar-default">
+            <div class="navbar navbar-default" role="navigation">
                 <div class="navbar-header">
                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                   </button>
-                  <a class="navbar-brand" href="#">Welcome</a>
+                  <a class="navbar-brand" href="#">Welcome, {{username}}</a>
+                </div>
+
+
+                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        {{ knp_menu_render('NewsBundle:Builder:mainMenu', {'currentClass': 'active', 'template': 'NewsBundle:Menu:knp_menu.html.twig'}) }}
+                  {% if is_granted('ROLE_ADMIN') %} 
+                            <ul class="nav navbar-nav"><li class="first"><a href="{{path('_admin')}}" class="nav navbar-nav">Admin</a></li></ul>
+                  {% endif %}
+                   </div>
                 </div>
             </div>
-      </div>
+
       <div class="row" style="padding:4px">
           <div id="left"class="col-md-2">
                 <button class="btn btn-primary btn-block">Politics</button>

@@ -1,10 +1,9 @@
 security:
     encoders:
         Symfony\Component\Security\Core\User\User: plaintext
-        ITR\NewsBundle\Entity\User: plaintext
+        ITR\NewsBundle\Entity\User: sha1
 
     role_hierarchy:
-        ROLE_USER:  ROLE_GUEST
         ROLE_MANAGER: ROLE_USER
         ROLE_ADMIN:       [ROLE_MANAGER, ROLE_USER]
         ROLE_SUPER_ADMIN: [ROLE_USER, ROLE_ADMIN, ROLE_ALLOWED_TO_SWITCH]
@@ -25,6 +24,9 @@ security:
             logout:
                 path:   /logout
                 target: /
+        dev:
+            pattern:  ^/(_(profiler|wdt)|css|images|js)/
+            security: false
 
 #    firewalls:
 #        dev:
@@ -48,12 +50,16 @@ security:
             #    realm: "Secured Demo Area"
 
     access_control:
-        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/news, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/hello, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/user, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/category, roles: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/dispatch, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/registration, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/passwordrecovery, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin, roles: ROLE_ADMIN}
+        - { path: ^/admin/news, roles: ROLE_ADMIN}
+        - { path: ^/admin/category, roles: ROLE_ADMIN}
+        - { path: ^/admin/user, roles: ROLE_ADMIN}
+        - { path: ^/admin/dispatch, roles: ROLE_ADMIN}
+        - { path: ^/hello, roles: ROLE_USER }
+        - { path: ^/mainpage, roles: ROLE_USER }
     #access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }

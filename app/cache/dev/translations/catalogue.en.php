@@ -108,11 +108,13 @@ $catalogue = new MessageCatalogue('en', array (
     'Registration' => 'Registration',
     'Log in' => 'Log in',
     'News' => 'News',
-    'User name' => 'User name',
+    'Username' => 'User name',
     'Password' => 'Password',
     'Email' => 'Email',
     'Password.repeat' => 'Repeat password',
     'Forgot.password' => 'Forgot your password?',
+    'Main page' => 'Main pagelala',
+    'Bad credentials' => 'Wrong user name or password',
   ),
 ));
 
