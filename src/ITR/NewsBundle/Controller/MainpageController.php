@@ -17,8 +17,14 @@ class MainpageController extends Controller
         $categories= $em->getRepository('NewsBundle:Category')->findAllOrderedByName();
         
         $news = $em->getRepository('NewsBundle:News')->findAll();
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $news,
+            $this->get('request')->query->get('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
         
-        $context = array( 'username' => $user->getUserName(), 'categories' => $categories, 'news' => $news);
+        $context = array( 'username' => $user->getUserName(), 'categories' => $categories, 'news' => $pagination);
 
         return $this->render('NewsBundle:Mainpage:index.html.twig',$context);
         
@@ -35,7 +41,13 @@ class MainpageController extends Controller
                 
         
         $news = $em->getRepository('NewsBundle:News')->findNewsByCategoryOrderedByDate($current_category->getId());
-        $context = array( 'username' => $user->getUserName(), 'categories' => $categories, 'news' => $news);
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $news,
+            $this->get('request')->query->get('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
+        $context = array( 'username' => $user->getUserName(), 'categories' => $categories, 'news' => $pagination);
         
         return $this->render('NewsBundle:Mainpage:index.html.twig',$context);
     }

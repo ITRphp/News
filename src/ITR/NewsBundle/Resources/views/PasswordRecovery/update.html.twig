@@ -10,6 +10,7 @@
 {% endblock%}
 
 {% block content %}
+    {{parent()}}
  <form action="{{path('_new_password')}}" method="POST" class="col-md-offset-4 col-md-4 well">
         <div class="control-group">
             <label for="password1">{% trans %}Enter.new.password{% endtrans %}:</label>

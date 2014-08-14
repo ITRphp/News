@@ -26,7 +26,7 @@ class Builder extends ContainerAware
              ->setAttribute('divider_prepend', true);
         $menu['Language']->addChild('English', array('uri' => '#'));
         
-        $menu->addChild('NewsBundle:Menu:search.html.twig');
+       //$menu->addChild('NewsBundle:Menu:search.html.twig');
  
         return $menu;
     }

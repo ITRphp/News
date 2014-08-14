@@ -252,7 +252,7 @@ class UserController extends Controller
                     $access_hash="http://localhost/News/web/app_dev.php/updatepassword?user=".$user_id."&hash=".$hash_code;
                     $this->sendEmail($user_name, $access_hash, $user_email);
                     $this->createPasswordRecovery($user, $hash_code);
-                    $this->get('session')->getFlashBag()->add('notice', $this->get('translator')->trans('Letter.sent.email'));
+                    $this->get('session')->getFlashBag()->add('notice',$this->get('translator')->trans('Letter.sent.email'));
                     return $this->redirect($this->generateUrl('_welcome'));
                 }else{
                     $this->get('session')->getFlashBag()->add('notice', $this->get('translator')->trans('Link.reset.password.been.sent'));
@@ -277,7 +277,7 @@ class UserController extends Controller
                 ->setBody($this->renderView('NewsBundle:PasswordRecovery:MailBody.html.twig',
                         array('name' => $user_name, 'access_hash' => $access_hash) ),
                         'text/html');
-        $this->get('mailer')->send($message);
+         $this->get('mailer')->send($message);
     }
     
     public function createPasswordRecovery($user, $hash_code) {

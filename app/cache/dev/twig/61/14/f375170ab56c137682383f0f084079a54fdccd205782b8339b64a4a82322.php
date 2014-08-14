@@ -122,7 +122,7 @@ class __TwigTemplate_6114f375170ab56c137682383f0f084079a54fdccd205782b8339b64a4a
         echo "        </div>
         
         <div id=\"center\" style=\"padding:4px\" class=\"col-md-7 \">
-            <div class=\"container\">
+            <div class=\"container col-md-12\">
                 ";
         // line 43
         $context['_parent'] = (array) $context;
@@ -131,16 +131,16 @@ class __TwigTemplate_6114f375170ab56c137682383f0f084079a54fdccd205782b8339b64a4a
         foreach ($context['_seq'] as $context["_key"] => $context["news_item"]) {
             // line 44
             echo "                    <div class=\"media\">
-                        <div class=\"media-body\">
-                        <h4 class=\"media-heading\">";
+                        <div class=\"media-body well\">
+                            <h4 class=\"media-heading\">";
             // line 46
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["news_item"]) ? $context["news_item"] : $this->getContext($context, "news_item")), "title"), "html", null, true);
             echo "</h4>
-                        <footer>";
+                            <footer>";
             // line 47
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["news_item"]) ? $context["news_item"] : $this->getContext($context, "news_item")), "publicationDate"), "Y-m-d H:i:s"), "html", null, true);
             echo "</footer>
-                          ";
+                              ";
             // line 48
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["news_item"]) ? $context["news_item"] : $this->getContext($context, "news_item")), "description"), "html", null, true);
             echo "  
@@ -160,6 +160,12 @@ class __TwigTemplate_6114f375170ab56c137682383f0f084079a54fdccd205782b8339b64a4a
         // line 54
         echo "                
             </div>
+                    <div class=\"navigation\">
+        ";
+        // line 57
+        echo $this->env->getExtension('knp_pagination')->render((isset($context["news"]) ? $context["news"] : $this->getContext($context, "news")));
+        echo "
+    </div>
         </div>
                     <div id=\"right\" style=\"background-color: whitesmoke\" class=\"col-md-3\">
             <p class=\"bg-primary text-center\">Popular news</p>
@@ -192,6 +198,6 @@ class __TwigTemplate_6114f375170ab56c137682383f0f084079a54fdccd205782b8339b64a4a
 
     public function getDebugInfo()
     {
-        return array (  161 => 54,  154 => 52,  145 => 48,  141 => 47,  137 => 46,  133 => 44,  128 => 43,  122 => 39,  115 => 37,  105 => 35,  100 => 34,  92 => 29,  88 => 27,  74 => 26,  70 => 25,  65 => 22,  56 => 18,  52 => 16,  50 => 15,  46 => 14,  40 => 11,  31 => 4,  28 => 3,);
+        return array (  166 => 57,  161 => 54,  154 => 52,  145 => 48,  141 => 47,  137 => 46,  133 => 44,  128 => 43,  122 => 39,  115 => 37,  105 => 35,  100 => 34,  92 => 29,  88 => 27,  74 => 26,  70 => 25,  65 => 22,  56 => 18,  52 => 16,  50 => 15,  46 => 14,  40 => 11,  31 => 4,  28 => 3,);
     }
 }
