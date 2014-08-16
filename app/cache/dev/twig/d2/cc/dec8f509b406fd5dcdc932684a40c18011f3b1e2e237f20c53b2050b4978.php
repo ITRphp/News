@@ -10,6 +10,7 @@ class __TwigTemplate_d2ccdec8f509b406fd5dcdc932684a40c18011f3b1e2e237f20c53b2050
         $this->parent = $this->env->loadTemplate("NewsBundle::layout.html.twig");
 
         $this->blocks = array(
+            'textarea_widget' => array($this, 'block_textarea_widget'),
             'form_row' => array($this, 'block_form_row'),
             'button_widget' => array($this, 'block_button_widget'),
         );
@@ -26,35 +27,53 @@ class __TwigTemplate_d2ccdec8f509b406fd5dcdc932684a40c18011f3b1e2e237f20c53b2050
     }
 
     // line 3
-    public function block_form_row($context, array $blocks = array())
+    public function block_textarea_widget($context, array $blocks = array())
     {
         // line 4
         ob_start();
         // line 5
+        echo "    <div class=\"textarea_widget\">
+        <textarea ";
+        // line 6
+        $this->displayBlock("widget_attributes", $context, $blocks);
+        echo " class=\"tinymce\">";
+        echo twig_escape_filter($this->env, (isset($context["value"]) ? $context["value"] : $this->getContext($context, "value")), "html", null, true);
+        echo "</textarea>
+    </div>
+";
+        echo trim(preg_replace('/>\s+</', '><', ob_get_clean()));
+    }
+
+    // line 11
+    public function block_form_row($context, array $blocks = array())
+    {
+        // line 12
+        ob_start();
+        // line 13
         echo "    <div class=\"form-group\">
         ";
-        // line 6
+        // line 14
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'label', array("attr" => array("class" => "label")));
         echo "
         ";
-        // line 7
+        // line 15
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'errors');
         echo "
         ";
-        // line 8
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'widget', array("attr" => array("class" => "form-control")));
+        // line 16
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'widget');
         echo "
     </div>
 ";
         echo trim(preg_replace('/>\s+</', '><', ob_get_clean()));
     }
 
-    // line 13
+    // line 21
     public function block_button_widget($context, array $blocks = array())
     {
-        // line 14
+        // line 22
         ob_start();
-        // line 15
+        // line 23
         echo "    <button type=\"";
         echo twig_escape_filter($this->env, ((array_key_exists("type", $context)) ? (_twig_default_filter((isset($context["type"]) ? $context["type"] : $this->getContext($context, "type")), "button")) : ("button")), "html", null, true);
         echo "\" class=\"btn form-control btn-success\"";
@@ -78,6 +97,6 @@ class __TwigTemplate_d2ccdec8f509b406fd5dcdc932684a40c18011f3b1e2e237f20c53b2050
 
     public function getDebugInfo()
     {
-        return array (  58 => 15,  56 => 14,  53 => 13,  45 => 8,  41 => 7,  37 => 6,  34 => 5,  32 => 4,  29 => 3,);
+        return array (  77 => 23,  75 => 22,  72 => 21,  64 => 16,  60 => 15,  56 => 14,  53 => 13,  51 => 12,  48 => 11,  35 => 5,  62 => 14,  58 => 13,  54 => 12,  50 => 11,  46 => 10,  38 => 6,  33 => 4,  30 => 3,  25 => 2,);
     }
 }

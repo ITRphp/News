@@ -23,6 +23,13 @@ ITR\NewsBundle\Entity\User:
             length: '255'
             options:
                 default: ROLE_USER
+        user_active:
+            type: boolean
+            options:
+                default: FALSE
+        user_hash:
+            type: text
+            
     oneToMany:
         dispatches:
             targetEntity: Dispatch

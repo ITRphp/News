@@ -53,7 +53,7 @@ class __TwigTemplate_6114f375170ab56c137682383f0f084079a54fdccd205782b8339b64a4a
                     <li class=\"first\">
                         <a href=\"";
             // line 18
-            echo $this->env->getExtension('routing')->getPath("_admin");
+            echo $this->env->getExtension('routing')->getPath("news");
             echo "\" class=\"nav navbar-nav\">";
             echo $this->env->getExtension('translator')->getTranslator()->trans("edit.mode", array(), "messages");
             echo "</a>
@@ -140,9 +140,9 @@ class __TwigTemplate_6114f375170ab56c137682383f0f084079a54fdccd205782b8339b64a4a
             // line 47
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, $this->getAttribute((isset($context["news_item"]) ? $context["news_item"] : $this->getContext($context, "news_item")), "publicationDate"), "Y-m-d H:i:s"), "html", null, true);
             echo "</footer>
-                              ";
+                            ";
             // line 48
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["news_item"]) ? $context["news_item"] : $this->getContext($context, "news_item")), "description"), "html", null, true);
+            echo $this->getAttribute((isset($context["news_item"]) ? $context["news_item"] : $this->getContext($context, "news_item")), "content");
             echo "  
                         </div>
                     </div>

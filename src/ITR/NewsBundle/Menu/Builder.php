@@ -54,7 +54,7 @@ class Builder extends ContainerAware
              ->setAttribute('divider_prepend', true);
  
         $menu['Content']->addChild('News list', array('route' => '_all_news'));
-        $menu['Content']->addChild('Add news', array('route' => 'news_new'));
+        $menu['Content']->addChild('Add news', array('route' => '_add_news'));
         
         $menu->addChild('Logout', array('route' => 'logout'));
   

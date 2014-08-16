@@ -3,7 +3,6 @@
 namespace ITR\NewsBundle\Entity;
 
 use Symfony\Component\Security\Core\User\UserInterface;
-use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
 use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
 
@@ -158,7 +157,9 @@ class User implements UserInterface,  \Serializable
     }
 
     public function getPassword() {
-        
+        if($this->getUserActive() == 0){
+            return 'NULL';
+        }
         return $this->user_password;
     }
 
@@ -255,5 +256,62 @@ class User implements UserInterface,  \Serializable
     public function getPasswordrecovery()
     {
         return $this->passwordrecovery;
+    }
+
+    /**
+     * @var boolean
+     */
+    private $user_active;
+
+
+    /**
+     * Set user_active
+     *
+     * @param boolean $userActive
+     * @return User
+     */
+    public function setUserActive($userActive)
+    {
+        $this->user_active = $userActive;
+
+        return $this;
+    }
+
+    /**
+     * Get user_active
+     *
+     * @return boolean 
+     */
+    public function getUserActive()
+    {
+        return $this->user_active;
+    }
+    /**
+     * @var string
+     */
+    private $user_hash;
+
+
+    /**
+     * Set user_hash
+     *
+     * @param string $userHash
+     * @return User
+     */
+    public function setUserHash($userHash)
+    {
+        $this->user_hash = $userHash;
+
+        return $this;
+    }
+
+    /**
+     * Get user_hash
+     *
+     * @return string 
+     */
+    public function getUserHash()
+    {
+        return $this->user_hash;
     }
 }

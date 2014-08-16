@@ -9,8 +9,6 @@ ITR\NewsBundle\Entity\User:
     properties:
         user_password:
             - NotBlank: ~
-            - Length:
-                min: 8c
     properties:
         user_email:
             -NotBlank: ~

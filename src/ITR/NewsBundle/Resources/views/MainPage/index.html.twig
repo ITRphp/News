@@ -15,7 +15,7 @@
             {% if is_granted('ROLE_ADMIN') %}
                 <ul class="nav navbar-nav navbar-right">
                     <li class="first">
-                        <a href="{{path('_admin')}}" class="nav navbar-nav">{% trans %}edit.mode{% endtrans %}</a>
+                        <a href="{{path('news')}}" class="nav navbar-nav">{% trans %}edit.mode{% endtrans %}</a>
                     </li>
                 </ul>
             {% endif %}
@@ -45,7 +45,7 @@
                         <div class="media-body well">
                             <h4 class="media-heading">{{ news_item.title }}</h4>
                             <footer>{{ news_item.publicationDate|date('Y-m-d H:i:s')}}</footer>
-                              {{ news_item.description }}  
+                            {{ news_item.content|raw }}  
                         </div>
                     </div>
                 {% else %}

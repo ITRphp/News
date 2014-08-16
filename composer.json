@@ -21,7 +21,8 @@
         "doctrine/migrations": "dev-master",
         "doctrine/doctrine-migrations-bundle": "dev-master",
         "knplabs/knp-menu-bundle": "~2.0",
-        "knplabs/knp-paginator-bundle": "~2.4"
+        "knplabs/knp-paginator-bundle": "~2.4",
+        "stfalcon/tinymce-bundle": "dev-master"
         
     },
     "require-dev": {

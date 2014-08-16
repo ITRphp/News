@@ -37,23 +37,17 @@ class News
      */
     private $description;
 
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
-
     /**
      * Set title
      *
      * @param string $title
      * @return News
      */
+
+    public function __construct(){
+        $this->publication_date= new \DateTime();
+    }
+
     public function setTitle($title)
     {
         $this->title = $title;
@@ -100,7 +94,7 @@ class News
      * @param \DateTime $publicationDate
      * @return News
      */
-    public function setPublicationDate($publicationDate)
+    public function setPublicationDate(\DateTime $publicationDate)
     {
         $this->publication_date = $publicationDate;
     
@@ -131,7 +125,7 @@ class News
     }
 
     /**
-     * Get descroption
+     * Get description
      *
      * @return string 
      */
@@ -189,5 +183,43 @@ class News
     public function getPasswordrecovery()
     {
         return $this->passwordrecovery;
+    }
+    /**
+     * @var string
+     */
+    private $content;
+
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set content
+     *
+     * @param string $content
+     * @return News
+     */
+    public function setContent($content)
+    {
+        $this->content = $content;
+
+        return $this;
+    }
+
+    /**
+     * Get content
+     *
+     * @return string 
+     */
+    public function getContent()
+    {
+        return $this->content;
     }
 }

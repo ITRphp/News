@@ -44,9 +44,9 @@ class NewsController extends Controller
         $entity = new News();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
-
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $entity->setPublicationDate(new \DateTime('now'));
             $em->persist($entity);
             $em->flush();
 

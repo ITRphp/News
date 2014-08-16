@@ -21,6 +21,8 @@ ITR\NewsBundle\Entity\News:
         description:
             type: string
             length: '512'
+        content:
+            type: text
     manyToOne:
             category:
                 targetEntity: Category
@@ -28,6 +30,5 @@ ITR\NewsBundle\Entity\News:
                 joinColumn:
                     name: category_id
                     referencedColumnName: id
-    
-                    
+
     lifecycleCallbacks: {  }

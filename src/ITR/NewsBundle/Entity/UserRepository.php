@@ -20,7 +20,7 @@ class UserRepository extends EntityRepository implements UserProviderInterface
     public function findUserByEmail($email){
         $q = $this
             ->createQueryBuilder('u')
-            ->where('u.user_email = :user_email')
+            ->where('u.user_email = :user_email' )
             ->setParameter('user_email', $email)
             ->getQuery();
 
@@ -43,8 +43,9 @@ class UserRepository extends EntityRepository implements UserProviderInterface
     public function loadUserByUsername($user_name){
         $q = $this
             ->createQueryBuilder('u')
-            ->where('u.user_name = :user_name')
+            ->where('u.user_name = :user_name AND u.user_active = :user_active')
             ->setParameter('user_name', $user_name)
+            ->setParameter('user_active', TRUE)
             ->getQuery();
 
         try {

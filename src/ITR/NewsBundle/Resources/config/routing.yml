@@ -11,7 +11,7 @@ category_news:
     
 NewsBundle_news:
         resource: "@NewsBundle/Resources/config/routing/news.yml"
-        prefix:   /admin/news
+        prefix: /admin/news
         
 NewsBundle_category:
     resource: "@NewsBundle/Resources/config/routing/category.yml"
@@ -32,10 +32,11 @@ _login:
 _registration:
     path:     /registration
     defaults: { _controller: NewsBundle:Registration:index }
-    
-_admin:
-    path:     /admin/dashboard
-    defaults: { _controller: NewsBundle:Admin:index }
+_activation:
+    path:     /activate
+    defaults: { _controller: NewsBundle:Registration:activation }
+    requirements:
+      _method: GET
     
 login:
     pattern:   /login
@@ -52,7 +53,7 @@ _all_users:
     defaults:  { _controller: NewsBundle:User:index}
     
 _all_news:
-    pattern: /admin/news
+    pattern:    /admin/news
     defaults:  { _controller: NewsBundle:News:index}
     
 _add_news:

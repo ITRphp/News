@@ -1,11 +1,19 @@
 {% extends "NewsBundle::layout.html.twig" %}
 
+{% block textarea_widget %}
+{% spaceless %}
+    <div class="textarea_widget">
+        <textarea {{ block('widget_attributes') }} class="tinymce">{{ value }}</textarea>
+    </div>
+{% endspaceless %}
+{% endblock textarea_widget %}
+
 {% block form_row %}
 {% spaceless %}
     <div class="form-group">
         {{form_label(form, null, {'attr':{'class': 'label' }} )}}
         {{ form_errors(form) }}
-        {{ form_widget(form,{'attr':{'class': 'form-control' }} ) }}
+        {{ form_widget(form) }}
     </div>
 {% endspaceless %}
 {% endblock form_row %}

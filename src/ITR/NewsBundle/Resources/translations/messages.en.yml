@@ -13,6 +13,7 @@ Forgot.password:    Forgot your password?
 Log in: Log in
 Logout: Log out
 Language:   Language
+LocalNews:  LocalNews
 Main page: Main page
 News list: News list
 News:   News
@@ -21,6 +22,7 @@ Password.repeat:    Repeat password
 Password.changed:  Password was successfully changed
 Registration:   Registration
 Repeat.new.password: Repeat new password
+Registered: You have successfully registered
 Subscribe: Subscribe
 User: User
 Users list: Users list

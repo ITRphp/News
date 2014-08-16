@@ -13,13 +13,30 @@ class NewsType extends AbstractType
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
-    {
+    {//date("Y-m-d H:i:s")
+
         $builder
-            ->add('title')
-            ->add('author')
-            ->add('publication_date')
-            ->add('description')
-            ->add('category')
+            ->add('title','text',array(
+                'attr'=> array(
+                    'class' => 'form-control'
+                    )))
+            ->add('author','text',array(
+                'attr'=> array(
+                    'class' => 'form-control'
+                    )))
+            ->add('description','text',array(
+                'attr'=> array(
+                    'class' => 'form-control'
+                    )))
+            ->add('category','entity',array(
+                'class' => 'NewsBundle:Category',
+                'required' => true,
+                'empty_value' => 'Choose news category',
+                'attr'=> array(
+                    'class' => 'form-control'
+                    )))
+            ->add('content', 'textarea',array(
+                'label' => ' '))
         ;
     }
     
