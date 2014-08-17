@@ -107,6 +107,7 @@ $catalogue = new MessageCatalogue('en', array (
     'All categories' => 'All categories',
     'Add category' => 'Add category',
     'Add news' => 'Add news',
+    'Author' => 'Author',
     'Back to the list' => 'Back to the list',
     'Bad credentials' => 'Wrong user name or password',
     'Categories' => 'Categories',

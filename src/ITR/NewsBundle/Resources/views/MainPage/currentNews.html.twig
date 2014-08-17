@@ -1,0 +1,17 @@
+{% extends "NewsBundle:MainPage:layout.html.twig" %}
+{% block news %}
+<div id="center" style="padding:4px" class="col-md-10 ">
+    <div class="container col-md-12">
+        <div class="media">
+            <div class="media-body well">
+                <h2 class="media-heading">
+                    {{ news.title }}
+                </h2>
+                    <footer><h6>{{ news.publicationDate|date('Y-m-d H:i:s')}} <i>{{ 'Author'|trans }}:</i> {{ news.author}}</h6></footer>
+                    <p>{{ news.content|raw }}  </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

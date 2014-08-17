@@ -5,6 +5,9 @@ _welcome:
 mainpage:
     path:     /mainpage
     defaults: { _controller: NewsBundle:Mainpage:index }
+current_news:
+    path:     /mainpage/news/{id}
+    defaults: { _controller: NewsBundle:Mainpage:current }
 category_news:
     path:     /mainpage/{category}
     defaults: { _controller: NewsBundle:Mainpage:news }

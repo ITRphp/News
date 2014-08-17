@@ -37,7 +37,7 @@ class __TwigTemplate_d8448d2e8482b547a774fa5e6fa34233841fa00ea12139c535b440b634b
                   <span class=\"icon-bar\"></span>
                   <span class=\"icon-bar\"></span>
                 </button>
-                <a class=\"navbar-brand\" href=\"#\">Admin</a>
+                <a class=\"navbar-brand\" href=\"#\">LocalNews</a>
             </div>
              <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">
                 ";

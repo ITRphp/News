@@ -1,76 +1,43 @@
-{% extends "NewsBundle::layout.html.twig" %}
+{% extends "NewsBundle:MainPage:layout.html.twig" %}
 
-{% block content %}
-    <div class="navbar navbar-default" role="navigation">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">{% trans %}Welcome %username%{% endtrans %}</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            {{ knp_menu_render('NewsBundle:Builder:mainMenu', {'currentClass': 'active', 'template': 'NewsBundle:Menu:knp_menu.html.twig'}) }}
-            {% if is_granted('ROLE_ADMIN') %}
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="first">
-                        <a href="{{path('news')}}" class="nav navbar-nav">{% trans %}edit.mode{% endtrans %}</a>
-                    </li>
-                </ul>
-            {% endif %}
-        </div>
-    </div>
-   <div id="logo" class="col-md" style="padding:5px">
-                    {% image '@NewsBundle/Resources/public/images/logo.png'%}
-                       <img src="{{ asset_url }}"  alt="Example"/>
-                    {% endimage %} 
-  </div>
-                    <h4> {{ "now"|date("d-m-Y") }}</h4>
-    <hr>
-    <div class="row" style="padding:4px">
-        
-        <div id="left" class="list-group col-md-2 col-md-offset-0">
-            {% for category in categories %}
-                <a href="{{ path('category_news', { 'category': category|lower }) }}" class="list-group-item">{{ category }}</a>
-            {% else %}
-                <h3>No news</h3>
-            {% endfor %}
-        </div>
-        
-        <div id="center" style="padding:4px" class="col-md-7 ">
-            <div class="container col-md-12">
-                {% for news_item in news %}
-                    <div class="media">
-                        <div class="media-body well">
-                            <h4 class="media-heading">{{ news_item.title }}</h4>
-                            <footer>{{ news_item.publicationDate|date('Y-m-d H:i:s')}}</footer>
-                            {{ news_item.content|raw }}  
-                        </div>
-                    </div>
-                {% else %}
-                    <h3>No news</h3>
-                {% endfor %}
-                
+{% block news %}
+<div id="center" style="padding:4px" class="col-md-7 ">
+    <div class="container col-md-12">
+        {% for news_item in news %}
+            <div class="media">
+                <div class="media-body well">
+                    <h4 class="media-heading">
+                        <a href="{{path('current_news',{'id': news_item.id })}}">{{ news_item.title }}</a>
+                    </h4>
+                        <footer><h6>{{ news_item.publicationDate|date('Y-m-d H:i:s')}}</h6></footer>
+                    <strong>{{ news_item.description }}</strong>
+                </div>
             </div>
-                    <div class="navigation">
+        {% else %}
+            <h3>No news</h3>
+        {% endfor %}
+
+    </div>
+    <div class="navigation">
         {{ knp_pagination_render(news) }}
     </div>
+</div>
+{% endblock %}
+{% block popular_news %}
+<div id="right" style="background-color: whitesmoke" class="col-md-3">
+    <p class="bg-primary text-center">Popular news</p>
+        <div class="media">
+            <div class="media-body">
+                <h4 class="media-heading">First news</h4>
+                newsnewsnewsnewsnews
+            </div>
         </div>
-                    <div id="right" style="background-color: whitesmoke" class="col-md-3">
-            <p class="bg-primary text-center">Popular news</p>
-                <div class="media">
-                <div class="media-body">
-                    <h4 class="media-heading">First news</h4>
-                    newsnewsnewsnewsnews
-                </div>
-            </div>
-            <div class="media">
-                <div class="media-body">
-                    <h4 class="media-heading">Second news</h4>
-                    newsnewsnewsnewsnews
-                </div>
-            </div>
+    <div class="media">
+        <div class="media-body">
+            <h4 class="media-heading">Second news</h4>
+                newsnewsnewsnewsnews
         </div>
     </div>
+</div>
 {% endblock %}
+

@@ -210,6 +210,11 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\MainpageController::indexAction',  '_route' => 'mainpage',);
             }
 
+            // current_news
+            if (0 === strpos($pathinfo, '/mainpage/news') && preg_match('#^/mainpage/news/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'current_news')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\MainpageController::currentAction',));
+            }
+
             // category_news
             if (preg_match('#^/mainpage/(?P<category>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'category_news')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\MainpageController::newsAction',));
