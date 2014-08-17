@@ -34,4 +34,45 @@ class NewsRepository extends EntityRepository
 
         return $news;
     }
+    public function findAllNewsOrderedByDate()
+    {
+         $q = $this
+            ->createQueryBuilder('n')
+            ->orderBy('n.publication_date', 'DESC')
+            ->getQuery();
+
+        try {
+            $news = $q->getResult();
+            
+        } catch (NoResultException $e) {
+            $message = sprintf(
+                'Unable to find an active category NewsBundle:category object identified by..'
+            );
+            throw new UsernameNotFoundException($message, 0, $e);
+        }
+
+        return $news;
+    }
+    
+    public function findAllNewsOrderedByPopularity()
+    {
+        $id = '';
+    $q = $this->getEntityManager()
+            ->createQuery('SELECT n, COUNT(n.id) AS HIDDEN mycount FROM NewsBundle:News n JOIN n.users u GROUP BY n.id ORDER BY mycount DESC');
+    
+
+        try {
+            $news = $q->getResult();
+            
+        } catch (NoResultException $e) {
+            $message = sprintf(
+                'Unable to find an active category NewsBundle:category object identified by "%s".',
+                $id
+            );
+            throw new UsernameNotFoundException($message, 0, $e);
+        }
+
+        return $news;
+        
+    }
 }

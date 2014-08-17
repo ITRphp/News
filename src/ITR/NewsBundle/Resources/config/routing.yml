@@ -7,7 +7,7 @@ mainpage:
     defaults: { _controller: NewsBundle:Mainpage:index }
 current_news:
     path:     /mainpage/news/{id}
-    defaults: { _controller: NewsBundle:Mainpage:current }
+    defaults: { _controller: NewsBundle:Mainpage:currentNewsItem }
 category_news:
     path:     /mainpage/{category}
     defaults: { _controller: NewsBundle:Mainpage:news }

@@ -7,7 +7,7 @@ use ITR\NewsBundle\Entity\Category;
 
 class MainpageController extends Controller
 {
-	public function indexAction() 
+    public function indexAction()
     {
 
     	$user = $this->get('security.context')->getToken()->getUser();
@@ -16,7 +16,7 @@ class MainpageController extends Controller
         
         $categories= $em->getRepository('NewsBundle:Category')->findAllOrderedByName();
         
-        $news = $em->getRepository('NewsBundle:News')->findAll();
+        $news = $em->getRepository('NewsBundle:News')->findAllNewsOrderedByDate();
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $news,
@@ -49,7 +49,8 @@ class MainpageController extends Controller
         
         return $this->render('NewsBundle:Mainpage:index.html.twig',$context);
     }
-    public function currentAction($id)
+    
+    public function currentNewsItemAction($id)
     {
         $user = $this->get('security.context')->getToken()->getUser();
         
@@ -57,7 +58,14 @@ class MainpageController extends Controller
         
         $categories= $em->getRepository('NewsBundle:Category')->findAllOrderedByName();
         
-        $news = $em->getRepository('NewsBundle:News')->find($id);        
+        $news = $em->getRepository('NewsBundle:News')->find($id);
+        $views_list=$news->getUsers();
+        
+        if (!($views_list->contains($user))){
+            $news->addUser($user);
+            $em->flush();
+        }
+        
         $context = array( 'username' => $user->getUserName(), 'categories' => $categories, 'news' => $news);
 
         return $this->render('NewsBundle:Mainpage:currentNews.html.twig',$context);
