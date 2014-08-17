@@ -17,7 +17,6 @@ ITR\NewsBundle\Entity\Dispatch:
 #            targetEntity: Category
 #            mappedBy: dispatchs
     manyToOne:
-        
             categories:
                 targetEntity: Category
                 inversedBy: dispatches

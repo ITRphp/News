@@ -9,13 +9,12 @@ class MainpageController extends Controller
 {
     public function indexAction()
     {
-
     	$user = $this->get('security.context')->getToken()->getUser();
-        
         $em = $this->getDoctrine()->getManager();
         
-        $categories= $em->getRepository('NewsBundle:Category')->findAllOrderedByName();
-        
+        $categories = $em->getRepository('NewsBundle:Category')->findAllOrderedByName();
+        $dispatches = $em->getRepository('NewsBundle:Dispatch')->findBy(array('users'=>$user));
+        var_dump($dispatches);
         $news = $em->getRepository('NewsBundle:News')->findAllNewsOrderedByDate();
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
@@ -24,7 +23,10 @@ class MainpageController extends Controller
             10/*limit per page*/
         );
         
-        $context = array( 'username' => $user->getUserName(), 'categories' => $categories, 'news' => $pagination);
+        $context = array( 'username' => $user->getUserName(), 
+                        'categories' => $categories, 
+                        'news' => $pagination,
+                        'dispatches' => $dispatches);
 
         return $this->render('NewsBundle:Mainpage:index.html.twig',$context);
         

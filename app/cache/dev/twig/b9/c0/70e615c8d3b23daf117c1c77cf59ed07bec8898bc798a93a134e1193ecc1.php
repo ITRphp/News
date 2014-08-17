@@ -130,6 +130,81 @@ class __TwigTemplate_b9c070e615c8d3b23daf117c1c77cf59ed07bec8898bc798a93a134e119
         $this->displayBlock('popular_news', $context, $blocks);
         // line 44
         echo "    </div>
+    <div class=\"modal fade\" id=\"basicModal\" tabindex=\"-1\" role=\"dialog\">
+        <div class=\"modal-dialog\">
+            <div class=\"modal-content\">
+                <div class=\"modal-header\"><button class=\"close\" type=\"button\" data-dismiss=\"modal\">x</button>
+                    <h4 class=\"modal-title\" id=\"myModalLabel\">";
+        // line 49
+        echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("Subscribe"), "html", null, true);
+        echo "</h4>
+                </div>
+                <div class=\"modal-body\">
+                                            ";
+        // line 52
+        echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("You have subscribed to"), "html", null, true);
+        echo "
+                    <ul>
+                        ";
+        // line 54
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["dispatches"]) ? $context["dispatches"] : $this->getContext($context, "dispatches")));
+        $context['_iterated'] = false;
+        foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
+            // line 55
+            echo "                            <li>";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "categories"), "html", null, true);
+            echo "</li>
+                        ";
+            $context['_iterated'] = true;
+        }
+        if (!$context['_iterated']) {
+            // line 57
+            echo "
+                        ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 59
+        echo "                    </ul>
+                    ";
+        // line 60
+        echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("Edit"), "html", null, true);
+        echo "
+                    <form action=\"";
+        // line 61
+        echo $this->env->getExtension('routing')->getPath("subscribe");
+        echo "\" method=\"POST\">
+                        <select multiple class=\"form-control\" name=\"category[]\">
+                            ";
+        // line 63
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["categories"]) ? $context["categories"] : $this->getContext($context, "categories")));
+        foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
+            // line 64
+            echo "                                <option>";
+            echo twig_escape_filter($this->env, (isset($context["category"]) ? $context["category"] : $this->getContext($context, "category")), "html", null, true);
+            echo "</option>
+                            ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 66
+        echo "                        </select>
+                            <input type=\"submit\" class=\"btn btn-primary\" value=\"";
+        // line 67
+        echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("Save"), "html", null, true);
+        echo "\"></button>
+                    </form>
+                </div>
+                    
+            </div>
+            
+            </div>
+        </div>
+    </div>
 ";
     }
 
@@ -159,6 +234,6 @@ class __TwigTemplate_b9c070e615c8d3b23daf117c1c77cf59ed07bec8898bc798a93a134e119
 
     public function getDebugInfo()
     {
-        return array (  147 => 43,  144 => 42,  140 => 41,  137 => 40,  132 => 44,  129 => 42,  127 => 40,  124 => 39,  117 => 37,  107 => 35,  102 => 34,  94 => 29,  90 => 27,  76 => 26,  72 => 25,  67 => 22,  58 => 18,  54 => 16,  52 => 15,  48 => 14,  42 => 11,  33 => 4,  30 => 3,);
+        return array (  222 => 43,  219 => 42,  215 => 41,  212 => 40,  198 => 67,  195 => 66,  186 => 64,  182 => 63,  177 => 61,  173 => 60,  170 => 59,  163 => 57,  155 => 55,  150 => 54,  145 => 52,  139 => 49,  132 => 44,  129 => 42,  127 => 40,  124 => 39,  117 => 37,  107 => 35,  102 => 34,  94 => 29,  90 => 27,  76 => 26,  72 => 25,  67 => 22,  58 => 18,  54 => 16,  52 => 15,  48 => 14,  42 => 11,  33 => 4,  30 => 3,);
     }
 }

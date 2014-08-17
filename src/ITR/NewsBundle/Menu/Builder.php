@@ -17,9 +17,11 @@ class Builder extends ContainerAware
              ->setAttribute('dropdown', true);
  
         $menu['User']->addChild('Subscribe', array('uri' => '#'))
-                ->setAttribute('divider_append', true);
+                ->setAttribute('divider_append', true)
+                ->setAttribute('data-toggle', "modal")
+                ->setAttribute('data-target', "#basicModal");
         $menu['User']->addChild('Logout', array('route' => 'logout'));
-        
+
  
         $menu->addChild('Language')
              ->setAttribute('dropdown', true)

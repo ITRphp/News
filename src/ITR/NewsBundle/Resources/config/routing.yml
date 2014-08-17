@@ -11,6 +11,9 @@ current_news:
 category_news:
     path:     /mainpage/{category}
     defaults: { _controller: NewsBundle:Mainpage:news }
+subscribe:
+    path:     /subscribe
+    defaults: { _controller: NewsBundle:Dispatch:updateUserDispatch}
     
 NewsBundle_news:
         resource: "@NewsBundle/Resources/config/routing/news.yml"

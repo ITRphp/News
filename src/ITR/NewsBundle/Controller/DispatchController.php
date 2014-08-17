@@ -221,4 +221,25 @@ class DispatchController extends Controller
             ->getForm()
         ;
     }
+    
+    public function updateUserDispatchAction() {
+        $em = $this->getDoctrine()->getManager();
+
+        $dispatches = $em->getRepository('NewsBundle:Dispatch')->findBy(array('users' => $this->get('security.context')->getToken()->getUser()));
+        if ($dispatches) {
+            foreach ($dispatches as $item){
+                $em->remove($item);
+            }
+        }
+        foreach ($_POST['category'] as $item){
+            $dispatch = new Dispatch();
+            $dispatch->setUsers($this->get('security.context')->getToken()->getUser());
+            $category = $em->getRepository('NewsBundle:Category')->findOneBy(array('category_name' => $item));
+            $dispatch->setCategories($category);
+            $em->persist($dispatch);
+        }
+        $em->flush();
+        return $this->redirect($this->generateUrl('mainpage'));
+        
+    }
 }
