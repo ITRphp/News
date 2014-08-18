@@ -2523,7 +2523,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>53f1a3c622a8e</argument>
+            <argument>53f1c5178253c</argument>
           </service>
         </argument>
       </argument>
@@ -2876,7 +2876,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>53f1a3c622a8e</argument>
+            <argument>53f1c5178253c</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -3565,6 +3565,12 @@
       <tag name="knp_menu.voter"/>
       <argument type="service" id="service_container"/>
     </service>
+    <service id="itr_news.menu_builder" class="ITR\NewsBundle\Menu\Builder">
+      <argument type="service" id="knp_menu.factory"/>
+    </service>
+    <service id="itr_news.menu.main" class="Knp\Menu\MenuItem" factory-method="createMainMenu" factory-service="itr_news.menu_builder" scope="request">
+      <tag name="knp_menu.menu" alias="main"/>
+    </service>
     <service id="knp_menu.factory" class="Knp\Menu\MenuFactory">
       <call method="addExtension">
         <argument type="service">
@@ -4116,7 +4122,9 @@
           <service class="Knp\Bundle\MenuBundle\Provider\ContainerAwareProvider" public="false">
             <tag name="knp_menu.provider"/>
             <argument type="service" id="service_container"/>
-            <argument type="collection"/>
+            <argument type="collection">
+              <argument key="main">itr_news.menu.main</argument>
+            </argument>
           </service>
         </argument>
         <argument type="service">

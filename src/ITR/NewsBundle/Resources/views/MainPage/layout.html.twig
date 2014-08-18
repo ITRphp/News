@@ -11,14 +11,7 @@
         <a class="navbar-brand" href="#">{% trans %}Welcome %username%{% endtrans %}</a>
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        {{ knp_menu_render('NewsBundle:Builder:mainMenu', {'currentClass': 'active', 'template': 'NewsBundle:Menu:knp_menu.html.twig'}) }}
-        {% if is_granted('ROLE_ADMIN') %}
-            <ul class="nav navbar-nav navbar-right">
-                <li class="first">
-                    <a href="{{path('news')}}" class="nav navbar-nav">{% trans %}edit.mode{% endtrans %}</a>
-                </li>
-            </ul>
-        {% endif %}
+        {{ knp_menu_render('NewsBundle:Builder:mainMenu', {'currentClass': 'active', 'template': 'NewsBundle:Menu:knp_menu.html.twig'})|raw }}
     </div>
 </div>
 <div id="logo" class="col-md" style="padding:5px">

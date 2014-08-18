@@ -59,120 +59,124 @@ class __TwigTemplate_df22ced3062ff0c1eefc9bfc94c762fa78240b3565cd6ff4f93806ae6eb
             // line 19
             $context["classes"] = (((!twig_test_empty($this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "attribute", array(0 => "class"), "method")))) ? (array(0 => $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "attribute", array(0 => "class"), "method"))) : (array()));
             // line 20
+            $context["id"] = (((!twig_test_empty($this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "attribute", array(0 => "id"), "method")))) ? (array(0 => $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "attribute", array(0 => "id"), "method"))) : (array()));
+            // line 21
             if ($this->getAttribute((isset($context["matcher"]) ? $context["matcher"] : $this->getContext($context, "matcher")), "isCurrent", array(0 => (isset($context["item"]) ? $context["item"] : $this->getContext($context, "item"))), "method")) {
-                // line 21
+                // line 22
                 $context["classes"] = twig_array_merge((isset($context["classes"]) ? $context["classes"] : $this->getContext($context, "classes")), array(0 => $this->getAttribute((isset($context["options"]) ? $context["options"] : $this->getContext($context, "options")), "currentClass")));
             } elseif ($this->getAttribute((isset($context["matcher"]) ? $context["matcher"] : $this->getContext($context, "matcher")), "isAncestor", array(0 => (isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), 1 => $this->getAttribute((isset($context["options"]) ? $context["options"] : $this->getContext($context, "options")), "depth")), "method")) {
-                // line 23
+                // line 24
                 $context["classes"] = twig_array_merge((isset($context["classes"]) ? $context["classes"] : $this->getContext($context, "classes")), array(0 => $this->getAttribute((isset($context["options"]) ? $context["options"] : $this->getContext($context, "options")), "ancestorClass")));
             }
-            // line 25
+            // line 26
             if ($this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "actsLikeFirst")) {
-                // line 26
+                // line 27
                 $context["classes"] = twig_array_merge((isset($context["classes"]) ? $context["classes"] : $this->getContext($context, "classes")), array(0 => $this->getAttribute((isset($context["options"]) ? $context["options"] : $this->getContext($context, "options")), "firstClass")));
             }
-            // line 28
+            // line 29
             if ($this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "actsLikeLast")) {
-                // line 29
+                // line 30
                 $context["classes"] = twig_array_merge((isset($context["classes"]) ? $context["classes"] : $this->getContext($context, "classes")), array(0 => $this->getAttribute((isset($context["options"]) ? $context["options"] : $this->getContext($context, "options")), "lastClass")));
+                // line 31
+                $context["id"] = twig_array_merge((isset($context["id"]) ? $context["id"] : $this->getContext($context, "id")), array(0 => "right"));
             }
-            // line 31
-            echo " 
-";
             // line 33
-            $context["childrenClasses"] = (((!twig_test_empty($this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "childrenAttribute", array(0 => "class"), "method")))) ? (array(0 => $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "childrenAttribute", array(0 => "class"), "method"))) : (array()));
-            // line 34
-            $context["childrenClasses"] = twig_array_merge((isset($context["childrenClasses"]) ? $context["childrenClasses"] : $this->getContext($context, "childrenClasses")), array(0 => ("menu_level_" . $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "level"))));
-            // line 35
             echo " 
 ";
+            // line 35
+            $context["childrenClasses"] = (((!twig_test_empty($this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "childrenAttribute", array(0 => "class"), "method")))) ? (array(0 => $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "childrenAttribute", array(0 => "class"), "method"))) : (array()));
+            // line 36
+            $context["childrenClasses"] = twig_array_merge((isset($context["childrenClasses"]) ? $context["childrenClasses"] : $this->getContext($context, "childrenClasses")), array(0 => ("menu_level_" . $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "level"))));
             // line 37
+            echo " 
+";
+            // line 39
             if ((isset($context["is_dropdown"]) ? $context["is_dropdown"] : $this->getContext($context, "is_dropdown"))) {
-                // line 38
+                // line 40
                 if (($this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "level") > 1)) {
-                    // line 39
+                    // line 41
                     $context["classes"] = twig_array_merge((isset($context["classes"]) ? $context["classes"] : $this->getContext($context, "classes")), array(0 => "dropdown-submenu"));
                 } else {
-                    // line 41
+                    // line 43
                     $context["classes"] = twig_array_merge((isset($context["classes"]) ? $context["classes"] : $this->getContext($context, "classes")), array(0 => "dropdown"));
                 }
-                // line 43
+                // line 45
                 $context["childrenClasses"] = twig_array_merge((isset($context["childrenClasses"]) ? $context["childrenClasses"] : $this->getContext($context, "childrenClasses")), array(0 => "dropdown-menu"));
             }
-            // line 45
+            // line 47
             echo " 
 ";
-            // line 47
+            // line 49
             if ((!twig_test_empty((isset($context["classes"]) ? $context["classes"] : $this->getContext($context, "classes"))))) {
-                // line 48
+                // line 50
                 $context["attributes"] = twig_array_merge((isset($context["attributes"]) ? $context["attributes"] : $this->getContext($context, "attributes")), array("class" => twig_join_filter((isset($context["classes"]) ? $context["classes"] : $this->getContext($context, "classes")), " ")));
             }
-            // line 50
+            // line 52
             $context["listAttributes"] = twig_array_merge($this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "childrenAttributes"), array("class" => twig_join_filter((isset($context["childrenClasses"]) ? $context["childrenClasses"] : $this->getContext($context, "childrenClasses")), " ")));
-            // line 51
+            // line 53
             echo " 
 ";
-            // line 53
+            // line 55
             echo "    <li";
             echo $context["macros"]->getattributes((isset($context["attributes"]) ? $context["attributes"] : $this->getContext($context, "attributes")));
             echo ">";
-            // line 54
+            // line 56
             if ((isset($context["is_dropdown"]) ? $context["is_dropdown"] : $this->getContext($context, "is_dropdown"))) {
-                // line 55
+                // line 57
                 echo "            ";
                 $this->displayBlock("dropdownElement", $context, $blocks);
             } elseif (((!twig_test_empty($this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "uri"))) && ((!$this->getAttribute((isset($context["matcher"]) ? $context["matcher"] : $this->getContext($context, "matcher")), "isCurrent", array(0 => (isset($context["item"]) ? $context["item"] : $this->getContext($context, "item"))), "method")) || $this->getAttribute((isset($context["options"]) ? $context["options"] : $this->getContext($context, "options")), "currentAsLink")))) {
-                // line 57
+                // line 59
                 echo "            ";
                 $this->displayBlock("linkElement", $context, $blocks);
             } else {
-                // line 59
+                // line 61
                 echo "            ";
                 $this->displayBlock("spanElement", $context, $blocks);
             }
-            // line 62
+            // line 64
             echo "        ";
             $this->displayBlock("list", $context, $blocks);
             echo "
     </li>";
-            // line 65
+            // line 67
             if ((isset($context["divider_append"]) ? $context["divider_append"] : $this->getContext($context, "divider_append"))) {
-                // line 66
+                // line 68
                 echo "        ";
                 $this->displayBlock("dividerElement", $context, $blocks);
             }
         }
     }
 
-    // line 71
+    // line 73
     public function block_dividerElement($context, array $blocks = array())
     {
-        // line 72
+        // line 74
         if (($this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "level") == 1)) {
-            // line 73
+            // line 75
             echo "    <li class=\"divider-vertical\"></li>
 ";
         } else {
-            // line 75
+            // line 77
             echo "    <li class=\"divider\"></li>
 ";
         }
     }
 
-    // line 79
+    // line 81
     public function block_dropdownElement($context, array $blocks = array())
     {
-        // line 80
-        $context["classes"] = (((!twig_test_empty($this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "linkAttribute", array(0 => "class"), "method")))) ? (array(0 => $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "linkAttribute", array(0 => "class"), "method"))) : (array()));
-        // line 81
-        $context["classes"] = twig_array_merge((isset($context["classes"]) ? $context["classes"] : $this->getContext($context, "classes")), array(0 => "dropdown-toggle"));
         // line 82
-        $context["attributes"] = $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "linkAttributes");
+        $context["classes"] = (((!twig_test_empty($this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "linkAttribute", array(0 => "class"), "method")))) ? (array(0 => $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "linkAttribute", array(0 => "class"), "method"))) : (array()));
         // line 83
-        $context["attributes"] = twig_array_merge((isset($context["attributes"]) ? $context["attributes"] : $this->getContext($context, "attributes")), array("class" => twig_join_filter((isset($context["classes"]) ? $context["classes"] : $this->getContext($context, "classes")), " ")));
+        $context["classes"] = twig_array_merge((isset($context["classes"]) ? $context["classes"] : $this->getContext($context, "classes")), array(0 => "dropdown-toggle"));
         // line 84
-        $context["attributes"] = twig_array_merge((isset($context["attributes"]) ? $context["attributes"] : $this->getContext($context, "attributes")), array("data-toggle" => "dropdown"));
+        $context["attributes"] = $this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "linkAttributes");
         // line 85
+        $context["attributes"] = twig_array_merge((isset($context["attributes"]) ? $context["attributes"] : $this->getContext($context, "attributes")), array("class" => twig_join_filter((isset($context["classes"]) ? $context["classes"] : $this->getContext($context, "classes")), " ")));
+        // line 86
+        $context["attributes"] = twig_array_merge((isset($context["attributes"]) ? $context["attributes"] : $this->getContext($context, "attributes")), array("data-toggle" => "dropdown"));
+        // line 87
         echo "    <a href=\"#\"";
         echo $this->getAttribute((isset($context["macros"]) ? $context["macros"] : $this->getContext($context, "macros")), "attributes", array(0 => (isset($context["attributes"]) ? $context["attributes"] : $this->getContext($context, "attributes"))), "method");
         echo ">";
@@ -184,10 +188,10 @@ class __TwigTemplate_df22ced3062ff0c1eefc9bfc94c762fa78240b3565cd6ff4f93806ae6eb
 ";
     }
 
-    // line 88
+    // line 90
     public function block_label($context, array $blocks = array())
     {
-        echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans($this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "label")), "html", null, true);
+        echo $this->env->getExtension('translator')->trans($this->getAttribute((isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "label"));
     }
 
     public function getTemplateName()
@@ -202,6 +206,6 @@ class __TwigTemplate_df22ced3062ff0c1eefc9bfc94c762fa78240b3565cd6ff4f93806ae6eb
 
     public function getDebugInfo()
     {
-        return array (  188 => 88,  176 => 85,  172 => 83,  170 => 82,  168 => 81,  163 => 79,  157 => 75,  151 => 72,  148 => 71,  139 => 65,  134 => 62,  130 => 59,  120 => 54,  116 => 53,  113 => 51,  111 => 50,  108 => 48,  106 => 47,  103 => 45,  97 => 41,  90 => 37,  87 => 35,  85 => 34,  83 => 33,  80 => 31,  77 => 29,  75 => 28,  72 => 26,  64 => 21,  62 => 20,  53 => 15,  49 => 12,  44 => 9,  42 => 8,  38 => 6,  36 => 5,  34 => 4,  195 => 42,  181 => 40,  177 => 39,  174 => 84,  171 => 37,  158 => 46,  156 => 37,  153 => 73,  144 => 33,  140 => 31,  136 => 30,  129 => 25,  126 => 57,  121 => 12,  107 => 11,  102 => 10,  99 => 9,  94 => 39,  67 => 23,  60 => 19,  57 => 17,  51 => 14,  43 => 56,  41 => 24,  37 => 22,  35 => 7,  29 => 4,  24 => 1,  166 => 80,  161 => 54,  154 => 52,  145 => 48,  141 => 66,  137 => 46,  133 => 44,  128 => 43,  122 => 55,  115 => 37,  105 => 35,  100 => 43,  92 => 38,  88 => 27,  74 => 18,  70 => 25,  65 => 9,  56 => 18,  52 => 16,  50 => 15,  46 => 10,  40 => 7,  31 => 3,  28 => 3,);
+        return array (  192 => 90,  180 => 87,  178 => 86,  176 => 85,  174 => 84,  172 => 83,  170 => 82,  167 => 81,  161 => 77,  157 => 75,  155 => 74,  152 => 73,  145 => 68,  143 => 67,  138 => 64,  134 => 61,  130 => 59,  126 => 57,  124 => 56,  120 => 55,  117 => 53,  115 => 52,  112 => 50,  110 => 49,  107 => 47,  104 => 45,  101 => 43,  98 => 41,  96 => 40,  94 => 39,  91 => 37,  89 => 36,  87 => 35,  84 => 33,  81 => 31,  79 => 30,  77 => 29,  74 => 27,  72 => 26,  69 => 24,  66 => 22,  64 => 21,  62 => 20,  60 => 19,  57 => 17,  53 => 15,  51 => 14,  49 => 12,  46 => 10,  44 => 9,  42 => 8,  40 => 7,  38 => 6,  36 => 5,  34 => 4,  31 => 3,);
     }
 }

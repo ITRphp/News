@@ -7,6 +7,7 @@ use Symfony\Component\HttpFoundation\Request;
 
 class Builder extends ContainerAware
 {
+    
     public function mainMenu(FactoryInterface $factory, array $options)
     {
         
@@ -27,8 +28,16 @@ class Builder extends ContainerAware
              ->setAttribute('dropdown', true)
              ->setAttribute('divider_prepend', true);
         $menu['Language']->addChild('English', array('uri' => '#'));
+        $search = $this->container->get('templating')->render('NewsBundle:Menu:input.html.twig');
+        $menu->addChild($search,array(
+        'extras' => array(
+          'safe_label' => true
+        )));
         
-       //$menu->addChild('NewsBundle:Menu:search.html.twig');
+        if ($this->container->get('security.context')->isGranted('ROLE_ADMIN')) {
+            $menu->addChild("edit.mode", array('route' => 'news'))
+                ->setAttribute('id', 'right');
+        }
  
         return $menu;
     }
