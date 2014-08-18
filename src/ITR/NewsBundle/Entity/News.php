@@ -264,4 +264,8 @@ class News
     {
         return $this->users;
     }
+    public function getUsersCount()
+    {
+        return count($this->users);
+    }
 }

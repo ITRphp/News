@@ -26,18 +26,16 @@
 {% block popular_news %}
 <div id="right" style="background-color: whitesmoke" class="col-md-3">
     <p class="bg-primary text-center">Popular news</p>
+    {% for news_item in popular_news %}   
         <div class="media">
             <div class="media-body">
-                <h4 class="media-heading">First news</h4>
-                newsnewsnewsnewsnews
+                <h4 class="media-heading"><a href="{{path('current_news',{'id': news_item.id })}}"><span class="badge pull-right">{{news_item.getUsersCount()}}</span>{{news_item.title}}</a></h4>
+                
+                {{news_item.description}}
+                
             </div>
         </div>
-    <div class="media">
-        <div class="media-body">
-            <h4 class="media-heading">Second news</h4>
-                newsnewsnewsnewsnews
-        </div>
-    </div>
+    {% endfor %}
 </div>
 {% endblock %}
 

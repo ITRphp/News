@@ -32,15 +32,14 @@ class User implements UserInterface,  \Serializable
      */
     private $user_role;
     
-    
-    private $dispatches;
+
     
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->dispatches = new ArrayCollection();
+
     }
     
     /**
@@ -196,42 +195,6 @@ class User implements UserInterface,  \Serializable
     public function __toString(){
         return $this->user_name;
     }
-    
-    /**
-     * Add dispatches
-     *
-     * @param \ITR\NewsBundle\Entity\Dispatch $dispatches
-     * @return User
-     */
-    public function addDispatch(\ITR\NewsBundle\Entity\Dispatch $dispatches)
-    {
-        $this->dispatches[] = $dispatches;
-    
-        return $this;
-    }
-
-    /**
-     * Remove dispatches
-     *
-     * @param \ITR\NewsBundle\Entity\Dispatch $dispatches
-     */
-    public function removeDispatch(\ITR\NewsBundle\Entity\Dispatch $dispatches)
-    {
-        $this->dispatches->removeElement($dispatches);
-    }
-
-    /**
-     * Get dispatches
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getDispatches()
-    {
-        return $this->dispatches;
-    }
-    /**
-     * @var \ITR\NewsBundle\Entity\PasswordRecovery
-     */
     private $passwordrecovery;
 
 
@@ -351,5 +314,43 @@ class User implements UserInterface,  \Serializable
     public function getNews()
     {
         return $this->news;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $category;
+
+
+    /**
+     * Add category
+     *
+     * @param \ITR\NewsBundle\Entity\Category $category
+     * @return User
+     */
+    public function addCategory(\ITR\NewsBundle\Entity\Category $category)
+    {
+        $this->category[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \ITR\NewsBundle\Entity\Category $category
+     */
+    public function removeCategory(\ITR\NewsBundle\Entity\Category $category)
+    {
+        $this->category->removeElement($category);
+    }
+
+    /**
+     * Get category
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }

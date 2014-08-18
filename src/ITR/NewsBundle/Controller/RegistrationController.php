@@ -20,23 +20,23 @@ class RegistrationController extends Controller
         $form = $this->createForm(new RegistrationType(), $user);
 
         if ($request->getMethod() == 'POST') {
-            $form->bind($request);
-            
+            $form->bind($request);            
 
-        if ($form->isValid()) {
-            $hash = md5($user->getUserName().$user->getUserEmail());
-            $user->setUserRole('ROLE_USER');
-            $user->setUserActive(FALSE);
-            $user->setUserHash($hash);
-            $em = $this->getDoctrine()->getManager(); 
-            $em->persist($user);
-            $em->flush();
-            
-            $this->sendEmail($user, $hash);
+            if ($form->isValid()) {
+                $hash = md5($user->getUserName().$user->getUserEmail());
+                $user->setUserRole('ROLE_USER');
+                $user->setUserActive(FALSE);
+                $user->setUserHash($hash);
+                $em = $this->getDoctrine()->getManager(); 
+                $em->persist($user);
+                $em->flush();
+
+                $this->sendEmail($user, $hash);
 
             return $this->redirect($this->generateUrl('_welcome'));
+                
+            }  
         }
-    }
     return $this->render('NewsBundle:Registration:index.html.twig', array(
             'user' => $user,
             'form'   => $form->createView(),
@@ -58,9 +58,11 @@ class RegistrationController extends Controller
             $hash = filter_input(INPUT_GET, "access");
             $em = $this->getDoctrine()->getManager();
             $user = $em->getRepository('NewsBundle:User')->findOneBy(array('user_hash' => $hash));
+            
             if (!$user) {
                 throw $this->createNotFoundException('Unable to find User.');
             }
+           
             $user->setUserActive(TRUE);
             $user->setUserHash(' ');
             $em->flush();

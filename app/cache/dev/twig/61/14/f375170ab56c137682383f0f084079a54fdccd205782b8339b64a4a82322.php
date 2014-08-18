@@ -88,19 +88,37 @@ class __TwigTemplate_6114f375170ab56c137682383f0f084079a54fdccd205782b8339b64a4a
         // line 27
         echo "<div id=\"right\" style=\"background-color: whitesmoke\" class=\"col-md-3\">
     <p class=\"bg-primary text-center\">Popular news</p>
+    ";
+        // line 29
+        $context['_parent'] = (array) $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["popular_news"]) ? $context["popular_news"] : $this->getContext($context, "popular_news")));
+        foreach ($context['_seq'] as $context["_key"] => $context["news_item"]) {
+            echo "   
         <div class=\"media\">
             <div class=\"media-body\">
-                <h4 class=\"media-heading\">First news</h4>
-                newsnewsnewsnewsnews
+                <h4 class=\"media-heading\"><a href=\"";
+            // line 32
+            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("current_news", array("id" => $this->getAttribute((isset($context["news_item"]) ? $context["news_item"] : $this->getContext($context, "news_item")), "id"))), "html", null, true);
+            echo "\"><span class=\"badge pull-right\">";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["news_item"]) ? $context["news_item"] : $this->getContext($context, "news_item")), "getUsersCount", array(), "method"), "html", null, true);
+            echo "</span>";
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["news_item"]) ? $context["news_item"] : $this->getContext($context, "news_item")), "title"), "html", null, true);
+            echo "</a></h4>
+                
+                ";
+            // line 34
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["news_item"]) ? $context["news_item"] : $this->getContext($context, "news_item")), "description"), "html", null, true);
+            echo "
+                
             </div>
         </div>
-    <div class=\"media\">
-        <div class=\"media-body\">
-            <h4 class=\"media-heading\">Second news</h4>
-                newsnewsnewsnewsnews
-        </div>
-    </div>
-</div>
+    ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['news_item'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 39
+        echo "</div>
 ";
     }
 
@@ -116,6 +134,6 @@ class __TwigTemplate_6114f375170ab56c137682383f0f084079a54fdccd205782b8339b64a4a
 
     public function getDebugInfo()
     {
-        return array (  89 => 27,  86 => 26,  78 => 22,  73 => 19,  66 => 17,  57 => 13,  53 => 12,  46 => 10,  41 => 7,  36 => 6,  32 => 4,  29 => 3,);
+        return array (  121 => 39,  110 => 34,  101 => 32,  93 => 29,  89 => 27,  86 => 26,  78 => 22,  73 => 19,  66 => 17,  57 => 13,  53 => 12,  46 => 10,  41 => 7,  36 => 6,  32 => 4,  29 => 3,);
     }
 }

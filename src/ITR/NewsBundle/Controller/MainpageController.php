@@ -13,9 +13,9 @@ class MainpageController extends Controller
         $em = $this->getDoctrine()->getManager();
         
         $categories = $em->getRepository('NewsBundle:Category')->findAllOrderedByName();
-        $dispatches = $em->getRepository('NewsBundle:Dispatch')->findBy(array('users'=>$user));
-        var_dump($dispatches);
+        $dispatches = $user->getCategory();
         $news = $em->getRepository('NewsBundle:News')->findAllNewsOrderedByDate();
+        $popular_news =$em->getRepository('NewsBundle:News')->findTopNewsOrderedByPopularity(); 
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $news,
@@ -26,7 +26,8 @@ class MainpageController extends Controller
         $context = array( 'username' => $user->getUserName(), 
                         'categories' => $categories, 
                         'news' => $pagination,
-                        'dispatches' => $dispatches);
+                        'dispatches' => $dispatches,
+                        'popular_news' => $popular_news);
 
         return $this->render('NewsBundle:Mainpage:index.html.twig',$context);
         
@@ -59,7 +60,7 @@ class MainpageController extends Controller
         $em = $this->getDoctrine()->getManager();
         
         $categories= $em->getRepository('NewsBundle:Category')->findAllOrderedByName();
-        
+        $dispatches = $user->getCategory();
         $news = $em->getRepository('NewsBundle:News')->find($id);
         $views_list=$news->getUsers();
         
@@ -68,7 +69,10 @@ class MainpageController extends Controller
             $em->flush();
         }
         
-        $context = array( 'username' => $user->getUserName(), 'categories' => $categories, 'news' => $news);
+        $context = array( 'username' => $user->getUserName(), 
+            'categories' => $categories,
+            'news' => $news,
+            'dispatches' => $dispatches);
 
         return $this->render('NewsBundle:Mainpage:currentNews.html.twig',$context);
     }

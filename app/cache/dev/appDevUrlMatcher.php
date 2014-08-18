@@ -224,129 +224,66 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         // subscribe
         if ($pathinfo === '/subscribe') {
-            return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\DispatchController::updateUserDispatchAction',  '_route' => 'subscribe',);
+            return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\UserController::updateUserSubscribeAction',  '_route' => 'subscribe',);
         }
 
-        if (0 === strpos($pathinfo, '/admin')) {
-            if (0 === strpos($pathinfo, '/admin/user/admin')) {
-                // user
-                if (rtrim($pathinfo, '/') === '/admin/user/admin') {
-                    if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'user');
-                    }
-
-                    return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\UserController::indexAction',  '_route' => 'user',);
+        if (0 === strpos($pathinfo, '/admin/user/admin')) {
+            // user
+            if (rtrim($pathinfo, '/') === '/admin/user/admin') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'user');
                 }
 
-                // user_show
-                if (preg_match('#^/admin/user/admin/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'user_show')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\UserController::showAction',));
-                }
-
-                // user_new
-                if ($pathinfo === '/admin/user/admin/new') {
-                    return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\UserController::newAction',  '_route' => 'user_new',);
-                }
-
-                // user_create
-                if ($pathinfo === '/admin/user/admin/create') {
-                    if ($this->context->getMethod() != 'POST') {
-                        $allow[] = 'POST';
-                        goto not_user_create;
-                    }
-
-                    return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\UserController::createAction',  '_route' => 'user_create',);
-                }
-                not_user_create:
-
-                // user_edit
-                if (preg_match('#^/admin/user/admin/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'user_edit')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\UserController::editAction',));
-                }
-
-                // user_update
-                if (preg_match('#^/admin/user/admin/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
-                    if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
-                        $allow = array_merge($allow, array('POST', 'PUT'));
-                        goto not_user_update;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'user_update')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\UserController::updateAction',));
-                }
-                not_user_update:
-
-                // user_delete
-                if (preg_match('#^/admin/user/admin/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                    if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                        $allow = array_merge($allow, array('POST', 'DELETE'));
-                        goto not_user_delete;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'user_delete')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\UserController::deleteAction',));
-                }
-                not_user_delete:
-
+                return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\UserController::indexAction',  '_route' => 'user',);
             }
 
-            if (0 === strpos($pathinfo, '/admin/dispatch/admin')) {
-                // dispatch
-                if (rtrim($pathinfo, '/') === '/admin/dispatch/admin') {
-                    if (substr($pathinfo, -1) !== '/') {
-                        return $this->redirect($pathinfo.'/', 'dispatch');
-                    }
-
-                    return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\DispatchController::indexAction',  '_route' => 'dispatch',);
-                }
-
-                // dispatch_show
-                if (preg_match('#^/admin/dispatch/admin/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'dispatch_show')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\DispatchController::showAction',));
-                }
-
-                // dispatch_new
-                if ($pathinfo === '/admin/dispatch/admin/new') {
-                    return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\DispatchController::newAction',  '_route' => 'dispatch_new',);
-                }
-
-                // dispatch_create
-                if ($pathinfo === '/admin/dispatch/admin/create') {
-                    if ($this->context->getMethod() != 'POST') {
-                        $allow[] = 'POST';
-                        goto not_dispatch_create;
-                    }
-
-                    return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\DispatchController::createAction',  '_route' => 'dispatch_create',);
-                }
-                not_dispatch_create:
-
-                // dispatch_edit
-                if (preg_match('#^/admin/dispatch/admin/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'dispatch_edit')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\DispatchController::editAction',));
-                }
-
-                // dispatch_update
-                if (preg_match('#^/admin/dispatch/admin/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
-                    if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
-                        $allow = array_merge($allow, array('POST', 'PUT'));
-                        goto not_dispatch_update;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'dispatch_update')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\DispatchController::updateAction',));
-                }
-                not_dispatch_update:
-
-                // dispatch_delete
-                if (preg_match('#^/admin/dispatch/admin/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-                    if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                        $allow = array_merge($allow, array('POST', 'DELETE'));
-                        goto not_dispatch_delete;
-                    }
-
-                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'dispatch_delete')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\DispatchController::deleteAction',));
-                }
-                not_dispatch_delete:
-
+            // user_show
+            if (preg_match('#^/admin/user/admin/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'user_show')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\UserController::showAction',));
             }
+
+            // user_new
+            if ($pathinfo === '/admin/user/admin/new') {
+                return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\UserController::newAction',  '_route' => 'user_new',);
+            }
+
+            // user_create
+            if ($pathinfo === '/admin/user/admin/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_user_create;
+                }
+
+                return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\UserController::createAction',  '_route' => 'user_create',);
+            }
+            not_user_create:
+
+            // user_edit
+            if (preg_match('#^/admin/user/admin/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'user_edit')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\UserController::editAction',));
+            }
+
+            // user_update
+            if (preg_match('#^/admin/user/admin/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_user_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'user_update')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\UserController::updateAction',));
+            }
+            not_user_update:
+
+            // user_delete
+            if (preg_match('#^/admin/user/admin/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('POST', 'DELETE'));
+                    goto not_user_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'user_delete')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\UserController::deleteAction',));
+            }
+            not_user_delete:
 
         }
 

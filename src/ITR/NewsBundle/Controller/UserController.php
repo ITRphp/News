@@ -8,6 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use ITR\NewsBundle\Entity\User;
 use ITR\NewsBundle\Entity\PasswordRecovery;
 use ITR\NewsBundle\Form\UserType;
+use \Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * User controller.
@@ -290,6 +291,25 @@ class UserController extends Controller
         $em = $this->getDoctrine()->getManager();
             $em->persist($pass_recovery);
             $em->flush();
+        
+    }
+    public function updateUserSubscribeAction() {
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->get('security.context')->getToken()->getUser();
+        $user_subscription = $user->getCategory();
+        $new_subscription = $_POST['category'];
+        var_dump($new_subscription);
+        
+        foreach ($user_subscription as $item){
+            $user->removeCategory($item);
+        }
+        if(!empty($new_subscription)){
+            foreach ($new_subscription as $category){
+                $user->addCategory($em->getRepository('NewsBundle:Category')->findOneBy(array('category_name' => $category)));
+            }
+        }
+        $em->flush();
+        return $this->redirect($this->generateUrl('mainpage'));
         
     }
 }
