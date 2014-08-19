@@ -61,7 +61,7 @@ class __TwigTemplate_d2ccdec8f509b406fd5dcdc932684a40c18011f3b1e2e237f20c53b2050
         echo "
         ";
         // line 16
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'widget');
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'widget', array("attr" => array("class" => "form-control")));
         echo "
     </div>
 ";
@@ -97,6 +97,6 @@ class __TwigTemplate_d2ccdec8f509b406fd5dcdc932684a40c18011f3b1e2e237f20c53b2050
 
     public function getDebugInfo()
     {
-        return array (  77 => 23,  75 => 22,  72 => 21,  64 => 16,  60 => 15,  56 => 14,  53 => 13,  51 => 12,  48 => 11,  35 => 5,  62 => 14,  58 => 13,  54 => 12,  50 => 11,  46 => 10,  38 => 6,  33 => 4,  30 => 3,  25 => 2,);
+        return array (  77 => 23,  75 => 22,  72 => 21,  64 => 16,  60 => 15,  56 => 14,  53 => 13,  51 => 12,  48 => 11,  35 => 5,  62 => 15,  58 => 14,  54 => 13,  50 => 12,  46 => 11,  38 => 6,  33 => 4,  30 => 3,  25 => 3,);
     }
 }

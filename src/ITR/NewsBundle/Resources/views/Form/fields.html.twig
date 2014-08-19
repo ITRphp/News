@@ -13,7 +13,7 @@
     <div class="form-group">
         {{form_label(form, null, {'attr':{'class': 'label' }} )}}
         {{ form_errors(form) }}
-        {{ form_widget(form) }}
+        {{ form_widget(form, {'attr':{'class': 'form-control' }} ) }}
     </div>
 {% endspaceless %}
 {% endblock form_row %}

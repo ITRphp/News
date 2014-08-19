@@ -20,10 +20,7 @@ class NewsController extends Controller
      */
     public function indexAction()
     {
-        
-        $results = $newsItemTable->search('test');
         $em = $this->getDoctrine()->getManager();
-
         $entities = $em->getRepository('NewsBundle:News')->findAll();
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(

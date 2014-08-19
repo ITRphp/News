@@ -64,10 +64,10 @@ class Category extends \ITR\NewsBundle\Entity\Category implements \Doctrine\ORM\
     public function __sleep()
     {
         if ($this->__isInitialized__) {
-            return array('__isInitialized__', '' . "\0" . 'ITR\\NewsBundle\\Entity\\Category' . "\0" . 'id', '' . "\0" . 'ITR\\NewsBundle\\Entity\\Category' . "\0" . 'category_name', 'news', '' . "\0" . 'ITR\\NewsBundle\\Entity\\Category' . "\0" . 'dispatches');
+            return array('__isInitialized__', '' . "\0" . 'ITR\\NewsBundle\\Entity\\Category' . "\0" . 'id', '' . "\0" . 'ITR\\NewsBundle\\Entity\\Category' . "\0" . 'category_name', 'news');
         }
 
-        return array('__isInitialized__', '' . "\0" . 'ITR\\NewsBundle\\Entity\\Category' . "\0" . 'id', '' . "\0" . 'ITR\\NewsBundle\\Entity\\Category' . "\0" . 'category_name', 'news', '' . "\0" . 'ITR\\NewsBundle\\Entity\\Category' . "\0" . 'dispatches');
+        return array('__isInitialized__', '' . "\0" . 'ITR\\NewsBundle\\Entity\\Category' . "\0" . 'id', '' . "\0" . 'ITR\\NewsBundle\\Entity\\Category' . "\0" . 'category_name', 'news');
     }
 
     /**
@@ -241,39 +241,6 @@ class Category extends \ITR\NewsBundle\Entity\Category implements \Doctrine\ORM\
         $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNews', array());
 
         return parent::getNews();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function addDispatch(\ITR\NewsBundle\Entity\Dispatch $dispatches)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'addDispatch', array($dispatches));
-
-        return parent::addDispatch($dispatches);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function removeDispatch(\ITR\NewsBundle\Entity\Dispatch $dispatches)
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'removeDispatch', array($dispatches));
-
-        return parent::removeDispatch($dispatches);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function getDispatches()
-    {
-
-        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getDispatches', array());
-
-        return parent::getDispatches();
     }
 
     /**
