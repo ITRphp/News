@@ -29,7 +29,7 @@ class __TwigTemplate_6114f375170ab56c137682383f0f084079a54fdccd205782b8339b64a4a
     public function block_news($context, array $blocks = array())
     {
         // line 4
-        echo "<div id=\"center\" style=\"padding:4px\" class=\"col-md-7 \">
+        echo "<div id=\"center\" style=\"padding:4px\" class=\"col-md-7\">
     <div class=\"container col-md-12\">
         ";
         // line 6
@@ -86,7 +86,7 @@ class __TwigTemplate_6114f375170ab56c137682383f0f084079a54fdccd205782b8339b64a4a
     public function block_popular_news($context, array $blocks = array())
     {
         // line 27
-        echo "<div id=\"right\" style=\"background-color: whitesmoke\" class=\"col-md-3\">
+        echo "<div data-spy=\"affix\"  data-offset-top=\"227\" id=\"affix2\" style=\"background-color: whitesmoke\" class=\"col-md-3\">
     <p class=\"bg-primary text-center\">Popular news</p>
     ";
         // line 29

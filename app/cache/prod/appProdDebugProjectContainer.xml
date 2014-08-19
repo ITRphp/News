@@ -20,6 +20,7 @@
       <parameter key="DoctrineMigrationsBundle">Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle</parameter>
       <parameter key="KnpMenuBundle">Knp\Bundle\MenuBundle\KnpMenuBundle</parameter>
       <parameter key="KnpPaginatorBundle">Knp\Bundle\PaginatorBundle\KnpPaginatorBundle</parameter>
+      <parameter key="StfalconTinymceBundle">Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle</parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">appProdDebugProjectContainer</parameter>
@@ -527,6 +528,32 @@
     <parameter key="knp_paginator.template.filtration">KnpPaginatorBundle:Pagination:filtration.html.twig</parameter>
     <parameter key="knp_paginator.template.sortable">KnpPaginatorBundle:Pagination:sortable_link.html.twig</parameter>
     <parameter key="knp_paginator.page_range">5</parameter>
+    <parameter key="stfalcon_tinymce.config" type="collection">
+      <parameter key="include_jquery">false</parameter>
+      <parameter key="tinymce_jquery">false</parameter>
+      <parameter key="use_callback_tinymce_init">false</parameter>
+      <parameter key="selector">.tinymce</parameter>
+      <parameter key="language">null</parameter>
+      <parameter key="theme" type="collection">
+        <parameter key="advanced" type="collection">
+          <parameter key="theme">modern</parameter>
+          <parameter key="plugins" type="collection">
+            <parameter>advlist autolink lists link image charmap print preview hr anchor pagebreak</parameter>
+            <parameter>searchreplace wordcount visualblocks visualchars code fullscreen</parameter>
+            <parameter>insertdatetime media nonbreaking save table contextmenu directionality</parameter>
+            <parameter>emoticons template paste textcolor</parameter>
+          </parameter>
+          <parameter key="toolbar1">undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify
+                                   | bullist numlist outdent indent | link image</parameter>
+          <parameter key="toolbar2">print preview media | forecolor backcolor emoticons</parameter>
+          <parameter key="image_advtab">true</parameter>
+        </parameter>
+        <parameter key="simple" type="collection"/>
+      </parameter>
+      <parameter key="tinymce_buttons" type="collection"/>
+      <parameter key="external_plugins" type="collection"/>
+    </parameter>
+    <parameter key="stfalcon_tinymce.twig.extension.class">Stfalcon\Bundle\TinymceBundle\Twig\Extension\StfalconTinymceExtension</parameter>
     <parameter key="console.command.ids" type="collection"/>
   </parameters>
   <services>
@@ -2239,7 +2266,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>53eb98fb9f4db</argument>
+            <argument>53f2785609796</argument>
           </service>
         </argument>
       </argument>
@@ -2592,7 +2619,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>53eb98fb9f4db</argument>
+            <argument>53f2785609796</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -2917,6 +2944,9 @@
       </call>
       <call method="addExtension">
         <argument type="service" id="knp_paginator.twig.extension.pagination"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="twig.extension.stfalcon_tinymce"/>
       </call>
       <call method="addGlobal">
         <argument>app</argument>
@@ -3258,6 +3288,12 @@
       <tag name="knp_menu.voter"/>
       <argument type="service" id="service_container"/>
     </service>
+    <service id="itr_news.menu_builder" class="ITR\NewsBundle\Menu\Builder">
+      <argument type="service" id="knp_menu.factory"/>
+    </service>
+    <service id="itr_news.menu.main" class="Knp\Menu\MenuItem" factory-method="createMainMenu" factory-service="itr_news.menu_builder" scope="request">
+      <tag name="knp_menu.menu" alias="main"/>
+    </service>
     <service id="knp_menu.factory" class="Knp\Menu\MenuFactory">
       <call method="addExtension">
         <argument type="service">
@@ -3359,6 +3395,10 @@
     <service id="knp_paginator.twig.extension.pagination" class="Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension">
       <tag name="twig.extension"/>
       <argument type="service" id="knp_paginator.helper.processor"/>
+    </service>
+    <service id="twig.extension.stfalcon_tinymce" class="Stfalcon\Bundle\TinymceBundle\Twig\Extension\StfalconTinymceExtension">
+      <tag name="twig.extension" alias="stfalcon_tinymce"/>
+      <argument type="service" id="service_container"/>
     </service>
     <service id="monolog.logger.request" class="Symfony\Bridge\Monolog\Logger">
       <argument>request</argument>
@@ -3572,6 +3612,10 @@
         <argument>KnpPaginator</argument>
       </call>
       <call method="addPath">
+        <argument>C:\WebData\News\vendor\stfalcon\tinymce-bundle\Stfalcon\Bundle\TinymceBundle/Resources/views</argument>
+        <argument>StfalconTinymce</argument>
+      </call>
+      <call method="addPath">
         <argument>C:/WebData/News/app/Resources/views</argument>
       </call>
       <call method="addPath">
@@ -3649,7 +3693,9 @@
           <service class="Knp\Bundle\MenuBundle\Provider\ContainerAwareProvider" public="false">
             <tag name="knp_menu.provider"/>
             <argument type="service" id="service_container"/>
-            <argument type="collection"/>
+            <argument type="collection">
+              <argument key="main">itr_news.menu.main</argument>
+            </argument>
           </service>
         </argument>
         <argument type="service">

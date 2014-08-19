@@ -30,12 +30,7 @@ class __TwigTemplate_b9c070e615c8d3b23daf117c1c77cf59ed07bec8898bc798a93a134e119
     public function block_content($context, array $blocks = array())
     {
         // line 4
-        echo "    <style>
-     #right{
-    float: right;
-    position: static;
-}
-    </style>
+        echo "    <div>
 <div class=\"navbar navbar-default\" role=\"navigation\">
     <div class=\"navbar-header\">
         <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\".navbar-responsive-collapse\">
@@ -44,24 +39,24 @@ class __TwigTemplate_b9c070e615c8d3b23daf117c1c77cf59ed07bec8898bc798a93a134e119
             <span class=\"icon-bar\"></span>
         </button>
         <a class=\"navbar-brand\" href=\"#\">";
-        // line 17
+        // line 12
         echo $this->env->getExtension('translator')->getTranslator()->trans("Welcome %username%", array("%username%" => (isset($context["username"]) ? $context["username"] : $this->getContext($context, "username"))), "messages");
         echo "</a>
     </div>
     <div class=\"collapse navbar-collapse\" id=\"bs-example-navbar-collapse-1\">
         ";
-        // line 20
+        // line 15
         echo $this->env->getExtension('knp_menu')->render("NewsBundle:Builder:mainMenu", array("currentClass" => "active", "template" => "NewsBundle:Menu:knp_menu.html.twig"));
         echo "
     </div>
 </div>
 <div id=\"logo\" class=\"col-md\" style=\"padding:5px\">
                 ";
-        // line 24
+        // line 19
         if (isset($context['assetic']['debug']) && $context['assetic']['debug']) {
             // asset "fc97b69_0"
             $context["asset_url"] = isset($context['assetic']['use_controller']) && $context['assetic']['use_controller'] ? $this->env->getExtension('routing')->getPath("_assetic_fc97b69_0") : $this->env->getExtension('assets')->getAssetUrl("_controller/images/fc97b69_logo_1.png");
-            // line 25
+            // line 20
             echo "                   <img src=\"";
             echo twig_escape_filter($this->env, (isset($context["asset_url"]) ? $context["asset_url"] : $this->getContext($context, "asset_url")), "html", null, true);
             echo "\"  alt=\"Example\"/>
@@ -75,16 +70,21 @@ class __TwigTemplate_b9c070e615c8d3b23daf117c1c77cf59ed07bec8898bc798a93a134e119
                 ";
         }
         unset($context["asset_url"]);
-        // line 26
+        // line 21
         echo " 
 </div>
 <h4> ";
-        // line 28
+        // line 23
         echo twig_escape_filter($this->env, twig_date_format_filter($this->env, "now", "d-m-Y"), "html", null, true);
         echo "</h4>
 <hr>
-<div class=\"row\" style=\"padding:4px\">
-    <div id=\"left\" class=\"list-group col-md-2 col-md-offset-0\">
+    </div>
+     <style>
+        
+
+    </style>
+<div  class=\"row\" style=\"padding:4px\" data-spy=\"scroll\" data-target=\"#affix-nav\">
+    <div data-spy=\"affix\"  data-offset-top=\"227\" id=\"affix1\"  class=\"list-group affix-top col-md-2\">
         ";
         // line 32
         $context['_parent'] = (array) $context;
@@ -94,7 +94,7 @@ class __TwigTemplate_b9c070e615c8d3b23daf117c1c77cf59ed07bec8898bc798a93a134e119
             // line 33
             echo "            <a href=\"";
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("category_news", array("category" => twig_lower_filter($this->env, (isset($context["category"]) ? $context["category"] : $this->getContext($context, "category"))))), "html", null, true);
-            echo "\" class=\"list-group-item\">";
+            echo "\"  class=\"list-group-item\"><span class=\"glyphicon glyphicon-heart-empty\"></span>";
             echo twig_escape_filter($this->env, (isset($context["category"]) ? $context["category"] : $this->getContext($context, "category")), "html", null, true);
             echo "</a>
         ";
@@ -226,6 +226,6 @@ class __TwigTemplate_b9c070e615c8d3b23daf117c1c77cf59ed07bec8898bc798a93a134e119
 
     public function getDebugInfo()
     {
-        return array (  214 => 41,  211 => 40,  207 => 39,  204 => 38,  190 => 67,  187 => 66,  178 => 64,  174 => 63,  168 => 60,  163 => 58,  160 => 57,  151 => 55,  143 => 53,  138 => 52,  133 => 50,  127 => 47,  120 => 42,  117 => 40,  115 => 38,  112 => 37,  105 => 35,  95 => 33,  90 => 32,  83 => 28,  79 => 26,  65 => 25,  61 => 24,  54 => 20,  48 => 17,  33 => 4,  30 => 3,);
+        return array (  214 => 41,  211 => 40,  207 => 39,  204 => 38,  190 => 67,  187 => 66,  178 => 64,  174 => 63,  168 => 60,  163 => 58,  160 => 57,  151 => 55,  143 => 53,  138 => 52,  133 => 50,  127 => 47,  120 => 42,  117 => 40,  115 => 38,  112 => 37,  105 => 35,  95 => 33,  90 => 32,  78 => 23,  74 => 21,  60 => 20,  56 => 19,  49 => 15,  43 => 12,  33 => 4,  30 => 3,);
     }
 }

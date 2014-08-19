@@ -54,9 +54,17 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'assetic.controller:render',  'name' => '1820aaf',  'pos' => NULL,  '_format' => 'css',  '_route' => '_assetic_1820aaf',);
             }
 
-            // _assetic_1820aaf_0
-            if ($pathinfo === '/css/1820aaf_part_1_bootstrap.min_1.css') {
-                return array (  '_controller' => 'assetic.controller:render',  'name' => '1820aaf',  'pos' => 0,  '_format' => 'css',  '_route' => '_assetic_1820aaf_0',);
+            if (0 === strpos($pathinfo, '/css/1820aaf_part_1_')) {
+                // _assetic_1820aaf_0
+                if ($pathinfo === '/css/1820aaf_part_1_bootstrap.min_1.css') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '1820aaf',  'pos' => 0,  '_format' => 'css',  '_route' => '_assetic_1820aaf_0',);
+                }
+
+                // _assetic_1820aaf_1
+                if ($pathinfo === '/css/1820aaf_part_1_style_2.css') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '1820aaf',  'pos' => 1,  '_format' => 'css',  '_route' => '_assetic_1820aaf_1',);
+                }
+
             }
 
         }
@@ -217,7 +225,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             // category_news
             if (preg_match('#^/mainpage/(?P<category>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'category_news')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\MainpageController::newsAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'category_news')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\MainpageController::indexAction',));
             }
 
         }

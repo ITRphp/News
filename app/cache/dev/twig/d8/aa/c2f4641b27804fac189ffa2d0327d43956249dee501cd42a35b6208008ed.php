@@ -16,12 +16,10 @@ class __TwigTemplate_d8aac2f4641b27804fac189ffa2d0327d43956249dee501cd42a35b6208
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        echo "
-<form class=\"navbar-form navbar-left\" action=\"\" role=\"search\">
+        echo "<form  role=\"search\">
   <div class=\"form-group\">
     <input type=\"text\" class=\"form-control\" placeholder=\"Search\">
   </div>
-  <button type=\"submit\" class=\"btn btn-default\">Отправить</button>
 </form>";
     }
 

@@ -2,25 +2,23 @@
 <html> 
     <head>
        <title>{% block title %}{% trans %}News{% endtrans %}{% endblock %}</title>
+{% block head %}
+   <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+   {% block stylesheets %}
+       {% stylesheets '@NewsBundle/Resources/public/css/*' filter='cssrewrite' %}
+       <link rel="stylesheet" href="{{ asset_url }}" />
+       {% endstylesheets %}
+   {% endblock %}
 
-       
-       {% block head %}
-           <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-           {% block stylesheets %}
-               {% stylesheets '@NewsBundle/Resources/public/css/*' filter='cssrewrite' %}
-               <link rel="stylesheet" href="{{ asset_url }}" />
-           {% endstylesheets %}           
-           {% endblock %}
-           
-            {% javascripts
-                    '@NewsBundle/Resources/public/js/jquery-1.11.1.js'
-                    '@NewsBundle/Resources/public/js/bootstrap.min.js'%}
-                    <script src="{{ asset_url }}"></script>
-                    {% endjavascripts %}
+    {% javascripts
+            '@NewsBundle/Resources/public/js/jquery-1.11.1.js'
+            '@NewsBundle/Resources/public/js/bootstrap.min.js'%}
+            <script src="{{ asset_url }}"></script>
+            {% endjavascripts %}
 
-        {% endblock %}
+{% endblock %}
     </head>
-    <body>
+    <body >
     {% block body %}
         <div class = "container" style="-webkit-box-shadow: 0px 0px 6px 6px rgba(50, 50, 50, 0.1);
 										-moz-box-shadow:    0px 0px 6px 6px rgba(50, 50, 50, 0.1);
