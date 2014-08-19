@@ -16,7 +16,7 @@ class __TwigTemplate_d8aac2f4641b27804fac189ffa2d0327d43956249dee501cd42a35b6208
     protected function doDisplay(array $context, array $blocks = array())
     {
         // line 1
-        echo "<form  role=\"search\">
+        echo "<form method=\"POST\" action=\"\" class=\"navbar-form navbar-right\" role=\"search\">
   <div class=\"form-group\">
     <input type=\"text\" class=\"form-control\" placeholder=\"Search\">
   </div>
