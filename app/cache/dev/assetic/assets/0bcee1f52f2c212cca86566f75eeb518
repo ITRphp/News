@@ -1,0 +1,12 @@
+ function Load()
+ {
+    var url = this.name;
+        $.ajax({
+            url:url,
+            dataType:'html',
+            type:'GET',
+            success:function(html){
+                $('#news_list').html(html);
+            }
+        });
+    }

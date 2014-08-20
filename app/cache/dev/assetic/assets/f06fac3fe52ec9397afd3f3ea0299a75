@@ -1,0 +1,5 @@
+$(document).ready(function() {
+    $( "#news_category" ).click(function() {
+  alert( "Handler for .click() called." );
+  })
+  });

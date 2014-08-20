@@ -15,10 +15,10 @@
     {{parent()}}
         <form action="{{ path('_registration') }}" method="post" {{ form_enctype(form) }} class="col-md-offset-4 col-md-4 well">
             <div class="control-group">
-                {{form_label(form.user_name, "Username", {'attr':{'class': 'label' }} )}}
+                {{form_label(form.user_name, "Username"|trans, {'attr':{'class': 'label' }})}}
                 <div class="controls">
                     {{form_widget(form.user_name,{'attr':{'pattern': '^[a-zA-Z0-9_]+$','placeholder': 'Your name', 'class':'form-control' }} )}}
-                    {{ form_errors(form. user_name) }}
+                    {{ form_errors(form. user_name)|trans }}
                 </div>
             </div>
                 <p></p>
@@ -39,7 +39,7 @@
             </div>     
                 <p></p>
             <div class="control-group">
-                <label for="password2">{% trans %}Repeat password{% endtrans %}</label>
+                <label for="password2">{% trans %}Password.repeat{% endtrans %}</label>
                 <div class="controls">
                      <input class="form-control" type="password" id="password2" name="_password" placeholder="Repeat password" />
                 </div>

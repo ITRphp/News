@@ -1,0 +1,13 @@
+{% for news_item in news %}
+    <div class="media">
+        <div class="media-body well">
+            <h4 class="media-heading">
+                <a href="{{path('current_news',{'id': news_item.id })}}">{{ news_item.title }}</a>
+            </h4>
+                <footer><h6>{{ news_item.publicationDate|date('Y-m-d H:i:s')}}</h6></footer>
+            <strong>{{ news_item.description }}</strong>
+        </div>
+    </div>
+{% else %}
+    <h3>No news</h3>
+{% endfor %}

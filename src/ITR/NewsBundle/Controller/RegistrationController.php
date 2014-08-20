@@ -11,11 +11,7 @@ use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
 class RegistrationController extends Controller
 {    
     public function indexAction(Request $request)
-    {   
-        if (true === $this->get('security.context')->isGranted('ROLE_USER')){
-            return $this->redirect($this->generateUrl('mainpage'));
-        }
-        
+    {           
         $user = new User();
         $form = $this->createForm(new RegistrationType(), $user);
 
@@ -23,7 +19,7 @@ class RegistrationController extends Controller
             $form->bind($request);            
 
             if ($form->isValid()) {
-                $hash = md5($user->getUserName().$user->getUserEmail());
+                $hash = md5($user->getUserName().$user->getUserEmail().new \DateTime());
                 $user->setUserRole('ROLE_USER');
                 $user->setUserActive(FALSE);
                 $user->setUserHash($hash);
@@ -32,7 +28,7 @@ class RegistrationController extends Controller
                 $em->flush();
 
                 $this->sendEmail($user, $hash);
-
+            $this->get('session')->getFlashBag()->add('notice', $this->get('translator')->trans('Email.to.activation'));
             return $this->redirect($this->generateUrl('_welcome'));
                 
             }  

@@ -3,28 +3,31 @@
 namespace ITR\NewsBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use ITR\NewsBundle\Entity\Category;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\SecurityContext;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpKernel\Exception\HttpNotFoundException;
+
+use ITR\NewsBundle\Entity\Category;
 
 class MainpageController extends Controller
 {
     /**
     * @Security("has_role('ROLE_USER')")
     */
-    public function indexAction($category = NULL)
+    public function indexAction(Request $request, $category = NULL)
     {
          if (false === $this->get('security.context')->isGranted('ROLE_USER')) {
             throw $this->createAccessDeniedException('Unable to access this page!');
         }
+        
     	$user = $this->get('security.context')->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
         
         $categories = $em->getRepository('NewsBundle:Category')->findAllOrderedByName();
         $dispatches = $user->getCategory();
         $news = $this->getNews($category, $em);
-        
+
         $popular_news =$em->getRepository('NewsBundle:News')->findTopNewsOrderedByPopularity(); 
         
         $paginator = $this->get('knp_paginator');
@@ -44,7 +47,21 @@ class MainpageController extends Controller
         
     }    
     
-    private function getNews($category, $em){
+    public function ajaxAction($category)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $news = $this->getNews($category, $em);
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $news,
+            $this->get('request')->query->get('page', 1)/*page number*/,
+            20/*limit per page*/
+        );
+        $context = array('news' => $pagination);
+        return $this->render('NewsBundle:Mainpage:news.html.twig', $context);   
+    }
+
+        private function getNews($category, $em){
         if(!empty($category)){
             if(!$current_category = $em->getRepository('NewsBundle:Category')->findOneBy(array('category_name'=>$category))){
                 throw $this->createNotFoundException('Unable to find entity.');

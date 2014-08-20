@@ -82,15 +82,31 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        if (0 === strpos($pathinfo, '/js/50e4156')) {
-            // _assetic_50e4156
-            if ($pathinfo === '/js/50e4156.js') {
-                return array (  '_controller' => 'assetic.controller:render',  'name' => '50e4156',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_50e4156',);
+        if (0 === strpos($pathinfo, '/js')) {
+            if (0 === strpos($pathinfo, '/js/c82c251')) {
+                // _assetic_c82c251
+                if ($pathinfo === '/js/c82c251.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'c82c251',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_c82c251',);
+                }
+
+                // _assetic_c82c251_0
+                if ($pathinfo === '/js/c82c251_news_1.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'c82c251',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_c82c251_0',);
+                }
+
             }
 
-            // _assetic_50e4156_0
-            if ($pathinfo === '/js/50e4156_repeatPassword_1.js') {
-                return array (  '_controller' => 'assetic.controller:render',  'name' => '50e4156',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_50e4156_0',);
+            if (0 === strpos($pathinfo, '/js/50e4156')) {
+                // _assetic_50e4156
+                if ($pathinfo === '/js/50e4156.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '50e4156',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_50e4156',);
+                }
+
+                // _assetic_50e4156_0
+                if ($pathinfo === '/js/50e4156_repeatPassword_1.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '50e4156',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_50e4156_0',);
+                }
+
             }
 
         }
@@ -225,7 +241,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             // category_news
             if (preg_match('#^/mainpage/(?P<category>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'category_news')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\MainpageController::indexAction',));
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'category_news')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\MainpageController::ajaxAction',));
             }
 
         }
@@ -511,8 +527,8 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
             // category_create
             if ($pathinfo === '/category/admin/create') {
-                if ($this->context->getMethod() != 'POST') {
-                    $allow[] = 'POST';
+                if (!in_array($this->context->getMethod(), array('POST', 'GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('POST', 'GET', 'HEAD'));
                     goto not_category_create;
                 }
 

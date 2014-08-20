@@ -33,24 +33,21 @@ class __TwigTemplate_fdb8d09ca8d839950a244f1e3e49111ae2c2707de399753c6dd02669056
         echo "    ";
         if ((twig_length_filter($this->env, (isset($context["errors"]) ? $context["errors"] : $this->getContext($context, "errors"))) > 0)) {
             // line 6
-            echo "        
-            ";
-            // line 7
+            echo "        ";
             $context['_parent'] = (array) $context;
             $context['_seq'] = twig_ensure_traversable((isset($context["errors"]) ? $context["errors"] : $this->getContext($context, "errors")));
             foreach ($context['_seq'] as $context["_key"] => $context["error"]) {
-                // line 8
-                echo "                <div class=\"text-danger\" style=\"display: inline\"> ";
-                echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans($this->getAttribute((isset($context["error"]) ? $context["error"] : $this->getContext($context, "error")), "messageTemplate"), $this->getAttribute((isset($context["error"]) ? $context["error"] : $this->getContext($context, "error")), "messageParameters"), "validators"), "html", null, true);
+                // line 7
+                echo "            <div class=\"text-danger\" style=\"display: inline\"> ";
+                echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans($this->env->getExtension('translator')->trans($this->getAttribute((isset($context["error"]) ? $context["error"] : $this->getContext($context, "error")), "messageTemplate"), $this->getAttribute((isset($context["error"]) ? $context["error"] : $this->getContext($context, "error")), "messageParameters"), "validators")), "html", null, true);
                 echo "</div>
-            ";
+        ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['error'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 10
-            echo "       
-    ";
+            // line 9
+            echo "    ";
         }
         echo trim(preg_replace('/>\s+</', '><', ob_get_clean()));
     }
@@ -67,6 +64,6 @@ class __TwigTemplate_fdb8d09ca8d839950a244f1e3e49111ae2c2707de399753c6dd02669056
 
     public function getDebugInfo()
     {
-        return array (  52 => 10,  43 => 8,  39 => 7,  36 => 6,  33 => 5,  31 => 4,  28 => 3,  150 => 50,  145 => 48,  141 => 47,  133 => 42,  125 => 37,  121 => 36,  116 => 34,  108 => 29,  104 => 28,  99 => 26,  91 => 21,  87 => 20,  82 => 18,  75 => 16,  71 => 15,  66 => 14,  50 => 11,  46 => 9,  41 => 8,  38 => 7,  32 => 5,  27 => 3,);
+        return array (  36 => 6,  33 => 5,  31 => 4,  28 => 3,  150 => 50,  145 => 48,  141 => 47,  133 => 42,  125 => 37,  121 => 36,  116 => 34,  108 => 29,  104 => 28,  99 => 26,  91 => 21,  87 => 20,  82 => 18,  75 => 16,  71 => 15,  66 => 14,  50 => 9,  46 => 9,  41 => 7,  38 => 7,  32 => 5,  27 => 3,);
     }
 }

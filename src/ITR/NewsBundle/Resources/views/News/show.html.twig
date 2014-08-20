@@ -1,45 +1,29 @@
 {% extends "NewsBundle:Admin:layout.html.twig" %}
-
+{% form_theme delete_form 'NewsBundle:Form:delete.html.twig' %}
 {% block content -%}
     {{parent()}}
-    <h1>News</h1>
+    <h1  class="text-center">News</h1>
+    <div class="btn-toolbar" role="toolbar">
+        <div class="btn-group">
+            <a href="{{ path('news') }}" class="btn btn-default">{% trans %}Back to the list{% endtrans %}</a>
+            <a href="{{ path('news_edit', { 'id': entity.id }) }}" class="btn btn-default">{% trans %}Edit{% endtrans %}</a>
+        </div>
+     </div>
+        <div class="row jumbotron">
+            <div class="row col-md-10 col-md-offset-1 well-sm">
+                <h3>{{ 'Title'|trans }}: </h3>{{ entity.title }}
+            </div>
+            <div class="row col-md-offset-1 col-md-10 well-sm">
+                <h3>{{ 'Author'|trans}}:</h3> {{ entity.author }}
+                <h3>{{ 'Publication date'|trans}}:</h3> {{ entity.publicationdate|date('Y-m-d H:i:s') }}
+            </div>
+            <div class="row col-md-offset-1 col-md-10 well-sm">
+                <strong><h3>{{ 'Description'|trans}}:</h3> {{ entity.description }}</strong>
+            </div>
+                <div class="row col-md-offset-1 col-md-10 -sm">
+                    <h3>{{ 'Content'|trans}}:</h3> {{ entity.content|raw }}
+                </div>
+        </div>
+ {{ form(delete_form) }}
 
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
-                <td>{{ entity.title }}</td>
-            </tr>
-            <tr>
-                <th>Author</th>
-                <td>{{ entity.author }}</td>
-            </tr>
-            <tr>
-                <th>Publication_date</th>
-                <td>{{ entity.publicationdate|date('Y-m-d H:i:s') }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ entity.description }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('news') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('news_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
 {% endblock %}

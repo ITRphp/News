@@ -1,0 +1,8 @@
+ function Load()
+ {
+     var element = this;
+$.get( element.name, { category: element.InnerText }, function( data ) {
+  $( "#news-list" ).html( data );
+
+});
+    }

@@ -79,7 +79,7 @@ class __TwigTemplate_d80eb3bb10fd3090d57529a19db0e8ac6f5efc16c168bc02dc12b71768d
             <div class=\"control-group\">
                 ";
         // line 18
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "user_name"), 'label', array("attr" => array("class" => "label"), "label" => "Username"));
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "user_name"), 'label', array("attr" => array("class" => "label")) + (twig_test_empty($_label_ = $this->env->getExtension('translator')->trans("Username")) ? array() : array("label" => $_label_)));
         echo "
                 <div class=\"controls\">
                     ";
@@ -88,7 +88,7 @@ class __TwigTemplate_d80eb3bb10fd3090d57529a19db0e8ac6f5efc16c168bc02dc12b71768d
         echo "
                     ";
         // line 21
-        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "user_name"), 'errors');
+        echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans($this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "user_name"), 'errors')), "html", null, true);
         echo "
                 </div>
             </div>
@@ -130,7 +130,7 @@ class __TwigTemplate_d80eb3bb10fd3090d57529a19db0e8ac6f5efc16c168bc02dc12b71768d
             <div class=\"control-group\">
                 <label for=\"password2\">";
         // line 42
-        echo $this->env->getExtension('translator')->getTranslator()->trans("Repeat password", array(), "messages");
+        echo $this->env->getExtension('translator')->getTranslator()->trans("Password.repeat", array(), "messages");
         echo "</label>
                 <div class=\"controls\">
                      <input class=\"form-control\" type=\"password\" id=\"password2\" name=\"_password\" placeholder=\"Repeat password\" />

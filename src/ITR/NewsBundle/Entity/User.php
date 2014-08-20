@@ -277,44 +277,7 @@ class User implements UserInterface,  \Serializable
     {
         return $this->user_hash;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $news;
-
-
-    /**
-     * Add news
-     *
-     * @param \ITR\NewsBundle\Entity\news $news
-     * @return User
-     */
-    public function addNews(\ITR\NewsBundle\Entity\news $news)
-    {
-        $this->news[] = $news;
-
-        return $this;
-    }
-
-    /**
-     * Remove news
-     *
-     * @param \ITR\NewsBundle\Entity\news $news
-     */
-    public function removeNews(\ITR\NewsBundle\Entity\news $news)
-    {
-        $this->news->removeElement($news);
-    }
-
-    /**
-     * Get news
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getNews()
-    {
-        return $this->news;
-    }
+ 
     /**
      * @var \Doctrine\Common\Collections\Collection
      */

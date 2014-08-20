@@ -1,0 +1,11 @@
+ function Load()
+ {
+    var url = this.name;
+        $.ajax({
+            url:url,
+            dataType:'twig',
+            success:function(html){
+                $('#news_list').html(html);
+            }
+        });
+    }

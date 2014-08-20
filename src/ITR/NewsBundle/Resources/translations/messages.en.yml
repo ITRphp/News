@@ -9,7 +9,9 @@ Content:    Content
 edit.mode:  Edit mode
 Enter.email: Enter your email
 Enter.new.password: Enter new password
+Edit:   Edit
 Email: Email
+Email.to.activation:   Letter with the activation has been sent to your email
 Forgot.password:    Forgot your password?
 Log in: Log in
 Logout: Log out
@@ -25,14 +27,28 @@ Registration:   Registration
 Repeat.new.password: Repeat new password
 Registered: You have successfully registered
 Subscribe: Subscribe
+Save:   Save
 User: User
+User name:  User name
 Users list: Users list
 Username:  User name
 Update.password: Update password
 Welcome:   Welcome
-Welcome %username%': Hello %username%
+Welcome %username%: Hello %username%
 User.email.not.registered:   User with this email is not registered
 Link.reset.password.been.sent:   Link to reset your password has been sent
 Letter.sent.email:   Letter sent to your email
+You have subscribed to: You have subscribes to
+You are not subscribed to our newsletter:   You are not subscribed to our newsletter
+not:
+    blank:
+        username:   Username field can not be blank!
+        email:  E-mail can not be blank!
+        category: Category field can not be blank!
+        password:   Password field can not be blank!
+    unique:
+        category: Category with the same name already exists!
+        email:    User with this email already exists
+        username: User with the same username already exists
 
 

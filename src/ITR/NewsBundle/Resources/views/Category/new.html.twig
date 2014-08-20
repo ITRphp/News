@@ -1,6 +1,8 @@
 {% extends "NewsBundle:Admin:layout.html.twig" %}
 
 {% form_theme form 'NewsBundle:Form:fields.html.twig' %}
+{% form_theme form 'NewsBundle:Form:errors.html.twig' %}
+
 
 {% block content -%}
     {{parent()}}
@@ -9,7 +11,7 @@
     <div class="row" >
         <div class="col-md-5 col-md-offset-4">
             {{ form_start(form)}}
-            {{ form_errors(form) }}
+            {{ form_errors(form)|trans }}
             {{ form_row(form.category_name) }}
             {{ form_widget(form.submit) }}
             {{ form_end(form) }}

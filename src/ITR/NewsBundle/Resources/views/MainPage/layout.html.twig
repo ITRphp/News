@@ -2,17 +2,19 @@
 
 {% block content %}
     <div>
-        <div class="navbar navbar-default" role="navigation">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#">{% trans %}Welcome %username%{% endtrans %}</a>
-            </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                {{ knp_menu_render('NewsBundle:Builder:mainMenu', {'currentClass': 'active', 'template': 'NewsBundle:Menu:knp_menu.html.twig'})|raw }}
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">{% trans %}Welcome %username%{% endtrans %}</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    {{ knp_menu_render('NewsBundle:Builder:mainMenu', {'currentClass': 'active', 'template': 'NewsBundle:Menu:knp_menu.html.twig'})|raw }}
+                </div>
             </div>
         </div>
         <div id="logo" class="col-md" style="padding:5px">
@@ -23,16 +25,21 @@
         <h4> {{ "now"|date("d-m-Y") }}</h4>
         <hr>
     </div>
+        {#<li><a href="{{path('category_news',{'category':category|lower })}}" name="{{ category }}">{{ category }}</a></li>#}
     <div  class="row" style="padding:4px">
-        <nav id="affix-nav" class="sidebar col-md-2 col-sm-2 hidden-xs">
-        <div data-spy="affix"  data-offset-top="227" id="affix1"  class="list-group sidebar ">
-            {% for category in categories %}
-                <a href="{{ path('category_news', { 'category': category|lower }) }}"  class="list-group-item"><span class="glyphicon glyphicon-heart-empty"></span>{{ category }}</a>
-            {% else %}
-                <h3>No news</h3>
-            {% endfor %}
+        <div id="affix-nav" class="col-md-2 col-sm-2 hidden-xs container">
+                <nav data-spy="affix" class="sidebar"  data-offset-top="227" id="affix1">
+                    <ul class="nav nav-pills nav-stacked ">
+                        <li><a name="all" data-toggle="pill" >All news</a></li>
+                    {% for category in categories %}
+                           
+                           <li><a data-toggle="pill" name="{{ category }}">{{ category }}</a></li>
+                    {% else %}
+                        <h3>No news</h3>
+                    {% endfor %}
+                    </ul>
+                </nav>
         </div>
-            </nav>
     {% block news %}
     {% endblock%}
     {% block popular_news %}

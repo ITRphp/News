@@ -1,0 +1,7 @@
+$(document).ready(function(){
+    $('#news_category').click (function (){
+    var url = "http://localhost/News/web/app.php/mainpage/"+this.name;
+    $("#news_list").load(url);
+});
+    
+});

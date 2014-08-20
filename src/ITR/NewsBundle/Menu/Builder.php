@@ -35,7 +35,7 @@ class Builder extends ContainerAware
         )));
         
         if ($this->container->get('security.context')->isGranted('ROLE_ADMIN')) {
-            $menu->addChild("edit.mode", array('route' => 'news'))
+            $menu->addChild("edit.mode", array('route' => '_all_news'))
                 ->setAttribute('id', 'right');
         }
  

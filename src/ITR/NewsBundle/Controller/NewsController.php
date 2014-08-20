@@ -4,6 +4,8 @@ namespace ITR\NewsBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Security\Core\SecurityContext;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 use ITR\NewsBundle\Entity\News;
 use ITR\NewsBundle\Form\NewsType;
@@ -12,6 +14,9 @@ use ITR\NewsBundle\Form\NewsType;
  * News controller.
  *
  */
+    /**
+    * @Security("has_role('ROLE_USER')")
+    */
 class NewsController extends Controller
 {
     /**

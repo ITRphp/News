@@ -1,0 +1,9 @@
+ $('#news_list a').click(function(){  
+                    $.ajax({  
+                        url: "mainpage" + params,  
+                        cache: false,  
+                        success: function(html){  
+                            $("#news_list").html(html);  
+                        }  
+                    });  
+                }); 

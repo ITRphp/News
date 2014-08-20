@@ -1,46 +1,44 @@
 <!DOCTYPE html>
 <html> 
     <head>
-       <title>{% block title %}{% trans %}News{% endtrans %}{% endblock %}</title>
+       <title>{% block title %}{{'News'|trans}}{% endblock %}</title>
 {% block head %}
    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-   {% block stylesheets %}
+    {% block stylesheets %}
        {% stylesheets '@NewsBundle/Resources/public/css/*' filter='cssrewrite' %}
-       <link rel="stylesheet" href="{{ asset_url }}" />
+        <link rel="stylesheet" href="{{ asset_url }}" />
        {% endstylesheets %}
-   {% endblock %}
+    {% endblock %}
 
     {% javascripts
-            '@NewsBundle/Resources/public/js/jquery-1.11.1.js'
-            '@NewsBundle/Resources/public/js/bootstrap.min.js'%}
-            <script src="{{ asset_url }}"></script>
-            {% endjavascripts %}
+        '@NewsBundle/Resources/public/js/jquery-1.11.1.js'
+        '@NewsBundle/Resources/public/js/bootstrap.min.js'%}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 
 {% endblock %}
     </head>
-    <body data-spy="scroll" data-target="#affix-nav" >
+<body data-spy="scroll" data-target="#affix-nav" >
     {% block body %}
         <div class = "container" style="-webkit-box-shadow: 0px 0px 6px 6px rgba(50, 50, 50, 0.1);
 										-moz-box-shadow:    0px 0px 6px 6px rgba(50, 50, 50, 0.1);
 										box-shadow:         0px 0px 6px 6px rgba(50, 50, 50, 0.1);
 
   	">
-        {% for flashMessage in app.session.flashbag.get('notice') %}
-        <div class="alert alert-warning alert-dismissable text-center">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            <strong>{{ flashMessage }}</strong> 
-            </div>
-        {% endfor %}
-                
-        {% block content %}
-            <div id="logo" class="col-md" style="padding:5px">
-                {% image '@NewsBundle/Resources/public/images/logo.png'%}
-                    <img src="{{ asset_url }}"  alt="Example"/>
-                {% endimage %}
-                <hr>
-            </div>
-                
-        {% endblock %}
+            {% for flashMessage in app.session.flashbag.get('notice') %}
+                <div class="alert alert-warning alert-dismissable text-center">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    <strong>{{ flashMessage }}</strong> 
+                </div>
+            {% endfor %}
+            {% block content %}
+                <div id="logo" class="col-md" style="padding:5px">
+                    {% image '@NewsBundle/Resources/public/images/logo.png'%}
+                        <img src="{{ asset_url }}"  alt="Example"/>
+                    {% endimage %}
+                    <hr>
+                </div>
+            {% endblock %}
             <div class="navbar-fixed-bottom row-fluid navbar-inverse">
                 <div class="navbar-inner">
                     <div class="footer">
@@ -50,8 +48,7 @@
                     </div>
                 </div>
             </div>
-        {% endblock %}
-            </div>
-            
-    </body>
+    {% endblock %}
+ </div>    
+</body>
 </html>

@@ -1,0 +1,4 @@
+$.get( this.name, { category: this.InnerText }, function( data ) {
+  $( "#news-list" ).html( data );
+
+});

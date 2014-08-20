@@ -13,6 +13,7 @@ class __TwigTemplate_d2ccdec8f509b406fd5dcdc932684a40c18011f3b1e2e237f20c53b2050
             'textarea_widget' => array($this, 'block_textarea_widget'),
             'form_row' => array($this, 'block_form_row'),
             'button_widget' => array($this, 'block_button_widget'),
+            'form_errors' => array($this, 'block_form_errors'),
         );
     }
 
@@ -85,6 +86,34 @@ class __TwigTemplate_d2ccdec8f509b406fd5dcdc932684a40c18011f3b1e2e237f20c53b2050
         echo trim(preg_replace('/>\s+</', '><', ob_get_clean()));
     }
 
+    // line 27
+    public function block_form_errors($context, array $blocks = array())
+    {
+        // line 28
+        ob_start();
+        // line 29
+        echo "    ";
+        if ((twig_length_filter($this->env, (isset($context["errors"]) ? $context["errors"] : $this->getContext($context, "errors"))) > 0)) {
+            // line 30
+            echo "        ";
+            $context['_parent'] = (array) $context;
+            $context['_seq'] = twig_ensure_traversable((isset($context["errors"]) ? $context["errors"] : $this->getContext($context, "errors")));
+            foreach ($context['_seq'] as $context["_key"] => $context["error"]) {
+                // line 31
+                echo "            <div class=\"text-danger\" style=\"display: inline\"> ";
+                echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans($this->env->getExtension('translator')->trans($this->getAttribute((isset($context["error"]) ? $context["error"] : $this->getContext($context, "error")), "messageTemplate"), $this->getAttribute((isset($context["error"]) ? $context["error"] : $this->getContext($context, "error")), "messageParameters"), "validators")), "html", null, true);
+                echo "</div>
+        ";
+            }
+            $_parent = $context['_parent'];
+            unset($context['_seq'], $context['_iterated'], $context['_key'], $context['error'], $context['_parent'], $context['loop']);
+            $context = array_intersect_key($context, $_parent) + $_parent;
+            // line 33
+            echo "    ";
+        }
+        echo trim(preg_replace('/>\s+</', '><', ob_get_clean()));
+    }
+
     public function getTemplateName()
     {
         return "NewsBundle:Form:fields.html.twig";
@@ -97,6 +126,6 @@ class __TwigTemplate_d2ccdec8f509b406fd5dcdc932684a40c18011f3b1e2e237f20c53b2050
 
     public function getDebugInfo()
     {
-        return array (  77 => 23,  75 => 22,  72 => 21,  64 => 16,  60 => 15,  56 => 14,  53 => 13,  51 => 12,  48 => 11,  35 => 5,  62 => 15,  58 => 14,  54 => 13,  50 => 12,  46 => 11,  38 => 6,  33 => 4,  30 => 3,  25 => 3,);
+        return array (  112 => 33,  103 => 31,  98 => 30,  95 => 29,  93 => 28,  90 => 27,  78 => 23,  76 => 22,  73 => 21,  65 => 16,  61 => 15,  57 => 14,  54 => 13,  52 => 12,  49 => 11,  39 => 6,  36 => 5,  34 => 4,  31 => 3,);
     }
 }
