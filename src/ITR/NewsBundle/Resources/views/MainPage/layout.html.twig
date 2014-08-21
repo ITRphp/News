@@ -10,7 +10,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">{% trans %}Welcome %username%{% endtrans %}</a>
+                    <a class="navbar-brand" href="{{path('mainpage')}}">{% trans %}Welcome %username%{% endtrans %}</a>
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     {{ knp_menu_render('NewsBundle:Builder:mainMenu', {'currentClass': 'active', 'template': 'NewsBundle:Menu:knp_menu.html.twig'})|raw }}
@@ -28,17 +28,14 @@
         {#<li><a href="{{path('category_news',{'category':category|lower })}}" name="{{ category }}">{{ category }}</a></li>#}
     <div  class="row" style="padding:4px">
         <div id="affix-nav" class="col-md-2 col-sm-2 hidden-xs container">
-                <nav data-spy="affix" class="sidebar"  data-offset-top="227" id="affix1">
-                    <ul class="nav nav-pills nav-stacked ">
-                        <li><a name="all" data-toggle="pill" >All news</a></li>
-                    {% for category in categories %}
-                           
-                           <li><a data-toggle="pill" name="{{ category }}">{{ category }}</a></li>
-                    {% else %}
-                        <h3>No news</h3>
-                    {% endfor %}
-                    </ul>
-                </nav>
+                <div data-spy="affix" class="sidebar"  data-offset-top="227" id="affix1">
+                    {{ knp_menu_render('NewsBundle:Builder:categoryMenu', {'currentClass': 'active', 'template': 'NewsBundle:Menu:knp_menu.html.twig'}) }}
+                    <form method="GET" action="{{path('news_archive')}}" >
+                        <div class="form-group">
+                            <input type="datetime" id="datepicker" placeholder="{{'Archive'|trans}}" name="date" class="form-control">
+                        </div>
+                    </form>
+                </div>
         </div>
     {% block news %}
     {% endblock%}

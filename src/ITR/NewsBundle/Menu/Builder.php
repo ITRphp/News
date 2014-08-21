@@ -5,6 +5,8 @@ use Knp\Menu\FactoryInterface;
 use Symfony\Component\DependencyInjection\ContainerAware;
 use Symfony\Component\HttpFoundation\Request;
 
+use Doctrine\ORM\EntityManager;
+
 class Builder extends ContainerAware
 {
     
@@ -69,6 +71,20 @@ class Builder extends ContainerAware
         
         $menu->addChild('Logout', array('route' => 'logout'));
   
+        return $menu;
+    }
+    
+    public function categoryMenu(FactoryInterface $factory, array $options)
+    {
+        $menu = $factory->createItem('root');
+        $menu->setChildrenAttribute('class', 'nav nav-stacked');
+        $em = $this->container->get('doctrine')->getManager();
+        $categories = $em->getRepository('NewsBundle:Category')->findAllOrderedByName();
+        $menu->addChild('All news', array('route' =>'mainpage'));
+        foreach ($categories as $category){
+             $menu->addChild($category->getCategoryName(), array('route' =>'category_news', 
+                 'routeParameters' => array('category' => strtolower($category->getCategoryName()))));
+        }
         return $menu;
     }
 

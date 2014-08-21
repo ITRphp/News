@@ -27,21 +27,29 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         $context = $this->context;
         $request = $this->request;
 
-        if (0 === strpos($pathinfo, '/js/82e4982')) {
-            // _assetic_82e4982
-            if ($pathinfo === '/js/82e4982.js') {
-                return array (  '_controller' => 'assetic.controller:render',  'name' => '82e4982',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_82e4982',);
+        if (0 === strpos($pathinfo, '/js/32c6a5d')) {
+            // _assetic_32c6a5d
+            if ($pathinfo === '/js/32c6a5d.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => '32c6a5d',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_32c6a5d',);
             }
 
-            if (0 === strpos($pathinfo, '/js/82e4982_')) {
-                // _assetic_82e4982_0
-                if ($pathinfo === '/js/82e4982_jquery-1.11.1_1.js') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => '82e4982',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_82e4982_0',);
+            if (0 === strpos($pathinfo, '/js/32c6a5d_')) {
+                if (0 === strpos($pathinfo, '/js/32c6a5d_jquery-')) {
+                    // _assetic_32c6a5d_0
+                    if ($pathinfo === '/js/32c6a5d_jquery-1.11.1_1.js') {
+                        return array (  '_controller' => 'assetic.controller:render',  'name' => '32c6a5d',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_32c6a5d_0',);
+                    }
+
+                    // _assetic_32c6a5d_1
+                    if ($pathinfo === '/js/32c6a5d_jquery-ui_2.js') {
+                        return array (  '_controller' => 'assetic.controller:render',  'name' => '32c6a5d',  'pos' => 1,  '_format' => 'js',  '_route' => '_assetic_32c6a5d_1',);
+                    }
+
                 }
 
-                // _assetic_82e4982_1
-                if ($pathinfo === '/js/82e4982_bootstrap.min_2.js') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => '82e4982',  'pos' => 1,  '_format' => 'js',  '_route' => '_assetic_82e4982_1',);
+                // _assetic_32c6a5d_2
+                if ($pathinfo === '/js/32c6a5d_bootstrap.min_3.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '32c6a5d',  'pos' => 2,  '_format' => 'js',  '_route' => '_assetic_32c6a5d_2',);
                 }
 
             }
@@ -61,8 +69,13 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 }
 
                 // _assetic_1820aaf_1
-                if ($pathinfo === '/css/1820aaf_part_1_style_2.css') {
+                if ($pathinfo === '/css/1820aaf_part_1_jquery-ui_2.css') {
                     return array (  '_controller' => 'assetic.controller:render',  'name' => '1820aaf',  'pos' => 1,  '_format' => 'css',  '_route' => '_assetic_1820aaf_1',);
+                }
+
+                // _assetic_1820aaf_2
+                if ($pathinfo === '/css/1820aaf_part_1_style_3.css') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '1820aaf',  'pos' => 2,  '_format' => 'css',  '_route' => '_assetic_1820aaf_2',);
                 }
 
             }
@@ -83,6 +96,27 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         if (0 === strpos($pathinfo, '/js')) {
+            if (0 === strpos($pathinfo, '/js/82e4982')) {
+                // _assetic_82e4982
+                if ($pathinfo === '/js/82e4982.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => '82e4982',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_82e4982',);
+                }
+
+                if (0 === strpos($pathinfo, '/js/82e4982_')) {
+                    // _assetic_82e4982_0
+                    if ($pathinfo === '/js/82e4982_jquery-1.11.1_1.js') {
+                        return array (  '_controller' => 'assetic.controller:render',  'name' => '82e4982',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_82e4982_0',);
+                    }
+
+                    // _assetic_82e4982_1
+                    if ($pathinfo === '/js/82e4982_bootstrap.min_2.js') {
+                        return array (  '_controller' => 'assetic.controller:render',  'name' => '82e4982',  'pos' => 1,  '_format' => 'js',  '_route' => '_assetic_82e4982_1',);
+                    }
+
+                }
+
+            }
+
             if (0 === strpos($pathinfo, '/js/c82c251')) {
                 // _assetic_c82c251
                 if ($pathinfo === '/js/c82c251.js') {
@@ -234,14 +268,39 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\MainpageController::indexAction',  '_route' => 'mainpage',);
             }
 
+            // category_news
+            if (preg_match('#^/mainpage/(?P<category>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'category_news')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\MainpageController::indexAction',));
+            }
+
+            // sort_news
+            if (0 === strpos($pathinfo, '/mainpage/sort') && preg_match('#^/mainpage/sort/(?P<key>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'sort_news')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\MainpageController::orderAllAction',));
+            }
+
+            // sort_category_news
+            if (preg_match('#^/mainpage/(?P<category>[^/]++)/sort/(?P<key>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'sort_category_news')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\MainpageController::orderCategoryAction',));
+            }
+
+            // news_archive
+            if (rtrim($pathinfo, '/') === '/mainpage/archive/news') {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_news_archive;
+                }
+
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'news_archive');
+                }
+
+                return array (  '_controller' => 'ITR\\NewsBundle\\Controller\\MainpageController::archiveAction',  '_route' => 'news_archive',);
+            }
+            not_news_archive:
+
             // current_news
             if (0 === strpos($pathinfo, '/mainpage/news') && preg_match('#^/mainpage/news/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'current_news')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\MainpageController::currentNewsItemAction',));
-            }
-
-            // category_news
-            if (preg_match('#^/mainpage/(?P<category>[^/]++)$#s', $pathinfo, $matches)) {
-                return $this->mergeDefaults(array_replace($matches, array('_route' => 'category_news')), array (  '_controller' => 'ITR\\NewsBundle\\Controller\\MainpageController::ajaxAction',));
             }
 
         }

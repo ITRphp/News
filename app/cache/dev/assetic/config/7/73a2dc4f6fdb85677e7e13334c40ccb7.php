@@ -64,4 +64,24 @@ return array (
       ),
     ),
   ),
+  'c82c251' => 
+  array (
+    0 => 
+    array (
+      0 => '@NewsBundle/Resources/public/js/news.js',
+    ),
+    1 => 
+    array (
+    ),
+    2 => 
+    array (
+      'output' => '_controller/js/c82c251.js',
+      'name' => 'c82c251',
+      'debug' => NULL,
+      'combine' => NULL,
+      'vars' => 
+      array (
+      ),
+    ),
+  ),
 );

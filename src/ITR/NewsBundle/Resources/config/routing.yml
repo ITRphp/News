@@ -1,10 +1,24 @@
 _welcome:
     path:     /
     defaults: { _controller: NewsBundle:Welcome:index }
-
 mainpage:
     path:     /mainpage
     defaults: { _controller: NewsBundle:Mainpage:index }
+category_news:
+    path:     /mainpage/{category}
+    defaults: { _controller: NewsBundle:Mainpage:index}
+sort_news:
+    path:     /mainpage/sort/{key}
+    defaults: { _controller: NewsBundle:Mainpage:orderAll}
+sort_category_news:
+    path:     /mainpage/{category}/sort/{key}
+    defaults: { _controller: NewsBundle:Mainpage:orderCategory}
+news_archive:
+    path:     /mainpage/archive/news/
+    defaults: { _controller: NewsBundle:Mainpage:archive}
+    requirements:
+      _method: GET
+    
 current_news:
     path:     /mainpage/news/{id}
     defaults: { _controller: NewsBundle:Mainpage:currentNewsItem }

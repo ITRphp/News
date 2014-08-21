@@ -21,6 +21,7 @@
       <parameter key="KnpMenuBundle">Knp\Bundle\MenuBundle\KnpMenuBundle</parameter>
       <parameter key="KnpPaginatorBundle">Knp\Bundle\PaginatorBundle\KnpPaginatorBundle</parameter>
       <parameter key="StfalconTinymceBundle">Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle</parameter>
+      <parameter key="APYDataGridBundle">APY\DataGridBundle\APYDataGridBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
@@ -581,6 +582,37 @@
       <parameter key="external_plugins" type="collection"/>
     </parameter>
     <parameter key="stfalcon_tinymce.twig.extension.class">Stfalcon\Bundle\TinymceBundle\Twig\Extension\StfalconTinymceExtension</parameter>
+    <parameter key="grid.twig_extension.class">APY\DataGridBundle\Twig\DataGridExtension</parameter>
+    <parameter key="grid.class">APY\DataGridBundle\Grid\Grid</parameter>
+    <parameter key="grid.manager.class">APY\DataGridBundle\Grid\GridManager</parameter>
+    <parameter key="grid.column.text.class">APY\DataGridBundle\Grid\Column\TextColumn</parameter>
+    <parameter key="grid.column.number.class">APY\DataGridBundle\Grid\Column\NumberColumn</parameter>
+    <parameter key="grid.column.boolean.class">APY\DataGridBundle\Grid\Column\BooleanColumn</parameter>
+    <parameter key="grid.column.datetime.class">APY\DataGridBundle\Grid\Column\DateTimeColumn</parameter>
+    <parameter key="grid.column.date.class">APY\DataGridBundle\Grid\Column\DateColumn</parameter>
+    <parameter key="grid.column.time.class">APY\DataGridBundle\Grid\Column\TimeColumn</parameter>
+    <parameter key="grid.column.array.class">APY\DataGridBundle\Grid\Column\ArrayColumn</parameter>
+    <parameter key="grid.column.blank.class">APY\DataGridBundle\Grid\Column\BlankColumn</parameter>
+    <parameter key="grid.column.rank.class">APY\DataGridBundle\Grid\Column\RankColumn</parameter>
+    <parameter key="apy_data_grid.limits" type="collection">
+      <parameter key="20">20</parameter>
+      <parameter key="50">50</parameter>
+      <parameter key="100">100</parameter>
+    </parameter>
+    <parameter key="apy_data_grid.theme">APYDataGridBundle::blocks.html.twig</parameter>
+    <parameter key="apy_data_grid.persistence">false</parameter>
+    <parameter key="apy_data_grid.no_data_message">No data</parameter>
+    <parameter key="apy_data_grid.no_result_message">No result</parameter>
+    <parameter key="apy_data_grid.actions_columns_size">-1</parameter>
+    <parameter key="apy_data_grid.actions_columns_title">Actions</parameter>
+    <parameter key="apy_data_grid.pagerfanta" type="collection">
+      <parameter key="enable">false</parameter>
+      <parameter key="view_class">Pagerfanta\View\DefaultView</parameter>
+      <parameter key="options" type="collection">
+        <parameter key="prev_message">«</parameter>
+        <parameter key="next_message">»</parameter>
+      </parameter>
+    </parameter>
     <parameter key="web_profiler.controller.profiler.class">Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController</parameter>
     <parameter key="web_profiler.controller.router.class">Symfony\Bundle\WebProfilerBundle\Controller\RouterController</parameter>
     <parameter key="web_profiler.controller.exception.class">Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController</parameter>
@@ -1524,6 +1556,78 @@
         <argument>xlf</argument>
         <argument>C:\WebData\News\src\ITR\NewsBundle/Resources/translations\messages.fr.xlf</argument>
         <argument>fr</argument>
+        <argument>messages</argument>
+      </call>
+      <call method="addResource">
+        <argument>xliff</argument>
+        <argument>C:\WebData\News\vendor\apy\datagrid-bundle/Resources/translations\messages.cs.xliff</argument>
+        <argument>cs</argument>
+        <argument>messages</argument>
+      </call>
+      <call method="addResource">
+        <argument>xliff</argument>
+        <argument>C:\WebData\News\vendor\apy\datagrid-bundle/Resources/translations\messages.de.xliff</argument>
+        <argument>de</argument>
+        <argument>messages</argument>
+      </call>
+      <call method="addResource">
+        <argument>xliff</argument>
+        <argument>C:\WebData\News\vendor\apy\datagrid-bundle/Resources/translations\messages.en.xliff</argument>
+        <argument>en</argument>
+        <argument>messages</argument>
+      </call>
+      <call method="addResource">
+        <argument>xliff</argument>
+        <argument>C:\WebData\News\vendor\apy\datagrid-bundle/Resources/translations\messages.es.xliff</argument>
+        <argument>es</argument>
+        <argument>messages</argument>
+      </call>
+      <call method="addResource">
+        <argument>xliff</argument>
+        <argument>C:\WebData\News\vendor\apy\datagrid-bundle/Resources/translations\messages.fr.xliff</argument>
+        <argument>fr</argument>
+        <argument>messages</argument>
+      </call>
+      <call method="addResource">
+        <argument>xliff</argument>
+        <argument>C:\WebData\News\vendor\apy\datagrid-bundle/Resources/translations\messages.ja.xliff</argument>
+        <argument>ja</argument>
+        <argument>messages</argument>
+      </call>
+      <call method="addResource">
+        <argument>xliff</argument>
+        <argument>C:\WebData\News\vendor\apy\datagrid-bundle/Resources/translations\messages.nl.xliff</argument>
+        <argument>nl</argument>
+        <argument>messages</argument>
+      </call>
+      <call method="addResource">
+        <argument>xliff</argument>
+        <argument>C:\WebData\News\vendor\apy\datagrid-bundle/Resources/translations\messages.pl.xliff</argument>
+        <argument>pl</argument>
+        <argument>messages</argument>
+      </call>
+      <call method="addResource">
+        <argument>xliff</argument>
+        <argument>C:\WebData\News\vendor\apy\datagrid-bundle/Resources/translations\messages.pt_BR.xliff</argument>
+        <argument>pt_BR</argument>
+        <argument>messages</argument>
+      </call>
+      <call method="addResource">
+        <argument>xliff</argument>
+        <argument>C:\WebData\News\vendor\apy\datagrid-bundle/Resources/translations\messages.ru.xliff</argument>
+        <argument>ru</argument>
+        <argument>messages</argument>
+      </call>
+      <call method="addResource">
+        <argument>xliff</argument>
+        <argument>C:\WebData\News\vendor\apy\datagrid-bundle/Resources/translations\messages.sk.xliff</argument>
+        <argument>sk</argument>
+        <argument>messages</argument>
+      </call>
+      <call method="addResource">
+        <argument>xliff</argument>
+        <argument>C:\WebData\News\vendor\apy\datagrid-bundle/Resources/translations\messages.tr.xliff</argument>
+        <argument>tr</argument>
         <argument>messages</argument>
       </call>
     </service>
@@ -2523,7 +2627,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>53f5f04ac4d93</argument>
+            <argument>53f65cb707510</argument>
           </service>
         </argument>
       </argument>
@@ -2727,6 +2831,17 @@
                   </argument>
                   <argument>null</argument>
                 </call>
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/mainpage/archive/news</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>ROLE_USER</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
               </service>
             </argument>
             <argument type="service">
@@ -2854,7 +2969,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>53f5f04ac4d93</argument>
+            <argument>53f65cb707510</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -2950,6 +3065,17 @@
                   </argument>
                   <argument type="collection">
                     <argument>ROLE_ADMIN</argument>
+                  </argument>
+                  <argument>null</argument>
+                </call>
+                <call method="add">
+                  <argument type="service">
+                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+                      <argument>^/mainpage/archive/news</argument>
+                    </service>
+                  </argument>
+                  <argument type="collection">
+                    <argument>ROLE_USER</argument>
                   </argument>
                   <argument>null</argument>
                 </call>
@@ -3156,6 +3282,25 @@
       </call>
       <call method="addExtension">
         <argument type="service" id="twig.extension.stfalcon_tinymce"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service">
+          <service class="APY\DataGridBundle\Twig\DataGridExtension" public="false">
+            <tag name="twig.extension"/>
+            <argument type="service" id="router"/>
+            <argument>APYDataGridBundle::blocks.html.twig</argument>
+            <call method="setPagerFanta">
+              <argument type="collection">
+                <argument key="enable">false</argument>
+                <argument key="view_class">Pagerfanta\View\DefaultView</argument>
+                <argument key="options" type="collection">
+                  <argument key="prev_message">«</argument>
+                  <argument key="next_message">»</argument>
+                </argument>
+              </argument>
+            </call>
+          </service>
+        </argument>
       </call>
       <call method="addExtension">
         <argument type="service">
@@ -3633,6 +3778,98 @@
       <tag name="twig.extension" alias="stfalcon_tinymce"/>
       <argument type="service" id="service_container"/>
     </service>
+    <service id="grid" class="APY\DataGridBundle\Grid\Grid" scope="prototype">
+      <argument type="service" id="service_container"/>
+      <call method="addColumnExtension">
+        <argument type="service" id="grid.column.text"/>
+      </call>
+      <call method="addColumnExtension">
+        <argument type="service" id="grid.column.number"/>
+      </call>
+      <call method="addColumnExtension">
+        <argument type="service" id="grid.column.boolean"/>
+      </call>
+      <call method="addColumnExtension">
+        <argument type="service" id="grid.column.datetime"/>
+      </call>
+      <call method="addColumnExtension">
+        <argument type="service" id="grid.column.date"/>
+      </call>
+      <call method="addColumnExtension">
+        <argument type="service" id="grid.column.time"/>
+      </call>
+      <call method="addColumnExtension">
+        <argument type="service" id="grid.column.array"/>
+      </call>
+      <call method="addColumnExtension">
+        <argument type="service" id="grid.column.blank"/>
+      </call>
+      <call method="addColumnExtension">
+        <argument type="service" id="grid.column.rank"/>
+      </call>
+      <call method="setLimits">
+        <argument type="collection">
+          <argument key="20">20</argument>
+          <argument key="50">50</argument>
+          <argument key="100">100</argument>
+        </argument>
+      </call>
+      <call method="setPersistence">
+        <argument>false</argument>
+      </call>
+      <call method="setNoDataMessage">
+        <argument>No data</argument>
+      </call>
+      <call method="setNoResultMessage">
+        <argument>No result</argument>
+      </call>
+      <call method="setActionsColumnSize">
+        <argument>-1</argument>
+      </call>
+      <call method="setActionsColumnTitle">
+        <argument>Actions</argument>
+      </call>
+    </service>
+    <service id="grid.manager" class="APY\DataGridBundle\Grid\GridManager">
+      <argument type="service" id="service_container"/>
+    </service>
+    <service id="grid.metadata.driver.annotation" class="APY\DataGridBundle\Grid\Mapping\Driver\Annotation">
+      <argument type="service" id="annotation_reader"/>
+    </service>
+    <service id="grid.mapping.manager" class="APY\DataGridBundle\Grid\Mapping\Metadata\Manager" scope="prototype">
+      <argument type="service" id="form.factory"/>
+      <call method="addDriver">
+        <argument type="service" id="grid.metadata.driver.annotation"/>
+        <argument>1</argument>
+      </call>
+    </service>
+    <service id="grid.column.text" class="APY\DataGridBundle\Grid\Column\TextColumn" public="false">
+      <tag name="grid.column.extension"/>
+    </service>
+    <service id="grid.column.number" class="APY\DataGridBundle\Grid\Column\NumberColumn" public="false">
+      <tag name="grid.column.extension"/>
+    </service>
+    <service id="grid.column.boolean" class="APY\DataGridBundle\Grid\Column\BooleanColumn" public="false">
+      <tag name="grid.column.extension"/>
+    </service>
+    <service id="grid.column.datetime" class="APY\DataGridBundle\Grid\Column\DateTimeColumn" public="false">
+      <tag name="grid.column.extension"/>
+    </service>
+    <service id="grid.column.date" class="APY\DataGridBundle\Grid\Column\DateColumn" public="false">
+      <tag name="grid.column.extension"/>
+    </service>
+    <service id="grid.column.time" class="APY\DataGridBundle\Grid\Column\TimeColumn" public="false">
+      <tag name="grid.column.extension"/>
+    </service>
+    <service id="grid.column.array" class="APY\DataGridBundle\Grid\Column\ArrayColumn" public="false">
+      <tag name="grid.column.extension"/>
+    </service>
+    <service id="grid.column.blank" class="APY\DataGridBundle\Grid\Column\BlankColumn" public="false">
+      <tag name="grid.column.extension"/>
+    </service>
+    <service id="grid.column.rank" class="APY\DataGridBundle\Grid\Column\RankColumn" public="false">
+      <tag name="grid.column.extension"/>
+    </service>
     <service id="web_profiler.controller.profiler" class="Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController">
       <argument type="service" id="router" on-invalid="null"/>
       <argument type="service" id="profiler" on-invalid="null"/>
@@ -3988,6 +4225,10 @@
       <call method="addPath">
         <argument>C:\WebData\News\vendor\stfalcon\tinymce-bundle\Stfalcon\Bundle\TinymceBundle/Resources/views</argument>
         <argument>StfalconTinymce</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\WebData\News\vendor\apy\datagrid-bundle/Resources/views</argument>
+        <argument>APYDataGrid</argument>
       </call>
       <call method="addPath">
         <argument>C:\WebData\News\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/views</argument>

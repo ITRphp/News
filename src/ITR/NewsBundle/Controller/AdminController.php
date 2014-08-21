@@ -7,7 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class AdminController extends Controller
 {
     /**
-    * @Security("has_role('ROLE_ADMIN')")
+    * @Security("has_role('ROLE_MANAGER')")
     */
     public function indexAction()
     {

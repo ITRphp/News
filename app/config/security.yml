@@ -58,5 +58,7 @@ security:
         - { path: ^/admin/news, roles: ROLE_ADMIN}
         - { path: ^/admin/category, roles: ROLE_ADMIN}
         - { path: ^/admin/user, roles: ROLE_ADMIN}
+        - { path: ^/mainpage/archive/news, roles: ROLE_USER}
+   
     #access_control:
         #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }

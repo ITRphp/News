@@ -12,6 +12,7 @@ use Doctrine\ORM\EntityRepository;
  */
 class NewsRepository extends EntityRepository
 {
+    
     public function findNewsByCategoryOrderedByDate($category)
     {
          $q = $this
@@ -53,12 +54,55 @@ class NewsRepository extends EntityRepository
 
         return $news;
     }
+    public function findNewsByDate($date)
+    {
+         $q = $this
+            ->createQueryBuilder('n')
+            ->where('n.publication_date >= :date')
+            ->orderBy('n.publication_date', 'DESC')
+            ->setParameter('date', $date)
+            ->getQuery();
+
+        try {
+            $news = $q->getResult();
+            
+        } catch (NoResultException $e) {
+            $message = sprintf(
+                'Unable to find an active category NewsBundle:category object identified by..'
+            );
+            throw new UsernameNotFoundException($message, 0, $e);
+        }
+
+        return $news;
+    }
     
     public function findAllNewsOrderedByPopularity()
     {
         $id = '';
-    $q = $this->getEntityManager()
+        $q = $this->getEntityManager()
             ->createQuery('SELECT n, COUNT(n.id) AS HIDDEN mycount FROM NewsBundle:News n JOIN n.users u GROUP BY n.id ORDER BY mycount DESC');
+    
+
+        try {
+            $news = $q->getResult();
+            
+        } catch (NoResultException $e) {
+            $message = sprintf(
+                'Unable to find an active category NewsBundle:category object identified by "%s".',
+                $id
+            );
+            throw new UsernameNotFoundException($message, 0, $e);
+        }
+
+        return $news;
+        
+    }
+    public function findNewsByCategoryOrderedByPopularity($category)
+    {
+        $id = '';
+        $q = $this->getEntityManager()
+            ->createQuery('SELECT n, COUNT(n.id) AS HIDDEN mycount FROM NewsBundle:News n JOIN n.users u WHERE n.category = :category GROUP BY n.id ORDER BY mycount DESC')
+                ->setParameter('category', $category);
     
 
         try {

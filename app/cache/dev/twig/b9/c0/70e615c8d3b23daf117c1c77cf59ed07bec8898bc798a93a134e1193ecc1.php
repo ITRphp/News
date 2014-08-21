@@ -39,8 +39,10 @@ class __TwigTemplate_b9c070e615c8d3b23daf117c1c77cf59ed07bec8898bc798a93a134e119
                         <span class=\"icon-bar\"></span>
                         <span class=\"icon-bar\"></span>
                     </button>
-                    <a class=\"navbar-brand\" href=\"#\">";
+                    <a class=\"navbar-brand\" href=\"";
         // line 13
+        echo $this->env->getExtension('routing')->getPath("mainpage");
+        echo "\">";
         echo $this->env->getExtension('translator')->getTranslator()->trans("Welcome %username%", array("%username%" => (isset($context["username"]) ? $context["username"] : $this->getContext($context, "username"))), "messages");
         echo "</a>
                 </div>
@@ -85,68 +87,54 @@ class __TwigTemplate_b9c070e615c8d3b23daf117c1c77cf59ed07bec8898bc798a93a134e119
         // line 29
         echo "    <div  class=\"row\" style=\"padding:4px\">
         <div id=\"affix-nav\" class=\"col-md-2 col-sm-2 hidden-xs container\">
-                <nav data-spy=\"affix\" class=\"sidebar\"  data-offset-top=\"227\" id=\"affix1\">
-                    <ul class=\"nav nav-pills nav-stacked \">
-                        <li><a name=\"all\" data-toggle=\"pill\" >All news</a></li>
+                <div data-spy=\"affix\" class=\"sidebar\"  data-offset-top=\"227\" id=\"affix1\">
                     ";
-        // line 34
-        $context['_parent'] = (array) $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["categories"]) ? $context["categories"] : $this->getContext($context, "categories")));
-        $context['_iterated'] = false;
-        foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
-            // line 35
-            echo "                           
-                           <li><a data-toggle=\"pill\" name=\"";
-            // line 36
-            echo twig_escape_filter($this->env, (isset($context["category"]) ? $context["category"] : $this->getContext($context, "category")), "html", null, true);
-            echo "\">";
-            echo twig_escape_filter($this->env, (isset($context["category"]) ? $context["category"] : $this->getContext($context, "category")), "html", null, true);
-            echo "</a></li>
-                    ";
-            $context['_iterated'] = true;
-        }
-        if (!$context['_iterated']) {
-            // line 38
-            echo "                        <h3>No news</h3>
-                    ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 40
-        echo "                    </ul>
-                </nav>
+        // line 32
+        echo $this->env->getExtension('knp_menu')->render("NewsBundle:Builder:categoryMenu", array("currentClass" => "active", "template" => "NewsBundle:Menu:knp_menu.html.twig"));
+        echo "
+                    <form method=\"GET\" action=\"";
+        // line 33
+        echo $this->env->getExtension('routing')->getPath("news_archive");
+        echo "\" >
+                        <div class=\"form-group\">
+                            <input type=\"datetime\" id=\"datepicker\" placeholder=\"";
+        // line 35
+        echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("Archive"), "html", null, true);
+        echo "\" name=\"date\" class=\"form-control\">
+                        </div>
+                    </form>
+                </div>
         </div>
     ";
-        // line 43
+        // line 40
         $this->displayBlock('news', $context, $blocks);
-        // line 45
+        // line 42
         echo "    ";
         $this->displayBlock('popular_news', $context, $blocks);
-        // line 47
+        // line 44
         echo "    </div>
 <div class=\"modal fade\" id=\"basicModal\" tabindex=\"-1\" role=\"dialog\">
     <div class=\"modal-dialog\">
         <div class=\"modal-content\">
             <div class=\"modal-header\"><button class=\"close\" type=\"button\" data-dismiss=\"modal\">x</button>
                 <h4 class=\"modal-title\" id=\"myModalLabel\">";
-        // line 52
+        // line 49
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("Subscribe"), "html", null, true);
         echo "</h4>
             </div>
             <div class=\"modal-body\">
                 ";
-        // line 55
+        // line 52
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("You have subscribed to"), "html", null, true);
         echo "
                 <ul>
                     ";
-        // line 57
+        // line 54
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["dispatches"]) ? $context["dispatches"] : $this->getContext($context, "dispatches")));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["item"]) {
-            // line 58
+            // line 55
             echo "                        <li>";
             echo twig_escape_filter($this->env, (isset($context["item"]) ? $context["item"] : $this->getContext($context, "item")), "html", null, true);
             echo "</li>
@@ -154,7 +142,7 @@ class __TwigTemplate_b9c070e615c8d3b23daf117c1c77cf59ed07bec8898bc798a93a134e119
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 60
+            // line 57
             echo "                        <li>";
             echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("You are not subscribed to our newsletter"), "html", null, true);
             echo "</li>
@@ -163,25 +151,25 @@ class __TwigTemplate_b9c070e615c8d3b23daf117c1c77cf59ed07bec8898bc798a93a134e119
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['item'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 62
+        // line 59
         echo "                </ul>
                 <a href=\"\" onclick=\"\">";
-        // line 63
+        // line 60
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("Edit"), "html", null, true);
         echo "</a>
                 <div id=\"_edit\">
                     <form action=\"";
-        // line 65
+        // line 62
         echo $this->env->getExtension('routing')->getPath("subscribe");
         echo "\" method=\"POST\">
                         <div class=\"form-group\">
                             <select multiple class=\"form-control\" name=\"category[]\" required>
                             ";
-        // line 68
+        // line 65
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["categories"]) ? $context["categories"] : $this->getContext($context, "categories")));
         foreach ($context['_seq'] as $context["_key"] => $context["category"]) {
-            // line 69
+            // line 66
             echo "                                <option>";
             echo twig_escape_filter($this->env, (isset($context["category"]) ? $context["category"] : $this->getContext($context, "category")), "html", null, true);
             echo "</option>
@@ -190,10 +178,10 @@ class __TwigTemplate_b9c070e615c8d3b23daf117c1c77cf59ed07bec8898bc798a93a134e119
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['category'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 71
+        // line 68
         echo "                        </select>
                         <input type=\"submit\" class=\"btn btn-success\" value=\"";
-        // line 72
+        // line 69
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("Save"), "html", null, true);
         echo "\"></button>
                         </div>
@@ -207,17 +195,17 @@ class __TwigTemplate_b9c070e615c8d3b23daf117c1c77cf59ed07bec8898bc798a93a134e119
 ";
     }
 
-    // line 43
+    // line 40
     public function block_news($context, array $blocks = array())
     {
-        // line 44
+        // line 41
         echo "    ";
     }
 
-    // line 45
+    // line 42
     public function block_popular_news($context, array $blocks = array())
     {
-        // line 46
+        // line 43
         echo "    ";
     }
 
@@ -233,6 +221,6 @@ class __TwigTemplate_b9c070e615c8d3b23daf117c1c77cf59ed07bec8898bc798a93a134e119
 
     public function getDebugInfo()
     {
-        return array (  221 => 46,  218 => 45,  214 => 44,  211 => 43,  197 => 72,  194 => 71,  185 => 69,  181 => 68,  175 => 65,  170 => 63,  167 => 62,  158 => 60,  150 => 58,  145 => 57,  140 => 55,  134 => 52,  127 => 47,  124 => 45,  122 => 43,  117 => 40,  110 => 38,  101 => 36,  98 => 35,  93 => 34,  86 => 29,  80 => 25,  76 => 23,  62 => 22,  58 => 21,  50 => 16,  44 => 13,  33 => 4,  30 => 3,);
+        return array (  209 => 43,  206 => 42,  202 => 41,  199 => 40,  185 => 69,  182 => 68,  173 => 66,  169 => 65,  163 => 62,  158 => 60,  155 => 59,  146 => 57,  138 => 55,  133 => 54,  128 => 52,  122 => 49,  115 => 44,  112 => 42,  110 => 40,  102 => 35,  97 => 33,  93 => 32,  88 => 29,  82 => 25,  78 => 23,  64 => 22,  60 => 21,  52 => 16,  44 => 13,  33 => 4,  30 => 3,);
     }
 }

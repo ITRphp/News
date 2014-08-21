@@ -293,11 +293,12 @@ class UserController extends Controller
             $em->flush();
         
     }
-    public function updateUserSubscribeAction() {
+    public function updateUserSubscribeAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
         $user = $this->get('security.context')->getToken()->getUser();
         $user_subscription = $user->getCategory();
-        $new_subscription = $_POST['category'];
+        //$new_subscription = $_POST['category'];
+        $new_subscription = $request->request->get('category');
         var_dump($new_subscription);
         
         foreach ($user_subscription as $item){

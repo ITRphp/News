@@ -120,6 +120,19 @@ class appDevDebugProjectContainer extends Container
             'fragment.renderer.esi' => 'getFragment_Renderer_EsiService',
             'fragment.renderer.hinclude' => 'getFragment_Renderer_HincludeService',
             'fragment.renderer.inline' => 'getFragment_Renderer_InlineService',
+            'grid' => 'getGridService',
+            'grid.column.array' => 'getGrid_Column_ArrayService',
+            'grid.column.blank' => 'getGrid_Column_BlankService',
+            'grid.column.boolean' => 'getGrid_Column_BooleanService',
+            'grid.column.date' => 'getGrid_Column_DateService',
+            'grid.column.datetime' => 'getGrid_Column_DatetimeService',
+            'grid.column.number' => 'getGrid_Column_NumberService',
+            'grid.column.rank' => 'getGrid_Column_RankService',
+            'grid.column.text' => 'getGrid_Column_TextService',
+            'grid.column.time' => 'getGrid_Column_TimeService',
+            'grid.manager' => 'getGrid_ManagerService',
+            'grid.mapping.manager' => 'getGrid_Mapping_ManagerService',
+            'grid.metadata.driver.annotation' => 'getGrid_Metadata_Driver_AnnotationService',
             'http_kernel' => 'getHttpKernelService',
             'itr.news.menu.voter.request' => 'getItr_News_Menu_Voter_RequestService',
             'itr_news.menu.main' => 'getItrNews_Menu_MainService',
@@ -1455,6 +1468,74 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'grid' service.
+     *
+     * @return APY\DataGridBundle\Grid\Grid A APY\DataGridBundle\Grid\Grid instance.
+     */
+    protected function getGridService()
+    {
+        $instance = new \APY\DataGridBundle\Grid\Grid($this);
+
+        $instance->addColumnExtension($this->get('grid.column.text'));
+        $instance->addColumnExtension($this->get('grid.column.number'));
+        $instance->addColumnExtension($this->get('grid.column.boolean'));
+        $instance->addColumnExtension($this->get('grid.column.datetime'));
+        $instance->addColumnExtension($this->get('grid.column.date'));
+        $instance->addColumnExtension($this->get('grid.column.time'));
+        $instance->addColumnExtension($this->get('grid.column.array'));
+        $instance->addColumnExtension($this->get('grid.column.blank'));
+        $instance->addColumnExtension($this->get('grid.column.rank'));
+        $instance->setLimits(array(20 => '20', 50 => '50', 100 => '100'));
+        $instance->setPersistence(false);
+        $instance->setNoDataMessage('No data');
+        $instance->setNoResultMessage('No result');
+        $instance->setActionsColumnSize(-1);
+        $instance->setActionsColumnTitle('Actions');
+
+        return $instance;
+    }
+
+    /**
+     * Gets the 'grid.manager' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return APY\DataGridBundle\Grid\GridManager A APY\DataGridBundle\Grid\GridManager instance.
+     */
+    protected function getGrid_ManagerService()
+    {
+        return $this->services['grid.manager'] = new \APY\DataGridBundle\Grid\GridManager($this);
+    }
+
+    /**
+     * Gets the 'grid.mapping.manager' service.
+     *
+     * @return APY\DataGridBundle\Grid\Mapping\Metadata\Manager A APY\DataGridBundle\Grid\Mapping\Metadata\Manager instance.
+     */
+    protected function getGrid_Mapping_ManagerService()
+    {
+        $instance = new \APY\DataGridBundle\Grid\Mapping\Metadata\Manager($this->get('form.factory'));
+
+        $instance->addDriver($this->get('grid.metadata.driver.annotation'), 1);
+
+        return $instance;
+    }
+
+    /**
+     * Gets the 'grid.metadata.driver.annotation' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return APY\DataGridBundle\Grid\Mapping\Driver\Annotation A APY\DataGridBundle\Grid\Mapping\Driver\Annotation instance.
+     */
+    protected function getGrid_Metadata_Driver_AnnotationService()
+    {
+        return $this->services['grid.metadata.driver.annotation'] = new \APY\DataGridBundle\Grid\Mapping\Driver\Annotation($this->get('annotation_reader'));
+    }
+
+    /**
      * Gets the 'http_kernel' service.
      *
      * This service is shared.
@@ -2284,25 +2365,28 @@ class appDevDebugProjectContainer extends Container
 
         $n = new \Symfony\Component\HttpFoundation\RequestMatcher('^/admin/user');
 
-        $o = new \Symfony\Component\Security\Http\AccessMap();
-        $o->add($g, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
-        $o->add($h, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
-        $o->add($i, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
-        $o->add($j, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
-        $o->add($k, array(0 => 'ROLE_ADMIN'), NULL);
-        $o->add($l, array(0 => 'ROLE_ADMIN'), NULL);
-        $o->add($m, array(0 => 'ROLE_ADMIN'), NULL);
-        $o->add($n, array(0 => 'ROLE_ADMIN'), NULL);
+        $o = new \Symfony\Component\HttpFoundation\RequestMatcher('^/mainpage/archive/news');
 
-        $p = new \Symfony\Component\Security\Http\HttpUtils($d, $d);
+        $p = new \Symfony\Component\Security\Http\AccessMap();
+        $p->add($g, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
+        $p->add($h, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
+        $p->add($i, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
+        $p->add($j, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
+        $p->add($k, array(0 => 'ROLE_ADMIN'), NULL);
+        $p->add($l, array(0 => 'ROLE_ADMIN'), NULL);
+        $p->add($m, array(0 => 'ROLE_ADMIN'), NULL);
+        $p->add($n, array(0 => 'ROLE_ADMIN'), NULL);
+        $p->add($o, array(0 => 'ROLE_USER'), NULL);
 
-        $q = new \Symfony\Component\Security\Http\Firewall\LogoutListener($b, $p, new \Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler($p, '/'), array('csrf_parameter' => '_csrf_token', 'intention' => 'logout', 'logout_path' => '/logout'));
-        $q->addHandler(new \Symfony\Component\Security\Http\Logout\SessionLogoutHandler());
+        $q = new \Symfony\Component\Security\Http\HttpUtils($d, $d);
 
-        $r = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler($p, array('login_path' => '/login', 'always_use_default_target_path' => false, 'default_target_path' => '/', 'target_path_parameter' => '_target_path', 'use_referer' => false));
-        $r->setProviderKey('secured_area');
+        $r = new \Symfony\Component\Security\Http\Firewall\LogoutListener($b, $q, new \Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler($q, '/'), array('csrf_parameter' => '_csrf_token', 'intention' => 'logout', 'logout_path' => '/logout'));
+        $r->addHandler(new \Symfony\Component\Security\Http\Logout\SessionLogoutHandler());
 
-        return $this->services['security.firewall.map.context.secured_area'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($o, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('security.user.provider.concrete.main')), 'secured_area', $a, $c), 2 => $q, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $f, new \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy('migrate'), $p, 'secured_area', $r, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($e, $p, array('login_path' => '/login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $a), array('check_path' => '/login_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $c, NULL), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '53f5f04ac4d93', $a), 5 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $o, $f)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $p, 'secured_area', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($e, $p, '/login', false), NULL, NULL, $a));
+        $s = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler($q, array('login_path' => '/login', 'always_use_default_target_path' => false, 'default_target_path' => '/', 'target_path_parameter' => '_target_path', 'use_referer' => false));
+        $s->setProviderKey('secured_area');
+
+        return $this->services['security.firewall.map.context.secured_area'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($p, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('security.user.provider.concrete.main')), 'secured_area', $a, $c), 2 => $r, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $f, new \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy('migrate'), $q, 'secured_area', $s, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($e, $q, array('login_path' => '/login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $a), array('check_path' => '/login_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $c, NULL), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '53f65cb707510', $a), 5 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $p, $f)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $q, 'secured_area', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($e, $q, '/login', false), NULL, NULL, $a));
     }
 
     /**
@@ -3434,6 +3518,18 @@ class appDevDebugProjectContainer extends Container
         $instance->addResource('xlf', 'C:\\WebData\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.ua.xlf', 'ua', 'security');
         $instance->addResource('yml', 'C:\\WebData\\News\\src\\ITR\\NewsBundle/Resources/translations\\messages.en.yml', 'en', 'messages');
         $instance->addResource('xlf', 'C:\\WebData\\News\\src\\ITR\\NewsBundle/Resources/translations\\messages.fr.xlf', 'fr', 'messages');
+        $instance->addResource('xliff', 'C:\\WebData\\News\\vendor\\apy\\datagrid-bundle/Resources/translations\\messages.cs.xliff', 'cs', 'messages');
+        $instance->addResource('xliff', 'C:\\WebData\\News\\vendor\\apy\\datagrid-bundle/Resources/translations\\messages.de.xliff', 'de', 'messages');
+        $instance->addResource('xliff', 'C:\\WebData\\News\\vendor\\apy\\datagrid-bundle/Resources/translations\\messages.en.xliff', 'en', 'messages');
+        $instance->addResource('xliff', 'C:\\WebData\\News\\vendor\\apy\\datagrid-bundle/Resources/translations\\messages.es.xliff', 'es', 'messages');
+        $instance->addResource('xliff', 'C:\\WebData\\News\\vendor\\apy\\datagrid-bundle/Resources/translations\\messages.fr.xliff', 'fr', 'messages');
+        $instance->addResource('xliff', 'C:\\WebData\\News\\vendor\\apy\\datagrid-bundle/Resources/translations\\messages.ja.xliff', 'ja', 'messages');
+        $instance->addResource('xliff', 'C:\\WebData\\News\\vendor\\apy\\datagrid-bundle/Resources/translations\\messages.nl.xliff', 'nl', 'messages');
+        $instance->addResource('xliff', 'C:\\WebData\\News\\vendor\\apy\\datagrid-bundle/Resources/translations\\messages.pl.xliff', 'pl', 'messages');
+        $instance->addResource('xliff', 'C:\\WebData\\News\\vendor\\apy\\datagrid-bundle/Resources/translations\\messages.pt_BR.xliff', 'pt_BR', 'messages');
+        $instance->addResource('xliff', 'C:\\WebData\\News\\vendor\\apy\\datagrid-bundle/Resources/translations\\messages.ru.xliff', 'ru', 'messages');
+        $instance->addResource('xliff', 'C:\\WebData\\News\\vendor\\apy\\datagrid-bundle/Resources/translations\\messages.sk.xliff', 'sk', 'messages');
+        $instance->addResource('xliff', 'C:\\WebData\\News\\vendor\\apy\\datagrid-bundle/Resources/translations\\messages.tr.xliff', 'tr', 'messages');
 
         return $instance;
     }
@@ -3448,6 +3544,11 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getTwigService()
     {
+        $a = $this->get('router');
+
+        $b = new \APY\DataGridBundle\Twig\DataGridExtension($a, 'APYDataGridBundle::blocks.html.twig');
+        $b->setPagerFanta(array('enable' => false, 'view_class' => 'Pagerfanta\\View\\DefaultView', 'options' => array('prev_message' => '«', 'next_message' => '»')));
+
         $this->services['twig'] = $instance = new \Twig_Environment($this->get('twig.loader'), array('debug' => true, 'strict_variables' => true, 'exception_controller' => 'twig.controller.exception:showAction', 'autoescape_service' => NULL, 'autoescape_service_method' => NULL, 'cache' => 'C:/WebData/News/app/cache/dev/twig', 'charset' => 'UTF-8', 'paths' => array()));
 
         $instance->addExtension(new \Symfony\Bundle\SecurityBundle\Twig\Extension\LogoutUrlExtension($this->get('templating.helper.logout_url')));
@@ -3456,7 +3557,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addExtension(new \Symfony\Bundle\TwigBundle\Extension\AssetsExtension($this, $this->get('router.request_context')));
         $instance->addExtension(new \Symfony\Bundle\TwigBundle\Extension\ActionsExtension($this));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\CodeExtension(NULL, 'C:/WebData/News/app', 'UTF-8'));
-        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\RoutingExtension($this->get('router')));
+        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\RoutingExtension($a));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\YamlExtension());
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\StopwatchExtension($this->get('debug.stopwatch', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\ExpressionExtension());
@@ -3468,6 +3569,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addExtension(new \Knp\Menu\Twig\MenuExtension($this->get('knp_menu.helper')));
         $instance->addExtension($this->get('knp_paginator.twig.extension.pagination'));
         $instance->addExtension($this->get('twig.extension.stfalcon_tinymce'));
+        $instance->addExtension($b);
         $instance->addExtension(new \Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension());
         $instance->addGlobal('app', $this->get('templating.globals'));
 
@@ -3534,6 +3636,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath('C:\\WebData\\News\\src\\ITR\\NewsBundle/Resources/views', 'News');
         $instance->addPath('C:\\WebData\\News\\vendor\\knplabs\\knp-paginator-bundle\\Knp\\Bundle\\PaginatorBundle/Resources/views', 'KnpPaginator');
         $instance->addPath('C:\\WebData\\News\\vendor\\stfalcon\\tinymce-bundle\\Stfalcon\\Bundle\\TinymceBundle/Resources/views', 'StfalconTinymce');
+        $instance->addPath('C:\\WebData\\News\\vendor\\apy\\datagrid-bundle/Resources/views', 'APYDataGrid');
         $instance->addPath('C:\\WebData\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views', 'WebProfiler');
         $instance->addPath('C:\\WebData\\News\\vendor\\sensio\\distribution-bundle\\Sensio\\Bundle\\DistributionBundle/Resources/views', 'SensioDistribution');
         $instance->addPath('C:/WebData/News/app/Resources/views');
@@ -3774,6 +3877,159 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'grid.column.array' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * This service is private.
+     * If you want to be able to request this service from the container directly,
+     * make it public, otherwise you might end up with broken code.
+     *
+     * @return APY\DataGridBundle\Grid\Column\ArrayColumn A APY\DataGridBundle\Grid\Column\ArrayColumn instance.
+     */
+    protected function getGrid_Column_ArrayService()
+    {
+        return $this->services['grid.column.array'] = new \APY\DataGridBundle\Grid\Column\ArrayColumn();
+    }
+
+    /**
+     * Gets the 'grid.column.blank' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * This service is private.
+     * If you want to be able to request this service from the container directly,
+     * make it public, otherwise you might end up with broken code.
+     *
+     * @return APY\DataGridBundle\Grid\Column\BlankColumn A APY\DataGridBundle\Grid\Column\BlankColumn instance.
+     */
+    protected function getGrid_Column_BlankService()
+    {
+        return $this->services['grid.column.blank'] = new \APY\DataGridBundle\Grid\Column\BlankColumn();
+    }
+
+    /**
+     * Gets the 'grid.column.boolean' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * This service is private.
+     * If you want to be able to request this service from the container directly,
+     * make it public, otherwise you might end up with broken code.
+     *
+     * @return APY\DataGridBundle\Grid\Column\BooleanColumn A APY\DataGridBundle\Grid\Column\BooleanColumn instance.
+     */
+    protected function getGrid_Column_BooleanService()
+    {
+        return $this->services['grid.column.boolean'] = new \APY\DataGridBundle\Grid\Column\BooleanColumn();
+    }
+
+    /**
+     * Gets the 'grid.column.date' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * This service is private.
+     * If you want to be able to request this service from the container directly,
+     * make it public, otherwise you might end up with broken code.
+     *
+     * @return APY\DataGridBundle\Grid\Column\DateColumn A APY\DataGridBundle\Grid\Column\DateColumn instance.
+     */
+    protected function getGrid_Column_DateService()
+    {
+        return $this->services['grid.column.date'] = new \APY\DataGridBundle\Grid\Column\DateColumn();
+    }
+
+    /**
+     * Gets the 'grid.column.datetime' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * This service is private.
+     * If you want to be able to request this service from the container directly,
+     * make it public, otherwise you might end up with broken code.
+     *
+     * @return APY\DataGridBundle\Grid\Column\DateTimeColumn A APY\DataGridBundle\Grid\Column\DateTimeColumn instance.
+     */
+    protected function getGrid_Column_DatetimeService()
+    {
+        return $this->services['grid.column.datetime'] = new \APY\DataGridBundle\Grid\Column\DateTimeColumn();
+    }
+
+    /**
+     * Gets the 'grid.column.number' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * This service is private.
+     * If you want to be able to request this service from the container directly,
+     * make it public, otherwise you might end up with broken code.
+     *
+     * @return APY\DataGridBundle\Grid\Column\NumberColumn A APY\DataGridBundle\Grid\Column\NumberColumn instance.
+     */
+    protected function getGrid_Column_NumberService()
+    {
+        return $this->services['grid.column.number'] = new \APY\DataGridBundle\Grid\Column\NumberColumn();
+    }
+
+    /**
+     * Gets the 'grid.column.rank' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * This service is private.
+     * If you want to be able to request this service from the container directly,
+     * make it public, otherwise you might end up with broken code.
+     *
+     * @return APY\DataGridBundle\Grid\Column\RankColumn A APY\DataGridBundle\Grid\Column\RankColumn instance.
+     */
+    protected function getGrid_Column_RankService()
+    {
+        return $this->services['grid.column.rank'] = new \APY\DataGridBundle\Grid\Column\RankColumn();
+    }
+
+    /**
+     * Gets the 'grid.column.text' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * This service is private.
+     * If you want to be able to request this service from the container directly,
+     * make it public, otherwise you might end up with broken code.
+     *
+     * @return APY\DataGridBundle\Grid\Column\TextColumn A APY\DataGridBundle\Grid\Column\TextColumn instance.
+     */
+    protected function getGrid_Column_TextService()
+    {
+        return $this->services['grid.column.text'] = new \APY\DataGridBundle\Grid\Column\TextColumn();
+    }
+
+    /**
+     * Gets the 'grid.column.time' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * This service is private.
+     * If you want to be able to request this service from the container directly,
+     * make it public, otherwise you might end up with broken code.
+     *
+     * @return APY\DataGridBundle\Grid\Column\TimeColumn A APY\DataGridBundle\Grid\Column\TimeColumn instance.
+     */
+    protected function getGrid_Column_TimeService()
+    {
+        return $this->services['grid.column.time'] = new \APY\DataGridBundle\Grid\Column\TimeColumn();
+    }
+
+    /**
      * Gets the 'knp_menu.helper' service.
      *
      * This service is shared.
@@ -3841,7 +4097,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_Authentication_ManagerService()
     {
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('security.user.provider.concrete.main'), new \Symfony\Component\Security\Core\User\UserChecker(), 'secured_area', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('53f5f04ac4d93')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('security.user.provider.concrete.main'), new \Symfony\Component\Security\Core\User\UserChecker(), 'secured_area', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('53f65cb707510')), true);
 
         $instance->setEventDispatcher($this->get('debug.event_dispatcher'));
 
@@ -4021,6 +4277,7 @@ class appDevDebugProjectContainer extends Container
                 'KnpMenuBundle' => 'Knp\\Bundle\\MenuBundle\\KnpMenuBundle',
                 'KnpPaginatorBundle' => 'Knp\\Bundle\\PaginatorBundle\\KnpPaginatorBundle',
                 'StfalconTinymceBundle' => 'Stfalcon\\Bundle\\TinymceBundle\\StfalconTinymceBundle',
+                'APYDataGridBundle' => 'APY\\DataGridBundle\\APYDataGridBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',
                 'SensioGeneratorBundle' => 'Sensio\\Bundle\\GeneratorBundle\\SensioGeneratorBundle',
@@ -4607,6 +4864,37 @@ class appDevDebugProjectContainer extends Container
                 ),
             ),
             'stfalcon_tinymce.twig.extension.class' => 'Stfalcon\\Bundle\\TinymceBundle\\Twig\\Extension\\StfalconTinymceExtension',
+            'grid.twig_extension.class' => 'APY\\DataGridBundle\\Twig\\DataGridExtension',
+            'grid.class' => 'APY\\DataGridBundle\\Grid\\Grid',
+            'grid.manager.class' => 'APY\\DataGridBundle\\Grid\\GridManager',
+            'grid.column.text.class' => 'APY\\DataGridBundle\\Grid\\Column\\TextColumn',
+            'grid.column.number.class' => 'APY\\DataGridBundle\\Grid\\Column\\NumberColumn',
+            'grid.column.boolean.class' => 'APY\\DataGridBundle\\Grid\\Column\\BooleanColumn',
+            'grid.column.datetime.class' => 'APY\\DataGridBundle\\Grid\\Column\\DateTimeColumn',
+            'grid.column.date.class' => 'APY\\DataGridBundle\\Grid\\Column\\DateColumn',
+            'grid.column.time.class' => 'APY\\DataGridBundle\\Grid\\Column\\TimeColumn',
+            'grid.column.array.class' => 'APY\\DataGridBundle\\Grid\\Column\\ArrayColumn',
+            'grid.column.blank.class' => 'APY\\DataGridBundle\\Grid\\Column\\BlankColumn',
+            'grid.column.rank.class' => 'APY\\DataGridBundle\\Grid\\Column\\RankColumn',
+            'apy_data_grid.limits' => array(
+                20 => '20',
+                50 => '50',
+                100 => '100',
+            ),
+            'apy_data_grid.theme' => 'APYDataGridBundle::blocks.html.twig',
+            'apy_data_grid.persistence' => false,
+            'apy_data_grid.no_data_message' => 'No data',
+            'apy_data_grid.no_result_message' => 'No result',
+            'apy_data_grid.actions_columns_size' => -1,
+            'apy_data_grid.actions_columns_title' => 'Actions',
+            'apy_data_grid.pagerfanta' => array(
+                'enable' => false,
+                'view_class' => 'Pagerfanta\\View\\DefaultView',
+                'options' => array(
+                    'prev_message' => '«',
+                    'next_message' => '»',
+                ),
+            ),
             'web_profiler.controller.profiler.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\ProfilerController',
             'web_profiler.controller.router.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\RouterController',
             'web_profiler.controller.exception.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\ExceptionController',
