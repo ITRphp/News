@@ -49,25 +49,25 @@ login_check:
 logout:
     pattern:   /logout
     
-_all_users:
-    pattern: /admin/user
-    defaults:  { _controller: NewsBundle:User:index}
-    
-_all_news:
-    pattern:    /admin/news
-    defaults:  { _controller: NewsBundle:News:index}
-    
-_add_news:
-    pattern: /admin/news/new
-    defaults:  { _controller: NewsBundle:News:new}
-    
-_all_categories:
-    pattern: /admin/category
-    defaults:  { _controller: NewsBundle:Category:index}
-    
-_add_category:
-    pattern: /admin/category/new
-    defaults:  { _controller: NewsBundle:Category:new}
+#_all_users:
+#    pattern: /admin/user
+#    defaults:  { _controller: NewsBundle:User:index}
+#    
+#_all_news:
+#    pattern:    /admin/news
+#    defaults:  { _controller: NewsBundle:News:index}
+#    
+#_add_news:
+#    pattern: /admin/news/new
+#    defaults:  { _controller: NewsBundle:News:new}
+#    
+#_all_categories:
+#    pattern: /admin/category
+#    defaults:  { _controller: NewsBundle:Category:index}
+#    
+#_add_category:
+#    pattern: /admin/category/new
+#    defaults:  { _controller: NewsBundle:Category:new}
     
 NewsBundle_admin_passwordrecovery:
         resource: "@NewsBundle/Resources/config/routing/passwordrecovery.yml"

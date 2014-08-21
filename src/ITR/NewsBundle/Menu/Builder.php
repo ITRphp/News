@@ -35,7 +35,7 @@ class Builder extends ContainerAware
         )));
         
         if ($this->container->get('security.context')->isGranted('ROLE_ADMIN')) {
-            $menu->addChild("edit.mode", array('route' => '_all_news'))
+            $menu->addChild("edit.mode", array('route' => 'news'))
                 ->setAttribute('id', 'right');
         }
  
@@ -51,21 +51,21 @@ class Builder extends ContainerAware
         $menu->addChild('Users')
              ->setAttribute('dropdown', true);
  
-        $menu['Users']->addChild('Users list', array('route' => '_all_users'));
+        $menu['Users']->addChild('Users list', array('route' => 'user'));
         
         $menu->addChild('Categories')
              ->setAttribute('dropdown', true)
              ->setAttribute('divider_prepend', true);
         
-        $menu['Categories']->addChild('All categories', array('route' => '_all_categories'));
-        $menu['Categories']->addChild('Add category', array('route' => '_add_category'));
+        $menu['Categories']->addChild('All categories', array('route' => 'category'));
+        $menu['Categories']->addChild('Add category', array('route' => 'category_new'));
 
         $menu->addChild('Content')
              ->setAttribute('dropdown', true)
              ->setAttribute('divider_prepend', true);
  
-        $menu['Content']->addChild('News list', array('route' => '_all_news'));
-        $menu['Content']->addChild('Add news', array('route' => '_add_news'));
+        $menu['Content']->addChild('News list', array('route' => 'news'));
+        $menu['Content']->addChild('Add news', array('route' => 'news_new'));
         
         $menu->addChild('Logout', array('route' => 'logout'));
   

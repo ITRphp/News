@@ -46,6 +46,7 @@ not:
         email:  E-mail can not be blank!
         category: Category field can not be blank!
         password:   Password field can not be blank!
+        content: Content field can not be blank!
     unique:
         category: Category with the same name already exists!
         email:    User with this email already exists

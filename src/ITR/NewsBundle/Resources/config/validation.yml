@@ -21,4 +21,8 @@ ITR\NewsBundle\Entity\Category:
     properties:
         category_name:
             - NotBlank: { message: "not.blank.category" }
+ITR\NewsBundle\Entity\News: 
+    properties:
+        content:
+            - NotBlank: { message: "not.blank.content" }
     

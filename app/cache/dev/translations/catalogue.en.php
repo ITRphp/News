@@ -150,6 +150,7 @@ $catalogue = new MessageCatalogue('en', array (
     'not.blank.email' => 'E-mail can not be blank!',
     'not.blank.category' => 'Category field can not be blank!',
     'not.blank.password' => 'Password field can not be blank!',
+    'not.blank.content' => 'Content field can not be blank!',
     'not.unique.category' => 'Category with the same name already exists!',
     'not.unique.email' => 'User with this email already exists',
     'not.unique.username' => 'User with the same username already exists',

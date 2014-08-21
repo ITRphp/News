@@ -25,6 +25,8 @@ class __TwigTemplate_083a998c394849ec14e5e3243ad9023482151daa74779f7b3a78902f566
         $this->env->getExtension('form')->renderer->setTheme((isset($context["edit_form"]) ? $context["edit_form"] : $this->getContext($context, "edit_form")), array(0 => "NewsBundle:Form:newsForm.html.twig"));
         // line 4
         $this->env->getExtension('form')->renderer->setTheme((isset($context["delete_form"]) ? $context["delete_form"] : $this->getContext($context, "delete_form")), array(0 => "NewsBundle:Form:delete.html.twig"));
+        // line 5
+        $this->env->getExtension('form')->renderer->setTheme((isset($context["delete_form"]) ? $context["delete_form"] : $this->getContext($context, "delete_form")), array(0 => "NewsBundle:Form:errors.html.twig"));
         $this->parent->display($context, array_merge($this->blocks, $blocks));
     }
 
@@ -104,6 +106,6 @@ class __TwigTemplate_083a998c394849ec14e5e3243ad9023482151daa74779f7b3a78902f566
 
     public function getDebugInfo()
     {
-        return array (  88 => 24,  84 => 23,  78 => 20,  74 => 19,  70 => 18,  66 => 17,  62 => 16,  58 => 15,  54 => 14,  50 => 13,  46 => 12,  40 => 9,  35 => 7,  32 => 6,  27 => 4,  25 => 3,);
+        return array (  90 => 24,  86 => 23,  80 => 20,  76 => 19,  72 => 18,  68 => 17,  64 => 16,  60 => 15,  56 => 14,  52 => 13,  48 => 12,  42 => 9,  37 => 7,  34 => 6,  29 => 5,  27 => 4,  25 => 3,);
     }
 }

@@ -2523,7 +2523,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>53f475fb88f9e</argument>
+            <argument>53f5f04ac4d93</argument>
           </service>
         </argument>
       </argument>
@@ -2727,28 +2727,6 @@
                   </argument>
                   <argument>null</argument>
                 </call>
-                <call method="add">
-                  <argument type="service">
-                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-                      <argument>^/admin/dispatch</argument>
-                    </service>
-                  </argument>
-                  <argument type="collection">
-                    <argument>ROLE_ADMIN</argument>
-                  </argument>
-                  <argument>null</argument>
-                </call>
-                <call method="add">
-                  <argument type="service">
-                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-                      <argument>^/hello</argument>
-                    </service>
-                  </argument>
-                  <argument type="collection">
-                    <argument>ROLE_USER</argument>
-                  </argument>
-                  <argument>null</argument>
-                </call>
               </service>
             </argument>
             <argument type="service">
@@ -2876,7 +2854,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>53f475fb88f9e</argument>
+            <argument>53f5f04ac4d93</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
           </service>
         </argument>
@@ -2972,28 +2950,6 @@
                   </argument>
                   <argument type="collection">
                     <argument>ROLE_ADMIN</argument>
-                  </argument>
-                  <argument>null</argument>
-                </call>
-                <call method="add">
-                  <argument type="service">
-                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-                      <argument>^/admin/dispatch</argument>
-                    </service>
-                  </argument>
-                  <argument type="collection">
-                    <argument>ROLE_ADMIN</argument>
-                  </argument>
-                  <argument>null</argument>
-                </call>
-                <call method="add">
-                  <argument type="service">
-                    <service class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-                      <argument>^/hello</argument>
-                    </service>
-                  </argument>
-                  <argument type="collection">
-                    <argument>ROLE_USER</argument>
                   </argument>
                   <argument>null</argument>
                 </call>

@@ -1,30 +1,30 @@
 news:
-    path:     admin/
+    path:     /
     defaults: { _controller: "NewsBundle:News:index" }
 
 news_show:
-    path:     admin/{id}/show
+    path:    /{id}/show
     defaults: { _controller: "NewsBundle:News:show" }
 
 news_new:
-    path:     admin/new
+    path:     /new
     defaults: { _controller: "NewsBundle:News:new" }
 
 news_create:
-    path:     admin/create
+    path:     /create
     defaults: { _controller: "NewsBundle:News:create" }
     requirements: { _method: post }
 
 news_edit:
-    path:     admin/{id}/edit
+    path:     /{id}/edit
     defaults: { _controller: "NewsBundle:News:edit" }
 
 news_update:
-    path:     admin/{id}/update
+    path:     /{id}/update
     defaults: { _controller: "NewsBundle:News:update" }
     requirements: { _method: post|put }
 
 news_delete:
-    path:     admin/{id}/delete
+    path:     /{id}/delete
     defaults: { _controller: "NewsBundle:News:delete" }
     requirements: { _method: post|delete }

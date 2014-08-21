@@ -35,40 +35,33 @@ class __TwigTemplate_14382fd5c1fb920656f92d9e757b0f04663d81bd32b7c791e36a4cf9fcf
     <table class=\"records_list table table-hover table-bordered\">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Category_name</th>
                 <th>Actions</th>
             </tr>
         </thead>
         <tbody>
         ";
-        // line 16
+        // line 15
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["entities"]) ? $context["entities"] : $this->getContext($context, "entities")));
         foreach ($context['_seq'] as $context["_key"] => $context["entity"]) {
-            // line 17
+            // line 16
             echo "            <tr>
-                <td><a href=\"";
-            // line 18
-            echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("category_show", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
-            echo "\">";
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"), "html", null, true);
-            echo "</a></td>
                 <td>";
-            // line 19
+            // line 17
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "categoryname"), "html", null, true);
             echo "</td>
                 <td>
                     <ul class=\"list-group list-unstyled\">
                         <li>
                             <a href=\"";
-            // line 23
+            // line 21
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("category_show", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
             echo "\">show</a>
                         </li>
                         <li>
                             <a href=\"";
-            // line 26
+            // line 24
             echo twig_escape_filter($this->env, $this->env->getExtension('routing')->getPath("category_edit", array("id" => $this->getAttribute((isset($context["entity"]) ? $context["entity"] : $this->getContext($context, "entity")), "id"))), "html", null, true);
             echo "\">edit</a>
                         </li>
@@ -80,12 +73,12 @@ class __TwigTemplate_14382fd5c1fb920656f92d9e757b0f04663d81bd32b7c791e36a4cf9fcf
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['entity'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 32
+        // line 30
         echo "        </tbody>
     </table>
     <div class=\"navigation\">
         ";
-        // line 35
+        // line 33
         echo $this->env->getExtension('knp_pagination')->render((isset($context["entities"]) ? $context["entities"] : $this->getContext($context, "entities")));
         echo "
     </div>
@@ -104,6 +97,6 @@ class __TwigTemplate_14382fd5c1fb920656f92d9e757b0f04663d81bd32b7c791e36a4cf9fcf
 
     public function getDebugInfo()
     {
-        return array (  89 => 35,  84 => 32,  72 => 26,  66 => 23,  59 => 19,  53 => 18,  50 => 17,  46 => 16,  31 => 4,  28 => 3,);
+        return array (  82 => 33,  77 => 30,  65 => 24,  59 => 21,  52 => 17,  49 => 16,  45 => 15,  31 => 4,  28 => 3,);
     }
 }
