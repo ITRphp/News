@@ -2,16 +2,25 @@ ITR\NewsBundle\Entity\User:
     constraints:
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
             fields: [user_email]
-            message: 'Not unique email'
+            message: "not.unique.email"
         - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
             fields: [user_name]
-            message: 'Not unique user name'
+            message: "not.unique.username"
     properties:
         user_password:
-            - NotBlank: ~
-            - Length:
-                min: 8c
+            - NotBlank: { message: "not.blank.password" }
     properties:
         user_email:
-            -NotBlank: ~
-    
+            -NotBlank: { message: "not.blank.email" }
+ITR\NewsBundle\Entity\Category: 
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+            fields: [category_name]
+            message: "not.unique.category"
+    properties:
+        category_name:
+            - NotBlank: { message: "not.blank.category" }
+ITR\NewsBundle\Entity\News: 
+    properties:
+        content:
+            - NotBlank: { message: "not.blank.content" }

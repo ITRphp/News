@@ -3,67 +3,88 @@ namespace ITR\NewsBundle\Menu;
 
 use Knp\Menu\FactoryInterface;
 use Symfony\Component\DependencyInjection\ContainerAware;
-use Symfony\Component\Translation\Translator;
-use Symfony\Component\Translation;
+use Symfony\Component\HttpFoundation\Request;
+
+use Doctrine\ORM\EntityManager;
 
 class Builder extends ContainerAware
 {
+    
     public function mainMenu(FactoryInterface $factory, array $options)
     {
+        
         $menu = $factory->createItem('root');
         $menu->setChildrenAttribute('class', 'nav navbar-nav');
  
-        $menu->addChild('User')
+        $menu->addChild("User")
              ->setAttribute('dropdown', true);
  
-        $menu['User']->addChild('Profile', array('uri' => '#'))
-                     ->setAttribute('divider_append', true);
+        $menu['User']->addChild('Subscribe', array('uri' => '#'))
+                ->setAttribute('divider_append', true)
+                ->setAttribute('data-toggle', "modal")
+                ->setAttribute('data-target', "#basicModal");
         $menu['User']->addChild('Logout', array('route' => 'logout'));
+
  
         $menu->addChild('Language')
              ->setAttribute('dropdown', true)
              ->setAttribute('divider_prepend', true);
- 
-        $menu['Language']->addChild('Deutsch', array('uri' => '#'));
         $menu['Language']->addChild('English', array('uri' => '#'));
+        $search = $this->container->get('templating')->render('NewsBundle:Menu:input.html.twig');
+        $menu->addChild($search,array(
+        'extras' => array(
+          'safe_label' => true
+        )));
+        
+        if ($this->container->get('security.context')->isGranted('ROLE_ADMIN')) {
+            $menu->addChild("edit.mode", array('route' => 'news'))
+                ->setAttribute('id', 'right');
+        }
  
         return $menu;
     }
     public function adminMenu(FactoryInterface $factory, array $options)
     {
-       $translator = new Translator('en');
-       $translator->addLoader('yaml', new Translation\Loader\YamlFileLoader()); 
-       //$translator->addResource('yaml', __DIR__ . '/translations/es_ES.yml' , 'es_ES');
-
         $menu = $factory->createItem('root');
         $menu->setChildrenAttribute('class', 'nav navbar-nav');
         
-         
-        
-        
-        $menu->addChild( $translator->trans('Main Page'), array('route' => 'mainpage', 'label' => $translator->trans('Main Page')));
+        $menu->addChild( 'Main page', array('route' => 'mainpage'));
  
         $menu->addChild('Users')
              ->setAttribute('dropdown', true);
  
-        $menu['Users']->addChild('Users list', array('route' => '_all_users'));
+        $menu['Users']->addChild('Users list', array('route' => 'user'));
         
-        $menu->addChild('Category')
+        $menu->addChild('Categories')
              ->setAttribute('dropdown', true)
              ->setAttribute('divider_prepend', true);
         
-        $menu['Category']->addChild('All categories', array('route' => '_all_categories'));
-        $menu['Category']->addChild('Add category', array('route' => '_add_category'));
+        $menu['Categories']->addChild('All categories', array('route' => 'category'));
+        $menu['Categories']->addChild('Add category', array('route' => 'category_new'));
 
         $menu->addChild('Content')
              ->setAttribute('dropdown', true)
              ->setAttribute('divider_prepend', true);
  
-        $menu['Content']->addChild('News list', array('route' => '_all_news'));
-        $menu['Content']->addChild('Add new', array('route' => 'news_new'));
+        $menu['Content']->addChild('News list', array('route' => 'news'));
+        $menu['Content']->addChild('Add news', array('route' => 'news_new'));
         
-        $menu->addChild('Log out', array('route' => 'logout'));
+        $menu->addChild('Logout', array('route' => 'logout'));
   
+        return $menu;
+    }
+    
+    public function categoryMenu(FactoryInterface $factory, array $options)
+    {
+        $menu = $factory->createItem('root');
+        $menu->setChildrenAttribute('class', 'nav nav-stacked');
+        $em = $this->container->get('doctrine')->getManager();
+        $categories = $em->getRepository('NewsBundle:Category')->findAllOrderedByName();
+        $menu->addChild('All news', array('route' =>'mainpage'));
+        foreach ($categories as $category){
+             $menu->addChild($category->getCategoryName(), array('route' =>'category_news', 
+                 'routeParameters' => array('category' => strtolower($category->getCategoryName()))));
+        }
         return $menu;
     }
 

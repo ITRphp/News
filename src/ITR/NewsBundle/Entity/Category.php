@@ -26,14 +26,14 @@ class Category
    /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $dispatches;
+    
     /**
      * Constructor
      */
     public function __construct()
     {
         $this->news = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->dispatches = new \Doctrine\Common\Collections\ArrayCollection();
+
     }
 
     /**
@@ -101,39 +101,7 @@ class Category
     {
         return $this->news;
     }
-
-    /**
-     * Add dispatches
-     *
-     * @param \ITR\NewsBundle\Entity\Dispatch $dispatches
-     * @return Category
-     */
-    public function addDispatch(\ITR\NewsBundle\Entity\Dispatch $dispatches)
-    {
-        $this->dispatches[] = $dispatches;
-
-        return $this;
-    }
-
-    /**
-     * Remove dispatches
-     *
-     * @param \ITR\NewsBundle\Entity\Dispatch $dispatches
-     */
-    public function removeDispatch(\ITR\NewsBundle\Entity\Dispatch $dispatches)
-    {
-        $this->dispatches->removeElement($dispatches);
-    }
-
-    /**
-     * Get dispatches
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getDispatches()
-    {
-        return $this->dispatches;
-    }
+    
     public function __toString() {
         
         return $this->category_name;

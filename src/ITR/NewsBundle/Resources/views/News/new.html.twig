@@ -1,18 +1,25 @@
 {% extends "NewsBundle:Admin:layout.html.twig" %}
 
+{% form_theme form 'NewsBundle:Form:newsForm.html.twig' %}
+
 {% block content -%}
     {{parent()}}
-    <h1>News creation</h1>
+    <h1 class="text-center">News creation</h1>
+    
     {{ tinymce_init() }}
-	{{ form(form) }}
-	<script>
-	   $("textarea").wysiwyg();
-	</script>
-    <ul class="record_actions">
-   	<li>
-        <a href="{{ path('news') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+    <div class="row" >
+        <div class="col-md-12 jumbotron">
+        {{ form_start(form, {'attr':{'class':'form-horizontal col-md-offset-1' }} ) }}
+        {{ form_errors(form) }}
+        {{ form_row(form.title) }}
+        {{ form_row(form.description) }}
+        {{ form_row(form.content) }}
+        {{ form_row(form.author) }}
+        {{ form_row(form.category) }}
+        {{ form_widget(form.submit) }}
+        {{ form_end(form) }}
+        </div>
+    </div>
+     <a href="{{ path('news') }}" class="btn btn-default">{% trans %}Back to the list{% endtrans %}</a>   
+
 {% endblock %}

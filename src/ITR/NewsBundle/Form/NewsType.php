@@ -16,14 +16,27 @@ class NewsType extends AbstractType
     {//date("Y-m-d H:i:s")
 
         $builder
-            ->add('title')
-            ->add('author')
-            ->add('description')
-            ->add('category')
-            ->add('content', 'textarea',array(
+            ->add('title','text',array(
                 'attr'=> array(
-                    'class' => 'tinymce'
+                    'class' => 'form-control'
                     )))
+            ->add('author','text',array(
+                'attr'=> array(
+                    'class' => 'form-control'
+                    )))
+            ->add('description','text',array(
+                'attr'=> array(
+                    'class' => 'form-control'
+                    )))
+            ->add('category','entity',array(
+                'class' => 'NewsBundle:Category',
+                'required' => true,
+                'empty_value' => 'Choose news category',
+                'attr'=> array(
+                    'class' => 'form-control'
+                    )))
+            ->add('content', 'textarea',array(
+                'label' => ' '))
         ;
     }
     

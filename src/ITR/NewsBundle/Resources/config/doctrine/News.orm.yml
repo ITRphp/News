@@ -2,6 +2,10 @@ ITR\NewsBundle\Entity\News:
     type: entity
     table: null
     repositoryClass: ITR\NewsBundle\Entity\NewsRepository
+    indexes:
+        title_idx:
+            columns: [ title ]
+            flags: fulltext
     id:
         id:
             type: integer
@@ -30,5 +34,16 @@ ITR\NewsBundle\Entity\News:
                 joinColumn:
                     name: category_id
                     referencedColumnName: id
+    manyToMany:
+          users:
+            targetEntity: User
+            joinTable:
+              name: news_users
+              joinColumns:
+                news_id:
+                  referencedColumnName: id
+              inverseJoinColumns:
+                user_id:
+                  referencedColumnName: id
 
     lifecycleCallbacks: {  }

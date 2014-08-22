@@ -4,6 +4,9 @@ namespace ITR\NewsBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Security\Core\SecurityContext;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use APY\DataGridBundle\Grid\Source\Entity;
 
 use ITR\NewsBundle\Entity\News;
 use ITR\NewsBundle\Form\NewsType;
@@ -12,6 +15,9 @@ use ITR\NewsBundle\Form\NewsType;
  * News controller.
  *
  */
+    /**
+    * @Security("has_role('ROLE_USER')")
+    */
 class NewsController extends Controller
 {
     /**
@@ -21,13 +27,32 @@ class NewsController extends Controller
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
-
         $entities = $em->getRepository('NewsBundle:News')->findAll();
-
-        return $this->render('NewsBundle:News:index.html.twig', array(
-            'entities' => $entities,
-        ));
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $entities,
+            $this->get('request')->query->get('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
+         return $this->render('NewsBundle:News:index.html.twig', array('entities' => $pagination));
     }
+//        public function indexAction()
+//    {
+//        $em = $this->getDoctrine()->getManager();
+//        $entities = new Entity('NewsBundle:News');
+//        // Creates simple grid based on your entity (ORM)
+//        // Get a grid instance
+//        $grid = $this->get('grid');
+//
+//        // Attach the source to the grid
+//        $grid->setSource($entities);
+//
+//        // Configuration of the grid
+//
+//        // Manage the grid redirection, exports and the response of the controller
+//        return $grid->getGridResponse('NewsBundle:News:grid.html.twig');
+//         //return $this->render('NewsBundle:News:index.html.twig', array('entities' => $pagination));
+//    }
     /**
      * Creates a new News entity.
      *

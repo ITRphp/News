@@ -3,8 +3,8 @@
 namespace ITR\NewsBundle\Entity;
 
 use Symfony\Component\Security\Core\User\UserInterface;
-use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
 
 /**
  * User
@@ -32,15 +32,14 @@ class User implements UserInterface,  \Serializable
      */
     private $user_role;
     
-    
-    private $dispatches;
+
     
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->dispatches = new ArrayCollection();
+
     }
     
     /**
@@ -84,7 +83,9 @@ class User implements UserInterface,  \Serializable
      */
     public function setUserPassword($userPassword)
     {
-        $this->user_password = $userPassword;
+       $encoder = new MessageDigestPasswordEncoder('sha1');
+       $password = $encoder->encodePassword($userPassword, $this->getSalt());
+       $this->user_password = $password;
     
         return $this;
     }
@@ -155,7 +156,9 @@ class User implements UserInterface,  \Serializable
     }
 
     public function getPassword() {
-        
+        if($this->getUserActive() == 0){
+            return 'NULL';
+        }
         return $this->user_password;
     }
 
@@ -174,7 +177,7 @@ class User implements UserInterface,  \Serializable
             $this->id,
             $this->user_name,           
             $this->user_email,
-             $this->user_password,
+            $this->user_password,
             $this->user_role
         ));
     }
@@ -185,49 +188,13 @@ class User implements UserInterface,  \Serializable
            , $this->user_name
            , $this->user_email
            , $this->user_password
-                , $this->user_role
+           , $this->user_role
             ) = unserialize($serialized);
         
     }
     public function __toString(){
         return $this->user_name;
     }
-    
-    /**
-     * Add dispatches
-     *
-     * @param \ITR\NewsBundle\Entity\Dispatch $dispatches
-     * @return User
-     */
-    public function addDispatch(\ITR\NewsBundle\Entity\Dispatch $dispatches)
-    {
-        $this->dispatches[] = $dispatches;
-    
-        return $this;
-    }
-
-    /**
-     * Remove dispatches
-     *
-     * @param \ITR\NewsBundle\Entity\Dispatch $dispatches
-     */
-    public function removeDispatch(\ITR\NewsBundle\Entity\Dispatch $dispatches)
-    {
-        $this->dispatches->removeElement($dispatches);
-    }
-
-    /**
-     * Get dispatches
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getDispatches()
-    {
-        return $this->dispatches;
-    }
-    /**
-     * @var \ITR\NewsBundle\Entity\PasswordRecovery
-     */
     private $passwordrecovery;
 
 
@@ -252,5 +219,100 @@ class User implements UserInterface,  \Serializable
     public function getPasswordrecovery()
     {
         return $this->passwordrecovery;
+    }
+
+    /**
+     * @var boolean
+     */
+    private $user_active;
+
+
+    /**
+     * Set user_active
+     *
+     * @param boolean $userActive
+     * @return User
+     */
+    public function setUserActive($userActive)
+    {
+        $this->user_active = $userActive;
+
+        return $this;
+    }
+
+    /**
+     * Get user_active
+     *
+     * @return boolean 
+     */
+    public function getUserActive()
+    {
+        return $this->user_active;
+    }
+    /**
+     * @var string
+     */
+    private $user_hash;
+
+
+    /**
+     * Set user_hash
+     *
+     * @param string $userHash
+     * @return User
+     */
+    public function setUserHash($userHash)
+    {
+        $this->user_hash = $userHash;
+
+        return $this;
+    }
+
+    /**
+     * Get user_hash
+     *
+     * @return string 
+     */
+    public function getUserHash()
+    {
+        return $this->user_hash;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $category;
+
+
+    /**
+     * Add category
+     *
+     * @param \ITR\NewsBundle\Entity\Category $category
+     * @return User
+     */
+    public function addCategory(\ITR\NewsBundle\Entity\Category $category)
+    {
+        $this->category[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \ITR\NewsBundle\Entity\Category $category
+     */
+    public function removeCategory(\ITR\NewsBundle\Entity\Category $category)
+    {
+        $this->category->removeElement($category);
+    }
+
+    /**
+     * Get category
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCategory()
+    {
+        return $this->category;
     }
 }

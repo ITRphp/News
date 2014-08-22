@@ -3,7 +3,7 @@ news:
     defaults: { _controller: "NewsBundle:News:index" }
 
 news_show:
-    path:     /{id}/show
+    path:    /{id}/show
     defaults: { _controller: "NewsBundle:News:show" }
 
 news_new:

@@ -3,7 +3,7 @@
 namespace ITR\NewsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Doctrine\Common\Collections\ArrayCollection;
 /**
  * News
  */
@@ -46,6 +46,7 @@ class News
 
     public function __construct(){
         $this->publication_date= new \DateTime();
+        $this->users = new ArrayCollection();
     }
 
     public function setTitle($title)
@@ -221,5 +222,50 @@ class News
     public function getContent()
     {
         return $this->content;
+    }
+ 
+ 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    
+    private $users;
+
+
+    /**
+     * Add users
+     *
+     * @param \ITR\NewsBundle\Entity\User $users
+     * @return News
+     */
+    public function addUser(\ITR\NewsBundle\Entity\User $users)
+    {
+        $this->users[] = $users;
+
+        return $this;
+    }
+
+    /**
+     * Remove users
+     *
+     * @param \ITR\NewsBundle\Entity\User $users
+     */
+    public function removeUser(\ITR\NewsBundle\Entity\User $users)
+    {
+        $this->users->removeElement($users);
+    }
+
+    /**
+     * Get users
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getUsers()
+    {
+        return $this->users;
+    }
+    public function getUsersCount()
+    {
+        return count($this->users);
     }
 }

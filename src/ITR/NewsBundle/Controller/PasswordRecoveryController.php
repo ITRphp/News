@@ -221,5 +221,76 @@ class PasswordRecoveryController extends Controller
             ->getForm()
         ;
     }
-  
+
+    
+    public function newPasswordAction(Request $request) {
+       if ($request->getMethod() == 'POST') {
+            $password = filter_input(INPUT_POST, "password1");
+            $this->updateUserPassword($password);
+            return $this->redirect($this->generateUrl('_welcome'));
+       }
+        if ($request->getMethod() == 'GET') {
+            $user_id = filter_input(INPUT_GET, "user", FILTER_VALIDATE_INT);
+            $hash = filter_input(INPUT_GET, "hash");
+            $em = $this->getDoctrine()->getManager();
+            $pass_recovery = $em->getRepository('NewsBundle:PasswordRecovery')->findOneBy(array('user' => $user_id, 'accessHash' => $hash));
+           
+            if (!$pass_recovery) {
+                throw $this->createNotFoundException('Unable to find User.');
+            }
+            
+            $user = $em->getRepository('NewsBundle:User')->find($user_id);
+           
+            if (!$pass_recovery) {
+                throw $this->createNotFoundException('Unable to find User.');
+            }
+           
+            if(( !empty($pass_recovery)) && ( !empty($user))){
+                    if($this->checkAccessDate($pass_recovery)){
+                        return $this->redirect($this->generateUrl('_welcome'));                        
+                    }
+                    $session = $this->getRequest()->getSession();
+                    $session->set('user_id', $user->getId());             
+                }else{
+                   $this->get('session')->getFlashBag()->add('notice', 'Wrong link');
+                   return $this->redirect($this->generateUrl('_welcome'));                         
+                }
+        }
+        return $this->render('NewsBundle:PasswordRecovery:update.html.twig');  
+    }
+    public function checkAccessDate($pass_recovery) {
+        $access_date=$pass_recovery->getExpires();
+        $current_date = new \DateTime();
+        
+        if($current_date > $access_date){
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($pass_recovery);
+            $em->flush();
+            $this->get('session')->getFlashBag()->add('notice', 'Link is not active');
+            return TRUE;        
+        }
+    }
+    
+    public function updateUserPassword($password) {
+       $session = $this->getRequest()->getSession();
+       $user_id = $session->get('user_id');
+       
+       $em = $this->getDoctrine()->getManager();
+       $user = $em->getRepository('NewsBundle:User')->find($user_id);
+       
+       if (!$user) {
+            throw $this->createNotFoundException('Unable to find User.');
+        }
+
+       $pass_recovery = $em->getRepository('NewsBundle:PasswordRecovery')->findOneBy(array('user' => $user_id));
+       
+       if (!$pass_recovery) {
+            throw $this->createNotFoundException('Unable to find User.');
+        }
+        
+       $em->remove($pass_recovery);
+       $user->setUserPassword($password);
+       $em->flush();
+       $this->get('session')->getFlashBag()->add('notice', $this->get('translator')->trans('Password.changed'));
+    }
 }

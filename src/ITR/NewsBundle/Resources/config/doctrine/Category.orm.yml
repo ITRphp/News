@@ -29,8 +29,8 @@ ITR\NewsBundle\Entity\Category:
             targetEntity: News
             mappedBy: category
         
-        dispatches:
-            targetEntity: Dispatch
-            mappedBy: categories
+#        dispatches:
+#            targetEntity: Dispatch
+#            mappedBy: categories
     
     lifecycleCallbacks: {  }

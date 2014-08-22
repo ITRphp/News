@@ -17,6 +17,7 @@
  
 {# building the class of the item #}
     {%- set classes = item.attribute('class') is not empty ? [item.attribute('class')] : [] %}
+    {%- set id = item.attribute('id') is not empty ? [item.attribute('id')] : [] %}
     {%- if matcher.isCurrent(item) %}
         {%- set classes = classes|merge([options.currentClass]) %}
     {%- elseif matcher.isAncestor(item, options.depth) %}
@@ -27,6 +28,7 @@
     {%- endif %}
     {%- if item.actsLikeLast %}
         {%- set classes = classes|merge([options.lastClass]) %}
+        {%- set id = id|merge(['right']) %}
     {%- endif %}
  
 {# building the class of the children #}
@@ -85,4 +87,4 @@
     <a href="#"{{ macros.attributes(attributes) }}>{{ block('label') }}{% if item.level <= 1 %} <b class="caret"></b>{% endif %}</a>
 {% endblock %}
  
-{% block label %}{{ item.label|trans }}{% endblock %}
+{% block label %}{{ item.label|trans|raw }}{% endblock %}

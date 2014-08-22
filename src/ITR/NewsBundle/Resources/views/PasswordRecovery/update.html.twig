@@ -1,0 +1,30 @@
+{% extends "NewsBundle::layout.html.twig"%}
+{% block title %}{% trans %}Update.password{% endtrans %}{% endblock %}
+
+{% block head%}
+    {{parent()}}
+    {% javascripts
+    '@NewsBundle/Resources/public/js/repeatPassword.js'%}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock%}
+
+{% block content %}
+    {{parent()}}
+ <form action="{{path('_new_password')}}" method="POST" class="col-md-offset-4 col-md-4 well">
+        <div class="control-group">
+            <label for="password1">{% trans %}Enter.new.password{% endtrans %}:</label>
+            <div class="controls">
+                <input type="password" placeholder="your password" name="password1" class="form-control password1" required>
+            </div>
+        </div>
+        <div class="control-group">
+            <label for="password2">{% trans %}Repeat.new.password{% endtrans %}:</label>
+            <div class="controls">
+                <input type="password" placeholder="repeat password" name="password2" class="form-control" id="password2" required>
+            </div>
+        </div>
+     <br>
+            <input type="submit" value="Send" class="form-control btn-primary">
+    </form>   
+{% endblock %}

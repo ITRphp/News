@@ -1,0 +1,91 @@
+{% extends "NewsBundle::layout.html.twig" %}
+
+{% block content %}
+    <div>
+        <div class="navbar navbar-default navbar-static-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="{{path('mainpage')}}">{% trans %}Welcome %username%{% endtrans %}</a>
+                </div>
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    {{ knp_menu_render('NewsBundle:Builder:mainMenu', {'currentClass': 'active', 'template': 'NewsBundle:Menu:knp_menu.html.twig'})|raw }}
+                </div>
+            </div>
+        </div>
+        <div id="logo" class="col-md" style="padding:5px">
+                        {% image '@NewsBundle/Resources/public/images/logo.png'%}
+                           <img src="{{ asset_url }}"  alt="Example"/>
+                        {% endimage %} 
+        </div>
+        <h4> {{ "now"|date("d-m-Y") }}</h4>
+        <hr>
+    </div>
+        {#<li><a href="{{path('category_news',{'category':category|lower })}}" name="{{ category }}">{{ category }}</a></li>#}
+
+
+
+
+    <div class="row">
+        <div class="container col-md-2">
+            <div id="affix1" class="col-md-12 col-sm-2 hidden-xs container">
+                <div data-spy="affix" class="sidebar"  data-offset-top="227" id="affix1">
+                    {{ knp_menu_render('NewsBundle:Builder:categoryMenu', {'currentClass': 'active', 'template': 'NewsBundle:Menu:knp_menu.html.twig'}) }}
+                    <form method="GET" action="{{path('news_archive')}}" >
+                        <div class="form-group">
+                            <input type="datetime" id="datepicker" placeholder="{{'Archive'|trans}}" name="date" class="form-control">
+                        </div>
+                    </form>                   
+                </div>
+            </div>
+        </div>
+        {% block news %}
+        {% endblock %}
+        {% block popular_news %}
+        {% endblock %}
+    </div>
+
+
+
+
+
+
+
+<div class="modal fade" id="basicModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header"><button class="close" type="button" data-dismiss="modal">x</button>
+                <h4 class="modal-title" id="myModalLabel">{{'Subscribe'|trans}}</h4>
+            </div>
+            <div class="modal-body">
+                {{'You have subscribed to'|trans}}
+                <ul>
+                    {% for item in dispatches %}
+                        <li>{{item}}</li>
+                    {% else %}
+                        <li>{{'You are not subscribed to our newsletter'|trans}}</li>
+                    {% endfor %}
+                </ul>
+                <a href="" onclick="">{{'Edit'|trans}}</a>
+                <div id="_edit">
+                    <form action="{{path('subscribe')}}" method="POST">
+                        <div class="form-group">
+                            <select multiple class="form-control" name="category[]" required>
+                            {% for category in categories %}
+                                <option>{{category}}</option>
+                            {% endfor %}
+                        </select>
+                        <input type="submit" class="btn btn-success" value="{{'Save'|trans}}"></button>
+                        </div>
+                    </form>
+                </div>
+                        
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

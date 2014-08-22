@@ -14,6 +14,7 @@ class SecuredController extends Controller
         if (true === $this->get('security.context')->isGranted('ROLE_USER')){
             return $this->redirect($this->generateUrl('mainpage'));
         }
+        
         $request = $this->getRequest();
         $session = $request->getSession();
 

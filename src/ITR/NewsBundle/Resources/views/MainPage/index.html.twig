@@ -1,68 +1,52 @@
-{% extends "NewsBundle::layout.html.twig" %}
+{% extends "NewsBundle:MainPage:layout.html.twig" %}
+{% block head %}
+    {{parent()}}
+    {% javascripts '@NewsBundle/Resources/public/js/news.js'%}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
 
-{% block title %}Mainpage{% endblock %}
-
-{% block content %}
-      <div id="logo" class="col-md" style="padding:5px">
-            <img src="{{ asset('bundles/newsbundle/images/logo.png') }}" />
-            <font size="11">Modern media portal</font>
-      </div>
-      <div id="menu" class "raw">
-            <div class="navbar navbar-default" role="navigation">
-                <div class="navbar-header">
-                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                  </button>
-                  <a class="navbar-brand" href="#">Welcome, {{username}}</a>
+{% block news %}
+    <div id="center" style="padding:4px" class="col-md-7">
+    <ul class="nav nav-pills">
+        <li class="active"><a data-toggle="pill" id="date" name="date" class="sort btn btn-link"{#href="{{path('sort_news',{'key': 'date'})}}"#}>{{'Sort by date'|trans}}</a></li>
+        <li><a data-toggle="pill" id="popular" name="popular" class="sort btn btn-link" {#href="{{path('sort_news',{'key': 'popular'})}}"#}>{{'Sort by popularity'|trans}}</a></li>
+    </ul>
+        <div class="container col-md-12" id="news_list">
+            {% for news_item in news %}
+                <div class="media">
+                    <div class="media-body well">
+                        <h4 class="media-heading">
+                            <a href="{{path('current_news',{'id': news_item.id })}}">{{ news_item.title }}</a>
+                        </h4>
+                            <footer><h6>{{ news_item.publicationDate|date('Y-m-d H:i:s')}}</h6></footer>
+                        <strong>{{ news_item.description }}</strong>
+                    </div>
                 </div>
+            {% else %}
+                <h3>No news</h3>
+            {% endfor %}
+        </div>
+        <div class="navigation">
+            {{ knp_pagination_render(news) }}
+        </div>
+    </div>
+{% endblock %}
 
-
-                  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                        {{ knp_menu_render('NewsBundle:Builder:mainMenu', {'currentClass': 'active', 'template': 'NewsBundle:Menu:knp_menu.html.twig'}) }}
-                  {% if is_granted('ROLE_ADMIN') %} 
-                            <ul class="nav navbar-nav"><li class="first"><a href="{{path('_admin')}}" class="nav navbar-nav">Admin</a></li></ul>
-                  {% endif %}
-                   </div>
+{% block popular_news %}
+<div class="container col-md-3">
+    <div data-spy="affix"  data-offset-top="227" id="affix2" style="background-color: whitesmoke" class="col-md-12">
+        <p class="bg-primary text-center">Popular news</p>
+        {% for news_item in popular_news %}   
+            <div class="media">
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="{{path('current_news',{'id': news_item.id })}}"><span class="badge pull-right">
+                        {{news_item.getUsersCount()}}</span>{{news_item.title}}</a>
+                    </h4>                 
+                    {{news_item.description}}
                 </div>
             </div>
-
-      <div class="row" style="padding:4px">
-          <div id="left"class="col-md-2">
-                <button class="btn btn-primary btn-block">Politics</button>
-                <button class="btn btn-primary btn-block">Sports</button>
-                <button class="btn btn-primary btn-block">News</button>
-                <button class="btn btn-primary btn-block">Cat4</button>
-                <button class="btn btn-primary btn-block">Cat5</button>
-                <button class="btn btn-primary btn-block">Cat6</button>
-                <button class="btn btn-primary btn-block">Cat7</button>
-                <button class="btn btn-primary btn-block">Cat8</button>
-                <button class="btn btn-primary btn-block">Cat9</button>
-                <button class="btn btn-primary btn-block">Cat10</button>
-                <button class="btn btn-primary btn-block">Cat11</button>
-          </div>
-          <div id="center" style="padding:4px"class="col-md-8">
-                <h1>Lorem Ipsum</h1>
-                <br>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vulputate odio ut velit pharetra ullamcorper. In sem sem, aliquam quis sodales a, dapibus vel elit. Vivamus placerat nisi nulla, scelerisque venenatis orci dictum eu. Sed ut ultrices purus, sit amet feugiat quam. Curabitur cursus odio enim, at volutpat risus lobortis id. Integer ante nisi, tincidunt dapibus mollis in, commodo tincidunt quam. Aenean sit amet orci a lacus eleifend euismod. Etiam aliquam, nulla vitae scelerisque lobortis, mauris metus venenatis magna, vitae posuere lacus dolor et libero. Proin elit quam, ullamcorper ac lectus et, accumsan aliquam arcu. Donec vitae fringilla quam, sed condimentum purus. Vivamus rhoncus pulvinar magna, quis congue velit varius id. Morbi condimentum a lorem a ornare. Quisque eget suscipit ipsum. Vivamus eget ligula commodo, sollicitudin urna et, aliquet orci. Nulla purus erat, elementum sit amet elementum sit amet, pellentesque a diam.</p>
-
-                <p>Aliquam dictum, magna non bibendum euismod, risus augue vestibulum turpis, hendrerit commodo metus eros quis leo. Fusce mattis eros nunc, id pulvinar libero tempor eu. Sed luctus tempus velit, convallis viverra nisi suscipit sed. Aliquam scelerisque orci nec congue tempus. Pellentesque rhoncus lobortis sem, id molestie sem. Nunc adipiscing eu felis non sodales. Phasellus mollis elit quam, nec imperdiet lectus aliquet ut. Nulla cursus fermentum magna. Maecenas ut sapien orci.</p>
-
-                <p>Aliquam imperdiet dapibus egestas. Vivamus id tristique diam. Integer sit amet erat mi. Nunc sagittis risus sed augue sollicitudin pretium. Etiam non vestibulum lectus. Ut a ante ultrices, sodales nulla eu, venenatis quam. Vestibulum aliquet magna est, nec sodales elit tincidunt eget. Aliquam vehicula feugiat venenatis. Cras cursus et purus sed iaculis. Ut auctor sollicitudin condimentum. Curabitur molestie, urna nec fermentum posuere, lectus ligula aliquam libero, vitae mattis est leo vel ligula. Fusce quis lectus id libero dapibus convallis sit amet eget enim. Nullam semper porta sem a mollis. Etiam scelerisque nibh sem, quis aliquet diam faucibus a.</p>
-
-                <p>Aenean et enim vel lacus aliquet vestibulum a sit amet arcu. Pellentesque dictum dui et lacinia porta. Vivamus accumsan justo et ligula auctor dictum. Vestibulum non varius nisi. Quisque tempor tellus nec elementum porttitor. Mauris nibh libero, volutpat vitae volutpat nec, blandit ac urna. Vivamus adipiscing ipsum eget ornare facilisis. Nullam eleifend facilisis ligula ut suscipit. Ut nec massa eu leo hendrerit iaculis vel in velit. Fusce rutrum elementum nisi non ullamcorper. Cras malesuada id turpis et lobortis. Donec hendrerit dolor leo, ac placerat justo pretium vitae. Maecenas euismod purus at tempor ultricies.</p>
-
-                <p>Donec aliquam arcu quis porttitor posuere. Fusce ultricies enim a risus porttitor adipiscing. Etiam posuere id nisl sit amet dapibus. In ut magna at quam faucibus mattis. Mauris semper purus id justo pharetra posuere. Vestibulum a congue erat. Integer eu massa imperdiet mi adipiscing imperdiet. Etiam ac purus nulla.</p>
-          </div>
-          <div id="right" style="background-color:yellow"class="col-md-2">
-                text
-          </div>
-      </div>
-
-
-      <div id="footer" style="background-color: grey;">
-            text
-      </div>
-
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

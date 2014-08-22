@@ -23,10 +23,23 @@ ITR\NewsBundle\Entity\User:
             length: '255'
             options:
                 default: ROLE_USER
-    oneToMany:
-        dispatches:
-            targetEntity: Dispatch
-            mappedBy: users
+        user_active:
+            type: boolean
+            options:
+                default: FALSE
+        user_hash:
+            type: text
+    manyToMany:
+          category:
+            targetEntity: Category
+            joinTable:
+              name: subscribe
+              joinColumns:
+                user_id:
+                  referencedColumnName: id
+              inverseJoinColumns:
+                category_id:
+                  referencedColumnName: id
     oneToOne:
         passwordrecovery:
             targetEntity: PasswordRecovery

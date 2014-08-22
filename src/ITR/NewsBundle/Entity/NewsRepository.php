@@ -12,4 +12,133 @@ use Doctrine\ORM\EntityRepository;
  */
 class NewsRepository extends EntityRepository
 {
+    
+    public function findNewsByCategoryOrderedByDate($category)
+    {
+         $q = $this
+            ->createQueryBuilder('n')
+            ->where('n.category = :category')
+            ->setParameter('category', $category)
+            ->orderBy('n.publication_date', 'DESC')
+            ->getQuery();
+
+        try {
+            $news = $q->getResult();
+            
+        } catch (NoResultException $e) {
+            $message = sprintf(
+                'Unable to find an active category NewsBundle:category object identified by "%s".',
+                $category
+            );
+            throw new UsernameNotFoundException($message, 0, $e);
+        }
+
+        return $news;
+    }
+    public function findAllNewsOrderedByDate()
+    {
+         $q = $this
+            ->createQueryBuilder('n')
+            ->orderBy('n.publication_date', 'DESC')
+            ->getQuery();
+
+        try {
+            $news = $q->getResult();
+            
+        } catch (NoResultException $e) {
+            $message = sprintf(
+                'Unable to find an active category NewsBundle:category object identified by..'
+            );
+            throw new UsernameNotFoundException($message, 0, $e);
+        }
+
+        return $news;
+    }
+    public function findNewsByDate($date, $date2)
+    {
+         $q = $this
+            ->createQueryBuilder('n')
+            ->where('n.publication_date >= :date AND n.publication_date < :date2')
+            ->orderBy('n.publication_date', 'DESC')
+            ->setParameter('date', $date)
+            ->setParameter('date2', $date2)
+            ->getQuery();
+
+        try {
+            $news = $q->getResult();
+            
+        } catch (NoResultException $e) {
+            $message = sprintf(
+                'Unable to find an active category NewsBundle:category object identified by..'
+            );
+            throw new UsernameNotFoundException($message, 0, $e);
+        }
+
+        return $news;
+    }
+    
+    public function findAllNewsOrderedByPopularity()
+    {
+        $id = '';
+        $q = $this->getEntityManager()
+            ->createQuery('SELECT n, COUNT(n.id) AS HIDDEN mycount FROM NewsBundle:News n JOIN n.users u GROUP BY n.id ORDER BY mycount DESC');
+    
+
+        try {
+            $news = $q->getResult();
+            
+        } catch (NoResultException $e) {
+            $message = sprintf(
+                'Unable to find an active category NewsBundle:category object identified by "%s".',
+                $id
+            );
+            throw new UsernameNotFoundException($message, 0, $e);
+        }
+
+        return $news;
+        
+    }
+    public function findNewsByCategoryOrderedByPopularity($category)
+    {
+        $id = '';
+        $q = $this->getEntityManager()
+            ->createQuery('SELECT n, COUNT(n.id) AS HIDDEN mycount FROM NewsBundle:News n JOIN n.users u WHERE n.category = :category GROUP BY n.id ORDER BY mycount DESC')
+                ->setParameter('category', $category);
+    
+
+        try {
+            $news = $q->getResult();
+            
+        } catch (NoResultException $e) {
+            $message = sprintf(
+                'Unable to find an active category NewsBundle:category object identified by "%s".',
+                $id
+            );
+            throw new UsernameNotFoundException($message, 0, $e);
+        }
+
+        return $news;
+        
+    }
+    public function findTopNewsOrderedByPopularity()
+    {
+        $id = '';
+    $q = $this->getEntityManager()
+            ->createQuery('SELECT n, COUNT(n.id) AS HIDDEN mycount FROM NewsBundle:News n JOIN n.users u GROUP BY n.id ORDER BY mycount DESC')
+            ->setMaxResults(5);
+
+        try {
+            $news = $q->getResult();
+            
+        } catch (NoResultException $e) {
+            $message = sprintf(
+                'Unable to find an active category NewsBundle:category object identified by "%s".',
+                $id
+            );
+            throw new UsernameNotFoundException($message, 0, $e);
+        }
+
+        return $news;
+        
+    }
 }
