@@ -25,7 +25,7 @@ class UserController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('NewsBundle:User')->findAll();
+        $entities = $em->getRepository('NewsBundle:User')->findAllOrderByUserName();
         
         $paginator = $this->get('knp_paginator');
         
@@ -297,18 +297,19 @@ class UserController extends Controller
         $em = $this->getDoctrine()->getManager();
         $user = $this->get('security.context')->getToken()->getUser();
         $user_subscription = $user->getCategory();
-        //$new_subscription = $_POST['category'];
         $new_subscription = $request->request->get('category');
         var_dump($new_subscription);
         
         foreach ($user_subscription as $item){
             $user->removeCategory($item);
         }
+        
         if(!empty($new_subscription)){
             foreach ($new_subscription as $category){
                 $user->addCategory($em->getRepository('NewsBundle:Category')->findOneBy(array('category_name' => $category)));
             }
         }
+        
         $em->flush();
         return $this->redirect($this->generateUrl('mainpage'));
         

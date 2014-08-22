@@ -42,7 +42,9 @@ class MainpageController extends Controller
         return $this->render('NewsBundle:Mainpage:index.html.twig',$context);
         
     }    
-    
+    /**
+    * @Security("has_role('ROLE_USER')")
+    */
     public function ajaxAction(Request $request, $category)
     {
         if($request->isXmlHttpRequest()){
@@ -54,22 +56,38 @@ class MainpageController extends Controller
             throw $this->createNotFoundException('Unable to find page.');
         }
     }
-    
+    /**
+    * @Security("has_role('ROLE_USER')")
+    */
     public function archiveAction(Request $request)
     {
         if ($request->getMethod() == 'GET') {  
-            $date = $_GET['date'];
-            $date_elements  = explode("/", $date);
-            $date=date(DATE_W3C, mktime(0,0,0,$date_elements[0],$date_elements[1], $date_elements[2]));
-            $em = $this->getDoctrine()->getManager();
-            $news = $em->getRepository('NewsBundle:News')->findNewsByDate($date);
-            var_dump($news);
-            echo $date;
-            return $this->render('NewsBundle:Mainpage:empty.html.twig', array('date1'=>$date));
+            $date_elements  = explode("/", $_GET['date']);
+            
+            $date1=date(DATE_W3C, mktime(0,0,0,$date_elements[0],$date_elements[1], $date_elements[2]));
+            $date2=date(DATE_W3C, mktime(0,0,0,$date_elements[0],$date_elements[1]+1, $date_elements[2]));
+            $em = $this->getDoctrine()->getManager();            
+            
+            $user = $this->get('security.context')->getToken()->getUser();       
+            $categories = $em->getRepository('NewsBundle:Category')->findAllOrderedByName();
+            $dispatches = $user->getCategory();
+            $popular_news =$em->getRepository('NewsBundle:News')->findTopNewsOrderedByPopularity();
+            
+            $news = $em->getRepository('NewsBundle:News')->findNewsByDate($date1,$date2);
+            $this->getPagination($news);
+            $context = array( 'username' => $user->getUserName(), 
+                        'categories' => $categories, 
+                        'news' => $this->getPagination($news),
+                        'dispatches' => $dispatches,
+                        'popular_news' => $popular_news);
+
+        return $this->render('NewsBundle:Mainpage:archive.html.twig',$context);
         }
         
     }
-
+    /**
+    * @Security("has_role('ROLE_USER')")
+    */
     public function orderAllAction(Request $request, $key)
     {
         if($request->isXmlHttpRequest()){
@@ -91,7 +109,9 @@ class MainpageController extends Controller
             throw $this->createNotFoundException('Unable to find page.');
         } 
     }
-    
+    /**
+    * @Security("has_role('ROLE_USER')")
+    */    
     public function orderCategoryAction(Request $request, $key, $category = NULL)
     {
         if($request->isXmlHttpRequest()){
@@ -138,7 +158,10 @@ class MainpageController extends Controller
         }
         return $news;
     }
-
+    
+    /**
+    * @Security("has_role('ROLE_USER')")
+    */
     public function currentNewsItemAction($id)
     {
         if (false === $this->get('security.context')->isGranted('ROLE_USER')) {
@@ -153,7 +176,6 @@ class MainpageController extends Controller
             throw $this->createNotFoundException('No product found for id '.$id);
         }
         
-        //$views_list=$news->getUsers();        
         if (!($news->getUsers()->contains($user))){
             $news->addUser($user);
             $em->flush();
@@ -163,6 +185,7 @@ class MainpageController extends Controller
             'categories' => $categories,
             'news' => $news,
             'dispatches' => $dispatches);
+        
         return $this->render('NewsBundle:Mainpage:currentNews.html.twig',$context);
     }
 }

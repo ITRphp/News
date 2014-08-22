@@ -96,6 +96,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         if (0 === strpos($pathinfo, '/js')) {
+            if (0 === strpos($pathinfo, '/js/c82c251')) {
+                // _assetic_c82c251
+                if ($pathinfo === '/js/c82c251.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'c82c251',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_c82c251',);
+                }
+
+                // _assetic_c82c251_0
+                if ($pathinfo === '/js/c82c251_news_1.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'c82c251',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_c82c251_0',);
+                }
+
+            }
+
             if (0 === strpos($pathinfo, '/js/82e4982')) {
                 // _assetic_82e4982
                 if ($pathinfo === '/js/82e4982.js') {
@@ -113,19 +126,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                         return array (  '_controller' => 'assetic.controller:render',  'name' => '82e4982',  'pos' => 1,  '_format' => 'js',  '_route' => '_assetic_82e4982_1',);
                     }
 
-                }
-
-            }
-
-            if (0 === strpos($pathinfo, '/js/c82c251')) {
-                // _assetic_c82c251
-                if ($pathinfo === '/js/c82c251.js') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'c82c251',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_c82c251',);
-                }
-
-                // _assetic_c82c251_0
-                if ($pathinfo === '/js/c82c251_news_1.js') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'c82c251',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_c82c251_0',);
                 }
 
             }

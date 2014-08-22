@@ -59,13 +59,13 @@ class __TwigTemplate_6114f375170ab56c137682383f0f084079a54fdccd205782b8339b64a4a
     {
         // line 10
         echo "<div id=\"center\" style=\"padding:4px\" class=\"col-md-7\">
-    <ul class=\"nav nav-tabs\">
-            <li class=\"active\"><a data-toggle=\"tab\" id=\"date\" name=\"date\" class=\"btn\"";
+    <ul class=\"nav nav-pills\">
+        <li class=\"active\"><a data-toggle=\"pill\" id=\"date\" name=\"date\" class=\"sort btn btn-link\"";
         // line 12
         echo ">";
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("Sort by date"), "html", null, true);
         echo "</a></li>
-            <li><a data-toggle=\"tab\" id=\"popular\" name=\"popular\" class=\"btn\" ";
+        <li><a data-toggle=\"pill\" id=\"popular\" name=\"popular\" class=\"sort btn btn-link\" ";
         // line 13
         echo ">";
         echo twig_escape_filter($this->env, $this->env->getExtension('translator')->trans("Sort by popularity"), "html", null, true);

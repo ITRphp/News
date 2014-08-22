@@ -12,7 +12,7 @@ security:
          main:
             entity:
                 class: ITR\NewsBundle\Entity\User 
-                property: user_name
+                property: user_email
     
     firewalls:
         secured_area:

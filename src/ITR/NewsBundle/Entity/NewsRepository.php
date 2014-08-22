@@ -54,13 +54,14 @@ class NewsRepository extends EntityRepository
 
         return $news;
     }
-    public function findNewsByDate($date)
+    public function findNewsByDate($date, $date2)
     {
          $q = $this
             ->createQueryBuilder('n')
-            ->where('n.publication_date >= :date')
+            ->where('n.publication_date >= :date AND n.publication_date < :date2')
             ->orderBy('n.publication_date', 'DESC')
             ->setParameter('date', $date)
+            ->setParameter('date2', $date2)
             ->getQuery();
 
         try {
