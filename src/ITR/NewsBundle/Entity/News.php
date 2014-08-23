@@ -47,6 +47,8 @@ class News
     public function __construct(){
         $this->publication_date= new \DateTime();
         $this->users = new ArrayCollection();
+        $this->news = new ArrayCollection();
+
     }
 
     public function setTitle($title)
@@ -267,5 +269,51 @@ class News
     public function getUsersCount()
     {
         return count($this->users);
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $news;
+    
+    public function news($news){
+        foreach ($news as $news_item)
+        {
+            if(!$this->news->contains($news_item)){
+                $this->addNews($news_item);
+            }
+        }
+        
+    }
+
+    /**
+     * Add news
+     *
+     * @param \ITR\NewsBundle\Entity\News $news
+     * @return News
+     */
+    public function addNews(\ITR\NewsBundle\Entity\News $news)
+    {
+             $this->news[] = $news;
+         return $this;
+    }
+
+    /**
+     * Remove news
+     *
+     * @param \ITR\NewsBundle\Entity\News $news
+     */
+    public function removeNews(\ITR\NewsBundle\Entity\News $news)
+    {
+        $this->news->removeElement($news);
+    }
+
+    /**
+     * Get news
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getNews()
+    {
+        return $this->news;
     }
 }

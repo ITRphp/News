@@ -9,11 +9,12 @@
         <link rel="stylesheet" href="{{ asset_url }}" />
        {% endstylesheets %}
     {% endblock %}
-
     {% javascripts
         '@NewsBundle/Resources/public/js/jquery-1.11.1.js'
         '@NewsBundle/Resources/public/js/jquery-ui.js'
-        '@NewsBundle/Resources/public/js/bootstrap.min.js'%}
+        '@NewsBundle/Resources/public/js/bootstrap.min.js'
+        '@NewsBundle/Resources/public/js/bootstrap-select.js'
+        '@NewsBundle/Resources/public/js/news.js'%}
         <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 
@@ -21,11 +22,7 @@
     </head>
 <body data-spy="scroll" data-target="#affix-nav" >
     {% block body %}
-        <div class = "container" style="-webkit-box-shadow: 0px 0px 6px 6px rgba(50, 50, 50, 0.1);
-										-moz-box-shadow:    0px 0px 6px 6px rgba(50, 50, 50, 0.1);
-										box-shadow:         0px 0px 6px 6px rgba(50, 50, 50, 0.1);
-
-  	">
+        <div id="container" class = "container">
             {% for flashMessage in app.session.flashbag.get('notice') %}
                 <div class="alert alert-warning alert-dismissable text-center">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>

@@ -16,6 +16,10 @@
             {{ form_row(edit_form.content) }}
             {{ form_row(edit_form.author) }}
             {{ form_row(edit_form.category) }}
+            {{ form_row(edit_form.news, {'attr':{'class':' form-control selectpicker',
+            'data-max-options':'5' ,
+            'data-selected-text-format':'count',
+            'data-live-search':'true'}} ) }}
             {{ form_widget(edit_form.submit) }}
             {{ form_end(edit_form) }}
         </div>

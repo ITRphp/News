@@ -18,7 +18,9 @@ news_archive:
     defaults: { _controller: NewsBundle:Mainpage:archive}
     requirements:
       _method: GET
-    
+sendletter:
+    path:     /sendletter
+    defaults: { _controller: NewsBundle:Sendletter:index }   
 current_news:
     path:     /mainpage/news/{id}
     defaults: { _controller: NewsBundle:Mainpage:currentNewsItem }

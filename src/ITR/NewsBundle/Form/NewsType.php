@@ -6,6 +6,8 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
+use Doctrine\ORM\EntityRepository;
+
 class NewsType extends AbstractType
 {
         /**
@@ -37,6 +39,18 @@ class NewsType extends AbstractType
                     )))
             ->add('content', 'textarea',array(
                 'label' => ' '))
+            ->add('news', 'entity', array(
+                'required'    => true,
+                'class' => 'NewsBundle:News',
+                'query_builder' => function(EntityRepository $er) {
+                return $er->createQueryBuilder('n')
+                        ->orderBy('n.publication_date', 'DESC')
+                        ->setMaxResults(50);},
+                'property' => 'title',                
+                'multiple' => 'true',
+               // 'attr'=>array('size' => '10')
+                
+                ))
         ;
     }
     

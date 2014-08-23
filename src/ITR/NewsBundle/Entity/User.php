@@ -39,7 +39,7 @@ class User implements UserInterface,  \Serializable
      */
     public function __construct()
     {
-
+        $this->category = new ArrayCollection();
     }
     
     /**

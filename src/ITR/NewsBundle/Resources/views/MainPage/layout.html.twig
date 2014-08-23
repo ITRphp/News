@@ -26,22 +26,35 @@
         <hr>
     </div>
         {#<li><a href="{{path('category_news',{'category':category|lower })}}" name="{{ category }}">{{ category }}</a></li>#}
-    <div  class="row" style="padding:4px">
-        <div id="affix-nav" class="col-md-2 col-sm-2 hidden-xs container">
+
+
+
+
+    <div class="row">
+        <div class="container col-md-2">
+            <div id="affix1" class="col-md-12 col-sm-2 hidden-xs container">
                 <div data-spy="affix" class="sidebar"  data-offset-top="227" id="affix1">
                     {{ knp_menu_render('NewsBundle:Builder:categoryMenu', {'currentClass': 'active', 'template': 'NewsBundle:Menu:knp_menu.html.twig'}) }}
                     <form method="GET" action="{{path('news_archive')}}" >
                         <div class="form-group">
                             <input type="datetime" id="datepicker" placeholder="{{'Archive'|trans}}" name="date" class="form-control">
                         </div>
-                    </form>
+                    </form>                   
                 </div>
+            </div>
         </div>
-    {% block news %}
-    {% endblock%}
-    {% block popular_news %}
-    {% endblock %}
+        {% block news %}
+        {% endblock %}
+        {% block popular_news %}
+        {% endblock %}
     </div>
+
+
+
+
+
+
+
 <div class="modal fade" id="basicModal" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <div class="modal-content">

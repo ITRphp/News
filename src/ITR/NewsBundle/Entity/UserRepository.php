@@ -58,6 +58,24 @@ class UserRepository extends EntityRepository implements UserProviderInterface
 
         return $user;
     }
+    public function findAllSubscribedUsers(){
+        $q = $this
+            ->createQueryBuilder('u')
+            ->join('u.category', 's', 'u.id = s.user_id')
+            ->getQuery();
+
+        try {
+            $user = $q->getResult();
+            
+        } catch (NoResultException $e) {
+            $message = sprintf(
+                'Unable to find an active admin AcmeUserBundle:User object identified by "%s"'
+            );
+            throw new UsernameNotFoundException($message, 0, $e);
+        }
+
+        return $user;
+    }
     
     public function loadUserByUsername($user_name){
         $q = $this

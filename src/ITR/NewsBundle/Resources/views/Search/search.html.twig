@@ -1,0 +1,17 @@
+{% extends "NewsBundle:MainPage:layout.html.twig" %}
+
+{% block title %}NewsBundle:Search:search{% endblock %}
+
+{% block content %}
+	{% for advert in adverts %}
+		<div class="media">
+            <div class="media-body well">
+                <h4 class="media-heading"><a href="{{path('current_news',{'id': advert.id })}}">{{ advert.title }}</a></h4>
+                    <footer>{{ advert.publicationDate|date('Y-m-d H:i:s')}}</footer>
+                    {{ advert.description }}  
+            </div>
+        </div>
+	{% else %}
+        No results
+	{% endfor %}
+{% endblock %}

@@ -7,4 +7,8 @@ $(document).ready(function(){
         maxDate: "0"
 
     });
+     $('.selectpicker').selectpicker({
+         style: 'btn-info',
+         size:10
+     });
 });
