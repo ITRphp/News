@@ -1,6 +1,9 @@
 {% extends "NewsBundle:MainPage:layout.html.twig" %}
 {% block news %}
 <div id="center" style="padding:4px" class="col-md-10 ">
+    {% if is_granted('ROLE_MANAGER') %}
+        <a href="{{ path('news_edit', { 'id': news.id }) }}" class="btn  btn-success"><span class="glyphicon glyphicon-pencil"></span>{{'Edit'|trans}}</a>
+    {% endif %}
     <div class="container col-md-12">
         <div class="media">
             <div class="media-body well">
@@ -11,9 +14,8 @@
                     <div class="well" style="word-wrap: break-word;"><p>{{ news.content|raw }}  </p></div>
             </div>
         </div>
-            <div class="panel panel-info">
+            <div class="panel panel-success">
                 <div class="panel-heading">
-                
                     {{'Related news'|trans}}
                 </div>
                 <div class="panel-body">

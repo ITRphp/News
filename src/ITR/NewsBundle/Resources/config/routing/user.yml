@@ -6,9 +6,9 @@ user_show:
     path:     /{id}/show
     defaults: { _controller: "NewsBundle:User:show" }
 
-user_new:
-    path:     /new
-    defaults: { _controller: "NewsBundle:User:new" }
+#user_new:
+#    path:     /new
+#    defaults: { _controller: "NewsBundle:User:new" }
 
 user_create:
     path:     /create

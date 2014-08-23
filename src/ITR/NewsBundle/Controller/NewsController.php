@@ -126,7 +126,6 @@ class NewsController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
-
         return $this->render('NewsBundle:News:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),

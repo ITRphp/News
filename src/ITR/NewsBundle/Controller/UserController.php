@@ -4,6 +4,8 @@ namespace ITR\NewsBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Security\Core\SecurityContext;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 use ITR\NewsBundle\Entity\User;
 use ITR\NewsBundle\Entity\PasswordRecovery;
@@ -18,9 +20,8 @@ class UserController extends Controller
 {
 
     /**
-     * Lists all User entities.
-     *
-     */
+    * @Security("has_role('ROLE_ADMIN')")
+    */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
@@ -40,9 +41,8 @@ class UserController extends Controller
         ));
     }
     /**
-     * Creates a new User entity.
-     *
-     */
+    * @Security("has_role('ROLE_ADMIN')")
+    */
     public function createAction(Request $request)
     {
         $entity = new User();
@@ -70,6 +70,9 @@ class UserController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
+    /**
+    * @Security("has_role('ROLE_ADMIN')")
+    */
     private function createCreateForm(User $entity)
     {
         $form = $this->createForm(new UserType(), $entity, array(
@@ -101,6 +104,9 @@ class UserController extends Controller
      * Finds and displays a User entity.
      *
      */
+    /**
+    * @Security("has_role('ROLE_ADMIN')")
+    */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -123,6 +129,9 @@ class UserController extends Controller
      * Displays a form to edit an existing User entity.
      *
      */
+    /**
+    * @Security("has_role('ROLE_ADMIN')")
+    */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -150,6 +159,9 @@ class UserController extends Controller
     *
     * @return \Symfony\Component\Form\Form The form
     */
+    /**
+    * @Security("has_role('ROLE_ADMIN')")
+    */
     private function createEditForm(User $entity)
     {
         $form = $this->createForm(new UserType(), $entity, array(
@@ -165,6 +177,9 @@ class UserController extends Controller
      * Edits an existing User entity.
      *
      */
+    /**
+    * @Security("has_role('ROLE_ADMIN')")
+    */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -195,6 +210,9 @@ class UserController extends Controller
      * Deletes a User entity.
      *
      */
+    /**
+    * @Security("has_role('ROLE_ADMIN')")
+    */
     public function deleteAction(Request $request, $id)
     {
         $form = $this->createDeleteForm($id);
@@ -222,6 +240,9 @@ class UserController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
+    /**
+    * @Security("has_role('ROLE_ADMIN')")
+    */
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
@@ -271,7 +292,7 @@ class UserController extends Controller
         return $this->render('NewsBundle:PasswordRecovery:email.html.twig');
     }
     
-    public function sendEmail($user_name, $access_hash, $user_email){        
+    private function sendEmail($user_name, $access_hash, $user_email){        
         $message = \Swift_Message::newInstance()
                 ->setSubject("Hello $user_name")->setFrom("news.dispatch.itr@gmail.com")
                 ->setTo('beauty-93@inbox.ru') 
@@ -298,18 +319,19 @@ class UserController extends Controller
         $user = $this->get('security.context')->getToken()->getUser();
         $user_subscription = $user->getCategory();
         $new_subscription = $request->request->get('category');
-        var_dump($new_subscription);
-        
         foreach ($user_subscription as $item){
             $user->removeCategory($item);
         }
         
         if(!empty($new_subscription)){
-            foreach ($new_subscription as $category){
-                $user->addCategory($em->getRepository('NewsBundle:Category')->findOneBy(array('category_name' => $category)));
+            foreach ($new_subscription as $category_item){
+                $category =$em->getRepository('NewsBundle:Category')->findOneBy(array('category_name' => $category_item));
+                if(!$category){
+                   throw $this->createNotFoundException('Unable to find page.');
+                }
+                $user->addCategory($category);
             }
         }
-        
         $em->flush();
         return $this->redirect($this->generateUrl('mainpage'));
         

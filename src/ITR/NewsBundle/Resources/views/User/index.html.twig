@@ -2,15 +2,15 @@
 
 {% block content -%}
     {{parent()}}
-    <h1>User list</h1>
+    <h1>{{'Users list'|trans}}</h1>
     <table class="records_list table table-hover table-bordered">
         <thead>
             <tr>
-                <th>User_name</th>
-                <th>User_email</th>
-                <th>User_password</th>
-                <th>User_role</th>
-                <th>Actions</th>
+                <th>{{'User name'|trans}}</th>
+                <th>{{'User email'|trans}}</th>
+                <th>{{'User password'|trans}}</th>
+                <th>{{'User role'|trans}}</th>
+                <th>{{'Actions'|trans}}</th>
             </tr>
         </thead>
         <tbody>

@@ -40,7 +40,7 @@
         {% for news_item in popular_news %}   
             <div class="media">
                 <div class="media-body">
-                    <h4 class="media-heading"><a href="{{path('current_news',{'id': news_item.id })}}"><span class="badge pull-right">
+                    <h4 class="media-heading"><a href="{{path('current_news',{'id': news_item.id })}}" data-toggle="tooltip" data-placement="left" title="{{ news_item.publicationDate|date('Y-m-d')}}" ><span class="badge pull-right">
                         {{news_item.getUsersCount()}}</span>{{news_item.title}}</a>
                     </h4>                 
                     {{news_item.description}}

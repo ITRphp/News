@@ -1,8 +1,8 @@
 {% extends "NewsBundle:Admin:layout.html.twig" %}
-
+{% form_theme delete_form 'NewsBundle:Form:delete.html.twig' %}
 {% block content -%}
     {{parent()}}
-    <h1>User</h1>
+    <h1>{{'User'|trans}}</h1>
     <div class="btn-toolbar" role="toolbar">
         <div class="btn-group">
             <a href="{{ path('user') }}"  class="btn btn-default">{% trans %}Back to the list{% endtrans %}</a>
@@ -13,26 +13,24 @@
     <table class="record_properties table table-bordered">
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>User_name</th>
+                <th>{{'Username'|trans}}</th>
                 <td>{{ entity.username }}</td>
             </tr>
             <tr>
-                <th>User_email</th>
+                <th>{{'User email'|trans}}</th>
                 <td>{{ entity.useremail }}</td>
             </tr>
             <tr>
-                <th>User_password</th>
+                <th>{{'User password'|trans}}</th>
                 <td>{{ entity.userpassword }}</td>
             </tr>
             <tr>
-                <th>User_role</th>
+                <th>{{'User role'}}</th>
                 <td>{{ entity.userrole }}</td>
             </tr>
         </tbody>
     </table>
+    {% if is_granted('ROLE_ADMIN') %}
         {{ form(delete_form)}}
+    {% endif %}
 {% endblock %}

@@ -49,11 +49,9 @@ class Builder extends ContainerAware
         $menu->setChildrenAttribute('class', 'nav navbar-nav');
         
         $menu->addChild( 'Main page', array('route' => 'mainpage'));
- 
-        $menu->addChild('Users')
-             ->setAttribute('dropdown', true);
- 
-        $menu['Users']->addChild('Users list', array('route' => 'user'));
+        
+        if ($this->container->get('security.context')->isGranted('ROLE_ADMIN')) {
+        $menu->addChild('Users', array('route' => 'user'));
         
         $menu->addChild('Categories')
              ->setAttribute('dropdown', true)
@@ -61,7 +59,9 @@ class Builder extends ContainerAware
         
         $menu['Categories']->addChild('All categories', array('route' => 'category'));
         $menu['Categories']->addChild('Add category', array('route' => 'category_new'));
-
+        
+        
+        }
         $menu->addChild('Content')
              ->setAttribute('dropdown', true)
              ->setAttribute('divider_prepend', true);
