@@ -36,23 +36,6 @@ class NewsController extends Controller
         );
          return $this->render('NewsBundle:News:index.html.twig', array('entities' => $pagination));
     }
-//        public function indexAction()
-//    {
-//        $em = $this->getDoctrine()->getManager();
-//        $entities = new Entity('NewsBundle:News');
-//        // Creates simple grid based on your entity (ORM)
-//        // Get a grid instance
-//        $grid = $this->get('grid');
-//
-//        // Attach the source to the grid
-//        $grid->setSource($entities);
-//
-//        // Configuration of the grid
-//
-//        // Manage the grid redirection, exports and the response of the controller
-//        return $grid->getGridResponse('NewsBundle:News:grid.html.twig');
-//         //return $this->render('NewsBundle:News:index.html.twig', array('entities' => $pagination));
-//    }
     /**
      * Creates a new News entity.
      *

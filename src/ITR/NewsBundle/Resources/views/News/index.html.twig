@@ -3,7 +3,23 @@
 {% block content -%}
     {{parent()}}
     <h1>News list</h1>
-
+    <div class="col-md-6">
+        <form class="well">
+            <div class="form-group">
+                <label for="search" class="text-muted">{% trans %}Search{% endtrans %}</label>
+                <input class="form-control" type="text" id="search" name="_search" placeholder="Search">
+            </div>
+            <div class="form-group">
+                <label for="author" class="text-muted">{% trans %}Filters by Author. If u don't want, left this field empty{% endtrans %}</label>
+                <input class="form-control" type="text" id="author" name="_author" placeholder="Author">
+            </div>
+            <div>
+                <input type="radio" name="sort" value="date">Sort by date 
+                <input type="radio" name="sort" value="popularity">  Sort by popularity<br><br>
+            </div>
+            <button class="btn">Search</button>
+        </form>
+    </div>
     <table class="records_list table table-hover table-bordered">
         <thead>
             <tr>

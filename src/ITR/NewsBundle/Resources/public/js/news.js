@@ -1,5 +1,14 @@
+    adaptAffix = function adaptAffix(){
+        var $affixElement1 = $('#affix1');
+        $affixElement1.width($affixElement1.parent().width());
+        var $affixElement2 = $('#affix2');
+        $affixElement2.width($affixElement2.parent().width()-30);
+    }
+
+
 $(document).ready(function(){
 	//--Sortrirovki--
+    adaptAffix();
     $('#center .sort').click (function (){
         $("#news_list").load(document.URL +"/sort/"+this.name);
         
@@ -16,4 +25,6 @@ $(document).ready(function(){
 	    	$("#news_list").load(document.URL+"/search/"+key);
 	    }
     });
+    //--affix fix--
+    $(window).resize(adaptAffix);
 });

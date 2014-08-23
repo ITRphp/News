@@ -32,8 +32,8 @@
 
     <div class="row">
         <div class="container col-md-2">
-            <div id="affix1" class="col-md-12 col-sm-2 hidden-xs container">
-                <div data-spy="affix" class="sidebar"  data-offset-top="227" id="affix1">
+            <div class="col-md-12 col-sm-2 container">
+                <div data-spy="affix" class="sidebar visible-desktop"  data-offset-top="227" id="affix1">
                     {{ knp_menu_render('NewsBundle:Builder:categoryMenu', {'currentClass': 'active', 'template': 'NewsBundle:Menu:knp_menu.html.twig'}) }}
                     <form method="GET" action="{{path('news_archive')}}" >
                         <div class="form-group">
