@@ -12,25 +12,11 @@ ITR\NewsBundle\Entity\Category:
         category_name:
             type: string
             length: '255'
-#    manyToMany:
-#        dispatch:
-#            targetEntity: Dispatch
-#            inversedBy: category
-#            JoinTable:
-#                name: category
-#                joinColumns:
-#                    category_id:
-#                        referencedColumnName: id
-#                inverseJoinColumns:
-#                    dispatch_id:
-#                        referencedColumnName: id
     oneToMany:
         news:
             targetEntity: News
+            cascade: ["remove"]
             mappedBy: category
-        
-#        dispatches:
-#            targetEntity: Dispatch
-#            mappedBy: categories
+            
     
     lifecycleCallbacks: {  }

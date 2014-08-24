@@ -32,6 +32,7 @@ ITR\NewsBundle\Entity\User:
     manyToMany:
           category:
             targetEntity: Category
+            cascade: ["remove"]
             joinTable:
               name: subscribe
               joinColumns:
@@ -40,21 +41,9 @@ ITR\NewsBundle\Entity\User:
               inverseJoinColumns:
                 category_id:
                   referencedColumnName: id
+                  onDelete: CASCADE
     oneToOne:
         passwordrecovery:
             targetEntity: PasswordRecovery
             mappedBy: user
-#    manyToMany:
-#        dispatch:
-#            targetEntity: Dispatch
-#            inversedBy: users
-#            JoinTable:
-#                name: user
-#                joinColumns:
-#                    user_id:
-#                        referencedColumnName: id
-#                inverseJoinColumns:
-#                    dispatch_id:
-#                        referencedColumnName: id
-
     lifecycleCallbacks: {  }

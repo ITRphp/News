@@ -6,7 +6,6 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\SecurityContext;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
-use APY\DataGridBundle\Grid\Source\Entity;
 
 use ITR\NewsBundle\Entity\News;
 use ITR\NewsBundle\Form\NewsType;
@@ -24,35 +23,51 @@ class NewsController extends Controller
      * Lists all News entities.
      *
      */
-    public function indexAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $entities = $em->getRepository('NewsBundle:News')->findAll();
-        $paginator = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
-            $entities,
-            $this->get('request')->query->get('page', 1)/*page number*/,
-            10/*limit per page*/
-        );
-         return $this->render('NewsBundle:News:index.html.twig', array('entities' => $pagination));
+    public function indexAction(Request $request)
+    {   
+    if (($request->query->get('_search'))||($request->query->get('_author'))){
+
+            $finder = $this->container->get('fos_elastica.finder.search.news');
+            $boolQuery= new \Elastica\Query\Bool();
+            if (strlen($request->query->get('_search'))>0){
+                $search = $request->query->get('_search');
+                $searchQuery = new \Elastica\Query\MultiMatch();
+                $searchQuery -> setFields(array('content','title','description'));
+                $searchQuery -> setQuery($search);
+                $searchQuery -> setAnalyzer('snowball');
+
+                $boolQuery->addMust($searchQuery);
+
+            }
+            if (strlen($request->query->get('_author'))>0){
+                $authors = $request->query->get('_author');
+                $authorQuery = new \Elastica\Query\Match();
+                $authorQuery->setFieldQuery('news.author',$authors);
+
+                $boolQuery->addMust($authorQuery);
+            }
+            $news = $finder->find($boolQuery);
+            $paginator = $this ->get('knp_paginator');
+            $pagination = $paginator->paginate(
+                $news,
+                $this->get('request')->query->get('page',1),
+                10
+                );
+            return $this->render('NewsBundle:News:index.html.twig', array('entities' => $pagination));
+        }   
+        else  
+        {
+            $em = $this->getDoctrine()->getManager();
+            $entities = $em->getRepository('NewsBundle:News')->findAll();
+            $paginator = $this->get('knp_paginator');
+            $pagination = $paginator->paginate(
+                $entities,
+                $this->get('request')->query->get('page', 1)/*page number*/,
+                10/*limit per page*/
+            );
+            return $this->render('NewsBundle:News:index.html.twig', array('entities' => $pagination));
+        }
     }
-//        public function indexAction()
-//    {
-//        $em = $this->getDoctrine()->getManager();
-//        $entities = new Entity('NewsBundle:News');
-//        // Creates simple grid based on your entity (ORM)
-//        // Get a grid instance
-//        $grid = $this->get('grid');
-//
-//        // Attach the source to the grid
-//        $grid->setSource($entities);
-//
-//        // Configuration of the grid
-//
-//        // Manage the grid redirection, exports and the response of the controller
-//        return $grid->getGridResponse('NewsBundle:News:grid.html.twig');
-//         //return $this->render('NewsBundle:News:index.html.twig', array('entities' => $pagination));
-//    }
     /**
      * Creates a new News entity.
      *
@@ -126,6 +141,7 @@ class NewsController extends Controller
         }
 
         $deleteForm = $this->createDeleteForm($id);
+
         return $this->render('NewsBundle:News:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),

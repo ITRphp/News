@@ -25,9 +25,8 @@ class MainpageController extends Controller
         if($request->isXmlHttpRequest()){
             $news = $this->getNews($category, $em);
             $context = array('news' => $this->getPagination($news));
-            return $this->render('NewsBundle:Mainpage:news.html.twig', $context); 
+        return $this->render('NewsBundle:Mainpage:news.html.twig', $context); 
         }
-        
     	$user = $this->get('security.context')->getToken()->getUser();       
         $categories = $em->getRepository('NewsBundle:Category')->findAllOrderedByName();
         $dispatches = $user->getCategory();
@@ -43,20 +42,7 @@ class MainpageController extends Controller
         return $this->render('NewsBundle:Mainpage:index.html.twig',$context);
         
     }    
-    /**
-    * @Security("has_role('ROLE_USER')")
-    */
-//    public function ajaxAction(Request $request, $category)
-//    {
-//        if($request->isXmlHttpRequest()){
-//            $em = $this->getDoctrine()->getManager();
-//            $news = $this->getNews($category, $em);
-//            $context = array('news' => $this->getPagination($news));
-//            return $this->render('NewsBundle:Mainpage:news.html.twig', $context);
-//        }  else {
-//            throw $this->createNotFoundException('Unable to find page.');
-//        }
-//    }
+   
     /**
     * @Security("has_role('ROLE_USER')")
     */
@@ -132,7 +118,7 @@ class MainpageController extends Controller
             }
             
             $context = array('news' => $this->getPagination($news));
-            return $this->render('NewsBundle:Mainpage:news.html.twig', $context);
+        return $this->render('NewsBundle:Mainpage:news.html.twig', $context);
         }else{
             throw $this->createNotFoundException('Unable to find page.');
         } 
@@ -163,7 +149,7 @@ class MainpageController extends Controller
     /**
     * @Security("has_role('ROLE_USER')")
     */
-    public function currentNewsItemAction($id)
+   public function currentNewsItemAction($id)
     {
         if (false === $this->get('security.context')->isGranted('ROLE_USER')) {
             throw $this->createAccessDeniedException('Unable to access this page!');

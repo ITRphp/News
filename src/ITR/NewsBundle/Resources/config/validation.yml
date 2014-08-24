@@ -27,8 +27,6 @@ ITR\NewsBundle\Entity\News:
             - NotBlank: { message: "not.blank.content" }
         news:
             - Count:
-                min: 1
                 max: 5
-                minMessage: "You must specify at least one news"
                 maxMessage: "You cannot specify more than {{ limit }} news"
     

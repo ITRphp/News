@@ -13,7 +13,7 @@
           {% for news_item in value %}
             <div style="box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);padding: 10px;background: #edffff; border-radius: 10px;">
                 <h2>
-                    <a href="http://localhost{{path('current_news',{'id': news_item.id })}}">{{ news_item.title }}</a>
+                    <a href="http://news.ru{{path('current_news',{'id': news_item.id })}}">{{ news_item.title }}</a>
                 </h2>
                 <h6>{{ news_item.publicationDate|date('Y-m-d')}}</h6>
                     <strong>{{ news_item.description }}</strong>

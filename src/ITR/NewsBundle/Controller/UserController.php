@@ -19,14 +19,14 @@ use \Doctrine\Common\Collections\ArrayCollection;
 class UserController extends Controller
 {
 
-    /**
+     /**
     * @Security("has_role('ROLE_ADMIN')")
     */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('NewsBundle:User')->findAllOrderByUserName();
+        $entities = $em->getRepository('NewsBundle:User')->findAll();
         
         $paginator = $this->get('knp_paginator');
         
@@ -40,6 +40,7 @@ class UserController extends Controller
             'entities' => $pagination,
         ));
     }
+    
     /**
     * @Security("has_role('ROLE_ADMIN')")
     */
@@ -89,6 +90,9 @@ class UserController extends Controller
      * Displays a form to create a new User entity.
      *
      */
+    /**
+    * @Security("has_role('ROLE_ADMIN')")
+    */
     public function newAction()
     {
         $entity = new User();
@@ -177,7 +181,7 @@ class UserController extends Controller
      * Edits an existing User entity.
      *
      */
-    /**
+   /**
     * @Security("has_role('ROLE_ADMIN')")
     */
     public function updateAction(Request $request, $id)
@@ -271,7 +275,8 @@ class UserController extends Controller
                 
                 if(empty($pass_recovery)){
                     $hash_code = md5($user_email.$user_id);
-                    $access_hash="http://localhost/News/web/app_dev.php/updatepassword?user=".$user_id."&hash=".$hash_code;
+                   // $access_hash="http://localhost/News/web/app_dev.php/updatepassword?user=".$user_id."&hash=".$hash_code;
+                     $access_hash=$request->getBaseUrl()."updatepassword?user=".$user_id."&hash=".$hash_code;
                     $this->sendEmail($user_name, $access_hash, $user_email);
                     $this->createPasswordRecovery($user, $hash_code);
                     $this->get('session')->getFlashBag()->add('notice',$this->get('translator')->trans('Letter.sent.email'));
@@ -292,10 +297,10 @@ class UserController extends Controller
         return $this->render('NewsBundle:PasswordRecovery:email.html.twig');
     }
     
-    private function sendEmail($user_name, $access_hash, $user_email){        
+    public function sendEmail($user_name, $access_hash, $user_email){        
         $message = \Swift_Message::newInstance()
                 ->setSubject("Hello $user_name")->setFrom("news.dispatch.itr@gmail.com")
-                ->setTo('beauty-93@inbox.ru') 
+                ->setTo($user_email) 
                 ->setBody($this->renderView('NewsBundle:PasswordRecovery:MailBody.html.twig',
                         array('name' => $user_name, 'access_hash' => $access_hash) ),
                         'text/html');
@@ -314,22 +319,18 @@ class UserController extends Controller
             $em->flush();
         
     }
-    public function updateUserSubscribeAction(Request $request) {
+    public function updateUserSubscribeAction() {
         $em = $this->getDoctrine()->getManager();
         $user = $this->get('security.context')->getToken()->getUser();
         $user_subscription = $user->getCategory();
-        $new_subscription = $request->request->get('category');
+        $new_subscription = $_POST['category'];
+
         foreach ($user_subscription as $item){
             $user->removeCategory($item);
         }
-        
         if(!empty($new_subscription)){
-            foreach ($new_subscription as $category_item){
-                $category =$em->getRepository('NewsBundle:Category')->findOneBy(array('category_name' => $category_item));
-                if(!$category){
-                   throw $this->createNotFoundException('Unable to find page.');
-                }
-                $user->addCategory($category);
+            foreach ($new_subscription as $category){
+                $user->addCategory($em->getRepository('NewsBundle:Category')->findOneBy(array('category_name' => $category)));
             }
         }
         $em->flush();

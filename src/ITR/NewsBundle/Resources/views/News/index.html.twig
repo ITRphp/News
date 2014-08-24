@@ -1,9 +1,21 @@
 {% extends "NewsBundle:Admin:layout.html.twig" %}
 
-{% block content -%}
+{% block content %}
     {{parent()}}
     <h1>News list</h1>
-
+    <div class="col-md-6">
+        <form class="well">
+            <div class="form-group">
+                <label for="search" class="text-muted">{{'Search. If you want only to filter, left this field empty'|trans}}</label>
+                <input class="form-control" type="text" id="search" name="_search" placeholder="Search">
+            </div>
+            <div class="form-group">
+                <label for="author" class="text-muted">{{"Filters by author. If u don't want, left this field empty"|trans}}</label>
+                <input class="form-control" type="text" id="author" name="_author" placeholder="Author">
+            </div>
+            <button class="btn">Search</button>
+        </form>
+    </div>
     <table class="records_list table table-hover table-bordered">
         <thead>
             <tr>

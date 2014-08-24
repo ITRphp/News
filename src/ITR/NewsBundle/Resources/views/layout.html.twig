@@ -2,14 +2,14 @@
 <html> 
     <head>
        <title>{% block title %}{{'News'|trans}}{% endblock %}</title>
-{% block head %}
-   <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-    {% block stylesheets %}
-       {% stylesheets '@NewsBundle/Resources/public/css/*' filter='cssrewrite' %}
-        <link rel="stylesheet" href="{{ asset_url }}" />
-       {% endstylesheets %}
-    {% endblock %}
-    {% javascripts
+        {% block head %}
+           <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+            {% block stylesheets %}
+               {% stylesheets '@NewsBundle/Resources/public/css/*' filter='cssrewrite' %}
+                <link rel="stylesheet" href="{{ asset_url }}" />
+               {% endstylesheets %}
+            {% endblock %}
+            {% javascripts
         '@NewsBundle/Resources/public/js/jquery-1.11.1.js'
         '@NewsBundle/Resources/public/js/jquery-ui.js'
         '@NewsBundle/Resources/public/js/bootstrap.min.js'
@@ -18,28 +18,20 @@
         <script src="{{ asset_url }}"></script>
     {% endjavascripts %}
 
-{% endblock %}
+        {% endblock %}
     </head>
-<body data-spy="scroll" data-target="#affix-nav" >
     {% block body %}
-        <div id="container" class = "container">
+    <div id="container" class = "container">
             {% for flashMessage in app.session.flashbag.get('notice') %}
                 <div class="alert alert-warning alert-dismissable text-center">
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                     <strong>{{ flashMessage }}</strong> 
                 </div>
             {% endfor %}
-            {% block content %}
-                <div id="logo" class="col-md" style="padding:5px">
-                    {% image '@NewsBundle/Resources/public/images/logo.png'%}
-                        <img src="{{ asset_url }}"  alt="Example"/>
-                    {% endimage %}
-                    <hr>
-                </div>
+            {% block content %}                
             {% endblock %}
-            <div id = "toTop" > ^ {{'Up'|trans}}</div>
-        </div>
+    </div>
     {% endblock %}
-  
+<div id = "toTop" > ^ {{'Up'|trans}}</div>
 </body>
 </html>
