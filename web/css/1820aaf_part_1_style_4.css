@@ -21,7 +21,8 @@ li.active{
    
 }
 #toTop {
-width:100px;
+width:70px;
+margin-right:100px;
 border:1px solid #ccc;
 background:#f7f7f7;
 text-align:center;

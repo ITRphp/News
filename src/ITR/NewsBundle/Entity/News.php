@@ -268,4 +268,42 @@ class News
     {
         return count($this->users);
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $news;
+
+
+    /**
+     * Add news
+     *
+     * @param \ITR\NewsBundle\Entity\News $news
+     * @return News
+     */
+    public function addNews(\ITR\NewsBundle\Entity\News $news)
+    {
+        $this->news[] = $news;
+
+        return $this;
+    }
+
+    /**
+     * Remove news
+     *
+     * @param \ITR\NewsBundle\Entity\News $news
+     */
+    public function removeNews(\ITR\NewsBundle\Entity\News $news)
+    {
+        $this->news->removeElement($news);
+    }
+
+    /**
+     * Get news
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getNews()
+    {
+        return $this->news;
+    }
 }

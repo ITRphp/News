@@ -5,8 +5,10 @@
     {{parent()}}
     
     <div class="row col-md-offset-1">
-        <a href="{{ path('category') }}" class="btn btn-default">{% trans %}   Back to the list{% endtrans %}</a>
-        {{ form(delete_form) }}
+        <a href="{{ path('category') }}" class="btn btn-default">{% trans %}Back to the list{% endtrans %}</a>
+        {% if is_granted('ROLE_ADMIN') %}
+            {{ form(delete_form) }}
+        {% endif %}
     </div>
     <h1 class="text-center">Category edit</h1>
     <div class="row" >

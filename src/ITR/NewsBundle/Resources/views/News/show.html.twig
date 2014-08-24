@@ -2,28 +2,42 @@
 {% form_theme delete_form 'NewsBundle:Form:delete.html.twig' %}
 {% block content -%}
     {{parent()}}
-    <h1  class="text-center">News</h1>
     <div class="btn-toolbar" role="toolbar">
         <div class="btn-group">
             <a href="{{ path('news') }}" class="btn btn-default">{% trans %}Back to the list{% endtrans %}</a>
             <a href="{{ path('news_edit', { 'id': entity.id }) }}" class="btn btn-default">{% trans %}Edit{% endtrans %}</a>
         </div>
-     </div>
-        <div class="row jumbotron">
-            <div class="row col-md-10 col-md-offset-1 well-sm">
-                <h3>{{ 'Title'|trans }}: </h3>{{ entity.title }}
-            </div>
-            <div class="row col-md-offset-1 col-md-10 well-sm">
-                <h3>{{ 'Author'|trans}}:</h3> {{ entity.author }}
-                <h3>{{ 'Publication date'|trans}}:</h3> {{ entity.publicationdate|date('Y-m-d H:i:s') }}
-            </div>
-            <div class="row col-md-offset-1 col-md-10 well-sm">
-                <strong><h3>{{ 'Description'|trans}}:</h3> {{ entity.description }}</strong>
-            </div>
-                <div class="row col-md-offset-1 col-md-10 -sm">
-                    <h3>{{ 'Content'|trans}}:</h3> {{ entity.content|raw }}
+    </div>
+    <div class="container col-md-12">
+        <div class="media">
+            <div class="media-body well">
+                <h3 class="media-heading">{{ entity.title }}</h3>
+                <footer>
+                    <h6>
+                        {{ 'Publication date'|trans}}: {{ entity.publicationdate|date('Y-m-d H:i:s') }} 
+                    <i>{{ 'Author'|trans}}:</i> {{ entity.author }}
+                    </h6>
+                </footer>
+                <div>
+                    <strong><h3>{{ 'Description'|trans}}:</h3> {{ entity.description }}</strong>
                 </div>
+                <div style="word-wrap: break-word;">
+                    <h3>{{ 'Content'|trans}}:</h3> 
+                    <p>{{ entity.content|raw }}  </p>
+                </div>
+            </div>
         </div>
+                <div class="panel panel-info">
+                <div class="panel-heading">
+                    {{'Related news'|trans}}
+                </div>
+                <div class="panel-body">
+                    {% for news_item in entity.getNews() %}
+                          <a href="{{path('current_news',{'id': news_item.id })}}">{{ news_item.title }}</a>
+                    {% else %}
+                    {% endfor %}
+                </div>
+            </div>
+    </div>
  {{ form(delete_form) }}
-
 {% endblock %}

@@ -1,0 +1,421 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"cl",
+				"click	.click()"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"Package Control: Install Package",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: Insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control:",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: install package",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: install package ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control:ins",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 512.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/OpenServer/domains/news.ru/app/config/config.yml",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/config/routing.yml",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/config/routing/news.yml",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Controller/SearchController.php",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/News/index.html.twig",
+		"/C/OpenServer/domains/news.ru/app/config/security.yml",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Controller/MainpageController.php",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Controller/UserController.php",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Entity/UserRepository.php",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Entity/NewsRepository.php",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Form/NewsType.php",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Menu/Builder.php",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/config/doctrine/News.orm.yml",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/public/css/style.css",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/public/js/news.js",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/translations/messages.en.yml",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/Category/edit.html.twig",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/MainPage/currentNews.html.twig",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/MainPage/index.html.twig",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/MainPage/layout.html.twig",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/Menu/input.html.twig",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/News/edit.html.twig",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/News/new.html.twig",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/News/show.html.twig",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/Registration/index.html.twig",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/User/edit.html.twig",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/User/index.html.twig",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/User/new.html.twig",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/User/show.html.twig",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/layout.html.twig",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Entity/News.php",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/translations/messages.en.yml~",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Command/SendEmailCommand.php",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/Newsletter/send.html.twig",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Controller/NewsController.php",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/Secured/login.html.twig",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/MainPage/news.html.twig",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Controller/CategoryController.php",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/Form/fields.html.twig",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/config/validation.yml",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/MainPage/archive.html.twig",
+		"/C/Users/Paul/AppData/Roaming/Sublime Text 2/Packages/Default/Default (Windows).sublime-keymap",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Controller/RegistrationController.php",
+		"/C/OpenServer/domains/test.ru/News-MargoBrunch/src/ITR/NewsBundle/Controller/RegistrationController.php",
+		"/C/OpenServer/domains/news.ru/vendor/symfony/symfony/src/Symfony/Bundle/TwigBundle/Resources/views/layout.html.twig",
+		"/C/OpenServer/domains/news.ru/app/Resources/TwigBundle/views/Exception/exception_full.html.twig",
+		"/C/OpenServer/domains/news.ru/app/Resources/TwigBundle/views/layout.html.twig",
+		"/C/OpenServer/domains/news.ru/app/Resources/TwigBundle/views/Exception/exception.html.twig",
+		"/C/Users/Paul/AppData/Roaming/Sublime Text 2/Packages/User/Default (Windows).sublime-keymap",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/ДЛЯ МЕНЮШКИ.twig",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Entity/User.php",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Controller/NewsletterController.php",
+		"/C/OpenServer/domains/news.ru/app/logs/dev.log",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/public/js/repeatPassword.js",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/Search/search.html.twig",
+		"/C/Users/Paul/Downloads/News-MargoBrunch (3)/News-MargoBrunch/src/ITR/NewsBundle/Resources/translations/messages.en.yml",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Controller/PasswordRecoveryController.php",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/DQL/MatchAgainstFunction.php",
+		"/C/OpenServer/domains/news.ru/composer.json",
+		"/C/OpenServer/domains/news.ru/app/AppKernel.php",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Entity/Site.php",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/config/doctrine/Site.orm.yml",
+		"/C/Users/Paul/Downloads/bootstrap-wysiwyg-master/index.html",
+		"/C/OpenServer/domains/test.ru/demo.html",
+		"/C/OpenServer/domains/test.ru/jQuery-TE_v.1.4.0/demo/demo.html",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/Admin/layout.html.twig",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Controller/WelcomeController.php",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Controller/SecuredController.php",
+		"/C/OpenServer/domains/news.ru/app/cache/dev/twig/d8/27/652dc56f371d8b2b4146d242e32d79760069f2891e63e2808b27ef579441.php",
+		"/C/OpenServer/domains/news.ru/app/cache/dev_old/twig/33/ab/c85a21b1bd3b326396eac1c3a218d1e4bfc2c7f117049707356c5d776980.php",
+		"/C/OpenServer/domains/news.ru/app/cache/dev_old/twig/3e/1e/f7660517bdf87569db20305e16facd6c4c2537572b306ce99629615e7cd6.php",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/public/css/bootstrap.min.css",
+		"/C/OpenServer/domains/news.ru/app/config/routing.yml",
+		"/C/OpenServer/domains/news.ru/app/config/parameters.yml",
+		"/C/OpenServer/domains/news.ru/app/cache/dev/templates.php",
+		"/C/OpenServer/domains/news.ru/app/cache/prod/appProdDebugProjectContainer.php",
+		"/C/OpenServer/domains/news.ru/app/cache/prod/appProdProjectContainer.php",
+		"/C/OpenServer/domains/news.ru/app/cache/dev/translations/catalogue.en.php.meta",
+		"/C/OpenServer/domains/news.ru/app/cache/prod/appProdDebugProjectContainer.php.meta",
+		"/C/OpenServer/domains/news.ru/app/cache/prod/appProdDebugProjectContainer.xml",
+		"/C/OpenServer/domains/news.ru/app/cache/prod/appProdUrlGenerator.php.meta",
+		"/C/OpenServer/domains/news.ru/app/cache/prod/appProdUrlMatcher.php.meta",
+		"/C/OpenServer/domains/news.ru/app/cache/prod/translations/catalogue.en.php.meta",
+		"/C/OpenServer/domains/news.ru/app/logs/prod.log",
+		"/C/OpenServer/domains/news.ru/app/cache/prod/classes.php.meta",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/Welcome/index.html.twig",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Controller/MainPageController.php",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Controller/DefaultController.php",
+		"/C/OpenServer/domains/news.ru/vendor/symfony/symfony/src/Symfony/Component/Config/Resource/FileResource.php",
+		"/C/OpenServer/domains/news.ru/vendor/twig/twig/lib/Twig/Loader/Filesystem.php",
+		"/C/OpenServer/domains/test.ru/templates/example-6.html.twig",
+		"/C/OpenServer/domains/test.ru/templates/example-6-base.html.twig",
+		"/C/OpenServer/domains/test.ru/examples/example-6.php",
+		"/C/OpenServer/domains/test.ru/templates/example-5.html.twig",
+		"/C/OpenServer/domains/test.ru/examples/example-5.php",
+		"/C/OpenServer/domains/test.ru/examples/example-4.php",
+		"/C/OpenServer/domains/test.ru/templates/example-4.html.twig",
+		"/C/OpenServer/domains/test.ru/examples/example-3.php",
+		"/C/OpenServer/domains/test.ru/templates/example-3.html.twig",
+		"/C/OpenServer/domains/test.ru/templates/example-2.html.twig",
+		"/C/OpenServer/domains/test.ru/examples/example-2.php",
+		"/C/OpenServer/domains/test.ru/examples/example-1.1.php",
+		"/C/OpenServer/domains/localhost/path/app/SymfonyRequirements.php",
+		"/C/OpenServer/domains/localhost/path/.travis.yml",
+		"/C/OpenServer/domains/localhost/path/src/Acme/DemoBundle/Tests/Controller/DemoControllerTest.php",
+		"/C/OpenServer/domains/localhost/path/src/Acme/DemoBundle/Command/HelloWorldCommand.php",
+		"/C/OpenServer/domains/slideshow.ru/dbconf.json",
+		"/C/OpenServer/domains/slideshow.ru/bootstrap.php",
+		"/C/OpenServer/domains/slideshow.ru/composer.json",
+		"/C/OpenServer/domains/slideshow.ru/step3.php",
+		"/C/OpenServer/domains/slideshow.ru/main.php",
+		"/C/OpenServer/domains/slideshow.ru/index.php",
+		"/C/OpenServer/domains/slideshow.ru/register.php",
+		"/C/OpenServer/domains/slideshow.ru/Entities/user.php",
+		"/C/OpenServer/domains/slideshow.ru/js/required_fields.js",
+		"/C/OpenServer/domains/slideshow.ru/vendor/dropbox/dropbox-sdk/examples/authorize.php",
+		"/C/OpenServer/domains/slideshow.ru/vendor/dropbox/dropbox-sdk/examples/account-info.php",
+		"/C/OpenServer/domains/slideshow.ru/example.php",
+		"/C/OpenServer/domains/slideshow.ru/Entities/slideshow.php",
+		"/C/OpenServer/domains/slideshow.ru/css/style.css",
+		"/C/OpenServer/domains/slideshow.ru/upload.php",
+		"/C/OpenServer/domains/slideshow.ru/css/bootstrap.css",
+		"/C/Users/Paul/Downloads/Slides-SlidesJS-3/examples/basic-fade/index.html",
+		"/C/Users/Paul/Downloads/Slides-SlidesJS-3/examples/playing/index.html",
+		"/C/Users/Paul/Downloads/Slides-SlidesJS-3/examples/basic-slide/index.html",
+		"/C/Users/Paul/Downloads/Slides-SlidesJS-3/examples/callbacks/index.html",
+		"/C/Users/Paul/Downloads/Slides-SlidesJS-3/examples/multiple/index.html",
+		"/C/Users/Paul/Downloads/Slides-SlidesJS-3/examples/standard/index.html"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			"C:\\OpenServer\\domains\\news.ru\\vendor",
+			"C:\\OpenServer\\domains\\news.ru"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"class Match",
+			"Match ",
+			"LEFT",
+			"sendEmail",
+			"Send ended",
+			"send ended",
+			"redir",
+			"Populate",
+			"news_list",
+			"beauty-93@inbox.ru",
+			"function sendEmail",
+			"ITR\\NewsBundle\\Entity\\news",
+			"news",
+			"\n",
+			"Title",
+			"content",
+			"descroption",
+			"news.rusrc",
+			"C:\\OpenServer\\domains\\news.rusrc",
+			"WebData",
+			"C:/WebData/News/",
+			"WebData",
+			"C:\\WebData\\News\\",
+			"C:\\\\WebData\\\\News\\\\",
+			"WebData",
+			"}\n",
+			"MainMage",
+			"WebData",
+			"C:/WebData/News/",
+			"WebData",
+			"bootstrap.css",
+			"C:\\\\WebData\\\\News",
+			"C:\\WebData\\News",
+			"WebData",
+			"C:\\\\OpenServer\\domains\\news.ru",
+			"C:\\\\OpenServer\\]domains\\news.ru",
+			"C:\\\\WebData\\\\News",
+			"C:\\\\WebData",
+			"WebData",
+			"$_SESSION['slideshowid'] = $_GET['slideshowid'];",
+			"tab",
+			"step3",
+			"not_saveedit",
+			"$_SESSION",
+			"$_SESSION['SlideshowID']",
+			"$_SESSION['Slideshow']",
+			"      $",
+			"play",
+			"YourSlideshows",
+			"SlideshowPage",
+			"append",
+			"make",
+			"<input",
+			"closedir",
+			"opendir",
+			"find",
+			"repository",
+			"$.post(",
+			"$.post",
+			"$.get",
+			"$.post",
+			"container li",
+			"container ",
+			"li ",
+			"li",
+			"jumbotron li",
+			"@",
+			"id",
+			"navbar",
+			"doctrine",
+			"jquery",
+			"                                    $(\"#",
+			"v",
+			">')",
+			"rg",
+			"fallback",
+			"      ",
+			"'",
+			"2",
+			"streen",
+			"      ",
+			"г",
+			"дома:\n",
+			" \n",
+			"     "
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"ITR\\NewsBundle\\Entity\\News",
+			"description",
+			"news.ru\\\\src",
+			"C:\\OpenServer\\domains\\news.ru\\src",
+			"C:/OpenServer/domains/news.ru",
+			"C:\\OpenServer\\domains\\news.ru",
+			"C:\\\\OpenServer\\\\domains\\\\news.ru",
+			"C:/OpenServer/domains/news.ru",
+			"C:\\\\OpenServer\\\\domains\\\\news.ru",
+			"C:\\OpenServer\\domains\\news.ru",
+			"C:\\\\OpenServer\\\\domains\\\\news.ru",
+			"C:\\\\OpenServer\\]domains\\\\news.ru",
+			" г.Могилёв ",
+			" г.Могилёв",
+			" г.Гомель ",
+			"',",
+			"'2",
+			" г. Гродно ",
+			" г. Гродно",
+			" г. Брест ",
+			" ",
+			" г.Минск "
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 29.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SymfonyCommander":
+	{
+		"height": 23.0
+	},
+	"output.git":
+	{
+		"height": 88.0
+	},
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 235.0,
+	"status_bar_visible": true
+}

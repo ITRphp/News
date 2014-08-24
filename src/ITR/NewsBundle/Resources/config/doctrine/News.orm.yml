@@ -35,7 +35,7 @@ ITR\NewsBundle\Entity\News:
                     name: category_id
                     referencedColumnName: id
     manyToMany:
-          users:
+        users:
             targetEntity: User
             joinTable:
               name: news_users
@@ -45,5 +45,15 @@ ITR\NewsBundle\Entity\News:
               inverseJoinColumns:
                 user_id:
                   referencedColumnName: id
+        news:
+            targetEntity: News
+            joinTable:
+                name: related_news
+                joinColumns:
+                  news_id:
+                    referencedColumnName: id
+                inverseJoinColumns:
+                  related_news_id:
+                    referencedColumnName: id
 
     lifecycleCallbacks: {  }

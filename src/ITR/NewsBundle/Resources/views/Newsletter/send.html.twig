@@ -1,7 +1,29 @@
-{% extends "::base.html.twig" %}
 
-{% block title %}NewsBundle:Newsletter:send{% endblock %}
+<html>
+    <head>
+        <title>LocalNews</title>
+    </head>
+<body>
+ <h2>Dear {{username}}!</h2>
+ <h3>We have prepared for you an overview of the most interesting news this week</h3>
 
-{% block body %}
-<h1>Welcome to the Newsletter:send page</h1>
-{% endblock %}
+ {% for key, value in categories %}
+    <div style="box-shadow: 0 0 10px rgba(0,0,0,0.5); background-color: #eaeaea;  padding: 10px;">
+        <h1>{{key}}</h1>
+          {% for news_item in value %}
+            <div style="box-shadow: 0.4em 0.4em 5px rgba(122,122,122,0.5);padding: 10px;background: #edffff; border-radius: 10px;">
+                <h2>
+                    <a href="http://news.ru{{path('current_news',{'id': news_item.id })}}">{{ news_item.title }}</a>
+                </h2>
+                <h6>{{ news_item.publicationDate|date('Y-m-d')}}</h6>
+                    <strong>{{ news_item.description }}</strong>
+            </div>
+            <br>
+       {% else %}
+       {% endfor %}
+    </div>
+{% else %}
+{% endfor %}
+
+</body>
+</html>

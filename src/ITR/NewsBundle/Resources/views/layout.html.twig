@@ -10,11 +10,13 @@
                {% endstylesheets %}
             {% endblock %}
             {% javascripts
-                '@NewsBundle/Resources/public/js/jquery-1.11.1.js'
-                '@NewsBundle/Resources/public/js/jquery-ui.js'
-                '@NewsBundle/Resources/public/js/bootstrap.min.js'%}
-                <script src="{{ asset_url }}"></script>
-            {% endjavascripts %}
+        '@NewsBundle/Resources/public/js/jquery-1.11.1.js'
+        '@NewsBundle/Resources/public/js/jquery-ui.js'
+        '@NewsBundle/Resources/public/js/bootstrap.min.js'
+        '@NewsBundle/Resources/public/js/bootstrap-select.js'
+        '@NewsBundle/Resources/public/js/news.js'%}
+        <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
 
         {% endblock %}
 
@@ -35,13 +37,14 @@
                     {% endimage %}
                     <hr>
                 </div>
+                
             {% endblock %}
         <div class="col-md-12">
             <hr>
-                    Footer
+            
         </div>
     </div>
     {% endblock %}
-
+<div id = "toTop" > ^ {{'Up'|trans}}</div>
 </body>
 </html>

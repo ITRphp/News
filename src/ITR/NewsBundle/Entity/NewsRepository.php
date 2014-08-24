@@ -98,12 +98,12 @@ class NewsRepository extends EntityRepository
         return $news;
         
     }
-    public function findNewsByCategoryOrderedByPopularity($category)
+     public function findNewsByCategoryOrderedByPopularity($category, $limit = 100)
     {
-        $id = '';
         $q = $this->getEntityManager()
             ->createQuery('SELECT n, COUNT(n.id) AS HIDDEN mycount FROM NewsBundle:News n JOIN n.users u WHERE n.category = :category GROUP BY n.id ORDER BY mycount DESC')
-                ->setParameter('category', $category);
+                ->setParameter('category', $category)
+                ->setMaxResults($limit);
     
 
         try {
@@ -111,8 +111,7 @@ class NewsRepository extends EntityRepository
             
         } catch (NoResultException $e) {
             $message = sprintf(
-                'Unable to find an active category NewsBundle:category object identified by "%s".',
-                $id
+                'Unable to find an active category NewsBundle:category object identified by "%s"'
             );
             throw new UsernameNotFoundException($message, 0, $e);
         }

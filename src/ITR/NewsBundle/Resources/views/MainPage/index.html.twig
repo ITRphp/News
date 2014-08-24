@@ -9,8 +9,8 @@
 {% block news %}
     <div id="center" style="padding:4px" class="col-md-7">
     <ul class="nav nav-pills">
-        <li class="active"><a data-toggle="pill" id="date" name="date" class="sort btn btn-link"{#href="{{path('sort_news',{'key': 'date'})}}"#}>{{'Sort by date'|trans}}</a></li>
-        <li><a data-toggle="pill" id="popular" name="popular" class="sort btn btn-link" {#href="{{path('sort_news',{'key': 'popular'})}}"#}>{{'Sort by popularity'|trans}}</a></li>
+        <li class="active"><a data-toggle="pill" id="date" name="date" class="sort btn btn-xs"{#href="{{path('sort_news',{'key': 'date'})}}"#}>{{'Sort by date'|trans}}</a></li>
+        <li><a data-toggle="pill" id="popular" name="popular" class="sort btn btn-xs" {#href="{{path('sort_news',{'key': 'popular'})}}"#}>{{'Sort by popularity'|trans}}</a></li>
     </ul>
         <div class="container col-md-12" id="news_list">
             {% for news_item in news %}
@@ -40,7 +40,7 @@
         {% for news_item in popular_news %}   
             <div class="media">
                 <div class="media-body">
-                    <h4 class="media-heading"><a href="{{path('current_news',{'id': news_item.id })}}"><span class="badge pull-right">
+                    <h4 class="media-heading"><a href="{{path('current_news',{'id': news_item.id })}}" data-toggle="tooltip" data-placement="left" title="{{ news_item.publicationDate|date('Y-m-d')}}"><span class="badge pull-right">
                         {{news_item.getUsersCount()}}</span>{{news_item.title}}</a>
                     </h4>                 
                     {{news_item.description}}

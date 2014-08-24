@@ -1,7 +1,9 @@
 news:
     path:     /
     defaults: { _controller: "NewsBundle:News:index" }
-
+news_search:
+    path:     /search
+    defaults: { _controller: "NewsBundle:News:search" }
 news_show:
     path:    /{id}/show
     defaults: { _controller: "NewsBundle:News:show" }

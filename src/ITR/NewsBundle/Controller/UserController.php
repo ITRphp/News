@@ -4,6 +4,8 @@ namespace ITR\NewsBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Security\Core\SecurityContext;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 use ITR\NewsBundle\Entity\User;
 use ITR\NewsBundle\Entity\PasswordRecovery;
@@ -17,10 +19,9 @@ use \Doctrine\Common\Collections\ArrayCollection;
 class UserController extends Controller
 {
 
-    /**
-     * Lists all User entities.
-     *
-     */
+     /**
+    * @Security("has_role('ROLE_ADMIN')")
+    */
     public function indexAction()
     {
         $em = $this->getDoctrine()->getManager();
@@ -39,10 +40,10 @@ class UserController extends Controller
             'entities' => $pagination,
         ));
     }
+    
     /**
-     * Creates a new User entity.
-     *
-     */
+    * @Security("has_role('ROLE_ADMIN')")
+    */
     public function createAction(Request $request)
     {
         $entity = new User();
@@ -70,6 +71,9 @@ class UserController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
+    /**
+    * @Security("has_role('ROLE_ADMIN')")
+    */
     private function createCreateForm(User $entity)
     {
         $form = $this->createForm(new UserType(), $entity, array(
@@ -86,6 +90,9 @@ class UserController extends Controller
      * Displays a form to create a new User entity.
      *
      */
+    /**
+    * @Security("has_role('ROLE_ADMIN')")
+    */
     public function newAction()
     {
         $entity = new User();
@@ -101,6 +108,9 @@ class UserController extends Controller
      * Finds and displays a User entity.
      *
      */
+    /**
+    * @Security("has_role('ROLE_ADMIN')")
+    */
     public function showAction($id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -123,6 +133,9 @@ class UserController extends Controller
      * Displays a form to edit an existing User entity.
      *
      */
+    /**
+    * @Security("has_role('ROLE_ADMIN')")
+    */
     public function editAction($id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -150,6 +163,9 @@ class UserController extends Controller
     *
     * @return \Symfony\Component\Form\Form The form
     */
+    /**
+    * @Security("has_role('ROLE_ADMIN')")
+    */
     private function createEditForm(User $entity)
     {
         $form = $this->createForm(new UserType(), $entity, array(
@@ -165,6 +181,9 @@ class UserController extends Controller
      * Edits an existing User entity.
      *
      */
+   /**
+    * @Security("has_role('ROLE_ADMIN')")
+    */
     public function updateAction(Request $request, $id)
     {
         $em = $this->getDoctrine()->getManager();
@@ -195,6 +214,9 @@ class UserController extends Controller
      * Deletes a User entity.
      *
      */
+    /**
+    * @Security("has_role('ROLE_ADMIN')")
+    */
     public function deleteAction(Request $request, $id)
     {
         $form = $this->createDeleteForm($id);
@@ -222,6 +244,9 @@ class UserController extends Controller
      *
      * @return \Symfony\Component\Form\Form The form
      */
+    /**
+    * @Security("has_role('ROLE_ADMIN')")
+    */
     private function createDeleteForm($id)
     {
         return $this->createFormBuilder()
@@ -250,7 +275,8 @@ class UserController extends Controller
                 
                 if(empty($pass_recovery)){
                     $hash_code = md5($user_email.$user_id);
-                    $access_hash="http://localhost/News/web/app_dev.php/updatepassword?user=".$user_id."&hash=".$hash_code;
+                   // $access_hash="http://localhost/News/web/app_dev.php/updatepassword?user=".$user_id."&hash=".$hash_code;
+                     $access_hash=$request->getBaseUrl()."updatepassword?user=".$user_id."&hash=".$hash_code;
                     $this->sendEmail($user_name, $access_hash, $user_email);
                     $this->createPasswordRecovery($user, $hash_code);
                     $this->get('session')->getFlashBag()->add('notice',$this->get('translator')->trans('Letter.sent.email'));

@@ -42,20 +42,7 @@ class MainpageController extends Controller
         return $this->render('NewsBundle:Mainpage:index.html.twig',$context);
         
     }    
-    /**
-    * @Security("has_role('ROLE_USER')")
-    */
-    public function ajaxAction(Request $request, $category)
-    {
-        if($request->isXmlHttpRequest()){
-        $em = $this->getDoctrine()->getManager();
-        $news = $this->getNews($category, $em);
-        $context = array('news' => $this->getPagination($news));
-        return $this->render('NewsBundle:Mainpage:news.html.twig', $context);
-        }  else {
-            throw $this->createNotFoundException('Unable to find page.');
-        }
-    }
+   
     /**
     * @Security("has_role('ROLE_USER')")
     */
@@ -162,7 +149,7 @@ class MainpageController extends Controller
     /**
     * @Security("has_role('ROLE_USER')")
     */
-    public function currentNewsItemAction($id)
+   public function currentNewsItemAction($id)
     {
         if (false === $this->get('security.context')->isGranted('ROLE_USER')) {
             throw $this->createAccessDeniedException('Unable to access this page!');
@@ -175,7 +162,7 @@ class MainpageController extends Controller
         if (!$news = $em->getRepository('NewsBundle:News')->find($id)) {
             throw $this->createNotFoundException('No product found for id '.$id);
         }
-        
+        $related_news = $news->getNews();
         if (!($news->getUsers()->contains($user))){
             $news->addUser($user);
             $em->flush();
@@ -184,7 +171,8 @@ class MainpageController extends Controller
         $context = array( 'username' => $user->getUserName(), 
             'categories' => $categories,
             'news' => $news,
-            'dispatches' => $dispatches);
+            'dispatches' => $dispatches,
+            'related_news' =>$related_news);
         
         return $this->render('NewsBundle:Mainpage:currentNews.html.twig',$context);
     }
