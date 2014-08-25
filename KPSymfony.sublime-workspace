@@ -11,6 +11,62 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "src/ITR/NewsBundle/Resources/views/Welcome/index.html.twig",
+			"settings":
+			{
+				"buffer_size": 2111,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/ITR/NewsBundle/Resources/views/Secured/login.html.twig",
+			"settings":
+			{
+				"buffer_size": 1548,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/ITR/NewsBundle/Resources/views/layout.html.twig",
+			"settings":
+			{
+				"buffer_size": 1601,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/ITR/NewsBundle/Command/SendEmailCommand.php",
+			"settings":
+			{
+				"buffer_size": 2237,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/ITR/NewsBundle/Resources/views/MainPage/index.html.twig",
+			"settings":
+			{
+				"buffer_size": 2431,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/ITR/NewsBundle/Resources/views/Newsletter/send.html.twig",
+			"settings":
+			{
+				"buffer_size": 939,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/ITR/NewsBundle/Controller/UserController.php",
+			"settings":
+			{
+				"buffer_size": 10552,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -76,6 +132,24 @@
 	},
 	"file_history":
 	[
+		"/C/OpenServer/domains/news.ru/web/js/c82c251_news_1.js",
+		"/C/OpenServer/domains/news.ru/web/js/8f0beb9_news_5.js",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Menu/Builder.php",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/translations/messages.en.yml~",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/translations/messages.en.yml",
+		"/C/OpenServer/domains/news.ru/web/css/1820aaf_part_1_style_4.css",
+		"/C/OpenServer/domains/test.ru/News-MargoBrunch/src/ITR/NewsBundle/Menu/Builder.php",
+		"/C/OpenServer/domains/news.ru/app/AppKernel.php",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/MainPage/layout.html.twig",
+		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/public/css/style.css",
+		"/C/OpenServer/domains/news.ru/web/css/1820aaf_part_1_bootstrap.min_2.css",
+		"/C/OpenServer/domains/news.ru/app/cache/prod/appProdDebugProjectContainer.php",
+		"/C/OpenServer/domains/news.ru/app/cache/prod/appProdDebugProjectContainer.xml",
+		"/C/OpenServer/domains/news.ru/app/cache/prod/appProdProjectContainer.php",
+		"/C/OpenServer/domains/news.ru/app/cache/prod/appProdDebugProjectContainer.php.meta",
+		"/C/OpenServer/domains/news.ru/app/cache/prod/appProdUrlGenerator.php.meta",
+		"/C/OpenServer/domains/news.ru/app/cache/prod/appProdUrlMatcher.php.meta",
+		"/C/OpenServer/domains/news.ru/web/app_dev.php",
 		"/C/OpenServer/domains/news.ru/app/config/config.yml",
 		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/config/routing.yml",
 		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/config/routing/news.yml",
@@ -87,15 +161,11 @@
 		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Entity/UserRepository.php",
 		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Entity/NewsRepository.php",
 		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Form/NewsType.php",
-		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Menu/Builder.php",
 		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/config/doctrine/News.orm.yml",
-		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/public/css/style.css",
 		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/public/js/news.js",
-		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/translations/messages.en.yml",
 		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/Category/edit.html.twig",
 		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/MainPage/currentNews.html.twig",
 		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/MainPage/index.html.twig",
-		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/MainPage/layout.html.twig",
 		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/Menu/input.html.twig",
 		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/News/edit.html.twig",
 		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/News/new.html.twig",
@@ -107,7 +177,6 @@
 		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/User/show.html.twig",
 		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/layout.html.twig",
 		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Entity/News.php",
-		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/translations/messages.en.yml~",
 		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Command/SendEmailCommand.php",
 		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/views/Newsletter/send.html.twig",
 		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Controller/NewsController.php",
@@ -135,7 +204,6 @@
 		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Controller/PasswordRecoveryController.php",
 		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/DQL/MatchAgainstFunction.php",
 		"/C/OpenServer/domains/news.ru/composer.json",
-		"/C/OpenServer/domains/news.ru/app/AppKernel.php",
 		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Entity/Site.php",
 		"/C/OpenServer/domains/news.ru/src/ITR/NewsBundle/Resources/config/doctrine/Site.orm.yml",
 		"/C/Users/Paul/Downloads/bootstrap-wysiwyg-master/index.html",
@@ -151,13 +219,7 @@
 		"/C/OpenServer/domains/news.ru/app/config/routing.yml",
 		"/C/OpenServer/domains/news.ru/app/config/parameters.yml",
 		"/C/OpenServer/domains/news.ru/app/cache/dev/templates.php",
-		"/C/OpenServer/domains/news.ru/app/cache/prod/appProdDebugProjectContainer.php",
-		"/C/OpenServer/domains/news.ru/app/cache/prod/appProdProjectContainer.php",
 		"/C/OpenServer/domains/news.ru/app/cache/dev/translations/catalogue.en.php.meta",
-		"/C/OpenServer/domains/news.ru/app/cache/prod/appProdDebugProjectContainer.php.meta",
-		"/C/OpenServer/domains/news.ru/app/cache/prod/appProdDebugProjectContainer.xml",
-		"/C/OpenServer/domains/news.ru/app/cache/prod/appProdUrlGenerator.php.meta",
-		"/C/OpenServer/domains/news.ru/app/cache/prod/appProdUrlMatcher.php.meta",
 		"/C/OpenServer/domains/news.ru/app/cache/prod/translations/catalogue.en.php.meta",
 		"/C/OpenServer/domains/news.ru/app/logs/prod.log",
 		"/C/OpenServer/domains/news.ru/app/cache/prod/classes.php.meta",
@@ -197,13 +259,7 @@
 		"/C/OpenServer/domains/slideshow.ru/Entities/slideshow.php",
 		"/C/OpenServer/domains/slideshow.ru/css/style.css",
 		"/C/OpenServer/domains/slideshow.ru/upload.php",
-		"/C/OpenServer/domains/slideshow.ru/css/bootstrap.css",
-		"/C/Users/Paul/Downloads/Slides-SlidesJS-3/examples/basic-fade/index.html",
-		"/C/Users/Paul/Downloads/Slides-SlidesJS-3/examples/playing/index.html",
-		"/C/Users/Paul/Downloads/Slides-SlidesJS-3/examples/basic-slide/index.html",
-		"/C/Users/Paul/Downloads/Slides-SlidesJS-3/examples/callbacks/index.html",
-		"/C/Users/Paul/Downloads/Slides-SlidesJS-3/examples/multiple/index.html",
-		"/C/Users/Paul/Downloads/Slides-SlidesJS-3/examples/standard/index.html"
+		"/C/OpenServer/domains/slideshow.ru/css/bootstrap.css"
 	],
 	"find":
 	{
@@ -214,6 +270,7 @@
 		"height": 90.0,
 		"where_history":
 		[
+			"C:\\OpenServer\\domains\\news.ru",
 			"C:\\OpenServer\\domains\\news.ru\\vendor",
 			"C:\\OpenServer\\domains\\news.ru"
 		]
@@ -223,6 +280,13 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"gly",
+			"glyf",
+			"/news.ruapp/",
+			"\\news.ruapp\\",
+			"\\\\news.ruapp\\\\",
+			"//news.ruapp//",
+			"news.ruapp",
 			"class Match",
 			"Match ",
 			"LEFT",
@@ -315,6 +379,10 @@
 		"regex": false,
 		"replace_history":
 		[
+			"/news.ru/app/",
+			"\\news.ru\\app\\",
+			"\\\\news.ru\\\\app\\\\",
+			"//news.ru//app//",
 			"ITR\\NewsBundle\\Entity\\News",
 			"description",
 			"news.ru\\\\src",
@@ -347,8 +415,205 @@
 	"groups":
 	[
 		{
+			"selected": 4,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "src/ITR/NewsBundle/Resources/views/Welcome/index.html.twig",
+					"settings":
+					{
+						"buffer_size": 2111,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								493,
+								493
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/ITR/NewsBundle/Resources/views/Secured/login.html.twig",
+					"settings":
+					{
+						"buffer_size": 1548,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								476,
+								476
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/ITR/NewsBundle/Resources/views/layout.html.twig",
+					"settings":
+					{
+						"buffer_size": 1601,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								976,
+								976
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/ITR/NewsBundle/Command/SendEmailCommand.php",
+					"settings":
+					{
+						"buffer_size": 2237,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								683,
+								683
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 234.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/ITR/NewsBundle/Resources/views/MainPage/index.html.twig",
+					"settings":
+					{
+						"buffer_size": 2431,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								369,
+								369
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/ITR/NewsBundle/Resources/views/Newsletter/send.html.twig",
+					"settings":
+					{
+						"buffer_size": 939,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								938,
+								938
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Twig/Syntaxes/HTML (Twig).tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "src/ITR/NewsBundle/Controller/UserController.php",
+					"settings":
+					{
+						"buffer_size": 10552,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								7501,
+								7501
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3432.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],

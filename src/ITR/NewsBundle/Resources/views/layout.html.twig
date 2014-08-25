@@ -3,7 +3,7 @@
     <head>
        <title>{% block title %}{{'News'|trans}}{% endblock %}</title>
         {% block head %}
-           <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+           <link rel="icon" type="image/x-icon" href="{{ asset('caticon.ico') }}" />
             {% block stylesheets %}
                {% stylesheets '@NewsBundle/Resources/public/css/*' filter='cssrewrite' %}
                 <link rel="stylesheet" href="{{ asset_url }}" />
@@ -19,8 +19,6 @@
     {% endjavascripts %}
 
         {% endblock %}
-
-
     </head>
     {% block body %}
     <div id="container" class = "container">
@@ -30,17 +28,14 @@
                     <strong>{{ flashMessage }}</strong> 
                 </div>
             {% endfor %}
-            {% block content %}
-                <div id="logo" class="col-md" style="padding:5px">
-                    {% image '@NewsBundle/Resources/public/images/logo.png'%}
-                        <img src="{{ asset_url }}"  alt="Example"/>
-                    {% endimage %}
-                    <hr>
-                </div>
-                
+            {% block content %}                
             {% endblock %}
         <div class="col-md-12">
             <hr>
+                {% image '@NewsBundle/Resources/public/images/littlelogo.png'%}
+                    <img src="{{ asset_url }}"  alt="Example"/>
+                {% endimage %}
+                ©Margarita Veshtort & Vasilenko Pavel, ITransition 2014
             
         </div>
     </div>

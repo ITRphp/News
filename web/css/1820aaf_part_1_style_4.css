@@ -1,11 +1,18 @@
 #affix1.affix{
 
-            margin-top: -220px;
+            margin-top: -250px;
+            max-height: 82%;
+            overflow:scroll;
+            overflow-x: hidden;
+            overflow-y: hidden;
             z-index:1;
 }
         
 #affix2.affix{
-            margin-top: -220px;
+            margin-top: -250px;
+            max-height: 70%;
+            overflow:scroll;
+            overflow-x: hidden;
             z-index:1;
 
 }
@@ -21,18 +28,81 @@ li.active{
    
 }
 #toTop {
-width:70px;
-margin-right:100px;
-border:1px solid #ccc;
-background:#f7f7f7;
-text-align:center;
-padding:5px;
-position:fixed;
-bottom:10px; /* отступ кнопки от нижнего края страницы*/
-right:10px;
-cursor:pointer;
-display:none;
-color:#333;
-font-family:verdana;
-font-size:11px;
+    width:70px;
+    border:1px solid #ccc;
+    background:#f7f7f7;
+    text-align:center;
+    padding:5px;
+    position:fixed;
+    bottom:10px; /* отступ кнопки от нижнего края страницы*/
+    right:10px;
+    cursor:pointer;
+    display:none;
+    color:#333;
+    font-family:verdana;
+    font-size:11px;
 }
+.login{
+    background-color: #ccc;
+    opacity:0.5; 
+    filter:alpha(opacity=50); 
+    -moz-opacity:0.5;
+}
+
+.hdr {
+       
+	color: #FFFFFF;
+	text-shadow: -0.05em 0px 0.07em #000000;
+	font-family: Arial;
+	font-size: 7em;
+	font-weight: bold;
+	letter-spacing: -0.11em;
+}
+ .hdr_m {
+       
+	color: #FFFFFF;
+	text-shadow: -0.05em 0px 0.07em #000000;
+	font-family: Arial;
+	font-size: 7em;
+	font-weight: bold;
+	letter-spacing: -0.11em;
+}
+.hdr div {
+	display: inline-block;
+        color: #7a4c26;
+}
+.hdr_m div {
+	display: inline-block;
+        color: #08C;
+}
+.login{
+      width: 80%;
+  max-width: 550px;
+  margin: 10px auto;
+  padding: 1em;
+  box-shadow:
+   0 1px 4px rgba(0, 0, 0, .3),
+   -23px 0 20px -23px rgba(0, 0, 0, .8),
+   23px 0 20px -23px rgba(0, 0, 0, .8),
+   0 0 40px rgba(0, 0, 0, .1) inset;
+}
+
+.kot {
+    display:inline-block;   
+    position:relative;
+ 
+}
+.ololo {
+    display:inline-block;
+    position:absolute;
+    padding-left:  30%;
+}
+
+.well{
+    background: rgba(100,100,100,0.05);
+}
+
+#logindiv{
+  margin-top:12%;
+}
+

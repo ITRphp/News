@@ -47,6 +47,8 @@ class News
     public function __construct(){
         $this->publication_date= new \DateTime();
         $this->users = new ArrayCollection();
+        $this->news = new ArrayCollection();
+
     }
 
     public function setTitle($title)
@@ -272,7 +274,16 @@ class News
      * @var \Doctrine\Common\Collections\Collection
      */
     private $news;
-
+    
+    public function news($news){
+        foreach ($news as $news_item)
+        {
+            if(!$this->news->contains($news_item)){
+                $this->addNews($news_item);
+            }
+        }
+        
+    }
 
     /**
      * Add news
@@ -282,9 +293,8 @@ class News
      */
     public function addNews(\ITR\NewsBundle\Entity\News $news)
     {
-        $this->news[] = $news;
-
-        return $this;
+             $this->news[] = $news;
+         return $this;
     }
 
     /**

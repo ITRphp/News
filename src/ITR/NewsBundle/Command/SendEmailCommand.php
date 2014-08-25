@@ -20,6 +20,11 @@ class SendEmailCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
+        $context = $this->getContainer()->get('router')->getContext();
+        $context->setHost('news.ru');
+        $context->setScheme('http');
+        $context->setBaseUrl('/web');
+
         $em = $this->getContainer()->get('doctrine')->getManager();
         $users = $em->getRepository('NewsBundle:User')->findAllSubscribedUsers();
         if(!$users){

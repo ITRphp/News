@@ -275,8 +275,7 @@ class UserController extends Controller
                 
                 if(empty($pass_recovery)){
                     $hash_code = md5($user_email.$user_id);
-                   // $access_hash="http://localhost/News/web/app_dev.php/updatepassword?user=".$user_id."&hash=".$hash_code;
-                     $access_hash=$request->getBaseUrl()."updatepassword?user=".$user_id."&hash=".$hash_code;
+                    $access_hash="http://news.ru/web/updatepassword?user=".$user_id."&hash=".$hash_code;
                     $this->sendEmail($user_name, $access_hash, $user_email);
                     $this->createPasswordRecovery($user, $hash_code);
                     $this->get('session')->getFlashBag()->add('notice',$this->get('translator')->trans('Letter.sent.email'));

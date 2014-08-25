@@ -45,7 +45,7 @@ class RegistrationController extends Controller
     }
 
     private function sendEmail($user,$hash){
-        $link = "http://localhost/News/web/app_dev.php/activate?access=".$hash;
+        $link = "http://news.ru/web/activate?access=".$hash;
         $message = \Swift_Message::newInstance()
                 ->setSubject("Registration on LocalNews")->setFrom("news.dispatch.itr@gmail.com")
                 ->setTo($user->getUserEmail()) 

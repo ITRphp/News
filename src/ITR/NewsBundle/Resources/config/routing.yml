@@ -7,6 +7,9 @@ mainpage:
 category_news:
     path:     /mainpage/{category}
     defaults: { _controller: NewsBundle:Mainpage:index}
+category_news_search:
+    path:     /mainpage/{category}/search/{key}
+    defaults: { _controller: NewsBundle:Search:search}
 sort_news:
     path:     /mainpage/sort/{key}
     defaults: { _controller: NewsBundle:Mainpage:orderAll}
@@ -16,17 +19,15 @@ search:
 sort_category_news:
     path:     /mainpage/{category}/sort/{key}
     defaults: { _controller: NewsBundle:Mainpage:orderCategory}
+news_archive_search:
+    path:     /mainpage/archive/news/search/{key}
+    defaults: { _controller: NewsBundle:Search:search}
 news_archive:
-    path:     /mainpage/archive/news/
+    path:     /mainpage/archive/news
     defaults: { _controller: NewsBundle:Mainpage:archive}
-    requirements:
-      _method: GET
 current_news:
     path:     /mainpage/news/{id}
     defaults: { _controller: NewsBundle:Mainpage:currentNewsItem }
-category_news:
-    path:     /mainpage/{category}
-    defaults: { _controller: NewsBundle:Mainpage:ajax}
 subscribe:
     path:     /subscribe
     defaults: { _controller: NewsBundle:User:updateUserSubscribe}

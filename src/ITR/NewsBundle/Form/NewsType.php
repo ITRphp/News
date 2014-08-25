@@ -40,7 +40,7 @@ class NewsType extends AbstractType
             ->add('content', 'textarea',array(
                 'label' => ' '))
             ->add('news', 'entity', array(
-                'required'    => true,
+                'required'    => false,
                 'class' => 'NewsBundle:News',
                 'query_builder' => function(EntityRepository $er) {
                 return $er->createQueryBuilder('n')

@@ -25883,6 +25883,7 @@ $(document).ready(function(){
    		if(e.which == 13) {
 	   		var key = $("#search_input").val().replace(" ","&20");
 	    	$("#news_list").load(document.URL+"/search/"+key);
+                $("#sort").hide('slow');
 	    }
     });
     //--affix fix--

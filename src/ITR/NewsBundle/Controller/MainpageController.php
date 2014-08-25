@@ -48,8 +48,9 @@ class MainpageController extends Controller
     */
     public function archiveAction(Request $request)
     {
-        if ($request->getMethod() == 'GET') {  
-            $date_elements  = explode("/", $_GET['date']);
+        if ($request->getMethod() == 'POST') {  
+            $date_elements  = explode("/", $_POST['date']);
+            
             
             $date1=date(DATE_W3C, mktime(0,0,0,$date_elements[0],$date_elements[1], $date_elements[2]));
             $date2=date(DATE_W3C, mktime(0,0,0,$date_elements[0],$date_elements[1]+1, $date_elements[2]));
@@ -61,6 +62,10 @@ class MainpageController extends Controller
             $popular_news =$em->getRepository('NewsBundle:News')->findTopNewsOrderedByPopularity();
             
             $news = $em->getRepository('NewsBundle:News')->findNewsByDate($date1,$date2);
+            if(empty($date_elements))
+            {
+                $news=NULL;
+            }
             $this->getPagination($news);
             $context = array( 'username' => $user->getUserName(), 
                         'categories' => $categories, 

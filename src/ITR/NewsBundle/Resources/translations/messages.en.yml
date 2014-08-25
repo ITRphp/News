@@ -24,12 +24,14 @@ Forgot.password: 'Forgot your password?'
 Logout: 'Log out'
 Language: Language
 LocalNews: LocalNews
-'Main page': 'Main page'
+'Main page': 'Index page'
 'News list': 'News list'
 News: News
+'News creation': 'News creation'
 'News edit': 'News edit'
 Password: Password
 Password.repeat: 'Repeat password'
+passconf.error: 'Passwords don''t match'
 'Publication date': 'Publication date'
 Password.changed: 'Password was successfully changed'
 Registration: Registration
@@ -41,6 +43,7 @@ Save: Save
 'Sort by date': 'Sort by date'
 'Sort by popularity': 'Sort by popularity'
 Select.topics: 'Select the topics that interest you'
+Title: Title
 Up: up
 User: User
 'User name': 'User name'
@@ -66,6 +69,6 @@ not.blank.content: 'Content field can not be blank!'
 not.unique.category: 'Category with the same name already exists!'
 not.unique.email: 'User with this email already exists'
 not.unique.username: 'User with the same username already exists'
-'Search. If you want only to filter, left this field empty': '__Search. If you want only to filter, left this field empty'
-'Filters by author. If u don''t want, left this field empty': '__Filters by author. If u don''t want, left this field empty'
-'User creation': '__User creation'
+'Search. If you want only to filter, left this field empty': 'Search. If you want only to filter, left this field empty'
+'Filters by author. If u don''t want, left this field empty': 'Filters by author. If u don''t want, left this field empty'
+'User creation': 'User creation'
