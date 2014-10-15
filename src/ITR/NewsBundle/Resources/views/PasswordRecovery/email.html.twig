@@ -1,0 +1,18 @@
+{% extends "NewsBundle::layout.html.twig"%}
+
+{% block content %}
+    {{parent()}}
+    <form action="{{ path('password_recovery') }}" method="POST" class="col-md-offset-4 col-md-4 well">
+        {% for flashMessage in app.session.flashbag.get('notice') %}
+            <div class="text-danger text-center"> <h3>{{ flashMessage }}</h3></div>
+        {% endfor %}
+        <div class="control-group">
+            <label for="_email">{% trans %}Enter.email{% endtrans %}:</label>
+            <div class="controls">
+                <input type="email" placeholder="Your Email" name="_email" class="form-control" required>
+            </div>
+            <br>
+            <input type="submit" value="Send" class="form-control btn-primary">
+        </div>
+    </form>    
+{% endblock %}

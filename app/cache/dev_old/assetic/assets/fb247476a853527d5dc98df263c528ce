@@ -1,0 +1,7 @@
+$(document).ready(function(){
+    $('#affix1 a').click (function (){
+        this.addClass('active');
+        $("#news_list").load(document.URL+"/"+this.name);
+        
+    });
+});

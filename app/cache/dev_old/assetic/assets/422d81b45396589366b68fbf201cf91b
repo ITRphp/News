@@ -1,0 +1,14 @@
+function callServer() { 
+  var category= this.innerText;
+  // Создать URL для подключения
+  var url = "/mainpage/" + escape(category);
+
+  // Открыть соединение с сервером
+  xmlHttp.open("GET", url, true);
+
+  // Установить функцию для сервера, которая выполнится после его ответа
+  xmlHttp.onreadystatechange = updatePage;
+
+  // SПередать запрос
+  xmlHttp.send(null);
+                };

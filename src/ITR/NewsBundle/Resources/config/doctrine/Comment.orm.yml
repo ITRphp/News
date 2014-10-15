@@ -1,0 +1,31 @@
+ITR\NewsBundle\Entity\Comment:
+    type: entity
+    table: null
+    repositoryClass: ITR\NewsBundle\Entity\CommentRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        content:
+            type: string
+            length: 255
+        publication_date:
+             type: datetime
+    manyToOne:
+         users:
+            targetEntity: User
+            inversedBy: comments
+            joinColumn:
+              name: user_id
+              referencedColumnName: id
+         news:
+            targetEntity: News
+            inversedBy: comments
+            joinColumn:
+              name: news_id
+              referencedColumnName: id
+
+    lifecycleCallbacks: {  }

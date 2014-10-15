@@ -1,21 +1,100 @@
-news_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: NewsBundle:Default:index }
+_welcome:
+    path:     /
+    defaults: { _controller: NewsBundle:Welcome:index }
+mainpage:
+    path:     /mainpage
+    defaults: { _controller: NewsBundle:Mainpage:index }
+category_news:
+    path:     /mainpage/{category}
+    defaults: { _controller: NewsBundle:Mainpage:index}
+sort_news:
+    path:     /mainpage/sort/{key}
+    defaults: { _controller: NewsBundle:Mainpage:orderAll}
+sort_category_news:
+    path:     /mainpage/{category}/sort/{key}
+    defaults: { _controller: NewsBundle:Mainpage:orderCategory}
+news_archive:
+    path:     /mainpage/archive/news/
+    defaults: { _controller: NewsBundle:Mainpage:archive}
+    requirements:
+      _method: GET
+sendletter:
+    path:     /sendletter
+    defaults: { _controller: NewsBundle:Sendletter:index }   
+current_news:
+    path:     /mainpage/news/{id}
+    defaults: { _controller: NewsBundle:Mainpage:currentNewsItem }
+category_news:
+    path:     /mainpage/{category}
+    defaults: { _controller: NewsBundle:Mainpage:ajax}
+subscribe:
+    path:     /subscribe
+    defaults: { _controller: NewsBundle:User:updateUserSubscribe}
     
 NewsBundle_news:
         resource: "@NewsBundle/Resources/config/routing/news.yml"
-        prefix:   /news
+        prefix: /admin/news
         
 NewsBundle_category:
     resource: "@NewsBundle/Resources/config/routing/category.yml"
-    prefix:   /category
+    prefix:   /admin/category
     
 NewsBundle_user:
         resource: "@NewsBundle/Resources/config/routing/user.yml"
-        prefix:   /user
-login:
+        prefix:   /admin/user        
+_login:
     path:     /login
-    defaults: { _controller: NewsBundle:Authentication:login }
-NewsBundle_dispatch:
-        resource: "@NewsBundle/Resources/config/routing/dispatch.yml"
-        prefix:   /dispatch
+    defaults: { _controller: NewsBundle:Secured:login }
+    
+_registration:
+    path:     /registration
+    defaults: { _controller: NewsBundle:Registration:index }
+_activation:
+    path:     /activate
+    defaults: { _controller: NewsBundle:Registration:activation }
+    requirements:
+      _method: GET
+    
+login:
+    pattern:   /login
+    defaults:  { _controller: NewsBundle:Secured:login }
+    
+login_check:
+    pattern:   /login_check
+    
+logout:
+    pattern:   /logout
+    
+#_all_users:
+#    pattern: /admin/user
+#    defaults:  { _controller: NewsBundle:User:index}
+#    
+#_all_news:
+#    pattern:    /admin/news
+#    defaults:  { _controller: NewsBundle:News:index}
+#    
+#_add_news:
+#    pattern: /admin/news/new
+#    defaults:  { _controller: NewsBundle:News:new}
+#    
+#_all_categories:
+#    pattern: /admin/category
+#    defaults:  { _controller: NewsBundle:Category:index}
+#    
+#_add_category:
+#    pattern: /admin/category/new
+#    defaults:  { _controller: NewsBundle:Category:new}
+    
+NewsBundle_admin_passwordrecovery:
+        resource: "@NewsBundle/Resources/config/routing/passwordrecovery.yml"
+        prefix:   /admin/passwordrecovery
+        
+password_recovery:
+    pattern: /passwordrecovery
+    defaults:  { _controller: NewsBundle:User:recovery}
+    
+_new_password:
+    pattern: /updatepassword
+    defaults:  { _controller: NewsBundle:PasswordRecovery:newPassword}
+    requirements:
+      _method: GET|POST

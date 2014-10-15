@@ -1,0 +1,22 @@
+<div class="panel panel-info col-md-12">
+    <div class="panel-heading">
+        {{'Comments'|trans}}
+    </div>
+    <div class="panel-body">
+        {{ form(form) }}
+    </div>
+    {% for comment in comments %}
+        <div class="panel panel-info">
+            <div class="panel-heading">
+                {{ comment.users}} <footer><h6>{{ comment.publicationDate|date('Y-m-d H:i:s')}}</h6></footer>
+            </div>
+            <div class="panel-body">
+                {{ comment.content }}
+            </div>
+        </div>
+    {% else %}
+    {% endfor %}
+    <div class="navigation">
+        {{ knp_pagination_render(comments) }}
+    </div>
+</div>

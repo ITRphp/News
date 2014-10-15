@@ -1,0 +1,7 @@
+ function Load()
+ {
+    $.get( this.name,function( data ) {
+  $( "#news-list" ).html( data );
+
+});
+    }

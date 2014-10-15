@@ -23,10 +23,17 @@ class CategoryController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entities = $em->getRepository('NewsBundle:Category')->findAll();
+        $entities = $em->getRepository('NewsBundle:Category')->findAllOrderedByName();
+        $paginator = $this->get('knp_paginator');
+        
+        $pagination = $paginator->paginate(
+            $entities,
+            $this->get('request')->query->get('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
 
         return $this->render('NewsBundle:Category:index.html.twig', array(
-            'entities' => $entities,
+            'entities' => $pagination,
         ));
     }
     /**

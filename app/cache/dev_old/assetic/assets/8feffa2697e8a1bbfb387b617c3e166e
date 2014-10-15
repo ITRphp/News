@@ -1,0 +1,7 @@
+ function Load()
+ {
+    var url = "localhost"+this.name;
+        $("#feeds").load("news.html.twig",function(){
+   alert("The last 25 entries in the feed have been loaded");
+    });
+ }

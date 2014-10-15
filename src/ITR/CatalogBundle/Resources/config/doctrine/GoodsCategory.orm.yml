@@ -1,0 +1,15 @@
+ITR\CatalogBundle\Entity\GoodsCategory:
+    type: entity
+    table: null
+    repositoryClass: ITR\CatalogBundle\Entity\GoodsCategoryRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        categoryName:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

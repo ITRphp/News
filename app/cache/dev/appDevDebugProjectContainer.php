@@ -34,10 +34,10 @@ class appDevDebugProjectContainer extends Container
         $this->scopes = array('request' => 'container');
         $this->scopeChildren = array('request' => array());
         $this->methodMap = array(
-            '264d0402821e81c2d590490d26fe5348a93b799c061b9cca1cb609c1d1518d6c_1' => 'get264d0402821e81c2d590490d26fe5348a93b799c061b9cca1cb609c1d1518d6c1Service',
-            '264d0402821e81c2d590490d26fe5348a93b799c061b9cca1cb609c1d1518d6c_2' => 'get264d0402821e81c2d590490d26fe5348a93b799c061b9cca1cb609c1d1518d6c2Service',
-            '264d0402821e81c2d590490d26fe5348a93b799c061b9cca1cb609c1d1518d6c_3' => 'get264d0402821e81c2d590490d26fe5348a93b799c061b9cca1cb609c1d1518d6c3Service',
-            '77d31024060deaf1804fc496af35861b23b69401982ae2f940abe8d619254a16_1' => 'get77d31024060deaf1804fc496af35861b23b69401982ae2f940abe8d619254a161Service',
+            '52d3954645e3062942d230cc1c36ac7866133718dfa07ade4028db36d0be4cf4_1' => 'get52d3954645e3062942d230cc1c36ac7866133718dfa07ade4028db36d0be4cf41Service',
+            '52d3954645e3062942d230cc1c36ac7866133718dfa07ade4028db36d0be4cf4_2' => 'get52d3954645e3062942d230cc1c36ac7866133718dfa07ade4028db36d0be4cf42Service',
+            '52d3954645e3062942d230cc1c36ac7866133718dfa07ade4028db36d0be4cf4_3' => 'get52d3954645e3062942d230cc1c36ac7866133718dfa07ade4028db36d0be4cf43Service',
+            'aa1015ba25f8748ba46c410d9e9470edee8e3412ae439bb2768f354b51e1db47_1' => 'getAa1015ba25f8748ba46c410d9e9470edee8e3412ae439bb2768f354b51e1db471Service',
             'annotation_reader' => 'getAnnotationReaderService',
             'assetic.asset_factory' => 'getAssetic_AssetFactoryService',
             'assetic.asset_manager' => 'getAssetic_AssetManagerService',
@@ -121,7 +121,28 @@ class appDevDebugProjectContainer extends Container
             'fragment.renderer.hinclude' => 'getFragment_Renderer_HincludeService',
             'fragment.renderer.inline' => 'getFragment_Renderer_InlineService',
             'http_kernel' => 'getHttpKernelService',
+            'itr.news.menu.voter.request' => 'getItr_News_Menu_Voter_RequestService',
+            'itr_news.menu.main' => 'getItrNews_Menu_MainService',
+            'itr_news.menu_builder' => 'getItrNews_MenuBuilderService',
             'kernel' => 'getKernelService',
+            'knp_menu.factory' => 'getKnpMenu_FactoryService',
+            'knp_menu.helper' => 'getKnpMenu_HelperService',
+            'knp_menu.listener.voters' => 'getKnpMenu_Listener_VotersService',
+            'knp_menu.matcher' => 'getKnpMenu_MatcherService',
+            'knp_menu.menu_provider' => 'getKnpMenu_MenuProviderService',
+            'knp_menu.renderer.list' => 'getKnpMenu_Renderer_ListService',
+            'knp_menu.renderer.twig' => 'getKnpMenu_Renderer_TwigService',
+            'knp_menu.renderer_provider' => 'getKnpMenu_RendererProviderService',
+            'knp_menu.templating.helper' => 'getKnpMenu_Templating_HelperService',
+            'knp_menu.voter.router' => 'getKnpMenu_Voter_RouterService',
+            'knp_paginator' => 'getKnpPaginatorService',
+            'knp_paginator.helper.processor' => 'getKnpPaginator_Helper_ProcessorService',
+            'knp_paginator.subscriber.filtration' => 'getKnpPaginator_Subscriber_FiltrationService',
+            'knp_paginator.subscriber.paginate' => 'getKnpPaginator_Subscriber_PaginateService',
+            'knp_paginator.subscriber.sliding_pagination' => 'getKnpPaginator_Subscriber_SlidingPaginationService',
+            'knp_paginator.subscriber.sortable' => 'getKnpPaginator_Subscriber_SortableService',
+            'knp_paginator.templating.helper.pagination' => 'getKnpPaginator_Templating_Helper_PaginationService',
+            'knp_paginator.twig.extension.pagination' => 'getKnpPaginator_Twig_Extension_PaginationService',
             'locale_listener' => 'getLocaleListenerService',
             'logger' => 'getLoggerService',
             'monolog.handler.console' => 'getMonolog_Handler_ConsoleService',
@@ -154,12 +175,15 @@ class appDevDebugProjectContainer extends Container
             'security.csrf.token_manager' => 'getSecurity_Csrf_TokenManagerService',
             'security.encoder_factory' => 'getSecurity_EncoderFactoryService',
             'security.firewall' => 'getSecurity_FirewallService',
+            'security.firewall.map.context.dev' => 'getSecurity_Firewall_Map_Context_DevService',
             'security.firewall.map.context.secured_area' => 'getSecurity_Firewall_Map_Context_SecuredAreaService',
             'security.rememberme.response_listener' => 'getSecurity_Rememberme_ResponseListenerService',
             'security.role_hierarchy' => 'getSecurity_RoleHierarchyService',
             'security.secure_random' => 'getSecurity_SecureRandomService',
             'security.user.provider.concrete.main' => 'getSecurity_User_Provider_Concrete_MainService',
             'security.validator.user_password' => 'getSecurity_Validator_UserPasswordService',
+            'sensio_distribution.security_checker' => 'getSensioDistribution_SecurityCheckerService',
+            'sensio_distribution.security_checker.command' => 'getSensioDistribution_SecurityChecker_CommandService',
             'sensio_distribution.webconfigurator' => 'getSensioDistribution_WebconfiguratorService',
             'sensio_framework_extra.cache.listener' => 'getSensioFrameworkExtra_Cache_ListenerService',
             'sensio_framework_extra.controller.listener' => 'getSensioFrameworkExtra_Controller_ListenerService',
@@ -229,12 +253,11 @@ class appDevDebugProjectContainer extends Container
             'translation.loader.xliff' => 'getTranslation_Loader_XliffService',
             'translation.loader.yml' => 'getTranslation_Loader_YmlService',
             'translation.writer' => 'getTranslation_WriterService',
-            'translator' => 'getTranslatorService',
             'translator.default' => 'getTranslator_DefaultService',
-            'translator.selector' => 'getTranslator_SelectorService',
             'twig' => 'getTwigService',
             'twig.controller.exception' => 'getTwig_Controller_ExceptionService',
             'twig.exception_listener' => 'getTwig_ExceptionListenerService',
+            'twig.extension.stfalcon_tinymce' => 'getTwig_Extension_StfalconTinymceService',
             'twig.loader' => 'getTwig_LoaderService',
             'twig.translation.extractor' => 'getTwig_Translation_ExtractorService',
             'uri_signer' => 'getUriSignerService',
@@ -248,6 +271,7 @@ class appDevDebugProjectContainer extends Container
             'web_profiler.debug_toolbar' => 'getWebProfiler_DebugToolbarService',
         );
         $this->aliases = array(
+            'console.command.sensiolabs_security_command_securitycheckercommand' => 'sensio_distribution.security_checker.command',
             'database_connection' => 'doctrine.dbal.default_connection',
             'debug.templating.engine.twig' => 'templating',
             'doctrine.orm.entity_manager' => 'doctrine.orm.default_entity_manager',
@@ -260,59 +284,60 @@ class appDevDebugProjectContainer extends Container
             'swiftmailer.spool' => 'swiftmailer.mailer.default.spool',
             'swiftmailer.transport' => 'swiftmailer.mailer.default.transport',
             'swiftmailer.transport.real' => 'swiftmailer.mailer.default.transport.real',
+            'translator' => 'translator.default',
         );
     }
 
     /**
-     * Gets the '264d0402821e81c2d590490d26fe5348a93b799c061b9cca1cb609c1d1518d6c_1' service.
+     * Gets the '52d3954645e3062942d230cc1c36ac7866133718dfa07ade4028db36d0be4cf4_1' service.
      *
      * This service is shared.
      * This method always returns the same instance of the service.
      *
      * @return Swift_Transport_Esmtp_Auth_CramMd5Authenticator A Swift_Transport_Esmtp_Auth_CramMd5Authenticator instance.
      */
-    protected function get264d0402821e81c2d590490d26fe5348a93b799c061b9cca1cb609c1d1518d6c1Service()
+    protected function get52d3954645e3062942d230cc1c36ac7866133718dfa07ade4028db36d0be4cf41Service()
     {
-        return $this->services['264d0402821e81c2d590490d26fe5348a93b799c061b9cca1cb609c1d1518d6c_1'] = new \Swift_Transport_Esmtp_Auth_CramMd5Authenticator();
+        return $this->services['52d3954645e3062942d230cc1c36ac7866133718dfa07ade4028db36d0be4cf4_1'] = new \Swift_Transport_Esmtp_Auth_CramMd5Authenticator();
     }
 
     /**
-     * Gets the '264d0402821e81c2d590490d26fe5348a93b799c061b9cca1cb609c1d1518d6c_2' service.
+     * Gets the '52d3954645e3062942d230cc1c36ac7866133718dfa07ade4028db36d0be4cf4_2' service.
      *
      * This service is shared.
      * This method always returns the same instance of the service.
      *
      * @return Swift_Transport_Esmtp_Auth_LoginAuthenticator A Swift_Transport_Esmtp_Auth_LoginAuthenticator instance.
      */
-    protected function get264d0402821e81c2d590490d26fe5348a93b799c061b9cca1cb609c1d1518d6c2Service()
+    protected function get52d3954645e3062942d230cc1c36ac7866133718dfa07ade4028db36d0be4cf42Service()
     {
-        return $this->services['264d0402821e81c2d590490d26fe5348a93b799c061b9cca1cb609c1d1518d6c_2'] = new \Swift_Transport_Esmtp_Auth_LoginAuthenticator();
+        return $this->services['52d3954645e3062942d230cc1c36ac7866133718dfa07ade4028db36d0be4cf4_2'] = new \Swift_Transport_Esmtp_Auth_LoginAuthenticator();
     }
 
     /**
-     * Gets the '264d0402821e81c2d590490d26fe5348a93b799c061b9cca1cb609c1d1518d6c_3' service.
+     * Gets the '52d3954645e3062942d230cc1c36ac7866133718dfa07ade4028db36d0be4cf4_3' service.
      *
      * This service is shared.
      * This method always returns the same instance of the service.
      *
      * @return Swift_Transport_Esmtp_Auth_PlainAuthenticator A Swift_Transport_Esmtp_Auth_PlainAuthenticator instance.
      */
-    protected function get264d0402821e81c2d590490d26fe5348a93b799c061b9cca1cb609c1d1518d6c3Service()
+    protected function get52d3954645e3062942d230cc1c36ac7866133718dfa07ade4028db36d0be4cf43Service()
     {
-        return $this->services['264d0402821e81c2d590490d26fe5348a93b799c061b9cca1cb609c1d1518d6c_3'] = new \Swift_Transport_Esmtp_Auth_PlainAuthenticator();
+        return $this->services['52d3954645e3062942d230cc1c36ac7866133718dfa07ade4028db36d0be4cf4_3'] = new \Swift_Transport_Esmtp_Auth_PlainAuthenticator();
     }
 
     /**
-     * Gets the '77d31024060deaf1804fc496af35861b23b69401982ae2f940abe8d619254a16_1' service.
+     * Gets the 'aa1015ba25f8748ba46c410d9e9470edee8e3412ae439bb2768f354b51e1db47_1' service.
      *
      * This service is shared.
      * This method always returns the same instance of the service.
      *
      * @return Symfony\Component\Form\ResolvedFormTypeFactory A Symfony\Component\Form\ResolvedFormTypeFactory instance.
      */
-    protected function get77d31024060deaf1804fc496af35861b23b69401982ae2f940abe8d619254a161Service()
+    protected function getAa1015ba25f8748ba46c410d9e9470edee8e3412ae439bb2768f354b51e1db471Service()
     {
-        return $this->services['77d31024060deaf1804fc496af35861b23b69401982ae2f940abe8d619254a16_1'] = new \Symfony\Component\Form\ResolvedFormTypeFactory();
+        return $this->services['aa1015ba25f8748ba46c410d9e9470edee8e3412ae439bb2768f354b51e1db47_1'] = new \Symfony\Component\Form\ResolvedFormTypeFactory();
     }
 
     /**
@@ -325,7 +350,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getAnnotationReaderService()
     {
-        return $this->services['annotation_reader'] = new \Doctrine\Common\Annotations\FileCacheReader(new \Doctrine\Common\Annotations\AnnotationReader(), 'C:/WebData/News/app/cache/dev/annotations', true);
+        return $this->services['annotation_reader'] = new \Doctrine\Common\Annotations\FileCacheReader(new \Doctrine\Common\Annotations\AnnotationReader(), 'D:/webdata/News/app/cache/dev/annotations', true);
     }
 
     /**
@@ -338,9 +363,12 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getAssetic_AssetManagerService()
     {
-        $this->services['assetic.asset_manager'] = $instance = new \Assetic\Factory\LazyAssetManager($this->get('assetic.asset_factory'), array('twig' => new \Assetic\Factory\Loader\CachedFormulaLoader(new \Assetic\Extension\Twig\TwigFormulaLoader($this->get('twig')), new \Assetic\Cache\ConfigCache('C:/WebData/News/app/cache/dev/assetic/config'), true)));
+        $a = $this->get('templating.loader');
 
-        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($this->get('templating.loader'), '', 'C:/WebData/News/app/Resources/views', '/\\.[^.]+\\.twig$/'), 'twig');
+        $this->services['assetic.asset_manager'] = $instance = new \Assetic\Factory\LazyAssetManager($this->get('assetic.asset_factory'), array('twig' => new \Assetic\Factory\Loader\CachedFormulaLoader(new \Assetic\Extension\Twig\TwigFormulaLoader($this->get('twig')), new \Assetic\Cache\ConfigCache('D:/webdata/News/app/cache/dev/assetic/config'), true)));
+
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\CoalescingDirectoryResource(array(0 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'NewsBundle', 'D:/webdata/News/app/Resources/NewsBundle/views', '/\\.[^.]+\\.twig$/'), 1 => new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, 'NewsBundle', 'D:\\webdata\\News\\src\\ITR\\NewsBundle/Resources/views', '/\\.[^.]+\\.twig$/'))), 'twig');
+        $instance->addResource(new \Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource($a, '', 'D:/webdata/News/app/Resources/views', '/\\.[^.]+\\.twig$/'), 'twig');
 
         return $instance;
     }
@@ -426,7 +454,7 @@ class appDevDebugProjectContainer extends Container
         $a = $this->get('kernel');
         $b = $this->get('templating.filename_parser');
 
-        $c = new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder($a, $b, 'C:/WebData/News/app/Resources');
+        $c = new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplateFinder($a, $b, 'D:/webdata/News/app/Resources');
 
         return $this->services['cache_warmer'] = new \Symfony\Component\HttpKernel\CacheWarmer\CacheWarmerAggregate(array(0 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\TemplatePathsCacheWarmer($c, $this->get('templating.locator')), 1 => new \Symfony\Bundle\AsseticBundle\CacheWarmer\AssetManagerCacheWarmer($this), 2 => new \Symfony\Bundle\FrameworkBundle\CacheWarmer\RouterCacheWarmer($this->get('router')), 3 => new \Symfony\Bundle\TwigBundle\CacheWarmer\TemplateCacheCacheWarmer($this, $c), 4 => new \Symfony\Bridge\Doctrine\CacheWarmer\ProxyCacheWarmer($this->get('doctrine'))));
     }
@@ -547,10 +575,17 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['debug.event_dispatcher'] = $instance = new \Symfony\Component\HttpKernel\Debug\TraceableEventDispatcher(new \Symfony\Component\EventDispatcher\ContainerAwareEventDispatcher($this), $this->get('debug.stopwatch'), $this->get('monolog.logger.event', ContainerInterface::NULL_ON_INVALID_REFERENCE));
 
+        $instance->addListenerService('knp_pager.before', array(0 => 'knp_paginator.subscriber.paginate', 1 => 'before'), 0);
+        $instance->addListenerService('knp_pager.pagination', array(0 => 'knp_paginator.subscriber.paginate', 1 => 'pagination'), 0);
+        $instance->addListenerService('knp_pager.before', array(0 => 'knp_paginator.subscriber.sortable', 1 => 'before'), 1);
+        $instance->addListenerService('knp_pager.before', array(0 => 'knp_paginator.subscriber.filtration', 1 => 'before'), 1);
+        $instance->addListenerService('knp_pager.pagination', array(0 => 'knp_paginator.subscriber.sliding_pagination', 1 => 'pagination'), 1);
         $instance->addListenerService('kernel.controller', array(0 => 'data_collector.router', 1 => 'onKernelController'), 0);
         $instance->addListenerService('console.command', array(0 => 'monolog.handler.console', 1 => 'onCommand'), 255);
         $instance->addListenerService('console.terminate', array(0 => 'monolog.handler.console', 1 => 'onTerminate'), -255);
         $instance->addListenerService('kernel.request', array(0 => 'assetic.request_listener', 1 => 'onKernelRequest'), 0);
+        $instance->addListenerService('kernel.request', array(0 => 'knp_menu.listener.voters', 1 => 'onKernelRequest'), 0);
+        $instance->addListenerService('kernel.request', array(0 => 'knp_paginator.subscriber.sliding_pagination', 1 => 'onKernelRequest'), 0);
         $instance->addSubscriberService('response_listener', 'Symfony\\Component\\HttpKernel\\EventListener\\ResponseListener');
         $instance->addSubscriberService('streamed_response_listener', 'Symfony\\Component\\HttpKernel\\EventListener\\StreamedResponseListener');
         $instance->addSubscriberService('locale_listener', 'Symfony\\Component\\HttpKernel\\EventListener\\LocaleListener');
@@ -616,7 +651,7 @@ class appDevDebugProjectContainer extends Container
         $this->services['debug.templating.engine.php'] = $instance = new \Symfony\Bundle\FrameworkBundle\Templating\TimedPhpEngine($this->get('templating.name_parser'), $this, $this->get('templating.loader'), $this->get('debug.stopwatch'), $this->get('templating.globals'));
 
         $instance->setCharset('UTF-8');
-        $instance->setHelpers(array('slots' => 'templating.helper.slots', 'assets' => 'templating.helper.assets', 'request' => 'templating.helper.request', 'session' => 'templating.helper.session', 'router' => 'templating.helper.router', 'actions' => 'templating.helper.actions', 'code' => 'templating.helper.code', 'translator' => 'templating.helper.translator', 'form' => 'templating.helper.form', 'stopwatch' => 'templating.helper.stopwatch', 'logout_url' => 'templating.helper.logout_url', 'security' => 'templating.helper.security', 'assetic' => 'assetic.helper.dynamic'));
+        $instance->setHelpers(array('slots' => 'templating.helper.slots', 'assets' => 'templating.helper.assets', 'request' => 'templating.helper.request', 'session' => 'templating.helper.session', 'router' => 'templating.helper.router', 'actions' => 'templating.helper.actions', 'code' => 'templating.helper.code', 'translator' => 'templating.helper.translator', 'form' => 'templating.helper.form', 'stopwatch' => 'templating.helper.stopwatch', 'logout_url' => 'templating.helper.logout_url', 'security' => 'templating.helper.security', 'assetic' => 'assetic.helper.dynamic', 'knp_menu' => 'knp_menu.templating.helper', 'knp_pagination' => 'knp_paginator.templating.helper.pagination'));
 
         return $instance;
     }
@@ -678,27 +713,28 @@ class appDevDebugProjectContainer extends Container
     protected function getDoctrine_Orm_DefaultEntityManagerService()
     {
         $a = new \Doctrine\Common\Cache\ArrayCache();
-        $a->setNamespace('sf2orm_default_c273749ba03c8cd2b478cc74f75e00aa13fde8e7315100328dfaf18577ef445d');
+        $a->setNamespace('sf2orm_default_8984d8653f567aa0a66af6270d928f925aa43cfc8474503ed470fe6bda4362d0');
 
         $b = new \Doctrine\Common\Cache\ArrayCache();
-        $b->setNamespace('sf2orm_default_c273749ba03c8cd2b478cc74f75e00aa13fde8e7315100328dfaf18577ef445d');
+        $b->setNamespace('sf2orm_default_8984d8653f567aa0a66af6270d928f925aa43cfc8474503ed470fe6bda4362d0');
 
         $c = new \Doctrine\Common\Cache\ArrayCache();
-        $c->setNamespace('sf2orm_default_c273749ba03c8cd2b478cc74f75e00aa13fde8e7315100328dfaf18577ef445d');
+        $c->setNamespace('sf2orm_default_8984d8653f567aa0a66af6270d928f925aa43cfc8474503ed470fe6bda4362d0');
 
-        $d = new \Doctrine\ORM\Mapping\Driver\SimplifiedYamlDriver(array('C:\\WebData\\News\\src\\ITR\\NewsBundle\\Resources\\config\\doctrine' => 'ITR\\NewsBundle\\Entity'));
+        $d = new \Doctrine\ORM\Mapping\Driver\SimplifiedYamlDriver(array('D:\\webdata\\News\\src\\ITR\\NewsBundle\\Resources\\config\\doctrine' => 'ITR\\NewsBundle\\Entity', 'D:\\webdata\\News\\src\\ITR\\CatalogBundle\\Resources\\config\\doctrine' => 'ITR\\CatalogBundle\\Entity'));
         $d->setGlobalBasename('mapping');
 
         $e = new \Doctrine\ORM\Mapping\Driver\DriverChain();
         $e->addDriver($d, 'ITR\\NewsBundle\\Entity');
+        $e->addDriver($d, 'ITR\\CatalogBundle\\Entity');
 
         $f = new \Doctrine\ORM\Configuration();
-        $f->setEntityNamespaces(array('NewsBundle' => 'ITR\\NewsBundle\\Entity'));
+        $f->setEntityNamespaces(array('NewsBundle' => 'ITR\\NewsBundle\\Entity', 'CatalogBundle' => 'ITR\\CatalogBundle\\Entity'));
         $f->setMetadataCacheImpl($a);
         $f->setQueryCacheImpl($b);
         $f->setResultCacheImpl($c);
         $f->setMetadataDriverImpl($e);
-        $f->setProxyDir('C:/WebData/News/app/cache/dev/doctrine/orm/Proxies');
+        $f->setProxyDir('D:/webdata/News/app/cache/dev/doctrine/orm/Proxies');
         $f->setProxyNamespace('Proxies');
         $f->setAutoGenerateProxyClasses(true);
         $f->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
@@ -761,7 +797,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getFileLocatorService()
     {
-        return $this->services['file_locator'] = new \Symfony\Component\HttpKernel\Config\FileLocator($this->get('kernel'), 'C:/WebData/News/app/Resources');
+        return $this->services['file_locator'] = new \Symfony\Component\HttpKernel\Config\FileLocator($this->get('kernel'), 'D:/webdata/News/app/Resources');
     }
 
     /**
@@ -826,7 +862,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getForm_ResolvedTypeFactoryService()
     {
-        return $this->services['form.resolved_type_factory'] = new \Symfony\Component\Form\Extension\DataCollector\Proxy\ResolvedTypeFactoryDataCollectorProxy($this->get('77d31024060deaf1804fc496af35861b23b69401982ae2f940abe8d619254a16_1'), $this->get('data_collector.form'));
+        return $this->services['form.resolved_type_factory'] = new \Symfony\Component\Form\Extension\DataCollector\Proxy\ResolvedTypeFactoryDataCollectorProxy($this->get('aa1015ba25f8748ba46c410d9e9470edee8e3412ae439bb2768f354b51e1db47_1'), $this->get('data_collector.form'));
     }
 
     /**
@@ -1433,6 +1469,51 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'itr.news.menu.voter.request' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return ITR\NewsBundle\Menu\RequestVoter A ITR\NewsBundle\Menu\RequestVoter instance.
+     */
+    protected function getItr_News_Menu_Voter_RequestService()
+    {
+        return $this->services['itr.news.menu.voter.request'] = new \ITR\NewsBundle\Menu\RequestVoter($this);
+    }
+
+    /**
+     * Gets the 'itr_news.menu.main' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Knp\Menu\MenuItem A Knp\Menu\MenuItem instance.
+     * 
+     * @throws InactiveScopeException when the 'itr_news.menu.main' service is requested while the 'request' scope is not active
+     */
+    protected function getItrNews_Menu_MainService()
+    {
+        if (!isset($this->scopedServices['request'])) {
+            throw new InactiveScopeException('itr_news.menu.main', 'request');
+        }
+
+        return $this->services['itr_news.menu.main'] = $this->scopedServices['request']['itr_news.menu.main'] = $this->get('itr_news.menu_builder')->createMainMenu();
+    }
+
+    /**
+     * Gets the 'itr_news.menu_builder' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return ITR\NewsBundle\Menu\Builder A ITR\NewsBundle\Menu\Builder instance.
+     */
+    protected function getItrNews_MenuBuilderService()
+    {
+        return $this->services['itr_news.menu_builder'] = new \ITR\NewsBundle\Menu\Builder($this->get('knp_menu.factory'));
+    }
+
+    /**
      * Gets the 'kernel' service.
      *
      * This service is shared.
@@ -1443,6 +1524,244 @@ class appDevDebugProjectContainer extends Container
     protected function getKernelService()
     {
         throw new RuntimeException('You have requested a synthetic service ("kernel"). The DIC does not know how to construct this service.');
+    }
+
+    /**
+     * Gets the 'knp_menu.factory' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Knp\Menu\MenuFactory A Knp\Menu\MenuFactory instance.
+     */
+    protected function getKnpMenu_FactoryService()
+    {
+        $this->services['knp_menu.factory'] = $instance = new \Knp\Menu\MenuFactory();
+
+        $instance->addExtension(new \Knp\Menu\Integration\Symfony\RoutingExtension($this->get('router')), 0);
+
+        return $instance;
+    }
+
+    /**
+     * Gets the 'knp_menu.listener.voters' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Knp\Bundle\MenuBundle\EventListener\VoterInitializerListener A Knp\Bundle\MenuBundle\EventListener\VoterInitializerListener instance.
+     */
+    protected function getKnpMenu_Listener_VotersService()
+    {
+        $this->services['knp_menu.listener.voters'] = $instance = new \Knp\Bundle\MenuBundle\EventListener\VoterInitializerListener();
+
+        $instance->addVoter($this->get('knp_menu.voter.router'));
+
+        return $instance;
+    }
+
+    /**
+     * Gets the 'knp_menu.matcher' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Knp\Menu\Matcher\Matcher A Knp\Menu\Matcher\Matcher instance.
+     */
+    protected function getKnpMenu_MatcherService()
+    {
+        $this->services['knp_menu.matcher'] = $instance = new \Knp\Menu\Matcher\Matcher();
+
+        $instance->addVoter($this->get('itr.news.menu.voter.request'));
+        $instance->addVoter($this->get('knp_menu.voter.router'));
+
+        return $instance;
+    }
+
+    /**
+     * Gets the 'knp_menu.menu_provider' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Knp\Menu\Provider\ChainProvider A Knp\Menu\Provider\ChainProvider instance.
+     */
+    protected function getKnpMenu_MenuProviderService()
+    {
+        return $this->services['knp_menu.menu_provider'] = new \Knp\Menu\Provider\ChainProvider(array(0 => new \Knp\Bundle\MenuBundle\Provider\ContainerAwareProvider($this, array('main' => 'itr_news.menu.main')), 1 => new \Knp\Bundle\MenuBundle\Provider\BuilderAliasProvider($this->get('kernel'), $this, $this->get('knp_menu.factory'))));
+    }
+
+    /**
+     * Gets the 'knp_menu.renderer.list' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Knp\Menu\Renderer\ListRenderer A Knp\Menu\Renderer\ListRenderer instance.
+     */
+    protected function getKnpMenu_Renderer_ListService()
+    {
+        return $this->services['knp_menu.renderer.list'] = new \Knp\Menu\Renderer\ListRenderer($this->get('knp_menu.matcher'), array(), 'UTF-8');
+    }
+
+    /**
+     * Gets the 'knp_menu.renderer.twig' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Knp\Menu\Renderer\TwigRenderer A Knp\Menu\Renderer\TwigRenderer instance.
+     */
+    protected function getKnpMenu_Renderer_TwigService()
+    {
+        return $this->services['knp_menu.renderer.twig'] = new \Knp\Menu\Renderer\TwigRenderer($this->get('twig'), 'knp_menu.html.twig', $this->get('knp_menu.matcher'), array());
+    }
+
+    /**
+     * Gets the 'knp_menu.renderer_provider' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Knp\Bundle\MenuBundle\Renderer\ContainerAwareProvider A Knp\Bundle\MenuBundle\Renderer\ContainerAwareProvider instance.
+     */
+    protected function getKnpMenu_RendererProviderService()
+    {
+        return $this->services['knp_menu.renderer_provider'] = new \Knp\Bundle\MenuBundle\Renderer\ContainerAwareProvider($this, 'twig', array('list' => 'knp_menu.renderer.list', 'twig' => 'knp_menu.renderer.twig'));
+    }
+
+    /**
+     * Gets the 'knp_menu.templating.helper' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Knp\Bundle\MenuBundle\Templating\Helper\MenuHelper A Knp\Bundle\MenuBundle\Templating\Helper\MenuHelper instance.
+     */
+    protected function getKnpMenu_Templating_HelperService()
+    {
+        return $this->services['knp_menu.templating.helper'] = new \Knp\Bundle\MenuBundle\Templating\Helper\MenuHelper($this->get('knp_menu.helper'));
+    }
+
+    /**
+     * Gets the 'knp_menu.voter.router' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Knp\Menu\Matcher\Voter\RouteVoter A Knp\Menu\Matcher\Voter\RouteVoter instance.
+     */
+    protected function getKnpMenu_Voter_RouterService()
+    {
+        return $this->services['knp_menu.voter.router'] = new \Knp\Menu\Matcher\Voter\RouteVoter();
+    }
+
+    /**
+     * Gets the 'knp_paginator' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Knp\Component\Pager\Paginator A Knp\Component\Pager\Paginator instance.
+     */
+    protected function getKnpPaginatorService()
+    {
+        $this->services['knp_paginator'] = $instance = new \Knp\Component\Pager\Paginator($this->get('debug.event_dispatcher'));
+
+        $instance->setDefaultPaginatorOptions(array('pageParameterName' => 'page', 'sortFieldParameterName' => 'sort', 'sortDirectionParameterName' => 'direction', 'filterFieldParameterName' => 'filterField', 'filterValueParameterName' => 'filterValue', 'distinct' => true));
+
+        return $instance;
+    }
+
+    /**
+     * Gets the 'knp_paginator.helper.processor' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Knp\Bundle\PaginatorBundle\Helper\Processor A Knp\Bundle\PaginatorBundle\Helper\Processor instance.
+     */
+    protected function getKnpPaginator_Helper_ProcessorService()
+    {
+        return $this->services['knp_paginator.helper.processor'] = new \Knp\Bundle\PaginatorBundle\Helper\Processor($this->get('templating.helper.router'), $this->get('translator.default'));
+    }
+
+    /**
+     * Gets the 'knp_paginator.subscriber.filtration' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Knp\Component\Pager\Event\Subscriber\Filtration\FiltrationSubscriber A Knp\Component\Pager\Event\Subscriber\Filtration\FiltrationSubscriber instance.
+     */
+    protected function getKnpPaginator_Subscriber_FiltrationService()
+    {
+        return $this->services['knp_paginator.subscriber.filtration'] = new \Knp\Component\Pager\Event\Subscriber\Filtration\FiltrationSubscriber();
+    }
+
+    /**
+     * Gets the 'knp_paginator.subscriber.paginate' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Knp\Component\Pager\Event\Subscriber\Paginate\PaginationSubscriber A Knp\Component\Pager\Event\Subscriber\Paginate\PaginationSubscriber instance.
+     */
+    protected function getKnpPaginator_Subscriber_PaginateService()
+    {
+        return $this->services['knp_paginator.subscriber.paginate'] = new \Knp\Component\Pager\Event\Subscriber\Paginate\PaginationSubscriber();
+    }
+
+    /**
+     * Gets the 'knp_paginator.subscriber.sliding_pagination' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Knp\Bundle\PaginatorBundle\Subscriber\SlidingPaginationSubscriber A Knp\Bundle\PaginatorBundle\Subscriber\SlidingPaginationSubscriber instance.
+     */
+    protected function getKnpPaginator_Subscriber_SlidingPaginationService()
+    {
+        return $this->services['knp_paginator.subscriber.sliding_pagination'] = new \Knp\Bundle\PaginatorBundle\Subscriber\SlidingPaginationSubscriber(array('defaultPaginationTemplate' => 'KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig', 'defaultSortableTemplate' => 'KnpPaginatorBundle:Pagination:sortable_link.html.twig', 'defaultFiltrationTemplate' => 'KnpPaginatorBundle:Pagination:filtration.html.twig', 'defaultPageRange' => 5));
+    }
+
+    /**
+     * Gets the 'knp_paginator.subscriber.sortable' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Knp\Component\Pager\Event\Subscriber\Sortable\SortableSubscriber A Knp\Component\Pager\Event\Subscriber\Sortable\SortableSubscriber instance.
+     */
+    protected function getKnpPaginator_Subscriber_SortableService()
+    {
+        return $this->services['knp_paginator.subscriber.sortable'] = new \Knp\Component\Pager\Event\Subscriber\Sortable\SortableSubscriber();
+    }
+
+    /**
+     * Gets the 'knp_paginator.templating.helper.pagination' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Knp\Bundle\PaginatorBundle\Templating\PaginationHelper A Knp\Bundle\PaginatorBundle\Templating\PaginationHelper instance.
+     */
+    protected function getKnpPaginator_Templating_Helper_PaginationService()
+    {
+        return $this->services['knp_paginator.templating.helper.pagination'] = new \Knp\Bundle\PaginatorBundle\Templating\PaginationHelper($this->get('knp_paginator.helper.processor'), $this->get('debug.templating.engine.php'));
+    }
+
+    /**
+     * Gets the 'knp_paginator.twig.extension.pagination' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension A Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension instance.
+     */
+    protected function getKnpPaginator_Twig_Extension_PaginationService()
+    {
+        return $this->services['knp_paginator.twig.extension.pagination'] = new \Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension($this->get('knp_paginator.helper.processor'));
     }
 
     /**
@@ -1513,7 +1832,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getMonolog_Handler_MainService()
     {
-        return $this->services['monolog.handler.main'] = new \Monolog\Handler\StreamHandler('C:/WebData/News/app/logs/dev.log', 100, true);
+        return $this->services['monolog.handler.main'] = new \Monolog\Handler\StreamHandler('D:/webdata/News/app/logs/dev.log', 100, true);
     }
 
     /**
@@ -1727,7 +2046,7 @@ class appDevDebugProjectContainer extends Container
         $d = new \Doctrine\Bundle\DoctrineBundle\DataCollector\DoctrineDataCollector($this->get('doctrine'));
         $d->addLogger('default', $this->get('doctrine.dbal.logger.profiling.default'));
 
-        $this->services['profiler'] = $instance = new \Symfony\Component\HttpKernel\Profiler\Profiler(new \Symfony\Component\HttpKernel\Profiler\FileProfilerStorage('file:C:/WebData/News/app/cache/dev/profiler', '', '', 86400), $a);
+        $this->services['profiler'] = $instance = new \Symfony\Component\HttpKernel\Profiler\Profiler(new \Symfony\Component\HttpKernel\Profiler\FileProfilerStorage('file:D:/webdata/News/app/cache/dev/profiler', '', '', 86400), $a);
 
         $instance->add($c);
         $instance->add($this->get('data_collector.request'));
@@ -1825,7 +2144,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getRouterService()
     {
-        return $this->services['router'] = new \Symfony\Bundle\FrameworkBundle\Routing\Router($this, 'C:/WebData/News/app/cache/dev/assetic/routing.yml', array('cache_dir' => 'C:/WebData/News/app/cache/dev', 'debug' => true, 'generator_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_base_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_dumper_class' => 'Symfony\\Component\\Routing\\Generator\\Dumper\\PhpGeneratorDumper', 'generator_cache_class' => 'appDevUrlGenerator', 'matcher_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_base_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_dumper_class' => 'Symfony\\Component\\Routing\\Matcher\\Dumper\\PhpMatcherDumper', 'matcher_cache_class' => 'appDevUrlMatcher', 'strict_requirements' => true), $this->get('router.request_context', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('monolog.logger.router', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        return $this->services['router'] = new \Symfony\Bundle\FrameworkBundle\Routing\Router($this, 'D:/webdata/News/app/cache/dev/assetic/routing.yml', array('cache_dir' => 'D:/webdata/News/app/cache/dev', 'debug' => true, 'generator_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_base_class' => 'Symfony\\Component\\Routing\\Generator\\UrlGenerator', 'generator_dumper_class' => 'Symfony\\Component\\Routing\\Generator\\Dumper\\PhpGeneratorDumper', 'generator_cache_class' => 'appDevUrlGenerator', 'matcher_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_base_class' => 'Symfony\\Bundle\\FrameworkBundle\\Routing\\RedirectableUrlMatcher', 'matcher_dumper_class' => 'Symfony\\Component\\Routing\\Matcher\\Dumper\\PhpMatcherDumper', 'matcher_cache_class' => 'appDevUrlMatcher', 'strict_requirements' => true), $this->get('router.request_context', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('monolog.logger.router', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
     /**
@@ -1904,7 +2223,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_EncoderFactoryService()
     {
-        return $this->services['security.encoder_factory'] = new \Symfony\Component\Security\Core\Encoder\EncoderFactory(array('Symfony\\Component\\Security\\Core\\User\\User' => array('class' => 'Symfony\\Component\\Security\\Core\\Encoder\\PlaintextPasswordEncoder', 'arguments' => array(0 => false)), 'ITR\\NewsBundle\\Entity\\User' => array('class' => 'Symfony\\Component\\Security\\Core\\Encoder\\PlaintextPasswordEncoder', 'arguments' => array(0 => false))));
+        return $this->services['security.encoder_factory'] = new \Symfony\Component\Security\Core\Encoder\EncoderFactory(array('Symfony\\Component\\Security\\Core\\User\\User' => array('class' => 'Symfony\\Component\\Security\\Core\\Encoder\\PlaintextPasswordEncoder', 'arguments' => array(0 => false)), 'ITR\\NewsBundle\\Entity\\User' => array('class' => 'Symfony\\Component\\Security\\Core\\Encoder\\MessageDigestPasswordEncoder', 'arguments' => array(0 => 'sha1', 1 => true, 2 => 5000))));
     }
 
     /**
@@ -1917,7 +2236,20 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_FirewallService()
     {
-        return $this->services['security.firewall'] = new \Symfony\Component\Security\Http\Firewall(new \Symfony\Bundle\SecurityBundle\Security\FirewallMap($this, array('security.firewall.map.context.secured_area' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/'))), $this->get('debug.event_dispatcher'));
+        return $this->services['security.firewall'] = new \Symfony\Component\Security\Http\Firewall(new \Symfony\Bundle\SecurityBundle\Security\FirewallMap($this, array('security.firewall.map.context.secured_area' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/'), 'security.firewall.map.context.dev' => new \Symfony\Component\HttpFoundation\RequestMatcher('^/(_(profiler|wdt)|css|images|js)/'))), $this->get('debug.event_dispatcher'));
+    }
+
+    /**
+     * Gets the 'security.firewall.map.context.dev' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Symfony\Bundle\SecurityBundle\Security\FirewallContext A Symfony\Bundle\SecurityBundle\Security\FirewallContext instance.
+     */
+    protected function getSecurity_Firewall_Map_Context_DevService()
+    {
+        return $this->services['security.firewall.map.context.dev'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(), NULL);
     }
 
     /**
@@ -1939,33 +2271,42 @@ class appDevDebugProjectContainer extends Container
 
         $g = new \Symfony\Component\HttpFoundation\RequestMatcher('^/login');
 
-        $h = new \Symfony\Component\HttpFoundation\RequestMatcher('^/news');
+        $h = new \Symfony\Component\HttpFoundation\RequestMatcher('^/registration');
 
-        $i = new \Symfony\Component\HttpFoundation\RequestMatcher('^/user');
+        $i = new \Symfony\Component\HttpFoundation\RequestMatcher('^/passwordrecovery');
 
-        $j = new \Symfony\Component\HttpFoundation\RequestMatcher('^/category');
+        $j = new \Symfony\Component\HttpFoundation\RequestMatcher('^/updatepassword');
 
-        $k = new \Symfony\Component\HttpFoundation\RequestMatcher('^/dispatch');
+        $k = new \Symfony\Component\HttpFoundation\RequestMatcher('^/mainpage/');
 
-        $l = new \Symfony\Component\HttpFoundation\RequestMatcher('^/');
+        $l = new \Symfony\Component\HttpFoundation\RequestMatcher('^/admin');
 
-        $m = new \Symfony\Component\Security\Http\AccessMap();
-        $m->add($g, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
-        $m->add($h, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
-        $m->add($i, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
-        $m->add($j, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
-        $m->add($k, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
-        $m->add($l, array(0 => 'ROLE_ADMIN'), NULL);
+        $m = new \Symfony\Component\HttpFoundation\RequestMatcher('^/admin/news');
 
-        $n = new \Symfony\Component\Security\Http\HttpUtils($d, $d);
+        $n = new \Symfony\Component\HttpFoundation\RequestMatcher('^/admin/category');
 
-        $o = new \Symfony\Component\Security\Http\Firewall\LogoutListener($b, $n, new \Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler($n, '/'), array('csrf_parameter' => '_csrf_token', 'intention' => 'logout', 'logout_path' => '/logout'));
-        $o->addHandler(new \Symfony\Component\Security\Http\Logout\SessionLogoutHandler());
+        $o = new \Symfony\Component\HttpFoundation\RequestMatcher('^/admin/user');
 
-        $p = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler($n, array('login_path' => '/login', 'always_use_default_target_path' => false, 'default_target_path' => '/', 'target_path_parameter' => '_target_path', 'use_referer' => false));
-        $p->setProviderKey('secured_area');
+        $p = new \Symfony\Component\Security\Http\AccessMap();
+        $p->add($g, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
+        $p->add($h, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
+        $p->add($i, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
+        $p->add($j, array(0 => 'IS_AUTHENTICATED_ANONYMOUSLY'), NULL);
+        $p->add($k, array(0 => 'ROLE_USER'), NULL);
+        $p->add($l, array(0 => 'ROLE_MANAGER'), NULL);
+        $p->add($m, array(0 => 'ROLE_MANAGER'), NULL);
+        $p->add($n, array(0 => 'ROLE_MANAGER'), NULL);
+        $p->add($o, array(0 => 'ROLE_MANAGER'), NULL);
 
-        return $this->services['security.firewall.map.context.secured_area'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($m, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('security.user.provider.concrete.main')), 'secured_area', $a, $c), 2 => $o, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $f, new \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy('migrate'), $n, 'secured_area', $p, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($e, $n, array('login_path' => '/login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $a), array('check_path' => '/login_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $c, NULL), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '53daa75329a6e', $a), 5 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $m, $f)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $n, 'secured_area', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($e, $n, '/login', false), NULL, NULL, $a));
+        $q = new \Symfony\Component\Security\Http\HttpUtils($d, $d);
+
+        $r = new \Symfony\Component\Security\Http\Firewall\LogoutListener($b, $q, new \Symfony\Component\Security\Http\Logout\DefaultLogoutSuccessHandler($q, '/'), array('csrf_parameter' => '_csrf_token', 'intention' => 'logout', 'logout_path' => '/logout'));
+        $r->addHandler(new \Symfony\Component\Security\Http\Logout\SessionLogoutHandler());
+
+        $s = new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationSuccessHandler($q, array('login_path' => '/login', 'always_use_default_target_path' => false, 'default_target_path' => '/', 'target_path_parameter' => '_target_path', 'use_referer' => false));
+        $s->setProviderKey('secured_area');
+
+        return $this->services['security.firewall.map.context.secured_area'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($p, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => $this->get('security.user.provider.concrete.main')), 'secured_area', $a, $c), 2 => $r, 3 => new \Symfony\Component\Security\Http\Firewall\UsernamePasswordFormAuthenticationListener($b, $f, new \Symfony\Component\Security\Http\Session\SessionAuthenticationStrategy('migrate'), $q, 'secured_area', $s, new \Symfony\Component\Security\Http\Authentication\DefaultAuthenticationFailureHandler($e, $q, array('login_path' => '/login', 'failure_path' => NULL, 'failure_forward' => false, 'failure_path_parameter' => '_failure_path'), $a), array('check_path' => '/login_check', 'use_forward' => false, 'require_previous_session' => true, 'username_parameter' => '_username', 'password_parameter' => '_password', 'csrf_parameter' => '_csrf_token', 'intention' => 'authenticate', 'post_only' => true), $a, $c, NULL), 4 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '543e8446a011c', $a), 5 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $p, $f)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), $q, 'secured_area', new \Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint($e, $q, '/login', false), NULL, NULL, $a));
     }
 
     /**
@@ -1991,7 +2332,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_SecureRandomService()
     {
-        return $this->services['security.secure_random'] = new \Symfony\Component\Security\Core\Util\SecureRandom('C:/WebData/News/app/cache/dev/secure_random.seed', $this->get('monolog.logger.security', ContainerInterface::NULL_ON_INVALID_REFERENCE));
+        return $this->services['security.secure_random'] = new \Symfony\Component\Security\Core\Util\SecureRandom('D:/webdata/News/app/cache/dev/secure_random.seed', $this->get('monolog.logger.security', ContainerInterface::NULL_ON_INVALID_REFERENCE));
     }
 
     /**
@@ -2008,6 +2349,32 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'sensio_distribution.security_checker' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return SensioLabs\Security\SecurityChecker A SensioLabs\Security\SecurityChecker instance.
+     */
+    protected function getSensioDistribution_SecurityCheckerService()
+    {
+        return $this->services['sensio_distribution.security_checker'] = new \SensioLabs\Security\SecurityChecker();
+    }
+
+    /**
+     * Gets the 'sensio_distribution.security_checker.command' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return SensioLabs\Security\Command\SecurityCheckerCommand A SensioLabs\Security\Command\SecurityCheckerCommand instance.
+     */
+    protected function getSensioDistribution_SecurityChecker_CommandService()
+    {
+        return $this->services['sensio_distribution.security_checker.command'] = new \SensioLabs\Security\Command\SecurityCheckerCommand($this->get('sensio_distribution.security_checker'));
+    }
+
+    /**
      * Gets the 'sensio_distribution.webconfigurator' service.
      *
      * This service is shared.
@@ -2017,7 +2384,12 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSensioDistribution_WebconfiguratorService()
     {
-        return $this->services['sensio_distribution.webconfigurator'] = new \Sensio\Bundle\DistributionBundle\Configurator\Configurator('C:/WebData/News/app');
+        $this->services['sensio_distribution.webconfigurator'] = $instance = new \Sensio\Bundle\DistributionBundle\Configurator\Configurator('D:/webdata/News/app');
+
+        $instance->addStep(new \Sensio\Bundle\DistributionBundle\Configurator\Step\DoctrineStep(), 10);
+        $instance->addStep(new \Sensio\Bundle\DistributionBundle\Configurator\Step\SecretStep(), 0);
+
+        return $instance;
     }
 
     /**
@@ -2178,7 +2550,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSession_Storage_FilesystemService()
     {
-        return $this->services['session.storage.filesystem'] = new \Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage('C:/WebData/News/app/cache/dev/sessions', 'MOCKSESSID', $this->get('session.storage.metadata_bag'));
+        return $this->services['session.storage.filesystem'] = new \Symfony\Component\HttpFoundation\Session\Storage\MockFileSessionStorage('D:/webdata/News/app/cache/dev/sessions', 'MOCKSESSID', $this->get('session.storage.metadata_bag'));
     }
 
     /**
@@ -2312,16 +2684,16 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSwiftmailer_Mailer_Default_Transport_RealService()
     {
-        $a = new \Swift_Transport_Esmtp_AuthHandler(array(0 => $this->get('264d0402821e81c2d590490d26fe5348a93b799c061b9cca1cb609c1d1518d6c_1'), 1 => $this->get('264d0402821e81c2d590490d26fe5348a93b799c061b9cca1cb609c1d1518d6c_2'), 2 => $this->get('264d0402821e81c2d590490d26fe5348a93b799c061b9cca1cb609c1d1518d6c_3')));
-        $a->setUsername(NULL);
-        $a->setPassword(NULL);
-        $a->setAuthMode(NULL);
+        $a = new \Swift_Transport_Esmtp_AuthHandler(array(0 => $this->get('52d3954645e3062942d230cc1c36ac7866133718dfa07ade4028db36d0be4cf4_1'), 1 => $this->get('52d3954645e3062942d230cc1c36ac7866133718dfa07ade4028db36d0be4cf4_2'), 2 => $this->get('52d3954645e3062942d230cc1c36ac7866133718dfa07ade4028db36d0be4cf4_3')));
+        $a->setUsername('news.dispatcher.itr@gmail.com');
+        $a->setPassword('qwerty!@#$%^');
+        $a->setAuthMode('login');
 
         $this->services['swiftmailer.mailer.default.transport.real'] = $instance = new \Swift_Transport_EsmtpTransport(new \Swift_Transport_StreamBuffer(new \Swift_StreamFilters_StringReplacementFilterFactory()), array(0 => $a), $this->get('swiftmailer.mailer.default.transport.eventdispatcher'));
 
-        $instance->setHost('127.0.0.1');
-        $instance->setPort(25);
-        $instance->setEncryption(NULL);
+        $instance->setHost('smtp.gmail.com');
+        $instance->setPort(465);
+        $instance->setEncryption('ssl');
         $instance->setTimeout(30);
         $instance->setSourceIp(NULL);
 
@@ -2426,7 +2798,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getTemplating_Helper_CodeService()
     {
-        return $this->services['templating.helper.code'] = new \Symfony\Bundle\FrameworkBundle\Templating\Helper\CodeHelper(NULL, 'C:/WebData/News/app', 'UTF-8');
+        return $this->services['templating.helper.code'] = new \Symfony\Bundle\FrameworkBundle\Templating\Helper\CodeHelper(NULL, 'D:/webdata/News/app', 'UTF-8');
     }
 
     /**
@@ -2547,7 +2919,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getTemplating_Helper_TranslatorService()
     {
-        return $this->services['templating.helper.translator'] = new \Symfony\Bundle\FrameworkBundle\Templating\Helper\TranslatorHelper($this->get('translator'));
+        return $this->services['templating.helper.translator'] = new \Symfony\Bundle\FrameworkBundle\Templating\Helper\TranslatorHelper($this->get('translator.default'));
     }
 
     /**
@@ -2937,19 +3309,6 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
-     * Gets the 'translator' service.
-     *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * @return Symfony\Component\Translation\IdentityTranslator A Symfony\Component\Translation\IdentityTranslator instance.
-     */
-    protected function getTranslatorService()
-    {
-        return $this->services['translator'] = new \Symfony\Component\Translation\IdentityTranslator($this->get('translator.selector'));
-    }
-
-    /**
      * Gets the 'translator.default' service.
      *
      * This service is shared.
@@ -2959,7 +3318,129 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getTranslator_DefaultService()
     {
-        return $this->services['translator.default'] = new \Symfony\Bundle\FrameworkBundle\Translation\Translator($this, $this->get('translator.selector'), array('translation.loader.php' => array(0 => 'php'), 'translation.loader.yml' => array(0 => 'yml'), 'translation.loader.xliff' => array(0 => 'xlf', 1 => 'xliff'), 'translation.loader.po' => array(0 => 'po'), 'translation.loader.mo' => array(0 => 'mo'), 'translation.loader.qt' => array(0 => 'ts'), 'translation.loader.csv' => array(0 => 'csv'), 'translation.loader.res' => array(0 => 'res'), 'translation.loader.dat' => array(0 => 'dat'), 'translation.loader.ini' => array(0 => 'ini'), 'translation.loader.json' => array(0 => 'json')), array('cache_dir' => 'C:/WebData/News/app/cache/dev/translations', 'debug' => true));
+        $this->services['translator.default'] = $instance = new \Symfony\Bundle\FrameworkBundle\Translation\Translator($this, new \Symfony\Component\Translation\MessageSelector(), array('translation.loader.php' => array(0 => 'php'), 'translation.loader.yml' => array(0 => 'yml'), 'translation.loader.xliff' => array(0 => 'xlf', 1 => 'xliff'), 'translation.loader.po' => array(0 => 'po'), 'translation.loader.mo' => array(0 => 'mo'), 'translation.loader.qt' => array(0 => 'ts'), 'translation.loader.csv' => array(0 => 'csv'), 'translation.loader.res' => array(0 => 'res'), 'translation.loader.dat' => array(0 => 'dat'), 'translation.loader.ini' => array(0 => 'ini'), 'translation.loader.json' => array(0 => 'json')), array('cache_dir' => 'D:/webdata/News/app/cache/dev/translations', 'debug' => true));
+
+        $instance->setFallbackLocales(array(0 => 'en'));
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.af.xlf', 'af', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ar.xlf', 'ar', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.bg.xlf', 'bg', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ca.xlf', 'ca', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.cs.xlf', 'cs', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.cy.xlf', 'cy', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.da.xlf', 'da', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.de.xlf', 'de', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.el.xlf', 'el', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.en.xlf', 'en', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.es.xlf', 'es', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.et.xlf', 'et', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.eu.xlf', 'eu', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.fa.xlf', 'fa', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.fi.xlf', 'fi', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.fr.xlf', 'fr', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.gl.xlf', 'gl', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.he.xlf', 'he', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.hr.xlf', 'hr', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.hu.xlf', 'hu', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.hy.xlf', 'hy', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.id.xlf', 'id', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.it.xlf', 'it', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ja.xlf', 'ja', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.lb.xlf', 'lb', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.lt.xlf', 'lt', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.mn.xlf', 'mn', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.nb.xlf', 'nb', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.nl.xlf', 'nl', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.no.xlf', 'no', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.pl.xlf', 'pl', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.pt.xlf', 'pt', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.pt_BR.xlf', 'pt_BR', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ro.xlf', 'ro', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.ru.xlf', 'ru', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sk.xlf', 'sk', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sl.xlf', 'sl', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sq.xlf', 'sq', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sr_Cyrl.xlf', 'sr_Cyrl', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sr_Latn.xlf', 'sr_Latn', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.sv.xlf', 'sv', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.th.xlf', 'th', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.tr.xlf', 'tr', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.uk.xlf', 'uk', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.vi.xlf', 'vi', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.zh_CN.xlf', 'zh_CN', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Validator/Resources/translations\\validators.zh_TW.xlf', 'zh_TW', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ar.xlf', 'ar', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.bg.xlf', 'bg', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ca.xlf', 'ca', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.cs.xlf', 'cs', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.da.xlf', 'da', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.de.xlf', 'de', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.el.xlf', 'el', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.en.xlf', 'en', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.es.xlf', 'es', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.et.xlf', 'et', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.eu.xlf', 'eu', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.fa.xlf', 'fa', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.fi.xlf', 'fi', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.fr.xlf', 'fr', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.gl.xlf', 'gl', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.he.xlf', 'he', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.hr.xlf', 'hr', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.hu.xlf', 'hu', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.hy.xlf', 'hy', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.id.xlf', 'id', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.it.xlf', 'it', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ja.xlf', 'ja', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.lb.xlf', 'lb', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.lt.xlf', 'lt', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.lv.xlf', 'lv', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.mn.xlf', 'mn', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.nb.xlf', 'nb', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.nl.xlf', 'nl', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.pl.xlf', 'pl', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.pt.xlf', 'pt', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.pt_BR.xlf', 'pt_BR', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ro.xlf', 'ro', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.ru.xlf', 'ru', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sk.xlf', 'sk', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sl.xlf', 'sl', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sr_Cyrl.xlf', 'sr_Cyrl', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sr_Latn.xlf', 'sr_Latn', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.sv.xlf', 'sv', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.uk.xlf', 'uk', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/translations\\validators.zh_CN.xlf', 'zh_CN', 'validators');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.ar.xlf', 'ar', 'security');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.ca.xlf', 'ca', 'security');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.cs.xlf', 'cs', 'security');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.da.xlf', 'da', 'security');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.de.xlf', 'de', 'security');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.el.xlf', 'el', 'security');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.en.xlf', 'en', 'security');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.es.xlf', 'es', 'security');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.fa.xlf', 'fa', 'security');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.fr.xlf', 'fr', 'security');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.gl.xlf', 'gl', 'security');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.hu.xlf', 'hu', 'security');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.it.xlf', 'it', 'security');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.lb.xlf', 'lb', 'security');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.nl.xlf', 'nl', 'security');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.no.xlf', 'no', 'security');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.pl.xlf', 'pl', 'security');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.pt_BR.xlf', 'pt_BR', 'security');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.pt_PT.xlf', 'pt_PT', 'security');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.ro.xlf', 'ro', 'security');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.ru.xlf', 'ru', 'security');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.sk.xlf', 'sk', 'security');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.sl.xlf', 'sl', 'security');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.sr_Cyrl.xlf', 'sr_Cyrl', 'security');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.sr_Latn.xlf', 'sr_Latn', 'security');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.sv.xlf', 'sv', 'security');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.tr.xlf', 'tr', 'security');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Security\\Core\\Exception/../Resources/translations\\security.ua.xlf', 'ua', 'security');
+        $instance->addResource('yml', 'D:\\webdata\\News\\src\\ITR\\NewsBundle/Resources/translations\\messages.en.yml', 'en', 'messages');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\src\\ITR\\NewsBundle/Resources/translations\\messages.fr.xlf', 'fr', 'messages');
+        $instance->addResource('xlf', 'D:\\webdata\\News\\src\\ITR\\CatalogBundle/Resources/translations\\messages.fr.xlf', 'fr', 'messages');
+
+        return $instance;
     }
 
     /**
@@ -2972,14 +3453,14 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getTwigService()
     {
-        $this->services['twig'] = $instance = new \Twig_Environment($this->get('twig.loader'), array('debug' => true, 'strict_variables' => true, 'exception_controller' => 'twig.controller.exception:showAction', 'autoescape_service' => NULL, 'autoescape_service_method' => NULL, 'cache' => 'C:/WebData/News/app/cache/dev/twig', 'charset' => 'UTF-8', 'paths' => array()));
+        $this->services['twig'] = $instance = new \Twig_Environment($this->get('twig.loader'), array('debug' => true, 'strict_variables' => true, 'exception_controller' => 'twig.controller.exception:showAction', 'autoescape_service' => NULL, 'autoescape_service_method' => NULL, 'cache' => 'D:/webdata/News/app/cache/dev/twig', 'charset' => 'UTF-8', 'paths' => array()));
 
         $instance->addExtension(new \Symfony\Bundle\SecurityBundle\Twig\Extension\LogoutUrlExtension($this->get('templating.helper.logout_url')));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\SecurityExtension($this->get('security.context', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
-        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\TranslationExtension($this->get('translator')));
+        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\TranslationExtension($this->get('translator.default')));
         $instance->addExtension(new \Symfony\Bundle\TwigBundle\Extension\AssetsExtension($this, $this->get('router.request_context')));
         $instance->addExtension(new \Symfony\Bundle\TwigBundle\Extension\ActionsExtension($this));
-        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\CodeExtension(NULL, 'C:/WebData/News/app', 'UTF-8'));
+        $instance->addExtension(new \Symfony\Bridge\Twig\Extension\CodeExtension(NULL, 'D:/webdata/News/app', 'UTF-8'));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\RoutingExtension($this->get('router')));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\YamlExtension());
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\StopwatchExtension($this->get('debug.stopwatch', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
@@ -2987,8 +3468,11 @@ class appDevDebugProjectContainer extends Container
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\HttpKernelExtension($this->get('fragment.handler')));
         $instance->addExtension(new \Symfony\Bridge\Twig\Extension\FormExtension(new \Symfony\Bridge\Twig\Form\TwigRenderer(new \Symfony\Bridge\Twig\Form\TwigRendererEngine(array(0 => 'form_div_layout.html.twig')), $this->get('form.csrf_provider', ContainerInterface::NULL_ON_INVALID_REFERENCE))));
         $instance->addExtension(new \Twig_Extension_Debug());
-        $instance->addExtension(new \Symfony\Bundle\AsseticBundle\Twig\AsseticExtension($this->get('assetic.asset_factory'), $this->get('templating.name_parser'), true, array(), array(), $this->get('assetic.value_supplier.default', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
+        $instance->addExtension(new \Symfony\Bundle\AsseticBundle\Twig\AsseticExtension($this->get('assetic.asset_factory'), $this->get('templating.name_parser'), true, array(), array(0 => 'NewsBundle'), $this->get('assetic.value_supplier.default', ContainerInterface::NULL_ON_INVALID_REFERENCE)));
         $instance->addExtension(new \Doctrine\Bundle\DoctrineBundle\Twig\DoctrineExtension());
+        $instance->addExtension(new \Knp\Menu\Twig\MenuExtension($this->get('knp_menu.helper')));
+        $instance->addExtension($this->get('knp_paginator.twig.extension.pagination'));
+        $instance->addExtension($this->get('twig.extension.stfalcon_tinymce'));
         $instance->addExtension(new \Symfony\Bundle\WebProfilerBundle\Twig\WebProfilerExtension());
         $instance->addGlobal('app', $this->get('templating.globals'));
 
@@ -3022,6 +3506,19 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'twig.extension.stfalcon_tinymce' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return Stfalcon\Bundle\TinymceBundle\Twig\Extension\StfalconTinymceExtension A Stfalcon\Bundle\TinymceBundle\Twig\Extension\StfalconTinymceExtension instance.
+     */
+    protected function getTwig_Extension_StfalconTinymceService()
+    {
+        return $this->services['twig.extension.stfalcon_tinymce'] = new \Stfalcon\Bundle\TinymceBundle\Twig\Extension\StfalconTinymceExtension($this);
+    }
+
+    /**
      * Gets the 'twig.loader' service.
      *
      * This service is shared.
@@ -3033,16 +3530,21 @@ class appDevDebugProjectContainer extends Container
     {
         $this->services['twig.loader'] = $instance = new \Symfony\Bundle\TwigBundle\Loader\FilesystemLoader($this->get('templating.locator'), $this->get('templating.name_parser'));
 
-        $instance->addPath('C:\\WebData\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle/Resources/views', 'Framework');
-        $instance->addPath('C:\\WebData\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\SecurityBundle/Resources/views', 'Security');
-        $instance->addPath('C:\\WebData\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle/Resources/views', 'Twig');
-        $instance->addPath('C:\\WebData\\News\\vendor\\symfony\\swiftmailer-bundle\\Symfony\\Bundle\\SwiftmailerBundle/Resources/views', 'Swiftmailer');
-        $instance->addPath('C:\\WebData\\News\\vendor\\doctrine\\doctrine-bundle\\Doctrine\\Bundle\\DoctrineBundle/Resources/views', 'Doctrine');
-        $instance->addPath('C:\\WebData\\News\\src\\ITR\\NewsBundle/Resources/views', 'News');
-        $instance->addPath('C:\\WebData\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views', 'WebProfiler');
-        $instance->addPath('C:\\WebData\\News\\vendor\\sensio\\distribution-bundle\\Sensio\\Bundle\\DistributionBundle/Resources/views', 'SensioDistribution');
-        $instance->addPath('C:/WebData/News/app/Resources/views');
-        $instance->addPath('C:\\WebData\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Bridge\\Twig/Resources/views/Form');
+        $instance->addPath('D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle/Resources/views', 'Framework');
+        $instance->addPath('D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\SecurityBundle/Resources/views', 'Security');
+        $instance->addPath('D:/webdata/News/app/Resources/TwigBundle/views', 'Twig');
+        $instance->addPath('D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle/Resources/views', 'Twig');
+        $instance->addPath('D:\\webdata\\News\\vendor\\symfony\\swiftmailer-bundle\\Symfony\\Bundle\\SwiftmailerBundle/Resources/views', 'Swiftmailer');
+        $instance->addPath('D:\\webdata\\News\\vendor\\doctrine\\doctrine-bundle\\Doctrine\\Bundle\\DoctrineBundle/Resources/views', 'Doctrine');
+        $instance->addPath('D:\\webdata\\News\\src\\ITR\\NewsBundle/Resources/views', 'News');
+        $instance->addPath('D:\\webdata\\News\\vendor\\knplabs\\knp-paginator-bundle\\Knp\\Bundle\\PaginatorBundle/Resources/views', 'KnpPaginator');
+        $instance->addPath('D:\\webdata\\News\\vendor\\stfalcon\\tinymce-bundle\\Stfalcon\\Bundle\\TinymceBundle/Resources/views', 'StfalconTinymce');
+        $instance->addPath('D:\\webdata\\News\\src\\ITR\\CatalogBundle/Resources/views', 'Catalog');
+        $instance->addPath('D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views', 'WebProfiler');
+        $instance->addPath('D:\\webdata\\News\\vendor\\sensio\\distribution-bundle\\Sensio\\Bundle\\DistributionBundle/Resources/views', 'SensioDistribution');
+        $instance->addPath('D:/webdata/News/app/Resources/views');
+        $instance->addPath('D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Bridge\\Twig/Resources/views/Form');
+        $instance->addPath('D:\\webdata\\News\\vendor\\knplabs\\knp-menu\\src\\Knp\\Menu/Resources/views');
 
         return $instance;
     }
@@ -3099,9 +3601,10 @@ class appDevDebugProjectContainer extends Container
         $this->services['validator.builder'] = $instance = \Symfony\Component\Validator\Validation::createValidatorBuilder();
 
         $instance->setConstraintValidatorFactory(new \Symfony\Bundle\FrameworkBundle\Validator\ConstraintValidatorFactory($this, array('validator.expression' => 'validator.expression', 'Symfony\\Component\\Validator\\Constraints\\EmailValidator' => 'validator.email', 'security.validator.user_password' => 'security.validator.user_password', 'doctrine.orm.validator.unique' => 'doctrine.orm.validator.unique')));
-        $instance->setTranslator($this->get('translator'));
+        $instance->setTranslator($this->get('translator.default'));
         $instance->setTranslationDomain('validators');
-        $instance->addXmlMappings(array(0 => 'C:\\WebData\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/config/validation.xml'));
+        $instance->addXmlMappings(array(0 => 'D:\\webdata\\News\\vendor\\symfony\\symfony\\src\\Symfony\\Component\\Form/Resources/config/validation.xml'));
+        $instance->addYamlMappings(array(0 => 'D:\\webdata\\News\\src\\ITR\\NewsBundle\\Resources\\config\\validation.yml'));
         $instance->enableAnnotationMapping($this->get('annotation_reader'));
         $instance->addMethodMapping('loadValidatorMetadata');
         $instance->addObjectInitializers(array(0 => $this->get('doctrine.orm.validator_initializer')));
@@ -3201,7 +3704,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getAssetic_AssetFactoryService()
     {
-        $this->services['assetic.asset_factory'] = $instance = new \Symfony\Bundle\AsseticBundle\Factory\AssetFactory($this->get('kernel'), $this, $this->getParameterBag(), 'C:/WebData/News/app/../web', true);
+        $this->services['assetic.asset_factory'] = $instance = new \Symfony\Bundle\AsseticBundle\Factory\AssetFactory($this->get('kernel'), $this, $this->getParameterBag(), 'D:/webdata/News/app/../web', true);
 
         $instance->addWorker(new \Symfony\Bundle\AsseticBundle\Factory\Worker\UseControllerWorker());
 
@@ -3222,7 +3725,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getAssetic_CacheService()
     {
-        return $this->services['assetic.cache'] = new \Assetic\Cache\FilesystemCache('C:/WebData/News/app/cache/dev/assetic/assets');
+        return $this->services['assetic.cache'] = new \Assetic\Cache\FilesystemCache('D:/webdata/News/app/cache/dev/assetic/assets');
     }
 
     /**
@@ -3277,6 +3780,23 @@ class appDevDebugProjectContainer extends Container
     }
 
     /**
+     * Gets the 'knp_menu.helper' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * This service is private.
+     * If you want to be able to request this service from the container directly,
+     * make it public, otherwise you might end up with broken code.
+     *
+     * @return Knp\Menu\Twig\Helper A Knp\Menu\Twig\Helper instance.
+     */
+    protected function getKnpMenu_HelperService()
+    {
+        return $this->services['knp_menu.helper'] = new \Knp\Menu\Twig\Helper($this->get('knp_menu.renderer_provider'), $this->get('knp_menu.menu_provider'));
+    }
+
+    /**
      * Gets the 'router.request_context' service.
      *
      * This service is shared.
@@ -3327,7 +3847,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_Authentication_ManagerService()
     {
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('security.user.provider.concrete.main'), new \Symfony\Component\Security\Core\User\UserChecker(), 'secured_area', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('53daa75329a6e')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider($this->get('security.user.provider.concrete.main'), new \Symfony\Component\Security\Core\User\UserChecker(), 'secured_area', $this->get('security.encoder_factory'), true), 1 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('543e8446a011c')), true);
 
         $instance->setEventDispatcher($this->get('debug.event_dispatcher'));
 
@@ -3365,7 +3885,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_RoleHierarchyService()
     {
-        return $this->services['security.role_hierarchy'] = new \Symfony\Component\Security\Core\Role\RoleHierarchy(array('ROLE_USER' => array(0 => 'ROLE_GUEST'), 'ROLE_MANAGER' => array(0 => 'ROLE_USER'), 'ROLE_ADMIN' => array(0 => 'ROLE_MANAGER', 1 => 'ROLE_USER'), 'ROLE_SUPER_ADMIN' => array(0 => 'ROLE_USER', 1 => 'ROLE_ADMIN', 2 => 'ROLE_ALLOWED_TO_SWITCH')));
+        return $this->services['security.role_hierarchy'] = new \Symfony\Component\Security\Core\Role\RoleHierarchy(array('ROLE_MANAGER' => array(0 => 'ROLE_USER'), 'ROLE_ADMIN' => array(0 => 'ROLE_MANAGER', 1 => 'ROLE_USER'), 'ROLE_SUPER_ADMIN' => array(0 => 'ROLE_USER', 1 => 'ROLE_ADMIN', 2 => 'ROLE_ALLOWED_TO_SWITCH')));
     }
 
     /**
@@ -3382,7 +3902,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_User_Provider_Concrete_MainService()
     {
-        return $this->services['security.user.provider.concrete.main'] = new \Symfony\Bridge\Doctrine\Security\User\EntityUserProvider($this->get('doctrine'), 'ITR\\NewsBundle\\Entity\\User', 'user_name', NULL);
+        return $this->services['security.user.provider.concrete.main'] = new \Symfony\Bridge\Doctrine\Security\User\EntityUserProvider($this->get('doctrine'), 'ITR\\NewsBundle\\Entity\\User', 'user_email', NULL);
     }
 
     /**
@@ -3433,24 +3953,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getTemplating_LocatorService()
     {
-        return $this->services['templating.locator'] = new \Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator($this->get('file_locator'), 'C:/WebData/News/app/cache/dev');
-    }
-
-    /**
-     * Gets the 'translator.selector' service.
-     *
-     * This service is shared.
-     * This method always returns the same instance of the service.
-     *
-     * This service is private.
-     * If you want to be able to request this service from the container directly,
-     * make it public, otherwise you might end up with broken code.
-     *
-     * @return Symfony\Component\Translation\MessageSelector A Symfony\Component\Translation\MessageSelector instance.
-     */
-    protected function getTranslator_SelectorService()
-    {
-        return $this->services['translator.selector'] = new \Symfony\Component\Translation\MessageSelector();
+        return $this->services['templating.locator'] = new \Symfony\Bundle\FrameworkBundle\Templating\Loader\TemplateLocator($this->get('file_locator'), 'D:/webdata/News/app/cache/dev');
     }
 
     /**
@@ -3504,12 +4007,12 @@ class appDevDebugProjectContainer extends Container
     protected function getDefaultParameters()
     {
         return array(
-            'kernel.root_dir' => 'C:/WebData/News/app',
+            'kernel.root_dir' => 'D:/webdata/News/app',
             'kernel.environment' => 'dev',
             'kernel.debug' => true,
             'kernel.name' => 'app',
-            'kernel.cache_dir' => 'C:/WebData/News/app/cache/dev',
-            'kernel.logs_dir' => 'C:/WebData/News/app/logs',
+            'kernel.cache_dir' => 'D:/webdata/News/app/cache/dev',
+            'kernel.logs_dir' => 'D:/webdata/News/app/logs',
             'kernel.bundles' => array(
                 'FrameworkBundle' => 'Symfony\\Bundle\\FrameworkBundle\\FrameworkBundle',
                 'SecurityBundle' => 'Symfony\\Bundle\\SecurityBundle\\SecurityBundle',
@@ -3521,6 +4024,10 @@ class appDevDebugProjectContainer extends Container
                 'SensioFrameworkExtraBundle' => 'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle',
                 'NewsBundle' => 'ITR\\NewsBundle\\NewsBundle',
                 'DoctrineMigrationsBundle' => 'Doctrine\\Bundle\\MigrationsBundle\\DoctrineMigrationsBundle',
+                'KnpMenuBundle' => 'Knp\\Bundle\\MenuBundle\\KnpMenuBundle',
+                'KnpPaginatorBundle' => 'Knp\\Bundle\\PaginatorBundle\\KnpPaginatorBundle',
+                'StfalconTinymceBundle' => 'Stfalcon\\Bundle\\TinymceBundle\\StfalconTinymceBundle',
+                'CatalogBundle' => 'ITR\\CatalogBundle\\CatalogBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',
                 'SensioGeneratorBundle' => 'Sensio\\Bundle\\GeneratorBundle\\SensioGeneratorBundle',
@@ -3593,7 +4100,7 @@ class appDevDebugProjectContainer extends Container
             'debug.errors_logger_listener.class' => 'Symfony\\Component\\HttpKernel\\EventListener\\ErrorsLoggerListener',
             'debug.event_dispatcher.class' => 'Symfony\\Component\\HttpKernel\\Debug\\TraceableEventDispatcher',
             'debug.stopwatch.class' => 'Symfony\\Component\\Stopwatch\\Stopwatch',
-            'debug.container.dump' => 'C:/WebData/News/app/cache/dev/appDevDebugProjectContainer.xml',
+            'debug.container.dump' => 'D:/webdata/News/app/cache/dev/appDevDebugProjectContainer.xml',
             'debug.controller_resolver.class' => 'Symfony\\Component\\HttpKernel\\Controller\\TraceableControllerResolver',
             'debug.debug_handlers_listener.class' => 'Symfony\\Component\\HttpKernel\\EventListener\\DebugHandlersListener',
             'kernel.secret' => 'de70cccf4181c1c05afd0d25015654ed29eb4a91',
@@ -3619,7 +4126,7 @@ class appDevDebugProjectContainer extends Container
             'session.storage.options' => array(
                 'gc_probability' => 1,
             ),
-            'session.save_path' => 'C:/WebData/News/app/cache/dev/sessions',
+            'session.save_path' => 'D:/webdata/News/app/cache/dev/sessions',
             'session.metadata.update_threshold' => '0',
             'security.secure_random.class' => 'Symfony\\Component\\Security\\Core\\Util\\SecureRandom',
             'form.resolved_type_factory.class' => 'Symfony\\Component\\Form\\ResolvedFormTypeFactory',
@@ -3674,6 +4181,7 @@ class appDevDebugProjectContainer extends Container
             'validator.mapping.cache.apc.class' => 'Symfony\\Component\\Validator\\Mapping\\Cache\\ApcCache',
             'validator.mapping.cache.prefix' => '',
             'validator.validator_factory.class' => 'Symfony\\Bundle\\FrameworkBundle\\Validator\\ConstraintValidatorFactory',
+            'validator.legacy_validator_factory.class' => 'Symfony\\Bundle\\FrameworkBundle\\Validator\\LegacyConstraintValidatorFactory',
             'validator.expression.class' => 'Symfony\\Component\\Validator\\Constraints\\ExpressionValidator',
             'validator.email.class' => 'Symfony\\Component\\Validator\\Constraints\\EmailValidator',
             'validator.translation_domain' => 'validators',
@@ -3694,7 +4202,7 @@ class appDevDebugProjectContainer extends Container
             'data_collector.form.extractor.class' => 'Symfony\\Component\\Form\\Extension\\DataCollector\\FormDataExtractor',
             'profiler_listener.only_exceptions' => false,
             'profiler_listener.only_master_requests' => false,
-            'profiler.storage.dsn' => 'file:C:/WebData/News/app/cache/dev/profiler',
+            'profiler.storage.dsn' => 'file:D:/webdata/News/app/cache/dev/profiler',
             'profiler.storage.username' => '',
             'profiler.storage.password' => '',
             'profiler.storage.lifetime' => 86400,
@@ -3718,7 +4226,7 @@ class appDevDebugProjectContainer extends Container
             'router.request_context.host' => 'localhost',
             'router.request_context.scheme' => 'http',
             'router.request_context.base_url' => '',
-            'router.resource' => 'C:/WebData/News/app/cache/dev/assetic/routing.yml',
+            'router.resource' => 'D:/webdata/News/app/cache/dev/assetic/routing.yml',
             'router.cache_class_prefix' => 'appDev',
             'request_listener.http_port' => 80,
             'request_listener.https_port' => 443,
@@ -3799,9 +4307,6 @@ class appDevDebugProjectContainer extends Container
             'security.access.always_authenticate_before_granting' => false,
             'security.authentication.hide_user_not_found' => true,
             'security.role_hierarchy.roles' => array(
-                'ROLE_USER' => array(
-                    0 => 'ROLE_GUEST',
-                ),
                 'ROLE_MANAGER' => array(
                     0 => 'ROLE_USER',
                 ),
@@ -3846,7 +4351,7 @@ class appDevDebugProjectContainer extends Container
                 'exception_controller' => 'twig.controller.exception:showAction',
                 'autoescape_service' => NULL,
                 'autoescape_service_method' => NULL,
-                'cache' => 'C:/WebData/News/app/cache/dev/twig',
+                'cache' => 'D:/webdata/News/app/cache/dev/twig',
                 'charset' => 'UTF-8',
                 'paths' => array(
 
@@ -3912,15 +4417,15 @@ class appDevDebugProjectContainer extends Container
             'swiftmailer.data_collector.class' => 'Symfony\\Bundle\\SwiftmailerBundle\\DataCollector\\MessageDataCollector',
             'swiftmailer.mailer.default.transport.name' => 'smtp',
             'swiftmailer.mailer.default.delivery.enabled' => true,
-            'swiftmailer.mailer.default.transport.smtp.encryption' => NULL,
-            'swiftmailer.mailer.default.transport.smtp.port' => 25,
-            'swiftmailer.mailer.default.transport.smtp.host' => '127.0.0.1',
-            'swiftmailer.mailer.default.transport.smtp.username' => NULL,
-            'swiftmailer.mailer.default.transport.smtp.password' => NULL,
-            'swiftmailer.mailer.default.transport.smtp.auth_mode' => NULL,
+            'swiftmailer.mailer.default.transport.smtp.encryption' => 'ssl',
+            'swiftmailer.mailer.default.transport.smtp.port' => 465,
+            'swiftmailer.mailer.default.transport.smtp.host' => 'smtp.gmail.com',
+            'swiftmailer.mailer.default.transport.smtp.username' => 'news.dispatcher.itr@gmail.com',
+            'swiftmailer.mailer.default.transport.smtp.password' => 'qwerty!@#$%^',
+            'swiftmailer.mailer.default.transport.smtp.auth_mode' => 'login',
             'swiftmailer.mailer.default.transport.smtp.timeout' => 30,
             'swiftmailer.mailer.default.transport.smtp.source_ip' => NULL,
-            'swiftmailer.spool.default.memory.path' => 'C:/WebData/News/app/cache/dev/swiftmailer/spool/default',
+            'swiftmailer.spool.default.memory.path' => 'D:/webdata/News/app/cache/dev/swiftmailer/spool/default',
             'swiftmailer.mailer.default.spool.enabled' => true,
             'swiftmailer.mailer.default.plugin.impersonate' => NULL,
             'swiftmailer.mailer.default.single_address' => NULL,
@@ -3946,9 +4451,9 @@ class appDevDebugProjectContainer extends Container
             'assetic.node.paths' => array(
 
             ),
-            'assetic.cache_dir' => 'C:/WebData/News/app/cache/dev/assetic',
+            'assetic.cache_dir' => 'D:/webdata/News/app/cache/dev/assetic',
             'assetic.bundles' => array(
-
+                0 => 'NewsBundle',
             ),
             'assetic.twig_extension.class' => 'Symfony\\Bundle\\AsseticBundle\\Twig\\AsseticExtension',
             'assetic.twig_formula_loader.class' => 'Assetic\\Extension\\Twig\\TwigFormulaLoader',
@@ -3958,13 +4463,13 @@ class appDevDebugProjectContainer extends Container
             'assetic.debug' => true,
             'assetic.use_controller' => true,
             'assetic.enable_profiler' => false,
-            'assetic.read_from' => 'C:/WebData/News/app/../web',
-            'assetic.write_to' => 'C:/WebData/News/app/../web',
+            'assetic.read_from' => 'D:/webdata/News/app/../web',
+            'assetic.write_to' => 'D:/webdata/News/app/../web',
             'assetic.variables' => array(
 
             ),
-            'assetic.java.bin' => 'C:\\Windows\\system32\\java.EXE',
-            'assetic.node.bin' => '/usr/bin/node',
+            'assetic.java.bin' => 'C:\\ProgramData\\Oracle\\Java\\javapath\\java.EXE',
+            'assetic.node.bin' => 'C:\\Program Files\\nodejs\\\\node.EXE',
             'assetic.ruby.bin' => '/usr/bin/ruby',
             'assetic.sass.bin' => '/usr/bin/sass',
             'assetic.filter.cssrewrite.class' => 'Assetic\\Filter\\CssRewriteFilter',
@@ -4032,7 +4537,7 @@ class appDevDebugProjectContainer extends Container
             'doctrine.orm.naming_strategy.default.class' => 'Doctrine\\ORM\\Mapping\\DefaultNamingStrategy',
             'doctrine.orm.naming_strategy.underscore.class' => 'Doctrine\\ORM\\Mapping\\UnderscoreNamingStrategy',
             'doctrine.orm.auto_generate_proxy_classes' => true,
-            'doctrine.orm.proxy_dir' => 'C:/WebData/News/app/cache/dev/doctrine/orm/Proxies',
+            'doctrine.orm.proxy_dir' => 'D:/webdata/News/app/cache/dev/doctrine/orm/Proxies',
             'doctrine.orm.proxy_namespace' => 'Proxies',
             'sensio_framework_extra.view.guesser.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\Templating\\TemplateGuesser',
             'sensio_framework_extra.controller.listener.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\ControllerListener',
@@ -4044,10 +4549,71 @@ class appDevDebugProjectContainer extends Container
             'sensio_framework_extra.converter.doctrine.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\Request\\ParamConverter\\DoctrineParamConverter',
             'sensio_framework_extra.converter.datetime.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\Request\\ParamConverter\\DateTimeParamConverter',
             'sensio_framework_extra.view.listener.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\TemplateListener',
-            'doctrine_migrations.dir_name' => 'C:/WebData/News/app/DoctrineMigrations',
+            'doctrine_migrations.dir_name' => 'D:/webdata/News/app/DoctrineMigrations',
             'doctrine_migrations.namespace' => 'Application\\Migrations',
             'doctrine_migrations.table_name' => 'migration_versions',
             'doctrine_migrations.name' => 'Application Migrations',
+            'knp_menu.factory.class' => 'Knp\\Menu\\MenuFactory',
+            'knp_menu.factory_extension.routing.class' => 'Knp\\Menu\\Integration\\Symfony\\RoutingExtension',
+            'knp_menu.helper.class' => 'Knp\\Menu\\Twig\\Helper',
+            'knp_menu.matcher.class' => 'Knp\\Menu\\Matcher\\Matcher',
+            'knp_menu.menu_provider.chain.class' => 'Knp\\Menu\\Provider\\ChainProvider',
+            'knp_menu.menu_provider.container_aware.class' => 'Knp\\Bundle\\MenuBundle\\Provider\\ContainerAwareProvider',
+            'knp_menu.menu_provider.builder_alias.class' => 'Knp\\Bundle\\MenuBundle\\Provider\\BuilderAliasProvider',
+            'knp_menu.renderer_provider.class' => 'Knp\\Bundle\\MenuBundle\\Renderer\\ContainerAwareProvider',
+            'knp_menu.renderer.list.class' => 'Knp\\Menu\\Renderer\\ListRenderer',
+            'knp_menu.renderer.list.options' => array(
+
+            ),
+            'knp_menu.listener.voters.class' => 'Knp\\Bundle\\MenuBundle\\EventListener\\VoterInitializerListener',
+            'knp_menu.voter.router.class' => 'Knp\\Menu\\Matcher\\Voter\\RouteVoter',
+            'knp_menu.twig.extension.class' => 'Knp\\Menu\\Twig\\MenuExtension',
+            'knp_menu.renderer.twig.class' => 'Knp\\Menu\\Renderer\\TwigRenderer',
+            'knp_menu.renderer.twig.options' => array(
+
+            ),
+            'knp_menu.renderer.twig.template' => 'knp_menu.html.twig',
+            'knp_menu.templating.helper.class' => 'Knp\\Bundle\\MenuBundle\\Templating\\Helper\\MenuHelper',
+            'knp_menu.default_renderer' => 'twig',
+            'knp_paginator.class' => 'Knp\\Component\\Pager\\Paginator',
+            'knp_paginator.templating.helper.pagination.class' => 'Knp\\Bundle\\PaginatorBundle\\Templating\\PaginationHelper',
+            'knp_paginator.helper.processor.class' => 'Knp\\Bundle\\PaginatorBundle\\Helper\\Processor',
+            'knp_paginator.template.pagination' => 'KnpPaginatorBundle:Pagination:twitter_bootstrap_v3_pagination.html.twig',
+            'knp_paginator.template.filtration' => 'KnpPaginatorBundle:Pagination:filtration.html.twig',
+            'knp_paginator.template.sortable' => 'KnpPaginatorBundle:Pagination:sortable_link.html.twig',
+            'knp_paginator.page_range' => 5,
+            'stfalcon_tinymce.config' => array(
+                'include_jquery' => false,
+                'tinymce_jquery' => false,
+                'use_callback_tinymce_init' => false,
+                'selector' => '.tinymce',
+                'language' => NULL,
+                'theme' => array(
+                    'advanced' => array(
+                        'theme' => 'modern',
+                        'plugins' => array(
+                            0 => 'advlist autolink lists link image charmap print preview hr anchor pagebreak',
+                            1 => 'searchreplace wordcount visualblocks visualchars code fullscreen',
+                            2 => 'insertdatetime media nonbreaking save table contextmenu directionality',
+                            3 => 'emoticons template paste textcolor',
+                        ),
+                        'toolbar1' => 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify
+                                   | bullist numlist outdent indent | link image',
+                        'toolbar2' => 'print preview media | forecolor backcolor emoticons',
+                        'image_advtab' => true,
+                    ),
+                    'simple' => array(
+
+                    ),
+                ),
+                'tinymce_buttons' => array(
+
+                ),
+                'external_plugins' => array(
+
+                ),
+            ),
+            'stfalcon_tinymce.twig.extension.class' => 'Stfalcon\\Bundle\\TinymceBundle\\Twig\\Extension\\StfalconTinymceExtension',
             'web_profiler.controller.profiler.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\ProfilerController',
             'web_profiler.controller.router.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\RouterController',
             'web_profiler.controller.exception.class' => 'Symfony\\Bundle\\WebProfilerBundle\\Controller\\ExceptionController',
@@ -4057,6 +4623,10 @@ class appDevDebugProjectContainer extends Container
             'web_profiler.debug_toolbar.intercept_redirects' => false,
             'web_profiler.debug_toolbar.mode' => 2,
             'sensio_distribution.webconfigurator.class' => 'Sensio\\Bundle\\DistributionBundle\\Configurator\\Configurator',
+            'sensio_distribution.webconfigurator.doctrine_step.class' => 'Sensio\\Bundle\\DistributionBundle\\Configurator\\Step\\DoctrineStep',
+            'sensio_distribution.webconfigurator.secret_step.class' => 'Sensio\\Bundle\\DistributionBundle\\Configurator\\Step\\SecretStep',
+            'sensio_distribution.security_checker.class' => 'SensioLabs\\Security\\SecurityChecker',
+            'sensio_distribution.security_checker.command.class' => 'SensioLabs\\Security\\Command\\SecurityCheckerCommand',
             'data_collector.templates' => array(
                 'data_collector.config' => array(
                     0 => 'config',
@@ -4108,7 +4678,7 @@ class appDevDebugProjectContainer extends Container
                 ),
             ),
             'console.command.ids' => array(
-
+                0 => 'sensio_distribution.security_checker.command',
             ),
         );
     }

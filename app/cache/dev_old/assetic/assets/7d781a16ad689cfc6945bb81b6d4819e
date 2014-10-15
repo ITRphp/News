@@ -1,0 +1,8 @@
+$(document).ready(function(){
+    $('#affix1 a').click (function (){
+    var url = "http://localhost/News/web/app.php/mainpage/"+this.name;
+    $("#news_list").load(url);
+    console.log(document.URL);
+});
+    
+});

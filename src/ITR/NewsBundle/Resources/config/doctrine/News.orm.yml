@@ -2,6 +2,10 @@ ITR\NewsBundle\Entity\News:
     type: entity
     table: null
     repositoryClass: ITR\NewsBundle\Entity\NewsRepository
+    indexes:
+        title_idx:
+            columns: [ title ]
+            flags: fulltext
     id:
         id:
             type: integer
@@ -18,15 +22,43 @@ ITR\NewsBundle\Entity\News:
         publication_date:
             type: datetime
             length: null
-        descroption:
+        description:
             type: string
             length: '512'
+        content:
+            type: text
     manyToOne:
             category:
                 targetEntity: Category
                 inversedBy: news
                 joinColumn:
                     name: category_id
-                    referencedColumnName: id   
-                    
+                    referencedColumnName: id
+    manyToMany:
+        users:
+            targetEntity: User
+            joinTable:
+              name: news_users
+              joinColumns:
+                news_id:
+                  referencedColumnName: id
+              inverseJoinColumns:
+                user_id:
+                  referencedColumnName: id
+        news:
+            targetEntity: News
+            joinTable:
+                name: related_news
+                joinColumns:
+                  news_id:
+                    referencedColumnName: id
+                inverseJoinColumns:
+                  related_news_id:
+                    referencedColumnName: id
+    oneToMany:
+        comments:
+          targetEntity: Comment
+          mappedBy: news
+
+
     lifecycleCallbacks: {  }

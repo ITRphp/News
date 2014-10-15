@@ -1,0 +1,54 @@
+{% extends "NewsBundle:MainPage:layout.html.twig" %}
+{% block head %}
+    {{parent()}}
+    {% javascripts '@NewsBundle/Resources/public/js/news.js'%}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+{% endblock %}
+
+{% block news %}
+    <div id="center" style="padding:4px" class="col-md-7">
+        <div id="sort">
+            <ul class="nav nav-pills">
+                <li class="active"><a data-toggle="pill" id="date" name="date" class="sort btn btn-xs"{#href="{{path('sort_news',{'key': 'date'})}}"#}>{{'Sort by date'|trans}}</a></li>
+                <li><a data-toggle="pill" id="popular" name="popular" class="sort btn btn-xs" {#href="{{path('sort_news',{'key': 'popular'})}}"#}>{{'Sort by popularity'|trans}}</a></li>
+            </ul>
+        </div>
+        <div class="col-md-12 row" id="news_list">
+            {% for news_item in news %}
+                <div class="media">
+                    <div class="media-body well super-background">
+                        <h4 class="media-heading">
+                            <a href="{{path('current_news',{'id': news_item.id })}}">{{ news_item.title }}</a>
+                        </h4>
+                            <footer><h6>{{ news_item.publicationDate|date('Y-m-d H:i:s')}}</h6></footer>
+                        <strong>{{ news_item.description }}</strong>
+                    </div>
+                </div>
+            {% else %}
+                <h3>No news</h3>
+            {% endfor %}
+        </div>
+        <div class="navigation">
+            {{ knp_pagination_render(news) }}
+        </div>
+    </div>
+{% endblock %}
+
+{% block popular_news %}
+<div class="container col-md-3">
+    <div data-spy="affix"  data-offset-top="227" id="affix2" style="background-color: whitesmoke" class="col-md-12">
+        <p class="bg-primary text-center">Popular news</p>
+        {% for news_item in popular_news %}   
+            <div class="media">
+                <div class="media-body">
+                    <h4 class="media-heading"><a href="{{path('current_news',{'id': news_item.id })}}" data-toggle="tooltip" data-placement="left" title="{{ news_item.publicationDate|date('Y-m-d')}}"><span class="badge pull-right">
+                        {{news_item.getUsersCount()}}</span>{{news_item.title}}</a>
+                    </h4>                 
+                    {{news_item.description}}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

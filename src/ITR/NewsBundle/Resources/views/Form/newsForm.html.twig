@@ -1,0 +1,36 @@
+{% extends "NewsBundle::layout.html.twig" %}
+
+{% block textarea_widget %}
+{% spaceless %}
+    <div class="textarea_widget">
+        <textarea {{ block('widget_attributes') }} class="tinymce">{{ value }}</textarea>
+    </div>
+{% endspaceless %}
+{% endblock textarea_widget %}
+
+
+{% block button_widget %}
+{% spaceless %}
+    <button type="{{ type|default('button') }}" class="btn form-control btn-success"{{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }}</button>
+{% endspaceless %}
+{% endblock button_widget %}
+
+{% block form_row %}
+{% spaceless %}
+    <div class="form-group">
+        {{form_label(form, null, {'attr':{'class': 'label' }} )}}
+        {{ form_errors(form) }}
+        {{ form_widget(form) }}
+    </div>
+{% endspaceless %}
+{% endblock form_row %}
+
+{% block form_errors %}
+{% spaceless %}
+    {% if errors|length > 0 %}
+        {% for error in errors %}
+            <div class="text-danger" style="display: inline"> {{ error.messageTemplate|trans(error.messageParameters, 'validators')|trans }}</div>
+        {% endfor %}
+    {% endif %}
+{% endspaceless %}
+{% endblock form_errors %}

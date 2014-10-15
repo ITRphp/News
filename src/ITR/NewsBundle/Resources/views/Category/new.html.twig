@@ -1,15 +1,18 @@
-{% extends '::base.html.twig' %}
+{% extends "NewsBundle:Admin:layout.html.twig" %}
 
-{% block body -%}
-    <h1>Category creation</h1>
+{% form_theme form 'NewsBundle:Form:fields.html.twig' %}
 
-    {{ form(form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('category') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+{% block content -%}
+    {{parent()}}
+    <h1>{{'Category creation'|trans}}</h1>
+    <a href="{{ path('category') }}"  class="btn btn-default">{% trans %}Back to the list{% endtrans %}</a> 
+    <div class="row" >
+        <div class="col-md-5 col-md-offset-4">
+            {{ form_start(form)}}
+            {{ form_errors(form)|trans }}
+            {{ form_row(form.category_name) }}
+            {{ form_widget(form.submit) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
 {% endblock %}

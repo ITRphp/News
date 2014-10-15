@@ -1,0 +1,8 @@
+{% extends "NewsBundle::layout.html.twig" %}
+
+
+{% block button_widget %}
+{% spaceless %}
+    <button type="{{ type|default('button') }}" class="btn btn-danger col-md-1"{{ block('button_attributes') }}>{{ label|trans({}, translation_domain) }}</button>
+{% endspaceless %}
+{% endblock button_widget %}

@@ -1,0 +1,5 @@
+ $('#news_list a').click(function(){  
+                    $('#news_list').load(
+      $(this).attr('href'), { query: this.value }
+    );  
+                }); 

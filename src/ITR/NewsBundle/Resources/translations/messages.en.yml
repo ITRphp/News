@@ -1,0 +1,73 @@
+All categories: All categories
+Add category:   Add category
+Add news:   Add news
+Author: Author
+Actions:    Actions
+Archive:    Archive
+Back to the list:   Back to the list
+Bad credentials: Wrong user name or password
+Categories: Categories
+Category:   Category
+Category creation:  Category creation
+Category list:  Category list
+Category name:  Category name
+Content:    Content
+Description: Description
+edit.mode:  Edit mode
+Enter.email: Enter your email
+Enter.new.password: Enter new password
+Edit:   Edit
+Email: Email
+Email.to.activation:   Letter with the activation has been sent to your email
+Forgot.password:    Forgot your password?
+Log in: Log in
+Logout: Log out
+Language:   Language
+LocalNews:  LocalNews
+Main page: Main page
+News list: News list
+News:   News
+News edit:  News edit
+Password:   Password
+Password.repeat:    Repeat password
+Publication date:   Publication date
+Password.changed:  Password was successfully changed
+Registration:   Registration
+Repeat.new.password: Repeat new password
+Related news:   Related news
+Registered: You have successfully registered
+Subscribe: Subscribe
+Save:   Save
+Sort by date:   Sort by date
+Sort by popularity: Sort by popularity
+Select.topics: Select the topics that interest you
+Up: up
+User: User
+User name:  User name
+User password:  User password
+User role: User role
+User edit: User edit
+Users list: Users list
+User email: User email
+Username:  User name
+Update.password: Update password
+Welcome:   Welcome
+Welcome %username%: Hello %username%
+User.email.not.registered:   User with this email is not registered
+Link.reset.password.been.sent:   Link to reset your password has been sent
+Letter.sent.email:   Letter sent to your email
+You have subscribed to: You have subscribes to
+You.not.subscribed:   You are not subscribed to our newsletter
+not:
+    blank:
+        username:   Username field can not be blank!
+        email:  E-mail can not be blank!
+        category: Category field can not be blank!
+        password:   Password field can not be blank!
+        content: Content field can not be blank!
+    unique:
+        category: Category with the same name already exists!
+        email:    User with this email already exists
+        username: User with the same username already exists
+
+

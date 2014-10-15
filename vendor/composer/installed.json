@@ -572,124 +572,6 @@
         ]
     },
     {
-        "name": "symfony/symfony",
-        "version": "v2.5.2",
-        "version_normalized": "2.5.2.0",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/symfony/symfony.git",
-            "reference": "e66ee967571b89234c90946fe0d50dad195ad29c"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/symfony/symfony/zipball/e66ee967571b89234c90946fe0d50dad195ad29c",
-            "reference": "e66ee967571b89234c90946fe0d50dad195ad29c",
-            "shasum": ""
-        },
-        "require": {
-            "doctrine/common": "~2.2",
-            "php": ">=5.3.3",
-            "psr/log": "~1.0",
-            "symfony/icu": "~1.0",
-            "twig/twig": "~1.12"
-        },
-        "replace": {
-            "symfony/browser-kit": "self.version",
-            "symfony/class-loader": "self.version",
-            "symfony/config": "self.version",
-            "symfony/console": "self.version",
-            "symfony/css-selector": "self.version",
-            "symfony/debug": "self.version",
-            "symfony/dependency-injection": "self.version",
-            "symfony/doctrine-bridge": "self.version",
-            "symfony/dom-crawler": "self.version",
-            "symfony/event-dispatcher": "self.version",
-            "symfony/expression-language": "self.version",
-            "symfony/filesystem": "self.version",
-            "symfony/finder": "self.version",
-            "symfony/form": "self.version",
-            "symfony/framework-bundle": "self.version",
-            "symfony/http-foundation": "self.version",
-            "symfony/http-kernel": "self.version",
-            "symfony/intl": "self.version",
-            "symfony/locale": "self.version",
-            "symfony/monolog-bridge": "self.version",
-            "symfony/options-resolver": "self.version",
-            "symfony/process": "self.version",
-            "symfony/propel1-bridge": "self.version",
-            "symfony/property-access": "self.version",
-            "symfony/proxy-manager-bridge": "self.version",
-            "symfony/routing": "self.version",
-            "symfony/security": "self.version",
-            "symfony/security-acl": "self.version",
-            "symfony/security-bundle": "self.version",
-            "symfony/security-core": "self.version",
-            "symfony/security-csrf": "self.version",
-            "symfony/security-http": "self.version",
-            "symfony/serializer": "self.version",
-            "symfony/stopwatch": "self.version",
-            "symfony/swiftmailer-bridge": "self.version",
-            "symfony/templating": "self.version",
-            "symfony/translation": "self.version",
-            "symfony/twig-bridge": "self.version",
-            "symfony/twig-bundle": "self.version",
-            "symfony/validator": "self.version",
-            "symfony/web-profiler-bundle": "self.version",
-            "symfony/yaml": "self.version"
-        },
-        "require-dev": {
-            "doctrine/data-fixtures": "1.0.*",
-            "doctrine/dbal": "~2.2",
-            "doctrine/orm": "~2.2,>=2.2.3",
-            "egulias/email-validator": "1.1.0",
-            "ircmaxell/password-compat": "1.0.*",
-            "monolog/monolog": "~1.3",
-            "ocramius/proxy-manager": ">=0.3.1,<0.6-dev",
-            "propel/propel1": "1.6.*"
-        },
-        "time": "2014-07-15 15:39:46",
-        "type": "library",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.5-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Symfony\\": "src/"
-            },
-            "classmap": [
-                "src/Symfony/Component/HttpFoundation/Resources/stubs",
-                "src/Symfony/Component/Intl/Resources/stubs"
-            ],
-            "files": [
-                "src/Symfony/Component/Intl/Resources/stubs/functions.php"
-            ]
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "MIT"
-        ],
-        "authors": [
-            {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com",
-                "homepage": "http://fabien.potencier.org",
-                "role": "Lead Developer"
-            },
-            {
-                "name": "Symfony Community",
-                "homepage": "http://symfony.com/contributors"
-            }
-        ],
-        "description": "The Symfony PHP framework",
-        "homepage": "http://symfony.com",
-        "keywords": [
-            "framework"
-        ]
-    },
-    {
         "name": "doctrine/dbal",
         "version": "v2.4.2",
         "version_normalized": "2.4.2.0",
@@ -1558,36 +1440,316 @@
         ]
     },
     {
+        "name": "doctrine/migrations",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/doctrine/migrations.git",
+            "reference": "1a9dffa64e33fdc10f4b4c3f5d7230b74d4a1021"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/doctrine/migrations/zipball/1a9dffa64e33fdc10f4b4c3f5d7230b74d4a1021",
+            "reference": "1a9dffa64e33fdc10f4b4c3f5d7230b74d4a1021",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/dbal": "~2.0",
+            "php": ">=5.3.2"
+        },
+        "require-dev": {
+            "symfony/console": "2.*",
+            "symfony/yaml": "2.*"
+        },
+        "suggest": {
+            "symfony/console": "to run the migration from the console"
+        },
+        "time": "2014-08-18 18:03:07",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Doctrine\\DBAL\\Migrations": "lib"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "LGPL"
+        ],
+        "authors": [
+            {
+                "name": "Benjamin Eberlei",
+                "email": "kontakt@beberlei.de"
+            },
+            {
+                "name": "Jonathan Wage",
+                "email": "jonwage@gmail.com"
+            }
+        ],
+        "description": "Database Schema migrations using Doctrine DBAL",
+        "homepage": "http://www.doctrine-project.org",
+        "keywords": [
+            "database",
+            "migrations"
+        ]
+    },
+    {
+        "name": "doctrine/doctrine-migrations-bundle",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "target-dir": "Doctrine/Bundle/MigrationsBundle",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/doctrine/DoctrineMigrationsBundle.git",
+            "reference": "81575a4316951125ce408c70f30547c77d98f78a"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/81575a4316951125ce408c70f30547c77d98f78a",
+            "reference": "81575a4316951125ce408c70f30547c77d98f78a",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/doctrine-bundle": "~1.0",
+            "doctrine/migrations": "~1.0@dev",
+            "php": ">=5.3.2",
+            "symfony/framework-bundle": "~2.1"
+        },
+        "time": "2014-08-17 07:53:47",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.1.x-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Doctrine\\Bundle\\MigrationsBundle": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Symfony Community",
+                "homepage": "http://symfony.com/contributors"
+            },
+            {
+                "name": "Doctrine Project",
+                "homepage": "http://www.doctrine-project.org"
+            },
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            }
+        ],
+        "description": "Symfony DoctrineMigrationsBundle",
+        "homepage": "http://www.doctrine-project.org",
+        "keywords": [
+            "dbal",
+            "migrations",
+            "schema"
+        ]
+    },
+    {
+        "name": "symfony/symfony",
+        "version": "v2.5.3",
+        "version_normalized": "2.5.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/symfony.git",
+            "reference": "f077a238c781f845487a7c81fea8033ccd0e6a02"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/symfony/zipball/f077a238c781f845487a7c81fea8033ccd0e6a02",
+            "reference": "f077a238c781f845487a7c81fea8033ccd0e6a02",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/common": "~2.2",
+            "php": ">=5.3.3",
+            "psr/log": "~1.0",
+            "symfony/icu": "~1.0",
+            "twig/twig": "~1.12"
+        },
+        "replace": {
+            "symfony/browser-kit": "self.version",
+            "symfony/class-loader": "self.version",
+            "symfony/config": "self.version",
+            "symfony/console": "self.version",
+            "symfony/css-selector": "self.version",
+            "symfony/debug": "self.version",
+            "symfony/dependency-injection": "self.version",
+            "symfony/doctrine-bridge": "self.version",
+            "symfony/dom-crawler": "self.version",
+            "symfony/event-dispatcher": "self.version",
+            "symfony/expression-language": "self.version",
+            "symfony/filesystem": "self.version",
+            "symfony/finder": "self.version",
+            "symfony/form": "self.version",
+            "symfony/framework-bundle": "self.version",
+            "symfony/http-foundation": "self.version",
+            "symfony/http-kernel": "self.version",
+            "symfony/intl": "self.version",
+            "symfony/locale": "self.version",
+            "symfony/monolog-bridge": "self.version",
+            "symfony/options-resolver": "self.version",
+            "symfony/process": "self.version",
+            "symfony/propel1-bridge": "self.version",
+            "symfony/property-access": "self.version",
+            "symfony/proxy-manager-bridge": "self.version",
+            "symfony/routing": "self.version",
+            "symfony/security": "self.version",
+            "symfony/security-acl": "self.version",
+            "symfony/security-bundle": "self.version",
+            "symfony/security-core": "self.version",
+            "symfony/security-csrf": "self.version",
+            "symfony/security-http": "self.version",
+            "symfony/serializer": "self.version",
+            "symfony/stopwatch": "self.version",
+            "symfony/swiftmailer-bridge": "self.version",
+            "symfony/templating": "self.version",
+            "symfony/translation": "self.version",
+            "symfony/twig-bridge": "self.version",
+            "symfony/twig-bundle": "self.version",
+            "symfony/validator": "self.version",
+            "symfony/web-profiler-bundle": "self.version",
+            "symfony/yaml": "self.version"
+        },
+        "require-dev": {
+            "doctrine/data-fixtures": "1.0.*",
+            "doctrine/dbal": "~2.2",
+            "doctrine/orm": "~2.2,>=2.2.3",
+            "egulias/email-validator": "1.1.0",
+            "ircmaxell/password-compat": "1.0.*",
+            "monolog/monolog": "~1.3",
+            "ocramius/proxy-manager": ">=0.3.1,<0.6-dev",
+            "propel/propel1": "1.6.*"
+        },
+        "time": "2014-08-06 07:03:01",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.5-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Symfony\\": "src/"
+            },
+            "classmap": [
+                "src/Symfony/Component/HttpFoundation/Resources/stubs",
+                "src/Symfony/Component/Intl/Resources/stubs"
+            ],
+            "files": [
+                "src/Symfony/Component/Intl/Resources/stubs/functions.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Symfony Community",
+                "homepage": "http://symfony.com/contributors"
+            },
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            }
+        ],
+        "description": "The Symfony PHP framework",
+        "homepage": "http://symfony.com",
+        "keywords": [
+            "framework"
+        ]
+    },
+    {
+        "name": "sensiolabs/security-checker",
+        "version": "v2.0.0",
+        "version_normalized": "2.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/sensiolabs/security-checker.git",
+            "reference": "5b4eb4743ebe68276c911c84101ecdf4a9ae76ee"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/sensiolabs/security-checker/zipball/5b4eb4743ebe68276c911c84101ecdf4a9ae76ee",
+            "reference": "5b4eb4743ebe68276c911c84101ecdf4a9ae76ee",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "symfony/console": "~2.0"
+        },
+        "time": "2014-07-19 10:52:35",
+        "bin": [
+            "security-checker"
+        ],
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "SensioLabs\\Security": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien.potencier@gmail.com"
+            }
+        ],
+        "description": "A security checker for your composer.lock"
+    },
+    {
         "name": "sensio/distribution-bundle",
-        "version": "v3.0.2",
-        "version_normalized": "3.0.2.0",
+        "version": "v3.0.4",
+        "version_normalized": "3.0.4.0",
         "target-dir": "Sensio/Bundle/DistributionBundle",
         "source": {
             "type": "git",
             "url": "https://github.com/sensiolabs/SensioDistributionBundle.git",
-            "reference": "67b34359f91c25ad36b960f66a287df0615d7c54"
+            "reference": "df82b1ee2b833be97677c0b95fca27e68fd4a344"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/67b34359f91c25ad36b960f66a287df0615d7c54",
-            "reference": "67b34359f91c25ad36b960f66a287df0615d7c54",
+            "url": "https://api.github.com/repos/sensiolabs/SensioDistributionBundle/zipball/df82b1ee2b833be97677c0b95fca27e68fd4a344",
+            "reference": "df82b1ee2b833be97677c0b95fca27e68fd4a344",
             "shasum": ""
         },
         "require": {
             "php": ">=5.3.3",
+            "sensiolabs/security-checker": "~2.0",
             "symfony/class-loader": "~2.2",
-            "symfony/config": "~2.2",
-            "symfony/dependency-injection": "~2.2",
-            "symfony/filesystem": "~2.2",
             "symfony/form": "~2.2",
-            "symfony/framework-bundle": "~2.2",
-            "symfony/http-foundation": "~2.2",
-            "symfony/http-kernel": "~2.2",
+            "symfony/framework-bundle": "~2.4",
             "symfony/process": "~2.2",
             "symfony/validator": "~2.2",
             "symfony/yaml": "~2.2"
         },
-        "time": "2014-07-16 07:46:27",
+        "time": "2014-08-06 09:24:35",
         "type": "symfony-bundle",
         "extra": {
             "branch-alias": {
@@ -1607,112 +1769,54 @@
         "authors": [
             {
                 "name": "Fabien Potencier",
-                "email": "fabien@symfony.com",
-                "homepage": "http://fabien.potencier.org",
-                "role": "Lead Developer"
+                "email": "fabien@symfony.com"
             }
         ],
-        "description": "The base bundle for the Symfony Distributions",
+        "description": "Base bundle for Symfony Distributions",
         "keywords": [
             "configuration",
             "distribution"
         ]
     },
     {
-        "name": "doctrine/migrations",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
+        "name": "knplabs/knp-menu",
+        "version": "v2.0.1",
+        "version_normalized": "2.0.1.0",
         "source": {
             "type": "git",
-            "url": "https://github.com/doctrine/migrations.git",
-            "reference": "4256449c5e2603a6b6ee5a78c7c4521d4d4430b8"
+            "url": "https://github.com/KnpLabs/KnpMenu.git",
+            "reference": "5758d0026d7ed00c8dd4727e413918cf2dc74c1a"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/doctrine/migrations/zipball/4256449c5e2603a6b6ee5a78c7c4521d4d4430b8",
-            "reference": "4256449c5e2603a6b6ee5a78c7c4521d4d4430b8",
+            "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/5758d0026d7ed00c8dd4727e413918cf2dc74c1a",
+            "reference": "5758d0026d7ed00c8dd4727e413918cf2dc74c1a",
             "shasum": ""
         },
         "require": {
-            "doctrine/dbal": "~2.0",
-            "php": ">=5.3.2"
+            "php": ">=5.3.0"
         },
         "require-dev": {
-            "symfony/console": "2.*",
-            "symfony/yaml": "2.*"
+            "pimple/pimple": "1.0.*",
+            "silex/silex": "1.0.*",
+            "twig/twig": ">=1.2,<2.0-dev"
         },
         "suggest": {
-            "symfony/console": "to run the migration from the console"
+            "pimple/pimple": "for the built-in implementations of the menu provider and renderer provider",
+            "silex/silex": "for the integration with your silex application",
+            "twig/twig": "for the TwigRenderer and the integration with your templates"
         },
-        "time": "2014-07-09 07:58:02",
+        "time": "2014-08-01 09:50:16",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "1.0.x-dev"
+                "dev-master": "2.0.x-dev"
             }
         },
         "installation-source": "dist",
         "autoload": {
             "psr-0": {
-                "Doctrine\\DBAL\\Migrations": "lib"
-            }
-        },
-        "notification-url": "https://packagist.org/downloads/",
-        "license": [
-            "LGPL"
-        ],
-        "authors": [
-            {
-                "name": "Jonathan Wage",
-                "email": "jonwage@gmail.com",
-                "homepage": "http://www.jwage.com/",
-                "role": "Creator"
-            },
-            {
-                "name": "Benjamin Eberlei",
-                "email": "kontakt@beberlei.de"
-            }
-        ],
-        "description": "Database Schema migrations using Doctrine DBAL",
-        "homepage": "http://www.doctrine-project.org",
-        "keywords": [
-            "database",
-            "migrations"
-        ]
-    },
-    {
-        "name": "doctrine/doctrine-migrations-bundle",
-        "version": "dev-master",
-        "version_normalized": "9999999-dev",
-        "target-dir": "Doctrine/Bundle/MigrationsBundle",
-        "source": {
-            "type": "git",
-            "url": "https://github.com/doctrine/DoctrineMigrationsBundle.git",
-            "reference": "f7138381aa884c0f679da4de41e369b94ead9cd3"
-        },
-        "dist": {
-            "type": "zip",
-            "url": "https://api.github.com/repos/doctrine/DoctrineMigrationsBundle/zipball/f7138381aa884c0f679da4de41e369b94ead9cd3",
-            "reference": "f7138381aa884c0f679da4de41e369b94ead9cd3",
-            "shasum": ""
-        },
-        "require": {
-            "doctrine/doctrine-bundle": "~1.0",
-            "doctrine/migrations": "~1.0@dev",
-            "php": ">=5.3.2",
-            "symfony/framework-bundle": "~2.1"
-        },
-        "time": "2014-03-20 14:48:55",
-        "type": "symfony-bundle",
-        "extra": {
-            "branch-alias": {
-                "dev-master": "2.1.x-dev"
-            }
-        },
-        "installation-source": "dist",
-        "autoload": {
-            "psr-0": {
-                "Doctrine\\Bundle\\MigrationsBundle": ""
+                "Knp\\Menu\\": "src/"
             }
         },
         "notification-url": "https://packagist.org/downloads/",
@@ -1721,26 +1825,326 @@
         ],
         "authors": [
             {
-                "name": "Fabien Potencier",
-                "email": "fabien@symfony.com",
-                "homepage": "http://fabien.potencier.org",
-                "role": "Lead Developer"
+                "name": "Christophe Coevoet",
+                "email": "stof@notk.org"
+            },
+            {
+                "name": "Knplabs",
+                "homepage": "http://knplabs.com"
             },
             {
                 "name": "Symfony Community",
-                "homepage": "http://symfony.com/contributors"
-            },
-            {
-                "name": "Doctrine Project",
-                "homepage": "http://www.doctrine-project.org"
+                "homepage": "https://github.com/KnpLabs/KnpMenu/contributors"
             }
         ],
-        "description": "Symfony DoctrineMigrationsBundle",
-        "homepage": "http://www.doctrine-project.org",
+        "description": "An object oriented menu library",
+        "homepage": "http://knplabs.com",
         "keywords": [
-            "dbal",
-            "migrations",
-            "schema"
+            "menu",
+            "tree"
+        ]
+    },
+    {
+        "name": "knplabs/knp-menu-bundle",
+        "version": "v2.0.0",
+        "version_normalized": "2.0.0.0",
+        "target-dir": "Knp/Bundle/MenuBundle",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/KnpLabs/KnpMenuBundle.git",
+            "reference": "bdfc95da5ff7e4e67f948aaa9ea5da835a3a9088"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/bdfc95da5ff7e4e67f948aaa9ea5da835a3a9088",
+            "reference": "bdfc95da5ff7e4e67f948aaa9ea5da835a3a9088",
+            "shasum": ""
+        },
+        "require": {
+            "knplabs/knp-menu": "~2.0",
+            "symfony/framework-bundle": "~2.0"
+        },
+        "time": "2014-08-01 09:57:23",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Knp\\Bundle\\MenuBundle": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Christophe Coevoet",
+                "email": "stof@notk.org"
+            },
+            {
+                "name": "Knplabs",
+                "homepage": "http://knplabs.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://github.com/KnpLabs/KnpMenuBundle/contributors"
+            }
+        ],
+        "description": "This bundle provides an integration of the KnpMenu library",
+        "keywords": [
+            "menu"
+        ]
+    },
+    {
+        "name": "knplabs/knp-components",
+        "version": "1.2.5",
+        "version_normalized": "1.2.5.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/KnpLabs/knp-components.git",
+            "reference": "8803fdaa18bd24bd158143e3d9099f4b243a31dd"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/KnpLabs/knp-components/zipball/8803fdaa18bd24bd158143e3d9099f4b243a31dd",
+            "reference": "8803fdaa18bd24bd158143e3d9099f4b243a31dd",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2"
+        },
+        "suggest": {
+            "doctrine/common": "to allow usage pagination with Doctrine ArrayCollection",
+            "doctrine/mongodb-odm": "to allow usage pagination with Doctrine ODM MongoDB",
+            "doctrine/orm": "to allow usage pagination with Doctrine ORM",
+            "propel/propel1": "to allow usage pagination with Propel ORM",
+            "ruflin/Elastica": "to allow usage pagination with ElasticSearch Client",
+            "solarium/solarium": "to allow usage pagination with Solarium Client"
+        },
+        "time": "2014-01-09 16:23:31",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.2.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Knp\\Component": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "KnpLabs Team",
+                "homepage": "http://knplabs.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "http://github.com/KnpLabs/knp-components/contributors"
+            }
+        ],
+        "description": "Knplabs component library",
+        "homepage": "http://github.com/KnpLabs/knp-components",
+        "keywords": [
+            "components",
+            "knp",
+            "knplabs",
+            "pager",
+            "paginator"
+        ]
+    },
+    {
+        "name": "knplabs/knp-paginator-bundle",
+        "version": "2.4.0",
+        "version_normalized": "2.4.0.0",
+        "target-dir": "Knp/Bundle/PaginatorBundle",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/KnpLabs/KnpPaginatorBundle.git",
+            "reference": "4202329b4d639c1a03d0007e31a52049d31c591e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/KnpLabs/KnpPaginatorBundle/zipball/4202329b4d639c1a03d0007e31a52049d31c591e",
+            "reference": "4202329b4d639c1a03d0007e31a52049d31c591e",
+            "shasum": ""
+        },
+        "require": {
+            "knplabs/knp-components": "~1.2",
+            "php": ">=5.3.3",
+            "symfony/framework-bundle": "~2.0",
+            "twig/twig": "~1.5"
+        },
+        "time": "2014-01-21 07:26:00",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.3.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Knp\\Bundle\\PaginatorBundle": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "KnpLabs Team",
+                "homepage": "http://knplabs.com"
+            },
+            {
+                "name": "Symfony2 Community",
+                "homepage": "http://github.com/KnpLabs/KnpPaginatorBundle/contributors"
+            }
+        ],
+        "description": "Paginator bundle for Symfony2 to automate pagination and simplify sorting and other features",
+        "homepage": "http://github.com/KnpLabs/KnpPaginatorBundle",
+        "keywords": [
+            "Symfony2",
+            "bundle",
+            "knp",
+            "knplabs",
+            "pager",
+            "pagination",
+            "paginator"
+        ]
+    },
+    {
+        "name": "stfalcon/tinymce-bundle",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "target-dir": "Stfalcon/Bundle/TinymceBundle",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/stfalcon/TinymceBundle.git",
+            "reference": "d686b5de27d7dfcee81cf8527931d5ace5390141"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/stfalcon/TinymceBundle/zipball/d686b5de27d7dfcee81cf8527931d5ace5390141",
+            "reference": "d686b5de27d7dfcee81cf8527931d5ace5390141",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0",
+            "symfony/symfony": ">=2.1"
+        },
+        "time": "2014-06-15 07:33:43",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "0.3.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Stfalcon\\Bundle\\TinymceBundle": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Stepan Tanasiychuk",
+                "email": "ceo@stfalcon.com",
+                "homepage": "http://blog.stfalcon.com"
+            },
+            {
+                "name": "Igor Negrutsa",
+                "email": "progi2007@gmail.com",
+                "homepage": "http://igor-negrutsa.info"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "https://github.com/stfalcon/TinymceBundle/contributors"
+            }
+        ],
+        "description": "This Bundle integrates TinyMCE WYSIWYG editor into a Symfony2 project.",
+        "keywords": [
+            "editor",
+            "tinymce",
+            "wysiwyg"
+        ]
+    },
+    {
+        "name": "apy/datagrid-bundle",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Abhoryo/APYDataGridBundle.git",
+            "reference": "83081487a9bd4a3250504161ebac029d86f4d795"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Abhoryo/APYDataGridBundle/zipball/83081487a9bd4a3250504161ebac029d86f4d795",
+            "reference": "83081487a9bd4a3250504161ebac029d86f4d795",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2",
+            "symfony/symfony": ">=2.0.0",
+            "twig/twig": ">=1.5.0"
+        },
+        "suggest": {
+            "PHPExcel": "Export the grid (Excel, HTML or PDF)",
+            "ext-intl": "Translate the grid",
+            "ext-mbstring": "Convert your data with the right charset"
+        },
+        "time": "2014-08-19 08:53:05",
+        "type": "symfony-bundle",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.1-dev"
+            }
+        },
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "APY\\DataGridBundle\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Stanislav Turza",
+                "email": "stanislav.turza@gmail.com"
+            },
+            {
+                "name": "Evan Owens",
+                "email": "eaowens@gmail.com"
+            },
+            {
+                "name": "Yoann Petit",
+                "email": "abhoryo@free.fr"
+            }
+        ],
+        "description": "Symfony2 Datagrid Bundle",
+        "homepage": "https://github.com/Abhoryo/APYDataGridBundle",
+        "keywords": [
+            "datagrid",
+            "symfony"
         ]
     }
 ]

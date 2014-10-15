@@ -1,0 +1,18 @@
+ITR\NewsBundle\Entity\Role:
+    type: entity
+    table: null
+    repositoryClass: ITR\NewsBundle\Entity\RoleRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        role:
+            type: string
+            length: '20'
+        name:
+            type: string
+            length: '20'
+    lifecycleCallbacks: {  }
