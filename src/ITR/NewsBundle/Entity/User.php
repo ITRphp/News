@@ -31,8 +31,8 @@ class User implements UserInterface,  \Serializable
      * @var string
      */
     private $user_role;
-    
 
+    private $roles;
     
     /**
      * Constructor
@@ -41,6 +41,7 @@ class User implements UserInterface,  \Serializable
     {
         $this->category = new ArrayCollection();
         $this->comments = new ArrayCollection();
+        $this->roles = new ArrayCollection();
     }
     
     /**
@@ -163,10 +164,10 @@ class User implements UserInterface,  \Serializable
         return $this->user_password;
     }
 
-    public function getRoles() {
-        
-        return array($this->user_role);
-    }
+//    public function getRoles() {
+//
+//        return array($this->user_role);
+//    }
 
     public function getSalt() {
         
@@ -358,5 +359,33 @@ class User implements UserInterface,  \Serializable
     public function removeComment(\ITR\NewsBundle\Entity\Comment $comments)
     {
         $this->comments->removeElement($comments);
+    }
+
+    /**
+     * @param string $role
+     * @return UserSuperclass|void
+     */
+    public function addRole($role)
+    {
+        $this->roles->add($role);
+        return $this;
+    }
+
+    /**
+     * @param string $role
+     * @return UserSuperclass|void
+     */
+    public function removeRole($role)
+    {
+        $this->roles->removeElement($role);
+        return $this;
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getRoles()
+    {
+        return $this->roles->toArray();
     }
 }

@@ -1,0 +1,15 @@
+ITR\CatalogBundle\Entity\Phone:
+    type: entity
+    table: null
+    repositoryClass: ITR\CatalogBundle\Entity\PhoneRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        number:
+            type: string
+            length: '30'
+    lifecycleCallbacks: {  }

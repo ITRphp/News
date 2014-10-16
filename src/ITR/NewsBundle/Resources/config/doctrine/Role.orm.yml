@@ -15,4 +15,16 @@ ITR\NewsBundle\Entity\Role:
         name:
             type: string
             length: '20'
+#    manyToMany:
+#        users:
+#          targetEntity: User
+#          inversedBy: roles
+#             joinTable:
+#               name: user_role
+#               joinColumns:
+#                role_id:
+#                  referencedColumnName: id
+#               inverseJoinColumns:
+#                user_id:
+#                   referencedColumnName: id
     lifecycleCallbacks: {  }

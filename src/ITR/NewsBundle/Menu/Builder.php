@@ -35,7 +35,8 @@ class Builder extends ContainerAware
         'extras' => array(
           'safe_label' => true
         )));
-        
+        $menu->addChild("Shopping", array('route' => 'catalog_homepage'));
+
         if ($this->container->get('security.context')->isGranted('ROLE_MANAGER')) {
             $menu->addChild("edit.mode", array('route' => 'news'))
                 ->setAttribute('id', 'right');
@@ -64,11 +65,28 @@ class Builder extends ContainerAware
         }
         $menu->addChild('Content')
              ->setAttribute('dropdown', true)
-             ->setAttribute('divider_prepend', true);
+             ->setAttribute('divider_prepend', true)
+        ->setAttribute('caret', true);
  
         $menu['Content']->addChild('News list', array('route' => 'news'));
         $menu['Content']->addChild('Add news', array('route' => 'news_new'));
-        
+
+        $catalog = $menu->addChild('Catalog')
+            ->setAttribute('dropdown', true)
+            ->setAttribute('divider_prepend', true);
+
+        //$menu['Catalog']->addChild('Sellers');
+        $sellers = $menu->addChild('Sellers')
+            ->setAttribute('dropdown', true)
+            ->setAttribute('divider_prepend', true);
+
+        $sellers->addChild('Sellers list', array('route' => 'admin_seller'));
+        $sellers->addChild('Add seller', array('route' => 'admin_seller_new'));
+
+        $catalog->addChild('Goods list', array('route' => 'admin_seller'));
+        $catalog->addChild('Add category', array('route' => 'news_new'));
+        $catalog->addChild('Add goods', array('route' => 'news_new'));
+
         $menu->addChild('Logout', array('route' => 'logout'));
   
         return $menu;
@@ -87,5 +105,6 @@ class Builder extends ContainerAware
         }
         return $menu;
     }
+
 
 }

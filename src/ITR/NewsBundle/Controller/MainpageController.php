@@ -15,10 +15,12 @@ use ITR\NewsBundle\Entity\Category;
 class MainpageController extends Controller
 {
     /**
-    * @Security("has_role('ROLE_USER')")
-    */
+     * @Security("has_role('ROLE_USER')")
+     */
     public function indexAction(Request $request, $category = NULL)
     {
+        //$user = $this->get('security.context')->getToken()->getUser();
+        //var_dump($user->getRoles());
          if (false === $this->get('security.context')->isGranted('ROLE_USER')) {
             throw $this->createAccessDeniedException('Unable to access this page!');
         }

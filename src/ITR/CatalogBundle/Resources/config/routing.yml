@@ -1,3 +1,10 @@
 catalog_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: CatalogBundle:Default:index }
+    path:     /catalog
+    defaults: { _controller: CatalogBundle:Catalog:show }
+catalog_category:
+    path:     /catalog/{category}
+    defaults: { _controller: CatalogBundle:Catalog:showGoods }
+CatalogBundle_admin_seller:
+    resource: "@CatalogBundle/Resources/config/routing/seller.yml"
+    prefix:   /admin/seller
+
