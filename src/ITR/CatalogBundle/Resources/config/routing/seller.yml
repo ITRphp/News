@@ -1,0 +1,30 @@
+admin_seller:
+    path:     /
+    defaults: { _controller: "CatalogBundle:Seller:index" }
+
+admin_seller_show:
+    path:     /{id}/show
+    defaults: { _controller: "CatalogBundle:Seller:show" }
+
+admin_seller_new:
+    path:     /new
+    defaults: { _controller: "CatalogBundle:Seller:new" }
+
+admin_seller_create:
+    path:     /create
+    defaults: { _controller: "CatalogBundle:Seller:create" }
+    requirements: { _method: post }
+
+admin_seller_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "CatalogBundle:Seller:edit" }
+
+admin_seller_update:
+    path:     /{id}/update
+    defaults: { _controller: "CatalogBundle:Seller:update" }
+    requirements: { _method: post|put }
+
+admin_seller_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "CatalogBundle:Seller:delete" }
+    requirements: { _method: post|delete }
