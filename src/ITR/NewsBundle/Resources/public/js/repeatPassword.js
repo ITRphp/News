@@ -1,15 +1,13 @@
-window.onload = function () {
-    document.getElementsByClassName("password1").onchange = validatePassword;
-    document.getElementById("password2").onchange = validatePassword;
-};
-
-function validatePassword(){
-var pass2=document.getElementById("password2").value;
-var pass1=document.getElementsByClassName("password1");
-pass1=pass1[0].value;
-
-if(pass1!=pass2)
-    document.getElementById("password2").setCustomValidity("Passwords Don't Match");
-else
-    document.getElementById("password2").setCustomValidity('');
-}
+$(document).ready(function(){
+    $('#regform').submit(function(){
+        var pass1=$('#itr_newsbundle_user_user_password').val();
+        var pass2=$('#password2').val();
+        if (pass1 !== pass2){
+            document.getElementById("password2").validationMessage;
+            document.getElementById("passconf").style.display="block";
+            return false;
+        } else {
+            document.getElementById("passconf").style.display="none";
+        }
+    });
+});

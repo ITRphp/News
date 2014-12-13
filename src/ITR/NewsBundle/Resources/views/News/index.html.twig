@@ -18,13 +18,14 @@
     </div>
     <table class="records_list table table-hover table-bordered">
         <thead>
-            <tr>
-                <th>Title</th>
-                <th>Author</th>
-                <th>Publication_date</th>
-                <th>Description</th>
-                <th>Actions</th>
-            </tr>
+        <tr>
+            <th>{{'Title'|trans}}</th>
+            <th>{{'Author'|trans}}</th>
+            <th>{{'Publication date'|trans}}</th>
+            <th>{{'Category'|trans}}</th>
+            <th>{{'Description'|trans}}</th>
+            <th>{{'Actions'|trans}}</th>
+        </tr>
         </thead>
         <tbody>
         {% for entity in entities %}
@@ -32,6 +33,7 @@
                 <td>{{ entity.title }}</td>
                 <td>{{ entity.author }}</td>
                 <td>{% if entity.publicationdate %}{{ entity.publicationdate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ entity.category }}</td>
                 <td>{{ entity.description }}</td>
                 <td>
                     <ul class="list-group list-unstyled">
@@ -50,4 +52,4 @@
     <div class="navigation">
         {{ knp_pagination_render(entities) }}
     </div>
-    {% endblock %}
+{% endblock %}

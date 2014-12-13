@@ -2,18 +2,18 @@
 
 {% block title %}{% trans %}News{% endtrans %}{% endblock %}
 
-{% block content_header '' %}   
+{% block content_header '' %}
     {% block content %}
         {{parent()}}
         <div class="container" id="welcome">
             <div class="col-md-8 kot">
-                <div class="hdr ololo">Local<div>News</div></div>  
+                <div class="hdr ololo">Local<div>News</div></div>
                 <div class="kot">
                   {% image '@NewsBundle/Resources/public/images/cat.png'%}
                         <img src="{{ asset_url }}"  alt="Example"/>
-                  {% endimage %}  
+                  {% endimage %}
                 </div>
-                   
+
             </div>
             <div class="col-md-4" >
                 <form action="{{ path('login_check') }}" method="post" class="well" >
@@ -27,13 +27,13 @@
                     </div>
                     <input type="hidden" name="_target_path" value="/mainpage" />
                     <div class="form-group row">
-                        <input type="submit" class="btn btn-info col-md-6 col-md-offset-3" value="{% trans %}Log in{% endtrans %}" />                   
+                        <input type="submit" class="btn btn-info col-md-6 col-md-offset-3" value="{% trans %}Log in{% endtrans %}" />
                     </div>
                     <div class="text-center">
                         <a href="{{ path('password_recovery') }}">{% trans %} Forgot.password {% endtrans %}</a>
                         <a href="{{ path('_registration') }}">{% trans %} Registration {% endtrans %}</a>
-                    </div>   
-                
+                    </div>
+
                 </form>
             </div>
         </div>

@@ -5,12 +5,11 @@ namespace ITR\NewsBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\SecurityContext;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+
 use Symfony\Component\HttpKernel\Exception\HttpNotFoundException;
 
 use ITR\NewsBundle\Form\CommentType;
 
-use ITR\NewsBundle\Entity\Category;
 
 class MainpageController extends Controller
 {
@@ -45,36 +44,38 @@ class MainpageController extends Controller
 
         return $this->render('NewsBundle:Mainpage:index.html.twig',$context);
         
-    }    
-   
+    }
+
     /**
-    * @Security("has_role('ROLE_USER')")
-    */
+     * @Security("has_role('ROLE_USER')")
+     */
     public function archiveAction(Request $request)
     {
-        if ($request->getMethod() == 'GET') {  
-            $date_elements  = explode("/", $_GET['date']);
-            
+
+            $date_elements  = explode("/", $_POST['date']);
+
+
             $date1=date(DATE_W3C, mktime(0,0,0,$date_elements[0],$date_elements[1], $date_elements[2]));
             $date2=date(DATE_W3C, mktime(0,0,0,$date_elements[0],$date_elements[1]+1, $date_elements[2]));
-            $em = $this->getDoctrine()->getManager();            
-            
-            $user = $this->get('security.context')->getToken()->getUser();       
+            $em = $this->getDoctrine()->getManager();
+
+            $user = $this->get('security.context')->getToken()->getUser();
             $categories = $em->getRepository('NewsBundle:Category')->findAllOrderedByName();
             $dispatches = $user->getCategory();
             $popular_news =$em->getRepository('NewsBundle:News')->findTopNewsOrderedByPopularity();
-            
-            $news = $em->getRepository('NewsBundle:News')->findNewsByDate($date1,$date2);
-            $this->getPagination($news,20);
-            $context = array( 'username' => $user->getUserName(), 
-                        'categories' => $categories, 
-                        'news' => $this->getPagination($news,20),
-                        'dispatches' => $dispatches,
-                        'popular_news' => $popular_news);
 
-        return $this->render('NewsBundle:Mainpage:archive.html.twig',$context);
-        }
-        
+            $news = $em->getRepository('NewsBundle:News')->findNewsByDate($date1,$date2);
+            if(empty($date_elements))
+            {
+                $news=NULL;
+            }
+            $this->getPagination($news);
+            $context = array( 'username' => $user->getUserName(),
+                'categories' => $categories,
+                'news' => $this->getPagination($news),
+                'dispatches' => $dispatches,
+                'popular_news' => $popular_news);
+            return $this->render('NewsBundle:Mainpage:archive.html.twig',$context);
     }
     /**
     * @Security("has_role('ROLE_USER')")
@@ -128,7 +129,7 @@ class MainpageController extends Controller
         } 
     }
     
-    private function getPagination($object,$pages){
+    private function getPagination($object,$pages=10){
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate(
             $object,

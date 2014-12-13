@@ -124,7 +124,7 @@ class NewsRepository extends EntityRepository
         $id = '';
     $q = $this->getEntityManager()
             ->createQuery('SELECT n, COUNT(n.id) AS HIDDEN mycount FROM NewsBundle:News n  JOIN n.users u GROUP BY n.id ORDER BY mycount DESC')
-            ->setMaxResults(5);
+            ->setMaxResults(3);
 
         try {
             $news = $q->getResult();

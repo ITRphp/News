@@ -29,7 +29,7 @@ class CommentType extends AbstractType{
             ))
             ->add('post','submit', array(
                 'attr'  => array(
-                    'class'=>'btn btn-primary col-md-offset-10 col-md-2'
+                    'class'=>'btn btn-primary col-md-offset-10 col-md-2 margin'
                 )
             ))
         ;

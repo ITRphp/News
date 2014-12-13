@@ -4,7 +4,7 @@
         {% if is_granted('ROLE_MANAGER') %}
             <a href="{{ path('news_edit', { 'id': news.id }) }}" class="btn  btn-default btn-lg"><span class="glyphicon glyphicon-pencil"></span>{{'Edit'|trans}}</a>
         {% endif %}
-        <div class="container col-md-12">
+        <div class="container col-md-12 row">
             <div class="media">
                 <div class="media-body well">
                     <h2 class="media-heading">
@@ -20,16 +20,12 @@
                 </div>
                 <div class="panel-body">
                     {% for news_item in related_news %}
-                        <p>
-                            <a href="{{path('current_news',{'id': news_item.id })}}">{{ news_item.title }}</a>
-                        </p>
+                        <a href="{{path('current_news',{'id': news_item.id })}}">{{ news_item.title }}</a>
                     {% else %}
                     {% endfor %}
                 </div>
             </div>
             {% include 'NewsBundle:MainPage:comments.html.twig' %}
-
-
         </div>
     </div>
 {% endblock %}

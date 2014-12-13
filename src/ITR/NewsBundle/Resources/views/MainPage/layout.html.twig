@@ -2,7 +2,7 @@
 
 {% block content %}
     <div>
-        <div class="navbar navbar-default navbar-static-top" role="navigation">
+        <div class="navbar navbar-default navbar-static-top">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
@@ -20,19 +20,14 @@
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
                 <div class="item active">
-                    <div class="hdr_m">Local<div>News</div></div> 
+                    <div class="hdr_m">Local<div>News</div></div>
                 </div>
                 <div class="item">
-                    <div class="hdr_m">Local<div>News</div></div> 
+                    <div class="hdr_m">Local<div>News</div></div>
                 </div>
                 <div class="item">
                     {% image '@NewsBundle/Resources/public/images/news_banner1.jpg'%}
-                        <img src="{{ asset_url }}"  alt="Example"/>
-                    {% endimage %}
-                </div>
-                <div class="item">
-                    {% image '@NewsBundle/Resources/public/images/news_banner2.jpg'%}
-                        <img src="{{ asset_url }}"  alt="Example"/>
+                    <img src="{{ asset_url }}"  alt="Example"/>
                     {% endimage %}
                 </div>
             </div>
@@ -46,14 +41,14 @@
                 <div data-spy="affix" class="sidebar visible-desktop"  data-offset-top="227" id="affix1">
                     {{ knp_menu_render('NewsBundle:Builder:categoryMenu', {'currentClass': 'active', 'template': 'NewsBundle:Menu:knp_menu.html.twig'}) }}
                     <hr>
-                    <form method="GET" action="{{path('news_archive')}}" >
+                    <form method="POST" action="{{path('news_archive')}}" >
                         <div class="input-group">
-                            <input type="datetime" id="datepicker" placeholder="{{'Archive'|trans}}" name="date" class="form-control">
+                            <input type="datetime" required id="datepicker" placeholder="{{'Archive'|trans}}" name="date" class="form-control">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search"></span></button>
                             </span>
                         </div>
-                    </form>                   
+                    </form>
                 </div>
             </div>
         </div>
@@ -62,7 +57,7 @@
         {% block popular_news %}
         {% endblock %}
     </div>
-<div class="modal fade" id="basicModal" tabindex="-1" role="dialog">
+    <div class="modal fade" id="basicModal" tabindex="-1" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content col-md-8">
                 <div class="modal-header"><button class="close" type="button" data-dismiss="modal">x</button>
@@ -86,7 +81,7 @@
                                         <option>{{category}}</option>
                                     {% endfor %}
                                 </select>
-                                <input type="submit" class="btn btn-success form-control" value="{{'Save'|trans}}"></button>
+                                <input type="submit" class="btn btn-success form-control" value="{{'Save'|trans}}">
                             </div>
                         </form>
                     </div>

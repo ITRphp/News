@@ -13,7 +13,7 @@
 {% endblock%}
 {% block content %}    
     {{parent()}}
-        <form action="{{ path('_registration') }}" method="post" {{ form_enctype(form) }} class="col-md-offset-4 col-md-4 well">
+    <form id="regform" action="{{ path('_registration') }}" method="post" {{ form_enctype(form) }} class="col-md-offset-4 col-md-4 well">
             <div class="control-group">
                 {{form_label(form.user_name, "Username", {'attr':{'class': 'label' }} )}}
                 <div class="controls">
