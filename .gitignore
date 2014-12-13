@@ -1,3 +1,10 @@
-/vendor/
-/app/cache/
-/app/logs/
+/vendor/*
+/app/cache/*
+/app/logs/*
+!app/cache/.gitkeep
+!app/logs/.gitkeep
+
+/web/bundles/
+/web/css/*
+/web/js/*
+
