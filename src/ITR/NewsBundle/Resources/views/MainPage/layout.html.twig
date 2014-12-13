@@ -23,10 +23,12 @@
                     <div class="hdr_m">Local<div>News</div></div>
                 </div>
                 <div class="item">
-                    <div class="hdr_m">Local<div>News</div></div>
+                    {% image '@NewsBundle/Resources/public/images/news_banner1.jpg'%}
+                    <img src="{{ asset_url }}"  alt="Example"/>
+                    {% endimage %}
                 </div>
                 <div class="item">
-                    {% image '@NewsBundle/Resources/public/images/news_banner1.jpg'%}
+                    {% image '@NewsBundle/Resources/public/images/news_banner2.jpg'%}
                     <img src="{{ asset_url }}"  alt="Example"/>
                     {% endimage %}
                 </div>

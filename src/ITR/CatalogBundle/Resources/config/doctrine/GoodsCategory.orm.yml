@@ -12,4 +12,7 @@ ITR\CatalogBundle\Entity\GoodsCategory:
         categoryName:
             type: string
             length: 255
+        tableName:
+            type: string
+            length: 255
     lifecycleCallbacks: {  }

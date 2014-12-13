@@ -19,6 +19,27 @@ class GoodsCategory
      */
     private $categoryName;
 
+    /**
+     * @var string
+     */
+    private $tableName;
+
+    /**
+     * @param string $tableName
+     */
+    public function setTableName($tableName)
+    {
+        $this->tableName = $tableName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getTableName()
+    {
+        return $this->tableName;
+    }
+
 
     /**
      * Get id

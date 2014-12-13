@@ -5,11 +5,12 @@ namespace ITR\NewsBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\SecurityContext;
-
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 use Symfony\Component\HttpKernel\Exception\HttpNotFoundException;
 
 use ITR\NewsBundle\Form\CommentType;
 
+use ITR\NewsBundle\Entity\Category;
 
 class MainpageController extends Controller
 {
