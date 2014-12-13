@@ -1,9 +1,0 @@
-$(document).ready(function(){
-    $('#center .btn').click (function (){
-        $("#news_list").load(document.URL +"/sort/"+this.name);
-        
-    });
-    $("#archive").click(function (){
-            datepicker( "show" );
-            });
-});

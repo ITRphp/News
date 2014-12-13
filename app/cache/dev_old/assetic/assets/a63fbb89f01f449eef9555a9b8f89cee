@@ -1,7 +1,0 @@
-$(document).ready(function(){
-    $('#news_list .btn').click (function (){
-        $("#news_list").load(document.URL +"/sort/"+this.name);
-        
-    });
-
-});

@@ -1,5 +1,0 @@
- function Load()
- {
-    var url = "http://localhost/News/web/app.php"+this.name;
-        $("#news_list").load(url);
- }
