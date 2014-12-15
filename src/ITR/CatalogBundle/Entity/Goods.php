@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Goods
 {
+
     /**
      * @var integer
      */
@@ -20,26 +21,33 @@ class Goods
     private $name;
 
     /**
-     * @var integer
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $rating;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $images;
+
+    /**
+     * @var \ITR\CatalogBundle\Entity\Printer
      */
     private $goods_id;
 
     /**
-     * @param int $goods_id
+     * @var \ITR\CatalogBundle\Entity\GoodsCategory
      */
-    public function setGoodsId($goods_id)
-    {
-        $this->goods_id = $goods_id;
-    }
+    private $goods_category;
 
     /**
-     * @return int
+     * Constructor
      */
-    public function getGoodsId()
+    public function __construct()
     {
-        return $this->goods_id;
+        $this->rating = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->images = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
 
     /**
      * Get id
@@ -50,7 +58,6 @@ class Goods
     {
         return $this->id;
     }
-
 
     /**
      * Set name
@@ -74,84 +81,6 @@ class Goods
     {
         return $this->name;
     }
-    /**
-     * @var \ITR\CatalogBundle\Entity\GoodsCategory
-     */
-    private $goods_category;
-
-
-    /**
-     * Set goods_category
-     *
-     * @param \ITR\CatalogBundle\Entity\GoodsCategory $goodsCategory
-     * @return Goods
-     */
-    public function setGoodsCategory(\ITR\CatalogBundle\Entity\GoodsCategory $goodsCategory = null)
-    {
-        $this->goods_category = $goodsCategory;
-    
-        return $this;
-    }
-
-    /**
-     * Get goods_category
-     *
-     * @return \ITR\CatalogBundle\Entity\GoodsCategory 
-     */
-    public function getGoodsCategory()
-    {
-        return $this->goods_category;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $goods;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->goods = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add goods
-     *
-     * @param \ITR\CatalogBundle\Entity\GoodsSellers $goods
-     * @return Goods
-     */
-    public function addGood(\ITR\CatalogBundle\Entity\GoodsSellers $goods)
-    {
-        $this->goods[] = $goods;
-    
-        return $this;
-    }
-
-    /**
-     * Remove goods
-     *
-     * @param \ITR\CatalogBundle\Entity\GoodsSellers $goods
-     */
-    public function removeGood(\ITR\CatalogBundle\Entity\GoodsSellers $goods)
-    {
-        $this->goods->removeElement($goods);
-    }
-
-    /**
-     * Get goods
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getGoods()
-    {
-        return $this->goods;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $rating;
-
 
     /**
      * Add rating
@@ -185,11 +114,6 @@ class Goods
     {
         return $this->rating;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $images;
-
 
     /**
      * Add images
@@ -222,5 +146,51 @@ class Goods
     public function getImages()
     {
         return $this->images;
+    }
+
+    /**
+     * Set goods_id
+     *
+     * @param \ITR\CatalogBundle\Entity\Printer $goodsId
+     * @return Goods
+     */
+    public function setGoodsId(\ITR\CatalogBundle\Entity\Printer $goodsId = null)
+    {
+        $this->goods_id = $goodsId;
+    
+        return $this;
+    }
+
+    /**
+     * Get goods_id
+     *
+     * @return \ITR\CatalogBundle\Entity\Printer 
+     */
+    public function getGoodsId()
+    {
+        return $this->goods_id;
+    }
+
+    /**
+     * Set goods_category
+     *
+     * @param \ITR\CatalogBundle\Entity\GoodsCategory $goodsCategory
+     * @return Goods
+     */
+    public function setGoodsCategory(\ITR\CatalogBundle\Entity\GoodsCategory $goodsCategory = null)
+    {
+        $this->goods_category = $goodsCategory;
+    
+        return $this;
+    }
+
+    /**
+     * Get goods_category
+     *
+     * @return \ITR\CatalogBundle\Entity\GoodsCategory 
+     */
+    public function getGoodsCategory()
+    {
+        return $this->goods_category;
     }
 }

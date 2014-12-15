@@ -14,7 +14,7 @@ ITR\CatalogBundle\Entity\Image:
     manyToOne:
         goods_id:
              targetEntity: Goods
-             inversedBy: id
+             inversedBy: images
              joinColumn:
                 name: goods_id
                 referencedColumnName: id

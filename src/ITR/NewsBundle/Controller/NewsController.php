@@ -28,32 +28,32 @@ class NewsController extends Controller
     if (($request->query->get('_search'))||($request->query->get('_author'))){
 
             $finder = $this->container->get('fos_elastica.finder.search.news');
-            $boolQuery= new \Elastica\Query\Bool();
-            if (strlen($request->query->get('_search'))>0){
-                $search = $request->query->get('_search');
-                $searchQuery = new \Elastica\Query\MultiMatch();
-                $searchQuery -> setFields(array('content','title','description'));
-                $searchQuery -> setQuery($search);
-                $searchQuery -> setAnalyzer('snowball');
-
-                $boolQuery->addMust($searchQuery);
-
-            }
-            if (strlen($request->query->get('_author'))>0){
-                $authors = $request->query->get('_author');
-                $authorQuery = new \Elastica\Query\Match();
-                $authorQuery->setFieldQuery('news.author',$authors);
-
-                $boolQuery->addMust($authorQuery);
-            }
-            $news = $finder->find($boolQuery);
-            $paginator = $this ->get('knp_paginator');
-            $pagination = $paginator->paginate(
-                $news,
-                $this->get('request')->query->get('page',1),
-                10
-                );
-            return $this->render('NewsBundle:News:index.html.twig', array('entities' => $pagination));
+//            $boolQuery= new \Elastica\Query\Bool();
+//            if (strlen($request->query->get('_search'))>0){
+//                $search = $request->query->get('_search');
+//                $searchQuery = new \Elastica\Query\MultiMatch();
+//                $searchQuery -> setFields(array('content','title','description'));
+//                $searchQuery -> setQuery($search);
+//                $searchQuery -> setAnalyzer('snowball');
+//
+//                $boolQuery->addMust($searchQuery);
+//
+//            }
+//            if (strlen($request->query->get('_author'))>0){
+//                $authors = $request->query->get('_author');
+//                $authorQuery = new \Elastica\Query\Match();
+//                $authorQuery->setFieldQuery('news.author',$authors);
+//
+//                $boolQuery->addMust($authorQuery);
+//            }
+ //           $news = $finder->find($boolQuery);
+//            $paginator = $this ->get('knp_paginator');
+//            $pagination = $paginator->paginate(
+//                $news,
+//                $this->get('request')->query->get('page',1),
+//                10
+//                );
+//            return $this->render('NewsBundle:News:index.html.twig', array('entities' => $pagination));
         }   
         else  
         {

@@ -16,13 +16,13 @@ ITR\CatalogBundle\Entity\GoodsSellers:
     manyToOne:
             goods_id:
                 targetEntity: Goods
-                inversedBy: id
+                inversedBy: goods_id
                 joinColumn:
                     name: goods_id
                     referencedColumnName: id
             seller_id:
                 targetEntity: Seller
-                inversedBy: id
+                inversedBy: goods
                 joinColumn:
                      name: seller_id
                      referencedColumnName: id

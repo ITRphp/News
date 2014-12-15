@@ -20,4 +20,8 @@ ITR\CatalogBundle\Entity\Printer:
             type: string
             length: 255
             column: print_type
+    oneToMany:
+        goods_id:
+            targetEntity: Goods
+            mappedBy: goods_id
     lifecycleCallbacks: {  }

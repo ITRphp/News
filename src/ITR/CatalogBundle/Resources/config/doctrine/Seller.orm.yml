@@ -28,7 +28,7 @@ ITR\CatalogBundle\Entity\Seller:
             type: string
             length: '2048'
     oneToMany:
-           goods_seller:
+           goods:
               targetEntity: GoodsSellers
               mappedBy: goods
            phone:

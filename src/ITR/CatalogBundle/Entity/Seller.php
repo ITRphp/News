@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Seller
 {
+
     /**
      * @var integer
      */
@@ -44,6 +45,24 @@ class Seller
      */
     private $description;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $goods;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $phone;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->goods = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->phone = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -192,56 +211,39 @@ class Seller
     {
         return $this->description;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $goods_seller;
 
     /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->goods_seller = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
-    /**
-     * Add goods_seller
+     * Add goods
      *
-     * @param \ITR\CatalogBundle\Entity\GoodsSellers $goodsSeller
+     * @param \ITR\CatalogBundle\Entity\GoodsSellers $goods
      * @return Seller
      */
-    public function addGoodsSeller(\ITR\CatalogBundle\Entity\GoodsSellers $goodsSeller)
+    public function addGood(\ITR\CatalogBundle\Entity\GoodsSellers $goods)
     {
-        $this->goods_seller[] = $goodsSeller;
+        $this->goods[] = $goods;
     
         return $this;
     }
 
     /**
-     * Remove goods_seller
+     * Remove goods
      *
-     * @param \ITR\CatalogBundle\Entity\GoodsSellers $goodsSeller
+     * @param \ITR\CatalogBundle\Entity\GoodsSellers $goods
      */
-    public function removeGoodsSeller(\ITR\CatalogBundle\Entity\GoodsSellers $goodsSeller)
+    public function removeGood(\ITR\CatalogBundle\Entity\GoodsSellers $goods)
     {
-        $this->goods_seller->removeElement($goodsSeller);
+        $this->goods->removeElement($goods);
     }
 
     /**
-     * Get goods_seller
+     * Get goods
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getGoodsSeller()
+    public function getGoods()
     {
-        return $this->goods_seller;
+        return $this->goods;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $phone;
-
 
     /**
      * Add phone

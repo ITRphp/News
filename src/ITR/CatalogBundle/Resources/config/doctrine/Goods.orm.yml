@@ -15,20 +15,17 @@ ITR\CatalogBundle\Entity\Goods:
     manyToOne:
            goods_id:
               targetEntity: Printer
-              inversedBy: id
+              inversedBy: goods_id
               joinColumn:
                   name: goods_id
                   referencedColumnName: id
            goods_category:
               targetEntity: GoodsCategory
-              inversedBy: id
+              inversedBy: goods
               joinColumn:
                    name: goods_category
                    referencedColumnName: id
     oneToMany:
-           goods:
-              targetEntity: GoodsSellers
-              mappedBy: goods
            rating:
               targetEntity: Rating
               mappedBy: goods_id

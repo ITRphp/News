@@ -136,4 +136,54 @@ class Printer
     {
         return $this->printType;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $goods_id;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->goods_id = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add goods_id
+     *
+     * @param \ITR\CatalogBundle\Entity\Goods $goodsId
+     * @return Printer
+     */
+    public function addGoodsId(\ITR\CatalogBundle\Entity\Goods $goodsId)
+    {
+        $this->goods_id[] = $goodsId;
+    
+        return $this;
+    }
+
+    /**
+     * Remove goods_id
+     *
+     * @param \ITR\CatalogBundle\Entity\Goods $goodsId
+     */
+    public function removeGoodsId(\ITR\CatalogBundle\Entity\Goods $goodsId)
+    {
+        $this->goods_id->removeElement($goodsId);
+    }
+
+    /**
+     * Get goods_id
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getGoodsId()
+    {
+        return $this->goods_id;
+    }
+
+    public function __toString()
+    {
+        return ' Type: '.$this->getType().'; Type of print: '.$this->getPrintType().'; Fax: '.$this->getFax().'; Scanner: '.$this->getScanner();
+    }
 }

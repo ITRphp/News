@@ -3,7 +3,7 @@ catalog_homepage:
     defaults: { _controller: CatalogBundle:Catalog:show }
 catalog_category:
     path:     /catalog/{category}
-    defaults: { _controller: CatalogBundle:Catalog:showGoods }
+    defaults: { _controller: CatalogBundle:Catalog:list }
 CatalogBundle_admin_seller:
     resource: "@CatalogBundle/Resources/config/routing/seller.yml"
     prefix:   /admin/seller
