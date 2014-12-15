@@ -1,0 +1,38 @@
+ITR\CatalogBundle\Entity\Goods:
+    type: entity
+    table: null
+    repositoryClass: ITR\CatalogBundle\Entity\GoodsRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+    manyToOne:
+           goods_id:
+              targetEntity: Printer
+              inversedBy: id
+              joinColumn:
+                  name: goods_id
+                  referencedColumnName: id
+           goods_category:
+              targetEntity: GoodsCategory
+              inversedBy: id
+              joinColumn:
+                   name: goods_category
+                   referencedColumnName: id
+    oneToMany:
+           goods:
+              targetEntity: GoodsSellers
+              mappedBy: goods
+           rating:
+              targetEntity: Rating
+              mappedBy: goods_id
+           images:
+               targetEntity: Image
+               mappedBy: goods_id
+    lifecycleCallbacks: {  }

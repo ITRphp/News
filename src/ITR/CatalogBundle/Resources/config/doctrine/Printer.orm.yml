@@ -1,0 +1,23 @@
+ITR\CatalogBundle\Entity\Printer:
+    type: entity
+    table: null
+    repositoryClass: ITR\CatalogBundle\Entity\PrinterRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        type:
+            type: string
+            length: 255
+        scanner:
+            type: boolean
+        fax:
+            type: boolean
+        printType:
+            type: string
+            length: 255
+            column: print_type
+    lifecycleCallbacks: {  }

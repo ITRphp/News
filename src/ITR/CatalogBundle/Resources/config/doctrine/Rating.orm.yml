@@ -1,0 +1,26 @@
+ITR\CatalogBundle\Entity\Rating:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        mark:
+            type: integer
+    manyToOne:
+           user_id:
+                targetEntity: ITR\NewsBundle\Entity\User
+                inversedBy: id
+                joinColumn:
+                    name: user_id
+                    referencedColumnName: id
+           goods_id:
+                 targetEntity: Goods
+                 inversedBy: id
+                 joinColumn:
+                     name: goods_id
+                     referencedColumnName: id
+    lifecycleCallbacks: {  }

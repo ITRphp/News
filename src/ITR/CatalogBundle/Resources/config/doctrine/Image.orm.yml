@@ -1,0 +1,21 @@
+ITR\CatalogBundle\Entity\Image:
+    type: entity
+    table: null
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        url:
+            type: string
+            length: '512'
+    manyToOne:
+        goods_id:
+             targetEntity: Goods
+             inversedBy: id
+             joinColumn:
+                name: goods_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }

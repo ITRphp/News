@@ -1,0 +1,29 @@
+ITR\CatalogBundle\Entity\GoodsSellers:
+    type: entity
+    table: null
+    repositoryClass: ITR\CatalogBundle\Entity\GoodsSellersRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        price:
+            type: integer
+        quantity:
+            type: integer
+    manyToOne:
+            goods_id:
+                targetEntity: Goods
+                inversedBy: id
+                joinColumn:
+                    name: goods_id
+                    referencedColumnName: id
+            seller_id:
+                targetEntity: Seller
+                inversedBy: id
+                joinColumn:
+                     name: seller_id
+                     referencedColumnName: id
+    lifecycleCallbacks: {  }
