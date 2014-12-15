@@ -388,4 +388,42 @@ class User implements UserInterface,  \Serializable
     {
         return $this->roles->toArray();
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $rating;
+
+
+    /**
+     * Add rating
+     *
+     * @param \ITR\NewsBundle\Entity\Rating $rating
+     * @return User
+     */
+    public function addRating(\ITR\NewsBundle\Entity\Rating $rating)
+    {
+        $this->rating[] = $rating;
+    
+        return $this;
+    }
+
+    /**
+     * Remove rating
+     *
+     * @param \ITR\NewsBundle\Entity\Rating $rating
+     */
+    public function removeRating(\ITR\NewsBundle\Entity\Rating $rating)
+    {
+        $this->rating->removeElement($rating);
+    }
+
+    /**
+     * Get rating
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRating()
+    {
+        return $this->rating;
+    }
 }

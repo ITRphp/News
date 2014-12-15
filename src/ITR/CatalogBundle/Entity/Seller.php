@@ -192,4 +192,87 @@ class Seller
     {
         return $this->description;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $goods_seller;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->goods_seller = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add goods_seller
+     *
+     * @param \ITR\CatalogBundle\Entity\GoodsSellers $goodsSeller
+     * @return Seller
+     */
+    public function addGoodsSeller(\ITR\CatalogBundle\Entity\GoodsSellers $goodsSeller)
+    {
+        $this->goods_seller[] = $goodsSeller;
+    
+        return $this;
+    }
+
+    /**
+     * Remove goods_seller
+     *
+     * @param \ITR\CatalogBundle\Entity\GoodsSellers $goodsSeller
+     */
+    public function removeGoodsSeller(\ITR\CatalogBundle\Entity\GoodsSellers $goodsSeller)
+    {
+        $this->goods_seller->removeElement($goodsSeller);
+    }
+
+    /**
+     * Get goods_seller
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getGoodsSeller()
+    {
+        return $this->goods_seller;
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $phone;
+
+
+    /**
+     * Add phone
+     *
+     * @param \ITR\CatalogBundle\Entity\Phone $phone
+     * @return Seller
+     */
+    public function addPhone(\ITR\CatalogBundle\Entity\Phone $phone)
+    {
+        $this->phone[] = $phone;
+    
+        return $this;
+    }
+
+    /**
+     * Remove phone
+     *
+     * @param \ITR\CatalogBundle\Entity\Phone $phone
+     */
+    public function removePhone(\ITR\CatalogBundle\Entity\Phone $phone)
+    {
+        $this->phone->removeElement($phone);
+    }
+
+    /**
+     * Get phone
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
 }

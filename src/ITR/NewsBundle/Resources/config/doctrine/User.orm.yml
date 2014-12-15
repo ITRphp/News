@@ -65,4 +65,7 @@ ITR\NewsBundle\Entity\User:
         comments:
           targetEntity: Comment
           mappedBy: users
+        rating:
+           targetEntity: ITR\CatalogBundle\Entity\Rating
+           mappedBy: user_id
     lifecycleCallbacks: {  }

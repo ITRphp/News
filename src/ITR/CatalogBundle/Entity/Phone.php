@@ -52,4 +52,32 @@ class Phone
     {
         return $this->number;
     }
+    /**
+     * @var \ITR\CatalogBundle\Entity\Seller
+     */
+    private $seller_id;
+
+
+    /**
+     * Set seller_id
+     *
+     * @param \ITR\CatalogBundle\Entity\Seller $sellerId
+     * @return Phone
+     */
+    public function setSellerId(\ITR\CatalogBundle\Entity\Seller $sellerId = null)
+    {
+        $this->seller_id = $sellerId;
+    
+        return $this;
+    }
+
+    /**
+     * Get seller_id
+     *
+     * @return \ITR\CatalogBundle\Entity\Seller 
+     */
+    public function getSellerId()
+    {
+        return $this->seller_id;
+    }
 }

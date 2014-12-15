@@ -27,4 +27,11 @@ ITR\CatalogBundle\Entity\Seller:
         description:
             type: string
             length: '2048'
+    oneToMany:
+           goods_seller:
+              targetEntity: GoodsSellers
+              mappedBy: goods
+           phone:
+              targetEntity: Phone
+              mappedBy: phone
     lifecycleCallbacks: {  }

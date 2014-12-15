@@ -73,4 +73,49 @@ class GoodsCategory
     {
         return $this->categoryName;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $goods;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->goods = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add goods
+     *
+     * @param \ITR\CatalogBundle\Entity\Goods $goods
+     * @return GoodsCategory
+     */
+    public function addGood(\ITR\CatalogBundle\Entity\Goods $goods)
+    {
+        $this->goods[] = $goods;
+    
+        return $this;
+    }
+
+    /**
+     * Remove goods
+     *
+     * @param \ITR\CatalogBundle\Entity\Goods $goods
+     */
+    public function removeGood(\ITR\CatalogBundle\Entity\Goods $goods)
+    {
+        $this->goods->removeElement($goods);
+    }
+
+    /**
+     * Get goods
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getGoods()
+    {
+        return $this->goods;
+    }
 }

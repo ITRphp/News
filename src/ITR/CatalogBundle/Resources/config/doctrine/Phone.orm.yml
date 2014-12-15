@@ -12,4 +12,11 @@ ITR\CatalogBundle\Entity\Phone:
         number:
             type: string
             length: '30'
+    manyToOne:
+        seller_id:
+              targetEntity: Seller
+              inversedBy: id
+              joinColumn:
+                  name: seller_id
+                  referencedColumnName: id
     lifecycleCallbacks: {  }

@@ -15,4 +15,8 @@ ITR\CatalogBundle\Entity\GoodsCategory:
         tableName:
             type: string
             length: 255
+    oneToMany:
+        goods:
+            targetEntity: Goods
+            mappedBy: goods_category
     lifecycleCallbacks: {  }
