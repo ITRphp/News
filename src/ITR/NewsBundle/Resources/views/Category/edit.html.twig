@@ -6,6 +6,7 @@
     
     <div class="row col-md-offset-1">
         <a href="{{ path('category') }}" class="btn btn-default">{% trans %}Back to the list{% endtrans %}</a>
+        <p></p>
         {% if is_granted('ROLE_ADMIN') %}
             {{ form(delete_form) }}
         {% endif %}

@@ -118,4 +118,72 @@ class GoodsCategory
     {
         return $this->goods;
     }
+
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $children;
+
+    /**
+     * @var \ITR\CatalogBundle\Entity\GoodsCategory
+     */
+    private $parent;
+
+
+    /**
+     * Add children
+     *
+     * @param \ITR\CatalogBundle\Entity\GoodsCategory $children
+     * @return GoodsCategory
+     */
+    public function addChild(\ITR\CatalogBundle\Entity\GoodsCategory $children)
+    {
+        $this->children[] = $children;
+    
+        return $this;
+    }
+
+    /**
+     * Remove children
+     *
+     * @param \ITR\CatalogBundle\Entity\GoodsCategory $children
+     */
+    public function removeChild(\ITR\CatalogBundle\Entity\GoodsCategory $children)
+    {
+        $this->children->removeElement($children);
+    }
+
+    /**
+     * Get children
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getChildren()
+    {
+        return $this->children;
+    }
+
+    /**
+     * Set parent
+     *
+     * @param \ITR\CatalogBundle\Entity\GoodsCategory $parent
+     * @return GoodsCategory
+     */
+    public function setParent(\ITR\CatalogBundle\Entity\GoodsCategory $parent = null)
+    {
+        $this->parent = $parent;
+    
+        return $this;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return \ITR\CatalogBundle\Entity\GoodsCategory 
+     */
+    public function getParent()
+    {
+        return $this->parent;
+    }
 }

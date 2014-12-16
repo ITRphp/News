@@ -2,6 +2,7 @@
 
 namespace ITR\CatalogBundle\Controller;
 
+use ITR\CatalogBundle\Entity\Phone;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -24,9 +25,15 @@ class SellerController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entities = $em->getRepository('CatalogBundle:Seller')->findAll();
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $entities,
+            $this->get('request')->query->get('page', 1)/*page number*/,
+            10/*limit per page*/
+        );
 
         return $this->render('CatalogBundle:Seller:index.html.twig', array(
-            'entities' => $entities,
+            'entities' => $pagination,
         ));
     }
     /**
@@ -41,7 +48,15 @@ class SellerController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+
+            $phone = new Phone();
+            $phone->setNumber($entity->getNumber());
             $em->persist($entity);
+            $em->flush();
+            $phone->setSellerId($entity);
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($phone);
             $em->flush();
 
             return $this->redirect($this->generateUrl('admin_seller_show', array('id' => $entity->getId())));
@@ -160,6 +175,7 @@ class SellerController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         $entity = $em->getRepository('CatalogBundle:Seller')->find($id);
+        $phone = $em->getRepository('CatalogBundle:Phone')->findOneBy(array('number' => $entity->getNumber()));
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Seller entity.');
@@ -170,6 +186,12 @@ class SellerController extends Controller
         $editForm->handleRequest($request);
 
         if ($editForm->isValid()) {
+            $em->persist($entity);
+            if($phone != null){
+                $phone->setNumber($entity->getNumber(true));
+                $em->persist($phone);
+
+            }
             $em->flush();
 
             return $this->redirect($this->generateUrl('admin_seller_edit', array('id' => $id)));

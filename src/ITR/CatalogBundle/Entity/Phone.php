@@ -80,4 +80,8 @@ class Phone
     {
         return $this->seller_id;
     }
+    public function __toString()
+    {
+        return $this->getNumber();
+    }
 }

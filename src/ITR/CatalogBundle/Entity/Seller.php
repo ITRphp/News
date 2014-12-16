@@ -277,4 +277,27 @@ class Seller
     {
         return $this->phone;
     }
+
+
+    private $number;
+
+    /**
+     * @param mixed $number
+     */
+    public function setNumber($number)
+    {
+        $this->number = $number;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getNumber($edit=false)
+    {
+        if($edit){
+            return $this->number;
+        }else{
+        return $this->phone[0]->getNumber();
+        }
+    }
 }

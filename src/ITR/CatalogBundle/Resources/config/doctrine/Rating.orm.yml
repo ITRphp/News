@@ -10,6 +10,7 @@ ITR\CatalogBundle\Entity\Rating:
     fields:
         mark:
             type: integer
+            nullable: false
     manyToOne:
            user_id:
                 targetEntity: ITR\NewsBundle\Entity\User

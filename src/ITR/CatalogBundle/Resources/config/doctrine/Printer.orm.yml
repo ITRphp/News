@@ -14,12 +14,33 @@ ITR\CatalogBundle\Entity\Printer:
             length: 255
         scanner:
             type: boolean
+            nullable: true
+            options:
+                default: 0
         fax:
             type: boolean
+            nullable: true
+            options:
+                default: 0
         printType:
             type: string
             length: 255
             column: print_type
+            nullable: true
+        format:
+            type: string
+            length: 100
+            columnt: print_format
+            nullable: true
+        speed:
+            type: string
+            length: 100
+            column: speed
+            nullable: true
+        weight:
+            type: float
+            column: weight
+            nullable: true
     oneToMany:
         goods_id:
             targetEntity: Goods

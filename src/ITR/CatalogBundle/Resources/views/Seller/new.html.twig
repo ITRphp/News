@@ -1,15 +1,26 @@
-{% extends '::base.html.twig' %}
+{% extends "NewsBundle:Admin:layout.html.twig" %}
 
-{% block body -%}
-    <h1>Seller creation</h1>
+{% form_theme form 'NewsBundle:Form:fields.html.twig' %}
 
-    {{ form(form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('admin_seller') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+{% block content -%}
+    {{parent()}}
+    <h1 class="text-center">Seller creation</h1>
+    <a href="{{ path('admin_seller') }}"  class="btn btn-default">{% trans %}Back to the list{% endtrans %}</a>
+    <div class="row" >
+        <div class="col-md-5 col-md-offset-4">
+            {{ form_start(form)}}
+            {{ form_errors(form)|trans }}
+            {{ form_row(form.name) }}
+            {{ form_row(form.address) }}
+            {{ form_row(form.email) }}
+            {{ form_row(form.skype) }}
+            {{ form_row(form.number ) }}
+     {#/       <input type="text">#}
+            <a href="" ><span class="glyphicon glyphicon-plus-sign text-success" style=""></span></a>
+            {{ form_row(form.schedule) }}
+            {{ form_row(form.description) }}
+            {{ form_widget(form.submit) }}
+            {{ form_end(form) }}
+        </div>
+    </div>
 {% endblock %}

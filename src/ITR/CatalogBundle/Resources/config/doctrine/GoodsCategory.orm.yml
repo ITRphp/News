@@ -2,6 +2,10 @@ ITR\CatalogBundle\Entity\GoodsCategory:
     type: entity
     table: null
     repositoryClass: ITR\CatalogBundle\Entity\GoodsCategoryRepository
+    indexes:
+        categoryName_index:
+            columns: [ categoryName ]
+
     id:
         id:
             type: integer
@@ -15,8 +19,18 @@ ITR\CatalogBundle\Entity\GoodsCategory:
         tableName:
             type: string
             length: 255
+            nullable: true
     oneToMany:
         goods:
             targetEntity: Goods
             mappedBy: goods_category
+        children:
+            targetEntity: GoodsCategory
+            mappedBy: parent
+
+    manyToOne:
+        parent:
+            targetEntity: GoodsCategory
+            inversedBy: children
+
     lifecycleCallbacks: {  }

@@ -32,4 +32,7 @@ ITR\CatalogBundle\Entity\Goods:
            images:
                targetEntity: Image
                mappedBy: goods_id
+           sellers:
+              targetEntity: GoodsSellers
+              mappedBy: goods_id
     lifecycleCallbacks: {  }

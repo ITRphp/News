@@ -184,6 +184,91 @@ class Printer
 
     public function __toString()
     {
-        return ' Type: '.$this->getType().'; Type of print: '.$this->getPrintType().'; Fax: '.$this->getFax().'; Scanner: '.$this->getScanner();
+        return ' Type: '.$this->getType().'; Type of print: '.$this->getPrintType().'; Fax: '.$this->getFax().'; Scanner: '.$this->getScanner().
+        ' Format:'.$this->getFormat().' Speed:'.$this->getSpeed().' Weigth:'.$this->getWeight();
+    }
+    /**
+     * @var string
+     */
+    private $format;
+
+    /**
+     * @var string
+     */
+    private $speed;
+
+
+    /**
+     * Set format
+     *
+     * @param string $format
+     * @return Printer
+     */
+    public function setFormat($format)
+    {
+        $this->format = $format;
+    
+        return $this;
+    }
+
+    /**
+     * Get format
+     *
+     * @return string 
+     */
+    public function getFormat()
+    {
+        return $this->format;
+    }
+
+    /**
+     * Set speed
+     *
+     * @param string $speed
+     * @return Printer
+     */
+    public function setSpeed($speed)
+    {
+        $this->speed = $speed;
+    
+        return $this;
+    }
+
+    /**
+     * Get speed
+     *
+     * @return string 
+     */
+    public function getSpeed()
+    {
+        return $this->speed;
+    }
+    /**
+     * @var integer
+     */
+    private $weight;
+
+
+    /**
+     * Set weight
+     *
+     * @param integer $weight
+     * @return Printer
+     */
+    public function setWeight($weight)
+    {
+        $this->weight = $weight;
+    
+        return $this;
+    }
+
+    /**
+     * Get weight
+     *
+     * @return integer 
+     */
+    public function getWeight()
+    {
+        return $this->weight;
     }
 }

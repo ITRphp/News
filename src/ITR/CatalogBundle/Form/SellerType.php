@@ -17,10 +17,11 @@ class SellerType extends AbstractType
         $builder
             ->add('name')
             ->add('address')
-            ->add('email')
+            ->add('email', 'email')
             ->add('skype')
             ->add('schedule')
-            ->add('description')
+            ->add('number','text')
+            ->add('description', 'textarea')
         ;
     }
     

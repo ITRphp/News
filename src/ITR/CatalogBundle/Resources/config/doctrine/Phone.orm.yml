@@ -15,7 +15,7 @@ ITR\CatalogBundle\Entity\Phone:
     manyToOne:
         seller_id:
               targetEntity: Seller
-              inversedBy: id
+              inversedBy: phone
               joinColumn:
                   name: seller_id
                   referencedColumnName: id

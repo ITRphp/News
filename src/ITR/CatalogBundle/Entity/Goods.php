@@ -193,4 +193,77 @@ class Goods
     {
         return $this->goods_category;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $sellers;
+
+
+    /**
+     * Add sellers
+     *
+     * @param \ITR\CatalogBundle\Entity\GoodsSellers $sellers
+     * @return Goods
+     */
+    public function addSeller(\ITR\CatalogBundle\Entity\GoodsSellers $sellers)
+    {
+        $this->sellers[] = $sellers;
+    
+        return $this;
+    }
+
+    /**
+     * Remove sellers
+     *
+     * @param \ITR\CatalogBundle\Entity\GoodsSellers $sellers
+     */
+    public function removeSeller(\ITR\CatalogBundle\Entity\GoodsSellers $sellers)
+    {
+        $this->sellers->removeElement($sellers);
+    }
+
+    /**
+     * Get sellers
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSellers()
+    {
+        return $this->sellers;
+    }
+
+    public function getMinPrice()
+    {
+        $min = $this->sellers[0]->getPrice();
+        foreach($this->sellers as $seller){
+            if($seller->getPrice()  < $min)
+                $min = $seller->getPrice();
+        }
+        return $min;
+    }
+
+    public function getMaxPrice()
+    {
+        $max = $this->sellers[0]->getPrice();
+        foreach($this->sellers as $seller){
+            if($seller->getPrice()  > $max)
+                $max = $seller->getPrice();
+        }
+        return $max;
+    }
+
+    public function getAvgRating()
+    {
+        if  (count($this->rating) > 0) {
+        $sum=0;
+        foreach($this->rating as $rating)
+        {
+            $sum+=$rating->getMark();
+        }
+        return round($sum/(count($this->rating) == 0 ? 1: count($this->rating)));
+        }else{
+            return 1;
+        }
+
+    }
 }

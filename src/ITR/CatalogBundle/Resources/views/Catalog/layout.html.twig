@@ -1,5 +1,12 @@
 {% extends "NewsBundle:MainPage:index.html.twig" %}
 {% block content %}
+    <script>
+        $(document).ready(function () {
+            $('label.tree-toggler').click(function () {
+                $(this).parent().children('ul.tree').toggle(300);
+            });
+        });
+    </script>
     <div>
         <div class="navbar navbar-default navbar-static-top" role="navigation">
             <div class="container">
@@ -23,12 +30,30 @@
         <div class="container col-md-2">
             <div class="col-md-12 col-sm-12 container">
                 <div data-spy="affix" class="sidebar visible-desktop"  data-offset-top="227" id="affix1">
-                    {{ knp_menu_render('CatalogBundle:Builder:categoryMenu', {'currentClass': 'active', 'template': 'NewsBundle:Menu:knp_menu.html.twig'}) }}
-                    <hr>
+                    <div>
+                        <div class="well ">
+                            <ul class="nav ">
+                                <li>
+                                    {% for category in categories %}
+                                        <label label-default="" class="tree-toggler nav-header">{{ category.categoryName }}</label>
+                                        {% if category.children is not empty %}
+                                            <ul class="nav  tree active-trial">
+                                                {% for category_i in category.getChildren %}
+                                                    <li><a href="{{path('catalog_category', { 'category': category_i.tableName })}}">{{ category_i.categoryName }}</a></li>
+                                                {% endfor %}
+                                            </ul>
+                                        {% endif %}
+                                    {% endfor %}
+                                </li>
+                            </ul>
+                        </div>
+                        {#{{ knp_menu_render('CatalogBundle:Builder:categoryMenu', {'currentClass': 'active', 'template': 'NewsBundle:Menu:knp_menu.html.twig'}) }}#}
+                    </div>
                 </div>
             </div>
         </div>
         {% block goods %}
         {% endblock %}
+    </div>
     </div>
 {% endblock %}

@@ -18,4 +18,17 @@ class GoodsCategoryRepository extends EntityRepository
             ->createQuery('SELECT c FROM CatalogBundle:GoodsCategory c ORDER BY c.category_name ASC')
             ->getResult();
     }
+
+
+    public function findAllParents()
+    {
+        $q = $this
+            ->createQueryBuilder('c')
+           ->where('c.parent IS NULL')
+            ->orderBy('c.categoryName', 'ASC')
+            ->getQuery();
+            $categories= $q->getResult();
+
+        return $categories;
+    }
 }

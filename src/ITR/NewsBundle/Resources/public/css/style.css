@@ -4,6 +4,12 @@
     z-index:1;
 }
 
+body{
+    margin:0;
+    padding:0;
+    min-height:100%;
+}
+
 #affix2.affix{
     margin-top: -220px;
     z-index:1;
@@ -13,6 +19,10 @@
     -webkit-box-shadow: 0px 0px 6px 6px rgba(50, 50, 50, 0.1);
     -moz-box-shadow:    0px 0px 6px 6px rgba(50, 50, 50, 0.1);
     box-shadow:         0px 0px 6px 6px rgba(50, 50, 50, 0.1);
+    display:table;
+    height:100%;
+    table-layout:fixed;
+    width:100%;
 }
 li.active{
     background-color: #ddd;

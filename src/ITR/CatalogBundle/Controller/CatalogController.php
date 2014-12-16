@@ -9,19 +9,12 @@ class CatalogController extends Controller
     public function showAction($category = Null)
     {   $user = $this->get('security.context')->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
-        if($category != null){
-            $category_t = $em->getRepository('CatalogBundle:GoodsCategory')->findOneBy(
-                array('categoryName' => $category)
-            );
-//            $property = $em->getRepository('CatalogBundle:'.$category_t->getTableName())->findAll();
-            $goods = $em->getRepository('CatalogBundle:Goods')->findBy(
-                array('goods_category' => $category_t)
-            );
+        $images = $em->getRepository('CatalogBundle:Image')->findAll();
 
-        }
-
+        $categories = $em->getRepository('CatalogBundle:GoodsCategory')->findAllParents();
         $context = array( 'username' => $user->getUserName(),
-            'goods' => $goods
+            'images' => $images,
+            'categories' => $categories
             );
         return $this->render('CatalogBundle:Catalog:index.html.twig', $context);
     }
@@ -29,25 +22,28 @@ class CatalogController extends Controller
     public function listAction($category = Null)
     {   $user = $this->get('security.context')->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
+        $categories = $em->getRepository('CatalogBundle:GoodsCategory')->findAllParents();
         if($category != null){
             $category_t = $em->getRepository('CatalogBundle:GoodsCategory')->findOneBy(
-                array('categoryName' => $category)
+                array('tableName' => $category)
             );
-//            $property = $em->getRepository('CatalogBundle:'.$category_t->getTableName())->findAll();
             $goods = $em->getRepository('CatalogBundle:Goods')->findBy(
                 array('goods_category' => $category_t)
             );
 
         }
-
         $context = array( 'username' => $user->getUserName(),
-            'goods' => $goods
+            'goods' => $this->getPagination($goods),
+            'categories' => $categories
         );
-        return $this->render('CatalogBundle:Catalog:index.html.twig', $context);
+        return $this->render('CatalogBundle:Catalog:'.strtolower($category_t->getTableName().'.html.twig'), $context);
     }
 
     public function showGoodsAction()
     {
+
+    }
+    private function menu(){
 
     }
 

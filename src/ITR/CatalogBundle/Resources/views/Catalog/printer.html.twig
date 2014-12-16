@@ -2,43 +2,45 @@
 
 {% block goods %}
     <div class="col-md-10" id="goods_list">
-        <table class="records_list table table-hover table-bordered">
-            <thead>
-            <tr>
-                <th>{{'Type'|trans}}</th>
-                <th>{{'Scaner'|trans}}</th>
-                <th>{{'Fax'|trans}}</th>
-                <th>{{'Print Type'|trans}}</th>
-
-            </tr>
-            </thead>
-            <tbody>
-            {% for goods_property in property %}
-                <tr>
-                    <td>{{ goods_property.type }}</td>
-                    <td>
-                        {% if goods_property.fax %}
-                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+        <div id="sort">
+            <ul class="nav nav-pills">
+                <li class="active"><a data-toggle="pill" id="date" name="date" class="sort btn btn-xs"{#href="{{path('sort_news',{'key': 'date'})}}"#}>{{'Sort by price'|trans}}</a></li>
+                <li><a data-toggle="pill" id="popular" name="popular" class="sort btn btn-xs" {#href="{{path('sort_news',{'key': 'popular'})}}"#}>{{'Sort by popularity'|trans}}</a></li>
+                <li><a data-toggle="pill" id="popular" name="popular" class="sort btn btn-xs" {#href="{{path('sort_news',{'key': 'popular'})}}"#}>{{'Sort by name'|trans}}</a></li>
+            </ul>
+        </div>
+        {% for goods_item in goods %}
+            <div class="media row">
+                <a class="media-left col-md-2" href="#">
+                    <img src="{{ goods_item.images[0].url }}" alt="..." width="100" height="100">
+                </a>
+                <div class="row col-md-10">
+                    <div class="media-body col-md-8   " style="display: inline;">
+                        <h4 class="media-heading">{{ goods_item.name }}</h4>
+                        {{ goods_item.getGoodsId }}
+                    </div>
+                    <div class="col-md-2 text-danger" style="display: inline-block;">
+                        <strong>{{ goods_item.getMinPrice }}$ - {{ goods_item.getMaxPrice }}$ </strong>
+                        <div class="row" style="margin-left: 0px!important;">
+                            <a href="#" class="btn btn-default btn-sm">All offers</a>
+                        </div>
+                    </div>
+                    <div class="row col-md-offset-0  col-md-12">
+                        {% if goods_item.rating is not empty %}
+                        {% for i in 1..goods_item.getAvgRating %}
+                            <span class=" text-danger glyphicon glyphicon-star"></span>
                         {% else %}
-                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                        {% endif %}
-                    </td>
-                    <td>
-                        {% if goods_property.fax %}
-                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                        {% else %}
-                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-                        {% endif %}
-                    </td>
-                    <td>{{ goods_property.printType }}</td>
-                </tr>
-            {% else %}
-                <h3>No such goods</h3>
-            {% endfor %}
-            </tbody>
-        </table>
+                        {% endfor %}
+                            {% endif %}
+                    </div>
+                </div>
+            </div>
+            <hr>
+        {% else %}
+            <h3>No such goods</h3>
+        {% endfor %}
     </div>
-    {#<div class="navigation">#}
-    {#{{ knp_pagination_render(goods) }}#}
-    {#</div>#}
+    <div class="navigation">
+    {{ knp_pagination_render(goods) }}
+    </div>
 {% endblock %}

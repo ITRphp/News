@@ -11,6 +11,7 @@ ITR\CatalogBundle\Entity\Image:
         url:
             type: string
             length: '512'
+            nullable: false
     manyToOne:
         goods_id:
              targetEntity: Goods
