@@ -294,10 +294,12 @@ class Seller
      */
     public function getNumber($edit=false)
     {
-        if($edit){
-            return $this->number;
-        }else{
-        return $this->phone[0]->getNumber();
-        }
+        return $this->number;
     }
+
+    public function __toString()
+    {
+        return $this->getName();
+    }
+
 }

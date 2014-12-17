@@ -55,6 +55,8 @@ security:
         - { path: ^/passwordrecovery, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/updatepassword, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/mainpage/, roles: ROLE_USER}
+        - { path: ^/catalog/, roles: ROLE_USER}
+        - { path: ^/printer/, roles: ROLE_USER}
         - { path: ^/admin, roles: ROLE_MANAGER}
         - { path: ^/admin/news, roles: ROLE_MANAGER}
         - { path: ^/admin/category, roles: ROLE_MANAGER}

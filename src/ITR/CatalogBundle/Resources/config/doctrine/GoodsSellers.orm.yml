@@ -11,8 +11,14 @@ ITR\CatalogBundle\Entity\GoodsSellers:
     fields:
         price:
             type: integer
+            options:
+                unsigned: true
+                default: 0
         quantity:
             type: integer
+            options:
+                unsigned: true
+                default: 0
     manyToOne:
             goods_id:
                 targetEntity: Goods

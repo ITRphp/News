@@ -1,0 +1,30 @@
+goodssellers:
+    path:     /
+    defaults: { _controller: "CatalogBundle:GoodsSellers:index" }
+
+goodssellers_show:
+    path:     /{id}/show
+    defaults: { _controller: "CatalogBundle:GoodsSellers:show" }
+
+goodssellers_new:
+    path:     /new
+    defaults: { _controller: "CatalogBundle:GoodsSellers:new" }
+
+goodssellers_create:
+    path:     /create
+    defaults: { _controller: "CatalogBundle:GoodsSellers:create" }
+    requirements: { _method: post }
+
+goodssellers_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "CatalogBundle:GoodsSellers:edit" }
+
+goodssellers_update:
+    path:     /{id}/update
+    defaults: { _controller: "CatalogBundle:GoodsSellers:update" }
+    requirements: { _method: post|put }
+
+goodssellers_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "CatalogBundle:GoodsSellers:delete" }
+    requirements: { _method: post|delete }

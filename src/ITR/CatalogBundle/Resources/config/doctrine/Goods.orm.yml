@@ -9,9 +9,6 @@ ITR\CatalogBundle\Entity\Goods:
             generator:
                 strategy: AUTO
     fields:
-        name:
-            type: string
-            length: 255
     manyToOne:
            goods_id:
               targetEntity: Printer

@@ -1,0 +1,11 @@
+ITR\CatalogBundle\Entity\Monitor:
+    type: entity
+    table: null
+    repositoryClass: ITR\CatalogBundle\Entity\MonitorRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    lifecycleCallbacks: {  }

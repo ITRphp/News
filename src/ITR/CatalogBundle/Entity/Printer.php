@@ -182,10 +182,15 @@ class Printer
         return $this->goods_id;
     }
 
-    public function __toString()
+    public function getDescription()
     {
         return ' Type: '.$this->getType().'; Type of print: '.$this->getPrintType().'; Fax: '.$this->getFax().'; Scanner: '.$this->getScanner().
         ' Format:'.$this->getFormat().' Speed:'.$this->getSpeed().' Weigth:'.$this->getWeight();
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
     }
     /**
      * @var string
@@ -270,5 +275,33 @@ class Printer
     public function getWeight()
     {
         return $this->weight;
+    }
+    /**
+     * @var string
+     */
+    private $name;
+
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     * @return Printer
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string 
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 }

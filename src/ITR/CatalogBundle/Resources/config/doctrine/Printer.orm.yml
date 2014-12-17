@@ -9,6 +9,9 @@ ITR\CatalogBundle\Entity\Printer:
             generator:
                 strategy: AUTO
     fields:
+        name:
+            type: string
+            length: 255
         type:
             type: string
             length: 255

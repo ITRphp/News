@@ -7,4 +7,24 @@ catalog_category:
 CatalogBundle_admin_seller:
     resource: "@CatalogBundle/Resources/config/routing/seller.yml"
     prefix:   /admin/seller
-
+CatalogBundle_printer:
+    resource: "@CatalogBundle/Resources/config/routing/printer.yml"
+    prefix:   /admin/printer
+CatalogBundle_goods:
+    resource: "@CatalogBundle/Resources/config/routing/goods.yml"
+    prefix:   /admin/goods
+CatalogBundle_goodssellers:
+    resource: "@CatalogBundle/Resources/config/routing/goodssellers.yml"
+    prefix:   /admin/goodssellers
+CatalogBundle_goodscategory:
+    resource: "@CatalogBundle/Resources/config/routing/goodscategory.yml"
+    prefix:   /admin/goodscategory
+CatalogBundle_keyboard:
+    resource: "@CatalogBundle/Resources/config/routing/keyboard.yml"
+    prefix:   /keyboard
+CatalogBundle_monitor:
+    resource: "@CatalogBundle/Resources/config/routing/monitor.yml"
+    prefix:   /monitor
+CatalogBundle_earphone:
+    resource: "@CatalogBundle/Resources/config/routing/earphone.yml"
+    prefix:   /earphone

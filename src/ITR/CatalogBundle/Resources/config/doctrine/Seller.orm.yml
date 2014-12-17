@@ -16,6 +16,9 @@ ITR\CatalogBundle\Entity\Seller:
             type: string
             length: 255
             nullable: true
+        number:
+            type: string
+            length: 255
         email:
             type: string
             length: '30'

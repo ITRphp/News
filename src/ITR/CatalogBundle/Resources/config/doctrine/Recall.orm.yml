@@ -1,0 +1,17 @@
+ITR\CatalogBundle\Entity\Recall:
+    type: entity
+    table: null
+    repositoryClass: ITR\CatalogBundle\Entity\RecallRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        text:
+            type: string
+            length: '512'
+        publicationDate:
+            type: datetime
+    lifecycleCallbacks: {  }

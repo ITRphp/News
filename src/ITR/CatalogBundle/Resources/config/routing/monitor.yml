@@ -1,0 +1,30 @@
+monitors:
+    path:     /
+    defaults: { _controller: "CatalogBundle:Monitor:index" }
+
+monitor_show:
+    path:     /{id}/show
+    defaults: { _controller: "CatalogBundle:Monitor:show" }
+
+monitor_new:
+    path:     /new
+    defaults: { _controller: "CatalogBundle:Monitor:new" }
+
+monitor_create:
+    path:     /create
+    defaults: { _controller: "CatalogBundle:Monitor:create" }
+    requirements: { _method: post }
+
+monitor_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "CatalogBundle:Monitor:edit" }
+
+monitor_update:
+    path:     /{id}/update
+    defaults: { _controller: "CatalogBundle:Monitor:update" }
+    requirements: { _method: post|put }
+
+monitor_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "CatalogBundle:Monitor:delete" }
+    requirements: { _method: post|delete }

@@ -16,8 +16,8 @@
                 </a>
                 <div class="row col-md-10">
                     <div class="media-body col-md-8   " style="display: inline;">
-                        <h4 class="media-heading">{{ goods_item.name }}</h4>
-                        {{ goods_item.getGoodsId }}
+                        <h4 class="media-heading">{{ goods_item.getGoodsId.name }}</h4>
+                        {{ goods_item.getGoodsId.getDescription }}
                     </div>
                     <div class="col-md-2 text-danger" style="display: inline-block;">
                         <strong>{{ goods_item.getMinPrice }}$ - {{ goods_item.getMaxPrice }}$ </strong>

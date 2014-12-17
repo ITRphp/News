@@ -1,0 +1,11 @@
+ITR\CatalogBundle\Entity\Keyboard:
+    type: entity
+    table: null
+    repositoryClass: ITR\CatalogBundle\Entity\KeyboardRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    lifecycleCallbacks: {  }

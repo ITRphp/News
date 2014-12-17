@@ -54,38 +54,47 @@ class Builder extends ContainerAware
         if ($this->container->get('security.context')->isGranted('ROLE_ADMIN')) {
             $menu->addChild('Users', array('route' => 'user'));
             
-            $menu->addChild('Categories')
+            $menu->addChild('News Categories')
                  ->setAttribute('dropdown', true)
                  ->setAttribute('divider_prepend', true);
             
-            $menu['Categories']->addChild('All categories', array('route' => 'category'));
-            $menu['Categories']->addChild('Add category', array('route' => 'category_new'));
+            $menu['News Categories']->addChild('All categories', array('route' => 'category'));
+            $menu['News Categories']->addChild('Add category', array('route' => 'category_new'));
             
             
         }
-        $menu->addChild('Content')
+        $menu->addChild('News Content')
              ->setAttribute('dropdown', true)
              ->setAttribute('divider_prepend', true)
         ->setAttribute('caret', true);
  
-        $menu['Content']->addChild('News list', array('route' => 'news'));
-        $menu['Content']->addChild('Add news', array('route' => 'news_new'));
+        $menu['News Content']->addChild('News list', array('route' => 'news'));
+        $menu['News Content']->addChild('Add news', array('route' => 'news_new'));
 
-        $catalog = $menu->addChild('Catalog')
+        $menu->addChild('Catalog')
             ->setAttribute('dropdown', true)
             ->setAttribute('divider_prepend', true);
 
-        //$menu['Catalog']->addChild('Sellers');
-        $sellers = $menu->addChild('Sellers')
+        $menu['Catalog']->addChild('Goods list', array('route' => 'goods'));
+        $menu['Catalog']->addChild('Add goods', array('route' => 'goods_new'));
+        $menu['Catalog']->addChild('Category List', array('route' => 'goodscategory'));
+        $menu['Catalog']->addChild('Add category', array('route' => 'goodscategory_new'));
+        $menu['Catalog']->addChild('Sellers list', array('route' => 'admin_seller'));
+        $menu['Catalog']->addChild('Add seller', array('route' => 'admin_seller_new'));
+
+        $menu->addChild('Goods')
             ->setAttribute('dropdown', true)
-            ->setAttribute('divider_prepend', true);
+            ->setAttribute('divider_prepend', true)
+            ->setAttribute('caret', true);
+        $em = $this->container->get('doctrine')->getManager();
+        $categories = $em->getRepository('CatalogBundle:GoodsCategory')->findAllChildren();
 
-        $sellers->addChild('Sellers list', array('route' => 'admin_seller'));
-        $sellers->addChild('Add seller', array('route' => 'admin_seller_new'));
+        foreach ($categories as $category){
+            $menu['Goods']->addChild($category->getCategoryName(), array('route' =>$category->getTableName(),
+                'routeParameters' => array('category' => strtolower($category->getTableName()))));
+        }
 
-        $catalog->addChild('Goods list', array('route' => 'admin_seller'));
-        $catalog->addChild('Add category', array('route' => 'news_new'));
-        $catalog->addChild('Add goods', array('route' => 'news_new'));
+
 
         $menu->addChild('Logout', array('route' => 'logout'));
   

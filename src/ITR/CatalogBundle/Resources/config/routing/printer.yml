@@ -1,0 +1,30 @@
+printer:
+    path:     /
+    defaults: { _controller: "CatalogBundle:Printer:index" }
+
+printer_show:
+    path:     /{id}/show
+    defaults: { _controller: "CatalogBundle:Printer:show" }
+
+printer_new:
+    path:     /new
+    defaults: { _controller: "CatalogBundle:Printer:new" }
+
+printer_create:
+    path:     /create
+    defaults: { _controller: "CatalogBundle:Printer:create" }
+    requirements: { _method: post }
+
+printer_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "CatalogBundle:Printer:edit" }
+
+printer_update:
+    path:     /{id}/update
+    defaults: { _controller: "CatalogBundle:Printer:update" }
+    requirements: { _method: post|put }
+
+printer_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "CatalogBundle:Printer:delete" }
+    requirements: { _method: post|delete }

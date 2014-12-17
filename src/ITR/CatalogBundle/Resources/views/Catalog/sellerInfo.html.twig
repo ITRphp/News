@@ -1,0 +1,12 @@
+{% extends "CatalogBundle:Catalog:layout.html.twig" %}
+
+{% block goods %}
+    <div class="col-md-10 row" id="goods_list">
+        {% for seller in sellers %}
+
+        {% endfor %}
+    </div>
+    {#<div class="navigation">#}
+    {#{{ knp_pagination_render(goods) }}#}
+    {#</div>#}
+{% endblock %}

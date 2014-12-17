@@ -1,0 +1,59 @@
+{% extends "NewsBundle:Admin:layout.html.twig" %}
+
+{% form_theme delete_form 'NewsBundle:Form:delete.html.twig' %}
+
+{% block content -%}
+    {{parent()}}
+    <h1>Printer {{ entity.name }}</h1>
+    <div class="btn-toolbar" role="toolbar">
+        <div class="btn-group">
+            <a href="{{ path('printer') }}" class="btn btn-default">{% trans %}Back to the list{% endtrans %}</a>
+            <a href="{{ path('printer_edit', { 'id': entity.id }) }}" class="btn btn-default">{% trans %}Edit{% endtrans %}</a>
+        </div>
+    </div>
+
+    <table class="records_list table table-hover table-bordered">
+        <tbody>
+        <tr>
+        </tr>
+        <tr>
+            <th>Type</th>
+            <td>{{ entity.type }}</td>
+        </tr>
+        <tr>
+            <th>Scanner</th>
+            <td>{%  if entity.scanner == 1  %}
+                <span class="glyphicon glyphicon-ok text-success"></span>
+            {% else %}
+                <span class="glyphicon glyphicon-remove text-danger"></span>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <th>Fax</th>
+            <td>{%  if entity.fax == 1  %}
+                    <span class="glyphicon glyphicon-ok text-success"></span>
+                {% else %}
+                    <span class="glyphicon glyphicon-remove text-danger"></span>
+                {% endif %}
+            </td>
+        </tr>
+        <tr>
+            <th>Printtype</th>
+            <td>{{ entity.printType }}</td>
+        </tr>
+        <tr>
+            <th>Format</th>
+            <td>{{ entity.format }}</td>
+        </tr>
+        <tr>
+            <th>Speed</th>
+            <td>{{ entity.speed }}</td>
+        </tr>
+        <tr>
+            <th>Weight</th>
+            <td>{{ entity.weight }}</td>
+        </tr>
+        </tbody>
+    </table>
+{% endblock %}

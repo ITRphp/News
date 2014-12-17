@@ -1,0 +1,9 @@
+ITR\CatalogBundle\Entity\GoodsSellers:
+    properties:
+        quantity:
+            - GreaterThanOrEqual:
+                           value: 0
+        price:
+            - GreaterThanOrEqual:
+                           value: 0
+    

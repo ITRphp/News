@@ -31,4 +31,15 @@ class GoodsCategoryRepository extends EntityRepository
 
         return $categories;
     }
+    public function findAllChildren()
+    {
+        $q = $this
+            ->createQueryBuilder('c')
+            ->where('c.parent IS not NULL')
+            ->orderBy('c.categoryName', 'ASC')
+            ->getQuery();
+        $categories= $q->getResult();
+
+        return $categories;
+    }
 }

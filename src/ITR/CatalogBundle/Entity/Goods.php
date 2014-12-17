@@ -15,10 +15,7 @@ class Goods
      */
     private $id;
 
-    /**
-     * @var string
-     */
-    private $name;
+
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -59,28 +56,6 @@ class Goods
         return $this->id;
     }
 
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Goods
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    
-        return $this;
-    }
-
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
 
     /**
      * Add rating
@@ -265,5 +240,10 @@ class Goods
             return 1;
         }
 
+    }
+
+    public function __toString()
+    {
+        return $this->getGoodsId()->getName();
     }
 }

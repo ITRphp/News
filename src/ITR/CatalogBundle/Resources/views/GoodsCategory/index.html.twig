@@ -1,0 +1,32 @@
+{% extends "NewsBundle:Admin:layout.html.twig" %}
+
+{% block content %}
+    {{parent()}}
+    <h1>Goods Category list</h1>
+
+    <table class="records_list table table-hover table-bordered">
+        <thead>
+        <tr>
+            <th>Category</th>
+            <th>Parent</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td>{{ entity.categoryName }}</td>
+                <td>{{ entity.parent }}</td>
+                <td>
+                    <a href="{{ path('goodscategory_show', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-eye-open"></span></a>
+                    <a href="{{ path('goodscategory_edit', { 'id': entity.id }) }}"><span class="glyphicon glyphicon-edit"></span></a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="navigation">
+        {{ knp_pagination_render(entities) }}
+    </div>
+
+{% endblock %}

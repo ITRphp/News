@@ -1,0 +1,35 @@
+{% extends "NewsBundle:Admin:layout.html.twig" %}
+
+{% form_theme delete_form 'NewsBundle:Form:delete.html.twig' %}
+
+{% block content -%}
+    {{parent()}}
+    <h1>Goods Sellers</h1>
+    <div class="btn-toolbar" role="toolbar">
+        <div class="btn-group">
+            <a href="{{ path('goodssellers') }}" class="btn btn-default">{% trans %}Back to the list{% endtrans %}</a>
+            <a href="{{ path('goodssellers_edit', { 'id': entity.id }) }}" class="btn btn-default">{% trans %}Edit{% endtrans %}</a>
+        </div>
+    </div>
+    <p></p>
+    <table class="records_list table table-hover table-bordered">
+        <tbody>
+            <tr>
+                <th>Goods</th>
+                <td>{{ entity.getGoodsId}}</td>
+            </tr>
+            <tr>
+                <th>Category</th>
+                <td>{{ entity.getGoodsId.getGoodsCategory }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ entity.price }}</td>
+            </tr>
+            <tr>
+                <th>Quantity</th>
+                <td>{{ entity.quantity }}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

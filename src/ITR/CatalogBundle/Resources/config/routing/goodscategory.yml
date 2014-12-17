@@ -1,0 +1,30 @@
+goodscategory:
+    path:     /
+    defaults: { _controller: "CatalogBundle:GoodsCategory:index" }
+
+goodscategory_show:
+    path:     /{id}/show
+    defaults: { _controller: "CatalogBundle:GoodsCategory:show" }
+
+goodscategory_new:
+    path:     /new
+    defaults: { _controller: "CatalogBundle:GoodsCategory:new" }
+
+goodscategory_create:
+    path:     /create
+    defaults: { _controller: "CatalogBundle:GoodsCategory:create" }
+    requirements: { _method: post }
+
+goodscategory_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "CatalogBundle:GoodsCategory:edit" }
+
+goodscategory_update:
+    path:     /{id}/update
+    defaults: { _controller: "CatalogBundle:GoodsCategory:update" }
+    requirements: { _method: post|put }
+
+goodscategory_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "CatalogBundle:GoodsCategory:delete" }
+    requirements: { _method: post|delete }
