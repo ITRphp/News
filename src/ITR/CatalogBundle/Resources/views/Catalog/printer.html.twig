@@ -16,7 +16,7 @@
                 </a>
                 <div class="row col-md-10">
                     <div class="media-body col-md-8   " style="display: inline;">
-                        <h4 class="media-heading">{{ goods_item.getGoodsId.name }}</h4>
+                        <a href="{{path('catalog_category_id', { 'id': goods_item.id })}}"><h4 class="media-heading">{{ goods_item.getGoodsId.name }}</h4></a>
                         {{ goods_item.getGoodsId.getDescription }}
                     </div>
                     <div class="col-md-2 text-danger" style="display: inline-block;">

@@ -39,6 +39,24 @@ class CatalogController extends Controller
         return $this->render('CatalogBundle:Catalog:'.strtolower($category_t->getTableName().'.html.twig'), $context);
     }
 
+    public function itemAction($id)
+    {   $user = $this->get('security.context')->getToken()->getUser();
+        $em = $this->getDoctrine()->getManager();
+        $categories = $em->getRepository('CatalogBundle:GoodsCategory')->findAllParents();
+        if($id != null){
+            $goods = $em->getRepository('CatalogBundle:Goods')->findOneById($id);
+            $goods_item = $em->getRepository('CatalogBundle:'.$goods->getGoodsCategory()->getTableName())->findOneById($goods->getId());
+
+        }
+
+        $context = array( 'username' => $user->getUserName(),
+            'entity' => $goods_item,
+            'categories' => $categories,
+            'good'=>$goods
+        );
+        return $this->render('CatalogBundle:Goods:'.$goods->getGoodsCategory()->getTableName().'.html.twig', $context);
+    }
+
     public function showGoodsAction()
     {
 

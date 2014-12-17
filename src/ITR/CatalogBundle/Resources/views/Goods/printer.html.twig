@@ -1,0 +1,79 @@
+{% extends "CatalogBundle:Catalog:layout.html.twig" %}
+
+{% block goods %}
+    <div class="col-md-7">
+        <h1>{{ entity.name }}</h1>
+        <div class="row col-md-offset-0  col-md-12">
+            {% if good.rating is not empty %}
+                {% for i in 1..good.getAvgRating %}
+                    <span class=" text-danger glyphicon glyphicon-star"></span>
+                {% else %}
+                {% endfor %}
+            {% endif %}
+        </div>
+        <p><strong class="text-danger">Price: {{ good.getMinPrice }}$ - {{ good.getMaxPrice }}$ </strong></p>
+        <div class="row" style="margin-left: 0px!important;">
+            <a href="#" class="btn btn-default btn-sm">All offers</a>
+        </div>
+        <p></p>
+        <table class="records_list table table-hover table-bordered">
+            <tbody>
+            <tr>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ entity.type }}</td>
+            </tr>
+            <tr>
+                <th>Scanner</th>
+                <td>{%  if entity.scanner == 1  %}
+                        <span class="glyphicon glyphicon-ok text-success"></span>
+                    {% else %}
+                        <span class="glyphicon glyphicon-remove text-danger"></span>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Fax</th>
+                <td>{%  if entity.fax == 1  %}
+                        <span class="glyphicon glyphicon-ok text-success"></span>
+                    {% else %}
+                        <span class="glyphicon glyphicon-remove text-danger"></span>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>Printtype</th>
+                <td>{{ entity.printType }}</td>
+            </tr>
+            <tr>
+                <th>Format</th>
+                <td>{{ entity.format }}</td>
+            </tr>
+            <tr>
+                <th>Speed</th>
+                <td>{{ entity.speed }}</td>
+            </tr>
+            <tr>
+                <th>Weight</th>
+                <td>{{ entity.weight }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-md-3">
+        <div style="background-color: whitesmoke" class="col-md-12">
+            <p class="bg-primary text-center">Sellers</p>
+            {% for seller in good.sellers %}
+                <div class="media">
+                    <div class="media-body">
+                        <h4 class="media-heading"><a href="#" data-toggle="tooltip" data-placement="left" title=""><span class="badge pull-right">
+                        {{ seller.price }}$</span>{{ seller.SellerId.name }}</a>
+                        </h4>
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -4,6 +4,9 @@ catalog_homepage:
 catalog_category:
     path:     /catalog/{category}
     defaults: { _controller: CatalogBundle:Catalog:list }
+catalog_category_id:
+    path:     /catalog/item/{id}
+    defaults: { _controller: CatalogBundle:Catalog:item }
 CatalogBundle_admin_seller:
     resource: "@CatalogBundle/Resources/config/routing/seller.yml"
     prefix:   /admin/seller
@@ -28,3 +31,4 @@ CatalogBundle_monitor:
 CatalogBundle_earphone:
     resource: "@CatalogBundle/Resources/config/routing/earphone.yml"
     prefix:   /earphone
+
